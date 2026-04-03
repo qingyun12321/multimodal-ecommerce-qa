@@ -1,0 +1,9 @@
+model_name,input_language,query_mode,prompt_template,prompt_label,avg_precision@1,avg_precision@3,avg_precision@5,avg_precision@10,avg_precision@20,avg_precision@50,avg_hit@1,avg_hit@5,avg_hit@10,avg_precision_mean
+clip,en,slug_en,a photo of a {label},OpenAI CLIP template,0.84,0.8533333333333333,0.836,0.804,0.7590000000000002,0.7136,0.84,0.96,0.98,0.800988888888889
+chinese_clip,en,slug_en,,raw label,0.84,0.8066666666666665,0.7680000000000001,0.746,0.7010000000000001,0.6436,0.84,0.9,0.96,0.7508777777777778
+siglip2,en,slug_en,This is a photo of {label}.,SigLIP2 official template,0.94,0.96,0.9560000000000001,0.946,0.9359999999999999,0.9076,0.94,1.0,1.0,0.9409333333333333
+gme_2b,en,slug_en,,raw label + official retrieval instruction,1.0,0.9733333333333333,0.9520000000000001,0.94,0.91,0.8696,1.0,1.0,1.0,0.9408222222222222
+clip,zh,canonical_zh,a photo of a {label},OpenAI CLIP template with Chinese label,0.1,0.05333333333333333,0.05199999999999999,0.054000000000000006,0.05200000000000001,0.042,0.1,0.16,0.2,0.05888888888888888
+chinese_clip,zh,canonical_zh,,raw label,0.82,0.8266666666666667,0.82,0.804,0.784,0.7424,0.82,0.96,0.98,0.799511111111111
+siglip2,zh,canonical_zh,This is a photo of {label}.,SigLIP2 official template with Chinese label,0.94,0.8733333333333333,0.8519999999999999,0.8519999999999999,0.839,0.8080000000000002,0.94,0.94,0.96,0.860722222222222
+gme_2b,zh,canonical_zh,,raw label + official retrieval instruction,0.86,0.86,0.8640000000000001,0.8180000000000001,0.8150000000000002,0.7608,0.86,0.94,0.94,0.8296333333333333

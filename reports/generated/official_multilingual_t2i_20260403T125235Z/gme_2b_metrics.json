@@ -1,0 +1,72 @@
+{
+  "model_name": "gme_2b",
+  "device": "cuda",
+  "image_batch_size": 48,
+  "text_batch_size": 32,
+  "torch_dtype": "float16",
+  "max_image_tokens": 64,
+  "variants": {
+    "en": {
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": null,
+      "prompt_label": "raw label + official retrieval instruction",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 1.0,
+        "avg_recall@1": 0.01,
+        "avg_hit@1": 1.0,
+        "avg_precision@3": 0.9733333333333333,
+        "avg_recall@3": 0.0292,
+        "avg_hit@3": 1.0,
+        "avg_precision@5": 0.9520000000000001,
+        "avg_recall@5": 0.047599999999999996,
+        "avg_hit@5": 1.0,
+        "avg_precision@10": 0.94,
+        "avg_recall@10": 0.09399999999999999,
+        "avg_hit@10": 1.0,
+        "avg_precision@20": 0.91,
+        "avg_recall@20": 0.18199999999999997,
+        "avg_hit@20": 1.0,
+        "avg_precision@50": 0.8696,
+        "avg_recall@50": 0.4348,
+        "avg_hit@50": 1.0
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/en/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/en/per_query_metrics.json"
+      }
+    },
+    "zh": {
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": null,
+      "prompt_label": "raw label + official retrieval instruction",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 0.86,
+        "avg_recall@1": 0.008600000000000002,
+        "avg_hit@1": 0.86,
+        "avg_precision@3": 0.86,
+        "avg_recall@3": 0.0258,
+        "avg_hit@3": 0.94,
+        "avg_precision@5": 0.8640000000000001,
+        "avg_recall@5": 0.043199999999999995,
+        "avg_hit@5": 0.94,
+        "avg_precision@10": 0.8180000000000001,
+        "avg_recall@10": 0.0818,
+        "avg_hit@10": 0.94,
+        "avg_precision@20": 0.8150000000000002,
+        "avg_recall@20": 0.163,
+        "avg_hit@20": 0.98,
+        "avg_precision@50": 0.7608,
+        "avg_recall@50": 0.3804,
+        "avg_hit@50": 1.0
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/zh/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/zh/per_query_metrics.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.venv/
+.venv_gme/
+__pycache__/
+*.pyc
+
+# Workspace-local data and model artifacts
+dataset/
+artifacts/
+weights/
+ecommerce_qa_assignment.pdf
+sample.jpg
+
+# Tool caches
+.cache/
+
+# Editor / OS noise
+.DS_Store

@@ -1,0 +1,72 @@
+{
+  "model_name": "siglip2",
+  "device": "cuda",
+  "image_batch_size": 64,
+  "text_batch_size": 64,
+  "torch_dtype": "float16",
+  "max_image_tokens": null,
+  "variants": {
+    "en": {
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": "This is a photo of {label}.",
+      "prompt_label": "SigLIP2 official template",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 0.94,
+        "avg_recall@1": 0.009400000000000002,
+        "avg_hit@1": 0.94,
+        "avg_precision@3": 0.96,
+        "avg_recall@3": 0.0288,
+        "avg_hit@3": 0.98,
+        "avg_precision@5": 0.9560000000000001,
+        "avg_recall@5": 0.047799999999999995,
+        "avg_hit@5": 1.0,
+        "avg_precision@10": 0.946,
+        "avg_recall@10": 0.09459999999999998,
+        "avg_hit@10": 1.0,
+        "avg_precision@20": 0.9359999999999999,
+        "avg_recall@20": 0.18719999999999995,
+        "avg_hit@20": 1.0,
+        "avg_precision@50": 0.9076,
+        "avg_recall@50": 0.4538,
+        "avg_hit@50": 1.0
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/en/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/en/per_query_metrics.json"
+      }
+    },
+    "zh": {
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": "This is a photo of {label}.",
+      "prompt_label": "SigLIP2 official template with Chinese label",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 0.94,
+        "avg_recall@1": 0.009400000000000002,
+        "avg_hit@1": 0.94,
+        "avg_precision@3": 0.8733333333333333,
+        "avg_recall@3": 0.0262,
+        "avg_hit@3": 0.94,
+        "avg_precision@5": 0.8519999999999999,
+        "avg_recall@5": 0.0426,
+        "avg_hit@5": 0.94,
+        "avg_precision@10": 0.8519999999999999,
+        "avg_recall@10": 0.0852,
+        "avg_hit@10": 0.96,
+        "avg_precision@20": 0.839,
+        "avg_recall@20": 0.16779999999999998,
+        "avg_hit@20": 0.98,
+        "avg_precision@50": 0.8080000000000002,
+        "avg_recall@50": 0.4040000000000001,
+        "avg_hit@50": 0.98
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/zh/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/zh/per_query_metrics.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "model_name": "chinese_clip",
+  "device": "cuda",
+  "image_batch_size": 64,
+  "text_batch_size": 64,
+  "torch_dtype": "float16",
+  "max_image_tokens": null,
+  "variants": {
+    "en": {
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": null,
+      "prompt_label": "raw label",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 0.84,
+        "avg_recall@1": 0.008400000000000001,
+        "avg_hit@1": 0.84,
+        "avg_precision@3": 0.8066666666666665,
+        "avg_recall@3": 0.024200000000000003,
+        "avg_hit@3": 0.88,
+        "avg_precision@5": 0.7680000000000001,
+        "avg_recall@5": 0.038400000000000004,
+        "avg_hit@5": 0.9,
+        "avg_precision@10": 0.746,
+        "avg_recall@10": 0.0746,
+        "avg_hit@10": 0.96,
+        "avg_precision@20": 0.7010000000000001,
+        "avg_recall@20": 0.1402,
+        "avg_hit@20": 0.98,
+        "avg_precision@50": 0.6436,
+        "avg_recall@50": 0.3218,
+        "avg_hit@50": 1.0
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/en/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/en/per_query_metrics.json"
+      }
+    },
+    "zh": {
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": null,
+      "prompt_label": "raw label",
+      "metrics": {
+        "query_count": 50.0,
+        "avg_precision@1": 0.82,
+        "avg_recall@1": 0.0082,
+        "avg_hit@1": 0.82,
+        "avg_precision@3": 0.8266666666666667,
+        "avg_recall@3": 0.024800000000000003,
+        "avg_hit@3": 0.94,
+        "avg_precision@5": 0.82,
+        "avg_recall@5": 0.040999999999999995,
+        "avg_hit@5": 0.96,
+        "avg_precision@10": 0.804,
+        "avg_recall@10": 0.08040000000000001,
+        "avg_hit@10": 0.98,
+        "avg_precision@20": 0.784,
+        "avg_recall@20": 0.1568,
+        "avg_hit@20": 0.98,
+        "avg_precision@50": 0.7424,
+        "avg_recall@50": 0.3712,
+        "avg_hit@50": 1.0
+      },
+      "artifacts": {
+        "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/zh/subcategory_predictions.csv",
+        "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/zh/per_query_metrics.json"
+      }
+    }
+  }
+}

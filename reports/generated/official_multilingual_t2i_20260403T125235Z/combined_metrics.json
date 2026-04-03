@@ -1,0 +1,442 @@
+{
+  "assignment_target": "文搜图（四模型中英文输入官方对齐对比）",
+  "dataset_dir": "dataset",
+  "image_count": 5000,
+  "workspace_env": {
+    "HF_HOME": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "TRANSFORMERS_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "HUGGINGFACE_HUB_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home/hub",
+    "HF_HUB_ENABLE_HF_TRANSFER": "0",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "row_count": 8,
+  "models": {
+    "clip": {
+      "model_name": "clip",
+      "device": "cuda",
+      "image_batch_size": 64,
+      "text_batch_size": 64,
+      "torch_dtype": "float16",
+      "max_image_tokens": null,
+      "variants": {
+        "en": {
+          "input_language": "en",
+          "query_mode": "slug_en",
+          "prompt_template": "a photo of a {label}",
+          "prompt_label": "OpenAI CLIP template",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.84,
+            "avg_recall@1": 0.008400000000000001,
+            "avg_hit@1": 0.84,
+            "avg_precision@3": 0.8533333333333333,
+            "avg_recall@3": 0.0256,
+            "avg_hit@3": 0.94,
+            "avg_precision@5": 0.836,
+            "avg_recall@5": 0.0418,
+            "avg_hit@5": 0.96,
+            "avg_precision@10": 0.804,
+            "avg_recall@10": 0.08039999999999999,
+            "avg_hit@10": 0.98,
+            "avg_precision@20": 0.7590000000000002,
+            "avg_recall@20": 0.15180000000000002,
+            "avg_hit@20": 1.0,
+            "avg_precision@50": 0.7136,
+            "avg_recall@50": 0.3568,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/clip/en/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/clip/en/per_query_metrics.json"
+          }
+        },
+        "zh": {
+          "input_language": "zh",
+          "query_mode": "canonical_zh",
+          "prompt_template": "a photo of a {label}",
+          "prompt_label": "OpenAI CLIP template with Chinese label",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.1,
+            "avg_recall@1": 0.001,
+            "avg_hit@1": 0.1,
+            "avg_precision@3": 0.05333333333333333,
+            "avg_recall@3": 0.0016,
+            "avg_hit@3": 0.12,
+            "avg_precision@5": 0.05199999999999999,
+            "avg_recall@5": 0.0026,
+            "avg_hit@5": 0.16,
+            "avg_precision@10": 0.054000000000000006,
+            "avg_recall@10": 0.0054,
+            "avg_hit@10": 0.2,
+            "avg_precision@20": 0.05200000000000001,
+            "avg_recall@20": 0.0104,
+            "avg_hit@20": 0.34,
+            "avg_precision@50": 0.042,
+            "avg_recall@50": 0.021,
+            "avg_hit@50": 0.5
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/clip/zh/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/clip/zh/per_query_metrics.json"
+          }
+        }
+      }
+    },
+    "chinese_clip": {
+      "model_name": "chinese_clip",
+      "device": "cuda",
+      "image_batch_size": 64,
+      "text_batch_size": 64,
+      "torch_dtype": "float16",
+      "max_image_tokens": null,
+      "variants": {
+        "en": {
+          "input_language": "en",
+          "query_mode": "slug_en",
+          "prompt_template": null,
+          "prompt_label": "raw label",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.84,
+            "avg_recall@1": 0.008400000000000001,
+            "avg_hit@1": 0.84,
+            "avg_precision@3": 0.8066666666666665,
+            "avg_recall@3": 0.024200000000000003,
+            "avg_hit@3": 0.88,
+            "avg_precision@5": 0.7680000000000001,
+            "avg_recall@5": 0.038400000000000004,
+            "avg_hit@5": 0.9,
+            "avg_precision@10": 0.746,
+            "avg_recall@10": 0.0746,
+            "avg_hit@10": 0.96,
+            "avg_precision@20": 0.7010000000000001,
+            "avg_recall@20": 0.1402,
+            "avg_hit@20": 0.98,
+            "avg_precision@50": 0.6436,
+            "avg_recall@50": 0.3218,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/en/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/en/per_query_metrics.json"
+          }
+        },
+        "zh": {
+          "input_language": "zh",
+          "query_mode": "canonical_zh",
+          "prompt_template": null,
+          "prompt_label": "raw label",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.82,
+            "avg_recall@1": 0.0082,
+            "avg_hit@1": 0.82,
+            "avg_precision@3": 0.8266666666666667,
+            "avg_recall@3": 0.024800000000000003,
+            "avg_hit@3": 0.94,
+            "avg_precision@5": 0.82,
+            "avg_recall@5": 0.040999999999999995,
+            "avg_hit@5": 0.96,
+            "avg_precision@10": 0.804,
+            "avg_recall@10": 0.08040000000000001,
+            "avg_hit@10": 0.98,
+            "avg_precision@20": 0.784,
+            "avg_recall@20": 0.1568,
+            "avg_hit@20": 0.98,
+            "avg_precision@50": 0.7424,
+            "avg_recall@50": 0.3712,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/zh/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/chinese_clip/zh/per_query_metrics.json"
+          }
+        }
+      }
+    },
+    "siglip2": {
+      "model_name": "siglip2",
+      "device": "cuda",
+      "image_batch_size": 64,
+      "text_batch_size": 64,
+      "torch_dtype": "float16",
+      "max_image_tokens": null,
+      "variants": {
+        "en": {
+          "input_language": "en",
+          "query_mode": "slug_en",
+          "prompt_template": "This is a photo of {label}.",
+          "prompt_label": "SigLIP2 official template",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.94,
+            "avg_recall@1": 0.009400000000000002,
+            "avg_hit@1": 0.94,
+            "avg_precision@3": 0.96,
+            "avg_recall@3": 0.0288,
+            "avg_hit@3": 0.98,
+            "avg_precision@5": 0.9560000000000001,
+            "avg_recall@5": 0.047799999999999995,
+            "avg_hit@5": 1.0,
+            "avg_precision@10": 0.946,
+            "avg_recall@10": 0.09459999999999998,
+            "avg_hit@10": 1.0,
+            "avg_precision@20": 0.9359999999999999,
+            "avg_recall@20": 0.18719999999999995,
+            "avg_hit@20": 1.0,
+            "avg_precision@50": 0.9076,
+            "avg_recall@50": 0.4538,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/en/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/en/per_query_metrics.json"
+          }
+        },
+        "zh": {
+          "input_language": "zh",
+          "query_mode": "canonical_zh",
+          "prompt_template": "This is a photo of {label}.",
+          "prompt_label": "SigLIP2 official template with Chinese label",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.94,
+            "avg_recall@1": 0.009400000000000002,
+            "avg_hit@1": 0.94,
+            "avg_precision@3": 0.8733333333333333,
+            "avg_recall@3": 0.0262,
+            "avg_hit@3": 0.94,
+            "avg_precision@5": 0.8519999999999999,
+            "avg_recall@5": 0.0426,
+            "avg_hit@5": 0.94,
+            "avg_precision@10": 0.8519999999999999,
+            "avg_recall@10": 0.0852,
+            "avg_hit@10": 0.96,
+            "avg_precision@20": 0.839,
+            "avg_recall@20": 0.16779999999999998,
+            "avg_hit@20": 0.98,
+            "avg_precision@50": 0.8080000000000002,
+            "avg_recall@50": 0.4040000000000001,
+            "avg_hit@50": 0.98
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/zh/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/siglip2/zh/per_query_metrics.json"
+          }
+        }
+      }
+    },
+    "gme_2b": {
+      "model_name": "gme_2b",
+      "device": "cuda",
+      "image_batch_size": 48,
+      "text_batch_size": 32,
+      "torch_dtype": "float16",
+      "max_image_tokens": 64,
+      "variants": {
+        "en": {
+          "input_language": "en",
+          "query_mode": "slug_en",
+          "prompt_template": null,
+          "prompt_label": "raw label + official retrieval instruction",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 1.0,
+            "avg_recall@1": 0.01,
+            "avg_hit@1": 1.0,
+            "avg_precision@3": 0.9733333333333333,
+            "avg_recall@3": 0.0292,
+            "avg_hit@3": 1.0,
+            "avg_precision@5": 0.9520000000000001,
+            "avg_recall@5": 0.047599999999999996,
+            "avg_hit@5": 1.0,
+            "avg_precision@10": 0.94,
+            "avg_recall@10": 0.09399999999999999,
+            "avg_hit@10": 1.0,
+            "avg_precision@20": 0.91,
+            "avg_recall@20": 0.18199999999999997,
+            "avg_hit@20": 1.0,
+            "avg_precision@50": 0.8696,
+            "avg_recall@50": 0.4348,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/en/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/en/per_query_metrics.json"
+          }
+        },
+        "zh": {
+          "input_language": "zh",
+          "query_mode": "canonical_zh",
+          "prompt_template": null,
+          "prompt_label": "raw label + official retrieval instruction",
+          "metrics": {
+            "query_count": 50.0,
+            "avg_precision@1": 0.86,
+            "avg_recall@1": 0.008600000000000002,
+            "avg_hit@1": 0.86,
+            "avg_precision@3": 0.86,
+            "avg_recall@3": 0.0258,
+            "avg_hit@3": 0.94,
+            "avg_precision@5": 0.8640000000000001,
+            "avg_recall@5": 0.043199999999999995,
+            "avg_hit@5": 0.94,
+            "avg_precision@10": 0.8180000000000001,
+            "avg_recall@10": 0.0818,
+            "avg_hit@10": 0.94,
+            "avg_precision@20": 0.8150000000000002,
+            "avg_recall@20": 0.163,
+            "avg_hit@20": 0.98,
+            "avg_precision@50": 0.7608,
+            "avg_recall@50": 0.3804,
+            "avg_hit@50": 1.0
+          },
+          "artifacts": {
+            "predictions_csv": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/zh/subcategory_predictions.csv",
+            "per_query_metrics": "reports/generated/official_multilingual_t2i_20260403T125235Z/gme_2b/zh/per_query_metrics.json"
+          }
+        }
+      }
+    }
+  },
+  "combined_rows": [
+    {
+      "model_name": "clip",
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": "a photo of a {label}",
+      "prompt_label": "OpenAI CLIP template",
+      "avg_precision@1": 0.84,
+      "avg_precision@3": 0.8533333333333333,
+      "avg_precision@5": 0.836,
+      "avg_precision@10": 0.804,
+      "avg_precision@20": 0.7590000000000002,
+      "avg_precision@50": 0.7136,
+      "avg_hit@1": 0.84,
+      "avg_hit@5": 0.96,
+      "avg_hit@10": 0.98,
+      "avg_precision_mean": 0.800988888888889
+    },
+    {
+      "model_name": "chinese_clip",
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": null,
+      "prompt_label": "raw label",
+      "avg_precision@1": 0.84,
+      "avg_precision@3": 0.8066666666666665,
+      "avg_precision@5": 0.7680000000000001,
+      "avg_precision@10": 0.746,
+      "avg_precision@20": 0.7010000000000001,
+      "avg_precision@50": 0.6436,
+      "avg_hit@1": 0.84,
+      "avg_hit@5": 0.9,
+      "avg_hit@10": 0.96,
+      "avg_precision_mean": 0.7508777777777778
+    },
+    {
+      "model_name": "siglip2",
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": "This is a photo of {label}.",
+      "prompt_label": "SigLIP2 official template",
+      "avg_precision@1": 0.94,
+      "avg_precision@3": 0.96,
+      "avg_precision@5": 0.9560000000000001,
+      "avg_precision@10": 0.946,
+      "avg_precision@20": 0.9359999999999999,
+      "avg_precision@50": 0.9076,
+      "avg_hit@1": 0.94,
+      "avg_hit@5": 1.0,
+      "avg_hit@10": 1.0,
+      "avg_precision_mean": 0.9409333333333333
+    },
+    {
+      "model_name": "gme_2b",
+      "input_language": "en",
+      "query_mode": "slug_en",
+      "prompt_template": null,
+      "prompt_label": "raw label + official retrieval instruction",
+      "avg_precision@1": 1.0,
+      "avg_precision@3": 0.9733333333333333,
+      "avg_precision@5": 0.9520000000000001,
+      "avg_precision@10": 0.94,
+      "avg_precision@20": 0.91,
+      "avg_precision@50": 0.8696,
+      "avg_hit@1": 1.0,
+      "avg_hit@5": 1.0,
+      "avg_hit@10": 1.0,
+      "avg_precision_mean": 0.9408222222222222
+    },
+    {
+      "model_name": "clip",
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": "a photo of a {label}",
+      "prompt_label": "OpenAI CLIP template with Chinese label",
+      "avg_precision@1": 0.1,
+      "avg_precision@3": 0.05333333333333333,
+      "avg_precision@5": 0.05199999999999999,
+      "avg_precision@10": 0.054000000000000006,
+      "avg_precision@20": 0.05200000000000001,
+      "avg_precision@50": 0.042,
+      "avg_hit@1": 0.1,
+      "avg_hit@5": 0.16,
+      "avg_hit@10": 0.2,
+      "avg_precision_mean": 0.05888888888888888
+    },
+    {
+      "model_name": "chinese_clip",
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": null,
+      "prompt_label": "raw label",
+      "avg_precision@1": 0.82,
+      "avg_precision@3": 0.8266666666666667,
+      "avg_precision@5": 0.82,
+      "avg_precision@10": 0.804,
+      "avg_precision@20": 0.784,
+      "avg_precision@50": 0.7424,
+      "avg_hit@1": 0.82,
+      "avg_hit@5": 0.96,
+      "avg_hit@10": 0.98,
+      "avg_precision_mean": 0.799511111111111
+    },
+    {
+      "model_name": "siglip2",
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": "This is a photo of {label}.",
+      "prompt_label": "SigLIP2 official template with Chinese label",
+      "avg_precision@1": 0.94,
+      "avg_precision@3": 0.8733333333333333,
+      "avg_precision@5": 0.8519999999999999,
+      "avg_precision@10": 0.8519999999999999,
+      "avg_precision@20": 0.839,
+      "avg_precision@50": 0.8080000000000002,
+      "avg_hit@1": 0.94,
+      "avg_hit@5": 0.94,
+      "avg_hit@10": 0.96,
+      "avg_precision_mean": 0.860722222222222
+    },
+    {
+      "model_name": "gme_2b",
+      "input_language": "zh",
+      "query_mode": "canonical_zh",
+      "prompt_template": null,
+      "prompt_label": "raw label + official retrieval instruction",
+      "avg_precision@1": 0.86,
+      "avg_precision@3": 0.86,
+      "avg_precision@5": 0.8640000000000001,
+      "avg_precision@10": 0.8180000000000001,
+      "avg_precision@20": 0.8150000000000002,
+      "avg_precision@50": 0.7608,
+      "avg_hit@1": 0.86,
+      "avg_hit@5": 0.94,
+      "avg_hit@10": 0.94,
+      "avg_precision_mean": 0.8296333333333333
+    }
+  ]
+}
