@@ -92,13 +92,14 @@ def main() -> None:
     best_row_index = find_best_row_index(payload)
     headers = ["Model", "Input\nLang", "Top1", "Top3", "Top5", "Top10", "Top20", "Top50", "Average"]
 
-    width = 1650
+    col_widths = [240, 110, 160, 160, 160, 170, 170, 170, 190]
     left = 80
     top = 60
     title_h = 60
     header_h = 120
     row_h = 74
     bottom = 40
+    width = max(1650, left * 2 + sum(col_widths))
     table_w = width - left * 2
     height = top + title_h + header_h + row_h * len(rows) + bottom
 
@@ -113,7 +114,6 @@ def main() -> None:
     draw.text((left, top), args.title, fill=(45, 45, 45), font=title_font)
 
     y0 = top + title_h
-    col_widths = [240, 110, 160, 160, 160, 170, 170, 170, 190]
     x_positions = [left]
     for width_part in col_widths:
         x_positions.append(x_positions[-1] + width_part)
