@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 from collections import Counter, defaultdict
-from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -40,15 +39,6 @@ class ProductRecord:
 
 @dataclass(slots=True)
 class SubcategoryQuery:
-    slug: str
-    category_slug: str
-    canonical_zh: str
-    query_text: str
-    relevant_indices: list[int]
-
-
-@dataclass(slots=True)
-class SubcategoryQuery:
     key: str
     category_slug: str
     category: str
@@ -79,10 +69,6 @@ def load_products(dataset_dir: Path) -> list[ProductRecord]:
             payload = json.loads(line)
             records.append(ProductRecord(**payload))
     return records
-
-
-def humanize_slug(slug: str) -> str:
-    return slug.replace("_", " ")
 
 
 def slug_to_text(slug: str) -> str:
@@ -138,47 +124,6 @@ def build_query_text(
         for name, value in fields
         if value not in (None, "", [], {})
     )
-
-
-def build_subcategory_queries(
-    products: list[ProductRecord],
-    mode: str = "slug_en",
-) -> list[SubcategoryQuery]:
-    grouped_indices: dict[str, list[int]] = defaultdict(list)
-    category_by_slug: dict[str, str] = {}
-    zh_counter_by_slug: dict[str, Counter[str]] = defaultdict(Counter)
-
-    for idx, product in enumerate(products):
-        slug = product.subcategory_slug
-        grouped_indices[slug].append(idx)
-        category_by_slug[slug] = product.category_slug
-        if product.subcategory:
-            zh_counter_by_slug[slug][product.subcategory] += 1
-
-    queries: list[SubcategoryQuery] = []
-    for slug in sorted(grouped_indices):
-        canonical_zh = zh_counter_by_slug[slug].most_common(1)[0][0]
-        category_slug = category_by_slug[slug]
-
-        if mode == "slug_en":
-            query_text = humanize_slug(slug)
-        elif mode == "slug_en_with_category":
-            query_text = f"{humanize_slug(category_slug)} {humanize_slug(slug)}"
-        elif mode == "canonical_zh":
-            query_text = canonical_zh
-        else:
-            raise ValueError(f"Unsupported subcategory query mode: {mode}")
-
-        queries.append(
-            SubcategoryQuery(
-                slug=slug,
-                category_slug=category_slug,
-                canonical_zh=canonical_zh,
-                query_text=query_text,
-                relevant_indices=grouped_indices[slug],
-            )
-        )
-    return queries
 
 
 def build_subcategory_queries(
