@@ -1,0 +1,189 @@
+{
+  "method_name": "qwen3_5_4b",
+  "case_range": [
+    0,
+    24
+  ],
+  "case_count": 25,
+  "source_file": "/workspace/multimodal_ecommerce_qa/reports/generated/siglip2_in_domain_pipeline_20260403T155304Z/qwen3_5_4b_filter_results.json",
+  "evaluation_mode": "manual_semantic_review_by_gpt54_batch_proxy",
+  "avg_top5_relevant_ratio_gpt": 0.9786666666666666,
+  "avg_filtered_correct_ratio_gpt": 0.248,
+  "rows": [
+    {
+      "subcategory_slug": "all_in_one_pc",
+      "canonical_zh": "一体机电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5稳；filtered混入有效同类。"
+    },
+    {
+      "subcategory_slug": "ankle_boots",
+      "canonical_zh": "短靴",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；多数filtered仍属短靴。"
+    },
+    {
+      "subcategory_slug": "art_frame_tv",
+      "canonical_zh": "艺术边框电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered基本仍是同类艺术电视。"
+    },
+    {
+      "subcategory_slug": "blazer_jacket",
+      "canonical_zh": "西装外套",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为仍可接受的西装外套。"
+    },
+    {
+      "subcategory_slug": "blue_oxford_shirt",
+      "canonical_zh": "牛津纺衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered几乎全是牛津纺衬衫。"
+    },
+    {
+      "subcategory_slug": "bomber_jacket",
+      "canonical_zh": "飞行员夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是飞行员夹克。"
+    },
+    {
+      "subcategory_slug": "bucket_bag",
+      "canonical_zh": "水桶包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为有效水桶包。"
+    },
+    {
+      "subcategory_slug": "business_laptop",
+      "canonical_zh": "商务笔记本电脑",
+      "top5_relevant_ratio_gpt": 0.8,
+      "filtered_correct_ratio_gpt": 1.0,
+      "notes": "Top5含榜单型文案；filtered多为泛笔记本。"
+    },
+    {
+      "subcategory_slug": "canvas_shoes",
+      "canonical_zh": "帆布鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍属帆布鞋。"
+    },
+    {
+      "subcategory_slug": "canvas_tote_bag",
+      "canonical_zh": "帆布手提袋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered含样机也含有效手提袋。"
+    },
+    {
+      "subcategory_slug": "carnation_bouquet",
+      "canonical_zh": "康乃馨花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered有混合花束与有效康乃馨。"
+    },
+    {
+      "subcategory_slug": "compact_microwave",
+      "canonical_zh": "台式微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5语义可接受；filtered多为台式/小型微波炉。"
+    },
+    {
+      "subcategory_slug": "convection_microwave",
+      "canonical_zh": "蒸烤一体机",
+      "top5_relevant_ratio_gpt": 0.6666666666666666,
+      "filtered_correct_ratio_gpt": 1.0,
+      "notes": "Top5有偏烧烤项；filtered基本应过滤。"
+    },
+    {
+      "subcategory_slug": "denim_jacket",
+      "canonical_zh": "牛仔夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是牛仔夹克。"
+    },
+    {
+      "subcategory_slug": "denim_shirt",
+      "canonical_zh": "牛仔衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是牛仔衬衫。"
+    },
+    {
+      "subcategory_slug": "facial_cleanser",
+      "canonical_zh": "洁面",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "Top5准；filtered里有合集图应过滤。"
+    },
+    {
+      "subcategory_slug": "floor_standing_ac",
+      "canonical_zh": "立式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是立式空调。"
+    },
+    {
+      "subcategory_slug": "gaming_laptop",
+      "canonical_zh": "游戏本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered含对比/榜单型内容。"
+    },
+    {
+      "subcategory_slug": "gaming_tv",
+      "canonical_zh": "游戏电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍属游戏电视。"
+    },
+    {
+      "subcategory_slug": "grill_microwave",
+      "canonical_zh": "烧烤微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为仍带烧烤功能的微波炉。"
+    },
+    {
+      "subcategory_slug": "hawaiian_floral_shirt",
+      "canonical_zh": "夏威夷花衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是夏威夷花衬衫。"
+    },
+    {
+      "subcategory_slug": "hydrating_toner",
+      "canonical_zh": "爽肤水",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是爽肤水。"
+    },
+    {
+      "subcategory_slug": "inverter_ac",
+      "canonical_zh": "变频空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为变频空调，仅少数近失配。"
+    },
+    {
+      "subcategory_slug": "leather_jacket",
+      "canonical_zh": "皮夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "Top5准；多数filtered偏飞行员夹克近失配。"
+    },
+    {
+      "subcategory_slug": "leather_loafers",
+      "canonical_zh": "乐福鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是乐福鞋。"
+    }
+  ]
+}

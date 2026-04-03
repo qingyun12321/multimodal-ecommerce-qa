@@ -1,0 +1,186 @@
+{
+  "method_name": "bge_reranker_v2_m3",
+  "case_start": 0,
+  "case_end": 24,
+  "case_count": 25,
+  "evaluation_mode": "GPT-5.4 semantic judgment on query, top5_documents, and filtered_documents",
+  "avg_top5_relevant_ratio_gpt": 0.936,
+  "avg_filtered_correct_ratio_gpt": 0.184,
+  "rows": [
+    {
+      "subcategory_slug": "all_in_one_pc",
+      "canonical_zh": "一体机电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 all fit; filtered mostly still valid AIOs."
+    },
+    {
+      "subcategory_slug": "ankle_boots",
+      "canonical_zh": "短靴",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 strong; filtered set is mostly still ankle-boot adjacent."
+    },
+    {
+      "subcategory_slug": "art_frame_tv",
+      "canonical_zh": "艺术边框电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both kept and filtered docs are mostly art-frame TV matches."
+    },
+    {
+      "subcategory_slug": "blazer_jacket",
+      "canonical_zh": "西装外套",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 fit well; filtered docs are mostly still blazers."
+    },
+    {
+      "subcategory_slug": "blue_oxford_shirt",
+      "canonical_zh": "牛津纺衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs remain highly relevant oxford shirts."
+    },
+    {
+      "subcategory_slug": "bomber_jacket",
+      "canonical_zh": "飞行员夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are also solid bomber-jacket matches."
+    },
+    {
+      "subcategory_slug": "bucket_bag",
+      "canonical_zh": "水桶包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Only one filtered item is clearly a non-bucket handbag."
+    },
+    {
+      "subcategory_slug": "business_laptop",
+      "canonical_zh": "商务笔记本电脑",
+      "top5_relevant_ratio_gpt": 0.8,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "One kept doc is list-like; several filtered docs are generic laptops."
+    },
+    {
+      "subcategory_slug": "canvas_shoes",
+      "canonical_zh": "帆布鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are still straightforward canvas shoes."
+    },
+    {
+      "subcategory_slug": "canvas_tote_bag",
+      "canonical_zh": "帆布手提袋",
+      "top5_relevant_ratio_gpt": 0.6,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 includes mockup-style items; filtered docs still fit the bag type."
+    },
+    {
+      "subcategory_slug": "carnation_bouquet",
+      "canonical_zh": "康乃馨花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Mixed bouquets in filtered set are less precise than pure carnation bouquets."
+    },
+    {
+      "subcategory_slug": "compact_microwave",
+      "canonical_zh": "台式微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Most filtered docs are still countertop microwaves; one grill mismatch."
+    },
+    {
+      "subcategory_slug": "convection_microwave",
+      "canonical_zh": "蒸烤一体机",
+      "top5_relevant_ratio_gpt": 0.4,
+      "filtered_correct_ratio_gpt": 1.0,
+      "notes": "Top5 drifts into grill-microwave items; filtered set is right to drop."
+    },
+    {
+      "subcategory_slug": "denim_jacket",
+      "canonical_zh": "牛仔夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs remain strong denim-jacket candidates."
+    },
+    {
+      "subcategory_slug": "denim_shirt",
+      "canonical_zh": "牛仔衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are still clear denim-shirt matches."
+    },
+    {
+      "subcategory_slug": "facial_cleanser",
+      "canonical_zh": "洁面",
+      "top5_relevant_ratio_gpt": 0.6,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 contains multi-product collages; filtered docs are still cleanser-related."
+    },
+    {
+      "subcategory_slug": "floor_standing_ac",
+      "canonical_zh": "立式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs still fit the floor-standing AC request."
+    },
+    {
+      "subcategory_slug": "gaming_laptop",
+      "canonical_zh": "游戏本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Mostly valid filtered gaming laptops; one list-like comparison should drop."
+    },
+    {
+      "subcategory_slug": "gaming_tv",
+      "canonical_zh": "游戏电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are also largely gaming-TV matches."
+    },
+    {
+      "subcategory_slug": "grill_microwave",
+      "canonical_zh": "烧烤微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Filtered set mixes valid grill units with convection/steam-bake drift."
+    },
+    {
+      "subcategory_slug": "hawaiian_floral_shirt",
+      "canonical_zh": "夏威夷花衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are still semantically on-target aloha shirts."
+    },
+    {
+      "subcategory_slug": "hydrating_toner",
+      "canonical_zh": "爽肤水",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs remain toner products, so filtering is weak."
+    },
+    {
+      "subcategory_slug": "inverter_ac",
+      "canonical_zh": "变频空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Only the window AC is a clear semantic mismatch in filtered set."
+    },
+    {
+      "subcategory_slug": "leather_jacket",
+      "canonical_zh": "皮夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "Most filtered docs are bomber-flight variants rather than plain leather jackets."
+    },
+    {
+      "subcategory_slug": "leather_loafers",
+      "canonical_zh": "乐福鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Filtered docs are still good leather loafer candidates."
+    }
+  ]
+}

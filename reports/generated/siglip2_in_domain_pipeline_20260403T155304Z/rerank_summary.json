@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "method_name": "bge_reranker_v2_m3",
+      "avg_top5_relevance_ratio": 0.932,
+      "avg_filtered_irrelevant_ratio": 0.316,
+      "case_count": 50
+    },
+    {
+      "method_name": "qwen3_5_4b",
+      "avg_top5_relevance_ratio": 0.9413333333333334,
+      "avg_filtered_irrelevant_ratio": 0.32,
+      "case_count": 50
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "avg_top5_relevance_ratio": 0.9079999999999999,
+      "avg_filtered_irrelevant_ratio": 0.292,
+      "case_count": 50
+    }
+  ]
+}

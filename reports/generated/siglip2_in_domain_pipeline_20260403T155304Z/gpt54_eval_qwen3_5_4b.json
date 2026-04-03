@@ -1,0 +1,359 @@
+{
+  "method_name": "qwen3_5_4b",
+  "case_count": 50,
+  "evaluation_mode": "GPT-5.4 semantic judgment on query, top5_documents, and filtered_documents",
+  "avg_top5_relevant_ratio_gpt": 0.9893333333333334,
+  "avg_filtered_correct_ratio_gpt": 0.23199999999999996,
+  "rows": [
+    {
+      "subcategory_slug": "all_in_one_pc",
+      "canonical_zh": "一体机电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5稳；filtered混入有效同类。"
+    },
+    {
+      "subcategory_slug": "ankle_boots",
+      "canonical_zh": "短靴",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；多数filtered仍属短靴。"
+    },
+    {
+      "subcategory_slug": "art_frame_tv",
+      "canonical_zh": "艺术边框电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered基本仍是同类艺术电视。"
+    },
+    {
+      "subcategory_slug": "blazer_jacket",
+      "canonical_zh": "西装外套",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为仍可接受的西装外套。"
+    },
+    {
+      "subcategory_slug": "blue_oxford_shirt",
+      "canonical_zh": "牛津纺衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered几乎全是牛津纺衬衫。"
+    },
+    {
+      "subcategory_slug": "bomber_jacket",
+      "canonical_zh": "飞行员夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是飞行员夹克。"
+    },
+    {
+      "subcategory_slug": "bucket_bag",
+      "canonical_zh": "水桶包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为有效水桶包。"
+    },
+    {
+      "subcategory_slug": "business_laptop",
+      "canonical_zh": "商务笔记本电脑",
+      "top5_relevant_ratio_gpt": 0.8,
+      "filtered_correct_ratio_gpt": 1.0,
+      "notes": "Top5含榜单型文案；filtered多为泛笔记本。"
+    },
+    {
+      "subcategory_slug": "canvas_shoes",
+      "canonical_zh": "帆布鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍属帆布鞋。"
+    },
+    {
+      "subcategory_slug": "canvas_tote_bag",
+      "canonical_zh": "帆布手提袋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered含样机也含有效手提袋。"
+    },
+    {
+      "subcategory_slug": "carnation_bouquet",
+      "canonical_zh": "康乃馨花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered有混合花束与有效康乃馨。"
+    },
+    {
+      "subcategory_slug": "compact_microwave",
+      "canonical_zh": "台式微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5语义可接受；filtered多为台式/小型微波炉。"
+    },
+    {
+      "subcategory_slug": "convection_microwave",
+      "canonical_zh": "蒸烤一体机",
+      "top5_relevant_ratio_gpt": 0.6666666666666666,
+      "filtered_correct_ratio_gpt": 1.0,
+      "notes": "Top5有偏烧烤项；filtered基本应过滤。"
+    },
+    {
+      "subcategory_slug": "denim_jacket",
+      "canonical_zh": "牛仔夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是牛仔夹克。"
+    },
+    {
+      "subcategory_slug": "denim_shirt",
+      "canonical_zh": "牛仔衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是牛仔衬衫。"
+    },
+    {
+      "subcategory_slug": "facial_cleanser",
+      "canonical_zh": "洁面",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "Top5准；filtered里有合集图应过滤。"
+    },
+    {
+      "subcategory_slug": "floor_standing_ac",
+      "canonical_zh": "立式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是立式空调。"
+    },
+    {
+      "subcategory_slug": "gaming_laptop",
+      "canonical_zh": "游戏本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5准；filtered含对比/榜单型内容。"
+    },
+    {
+      "subcategory_slug": "gaming_tv",
+      "canonical_zh": "游戏电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍属游戏电视。"
+    },
+    {
+      "subcategory_slug": "grill_microwave",
+      "canonical_zh": "烧烤微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为仍带烧烤功能的微波炉。"
+    },
+    {
+      "subcategory_slug": "hawaiian_floral_shirt",
+      "canonical_zh": "夏威夷花衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是夏威夷花衬衫。"
+    },
+    {
+      "subcategory_slug": "hydrating_toner",
+      "canonical_zh": "爽肤水",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是爽肤水。"
+    },
+    {
+      "subcategory_slug": "inverter_ac",
+      "canonical_zh": "变频空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5准；filtered多为变频空调，仅少数近失配。"
+    },
+    {
+      "subcategory_slug": "leather_jacket",
+      "canonical_zh": "皮夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "Top5准；多数filtered偏飞行员夹克近失配。"
+    },
+    {
+      "subcategory_slug": "leather_loafers",
+      "canonical_zh": "乐福鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5准；filtered仍是乐福鞋。"
+    },
+    {
+      "subcategory_slug": "leather_tote_bag",
+      "canonical_zh": "手提包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 都是手提包；filtered 里只有 Marc Jacobs 水桶包明显不符，其余仍是手提包/托特包近邻。"
+    },
+    {
+      "subcategory_slug": "lily_bouquet",
+      "canonical_zh": "百合花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 和 filtered 都是明确的百合花束，过滤基本没有去掉真实噪声。"
+    },
+    {
+      "subcategory_slug": "mini_crossbody_bag",
+      "canonical_zh": "迷你斜挎包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "无论 top5 还是 filtered 都是小型斜挎包变体，过滤偏严。"
+    },
+    {
+      "subcategory_slug": "mini_led_tv",
+      "canonical_zh": "Mini LED电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "Top5 都是 Mini LED/QD-Mini LED 电视；filtered 中两台 OLED 和一台 Micro LED 属于应过滤的异类。"
+    },
+    {
+      "subcategory_slug": "mini_pc",
+      "canonical_zh": "迷你电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 与 filtered 都是典型迷你主机，过滤掉的仍然高度相关。"
+    },
+    {
+      "subcategory_slug": "moisturizing_cream",
+      "canonical_zh": "保湿霜",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5 都可视作保湿霜/面霜；filtered 里两条身体乳/身体部位强保湿更偏 body care，其余仍属面部保湿近邻。"
+    },
+    {
+      "subcategory_slug": "nylon_backpack",
+      "canonical_zh": "尼龙双肩包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 与 filtered 都是尼龙背包/双肩包，语义上同类。"
+    },
+    {
+      "subcategory_slug": "oled_tv",
+      "canonical_zh": "OLED电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "Top5 都是明确 OLED 电视；filtered 中 Sony 游戏电视未体现 OLED，另两台 Mini LED 明显应被过滤，LG OLED 游戏电视仍相关。"
+    },
+    {
+      "subcategory_slug": "plaid_flannel_shirt",
+      "canonical_zh": "格子法兰绒衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 里的红格/黄格、男女款都还是格子法兰绒衬衫，没有真正离题。"
+    },
+    {
+      "subcategory_slug": "portable_air_conditioner",
+      "canonical_zh": "移动空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Top5 都是带排气管的真实移动空调；filtered 末两条是 USB 冷风扇/加湿风扇，不算真正空调。"
+    },
+    {
+      "subcategory_slug": "puffer_jacket",
+      "canonical_zh": "羽绒服",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Top5 和 filtered 都是羽绒服或蓬松保暖外套，过滤没有去掉明确噪声。"
+    },
+    {
+      "subcategory_slug": "qled_tv",
+      "canonical_zh": "QLED电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 仍是 QLED 电视或 QLED 系列展示，整体都在同一语义簇内。"
+    },
+    {
+      "subcategory_slug": "retro_microwave",
+      "canonical_zh": "复古微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 中也都是 Nostalgia 风格或复古微波炉，过滤过严。"
+    },
+    {
+      "subcategory_slug": "rose_bouquet",
+      "canonical_zh": "玫瑰花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "礼盒装、混色玫瑰和大花束都仍属于玫瑰花束范畴。"
+    },
+    {
+      "subcategory_slug": "running_shoes",
+      "canonical_zh": "跑鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "Top5 都是明确跑鞋；filtered 里只有索康尼跑步鞋仍精确，其余更像泛运动鞋/休闲鞋，过滤大体合理。"
+    },
+    {
+      "subcategory_slug": "solo_microwave",
+      "canonical_zh": "单门微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 都是常规单门微波炉；filtered 中多数单功能/单模式微波炉仍然很接近，只有蒸烤一体机明显应被排除。"
+    },
+    {
+      "subcategory_slug": "sunflower_bouquet",
+      "canonical_zh": "向日葵花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 仍全部是向日葵花束，仅品牌和包装不同。"
+    },
+    {
+      "subcategory_slug": "sunscreen_lotion",
+      "canonical_zh": "防晒霜",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 都是防晒霜/防晒乳；filtered 里只有洁面合集明显错误，其余防晒乳液和套装仍相关。"
+    },
+    {
+      "subcategory_slug": "tulip_bouquet",
+      "canonical_zh": "郁金香花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "多数 filtered 仍是纯郁金香花束；只有含白玫瑰的婚礼混合花束不够纯，算合理过滤。"
+    },
+    {
+      "subcategory_slug": "ultrabook",
+      "canonical_zh": "超极本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "Top5 都是轻薄超极本；filtered 中两条仍是超极本，三条商务本虽轻薄但未明确属于 ultrabook，更像近邻类。"
+    },
+    {
+      "subcategory_slug": "vitamin_c_serum",
+      "canonical_zh": "维生素C精华",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 里的 Eclat、Lotus、姜黄+C 等都还是含维 C 的精华/精华液，语义仍然匹配。"
+    },
+    {
+      "subcategory_slug": "wall_split_ac",
+      "canonical_zh": "壁挂式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 都是壁挂式空调；filtered 里室内机展示图和 Electriq 仍相关，只有分体式室外机单独展示不符合目标商品。"
+    },
+    {
+      "subcategory_slug": "white_dress_shirt",
+      "canonical_zh": "白色正装衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 都是白色正装衬衫；filtered 中仅蓝色牛津纺衬衫明显偏题，其余仍是白衬衫正装款。"
+    },
+    {
+      "subcategory_slug": "white_sneakers",
+      "canonical_zh": "运动鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "Top5 都是白色运动鞋/板鞋；filtered 里只有 Burberry 女款运动鞋仍较贴切，其余更像小白鞋、休闲鞋或泛女鞋。"
+    },
+    {
+      "subcategory_slug": "window_ac",
+      "canonical_zh": "窗式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "filtered 中五条仍全部是窗式空调，仅品牌和规格不同，过滤没有去掉真实噪声。"
+    }
+  ]
+}

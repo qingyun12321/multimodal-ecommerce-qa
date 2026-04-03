@@ -134,7 +134,18 @@ class HFDualEncoderRetriever(BaseRetriever):
             embeddings.append(self._to_numpy(features))
         return np.concatenate(embeddings, axis=0)
 
-    def _to_numpy(self, tensor: torch.Tensor) -> np.ndarray:
+    def _unwrap_features(self, output: Any) -> torch.Tensor:
+        if isinstance(output, torch.Tensor):
+            return output
+        for attr in ("image_embeds", "text_embeds", "pooler_output", "last_hidden_state"):
+            if hasattr(output, attr):
+                value = getattr(output, attr)
+                if isinstance(value, torch.Tensor):
+                    return value
+        raise TypeError(f"Unsupported feature output type: {type(output)!r}")
+
+    def _to_numpy(self, tensor: Any) -> np.ndarray:
+        tensor = self._unwrap_features(tensor)
         normalized = F.normalize(tensor.float(), p=2, dim=-1)
         array = normalized.detach().cpu().numpy().astype(np.float32, copy=False)
         if self.device.startswith("cuda"):

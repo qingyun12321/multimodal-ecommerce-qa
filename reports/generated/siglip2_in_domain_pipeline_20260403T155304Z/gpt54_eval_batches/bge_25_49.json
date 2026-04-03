@@ -1,0 +1,181 @@
+{
+  "method_name": "bge_reranker_v2_m3",
+  "case_count": 25,
+  "rows": [
+    {
+      "subcategory_slug": "leather_tote_bag",
+      "canonical_zh": "手提包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Top5 are clear leather tote handbags. In the filtered set, four items are still valid tote or handbag variants; only the bucket bag is clearly off-target."
+    },
+    {
+      "subcategory_slug": "lily_bouquet",
+      "canonical_zh": "百合花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both the top5 and filtered documents are all semantically strong lily bouquet matches, with only color or arrangement differences."
+    },
+    {
+      "subcategory_slug": "mini_crossbody_bag",
+      "canonical_zh": "迷你斜挎包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The top5 are all mini crossbody bags, and the filtered items are also solid mini crossbody variants rather than true mismatches."
+    },
+    {
+      "subcategory_slug": "mini_led_tv",
+      "canonical_zh": "Mini LED电视",
+      "top5_relevant_ratio_gpt": 0.8,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "Four of the top5 are true Mini LED TVs, while one result is a Micro LED TV. In the filtered set, two OLED TVs are clear removals, but three Mini LED variants are still relevant."
+    },
+    {
+      "subcategory_slug": "mini_pc",
+      "canonical_zh": "迷你电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The top5 are all genuine mini PCs, and the filtered set also consists of valid mini computer products rather than semantic negatives."
+    },
+    {
+      "subcategory_slug": "moisturizing_cream",
+      "canonical_zh": "保湿霜",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "The top5 are all acceptable moisturizing cream products. In the filtered set, the body-lotion style items are more reasonably excluded, while the face-cream style items remain close matches."
+    },
+    {
+      "subcategory_slug": "nylon_backpack",
+      "canonical_zh": "尼龙双肩包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both the retained and filtered documents are semantically strong nylon backpack matches, so the filter is not removing true negatives here."
+    },
+    {
+      "subcategory_slug": "oled_tv",
+      "canonical_zh": "OLED电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "The top5 are all good OLED TV results. In the filtered set, the Mini LED entries and the generic Sony gaming TV are defensible removals, but the OLED gaming variants remain relevant."
+    },
+    {
+      "subcategory_slug": "plaid_flannel_shirt",
+      "canonical_zh": "格子法兰绒衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "All top5 are clear plaid flannel shirts, and the filtered documents are also still semantically correct plaid flannel shirt variants."
+    },
+    {
+      "subcategory_slug": "portable_air_conditioner",
+      "canonical_zh": "移动空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "The top5 are all real portable air conditioners. In the filtered set, the portable fan or evaporative-cooler style products are proper removals, while the portable AC and AC-heater units remain relevant."
+    },
+    {
+      "subcategory_slug": "puffer_jacket",
+      "canonical_zh": "羽绒服",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both the top5 and filtered documents are still puffer or down jacket products, so the filtered set does not meaningfully consist of semantic negatives."
+    },
+    {
+      "subcategory_slug": "qled_tv",
+      "canonical_zh": "QLED电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "The top5 are all valid QLED TV results. In the filtered set, most items are also good QLED TVs; only the mixed showcase result is weak enough to justify exclusion."
+    },
+    {
+      "subcategory_slug": "retro_microwave",
+      "canonical_zh": "复古微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The filtered documents are still clearly retro microwave products, so the filter is discarding relevant variants rather than irrelevant ones."
+    },
+    {
+      "subcategory_slug": "rose_bouquet",
+      "canonical_zh": "玫瑰花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both the top5 and filtered sets are semantically strong rose bouquet products, including gift-box and arrangement variants."
+    },
+    {
+      "subcategory_slug": "running_shoes",
+      "canonical_zh": "跑鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "The top5 are all true running shoes. In the filtered set, one item is still a running shoe, but the remaining items drift into general sneaker territory and are reasonable to filter."
+    },
+    {
+      "subcategory_slug": "solo_microwave",
+      "canonical_zh": "单门微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "The top5 are all good solo or single-door microwaves. In the filtered set, the compact microwave and convection-combo product are fair removals, while the solo-mode microwaves remain relevant."
+    },
+    {
+      "subcategory_slug": "sunflower_bouquet",
+      "canonical_zh": "向日葵花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The filtered documents are still sunflower bouquet variants, so they remain semantically aligned with the query."
+    },
+    {
+      "subcategory_slug": "sunscreen_lotion",
+      "canonical_zh": "防晒霜",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "The top5 are all acceptable sunscreen lotion products. In the filtered set, only the facial cleanser is clearly off-target; the other entries are still sunscreen products."
+    },
+    {
+      "subcategory_slug": "tulip_bouquet",
+      "canonical_zh": "郁金香花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The filtered items remain genuine tulip bouquet products, including arrangement and wedding-style variants."
+    },
+    {
+      "subcategory_slug": "ultrabook",
+      "canonical_zh": "超极本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "The top5 are all true ultrabooks. In the filtered set, two items are still ultrabooks, but the business-laptop style results are reasonable exclusions."
+    },
+    {
+      "subcategory_slug": "vitamin_c_serum",
+      "canonical_zh": "维生素C精华",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "Both the top5 and filtered documents are still highly relevant vitamin C serum products; even the brightening serum variant remains semantically close."
+    },
+    {
+      "subcategory_slug": "wall_split_ac",
+      "canonical_zh": "壁挂式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "The top5 are all wall-mounted split AC products. In the filtered set, most items are still valid wall-mounted ACs; only the outdoor-unit result is clearly less appropriate."
+    },
+    {
+      "subcategory_slug": "white_dress_shirt",
+      "canonical_zh": "白色正装衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "The top5 are all strong white dress shirt matches. In the filtered set, four items are still correct white dress shirts, while the blue oxford shirt is the only clear mismatch."
+    },
+    {
+      "subcategory_slug": "white_sneakers",
+      "canonical_zh": "运动鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "Given the broad sneaker-oriented query, both the top5 and most filtered items are still acceptable sporty sneaker matches. Only the thick-soled fashion-oriented variant is materially weaker."
+    },
+    {
+      "subcategory_slug": "window_ac",
+      "canonical_zh": "窗式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "The filtered documents are still clear window air conditioners, so they remain semantically on target."
+    }
+  ]
+}

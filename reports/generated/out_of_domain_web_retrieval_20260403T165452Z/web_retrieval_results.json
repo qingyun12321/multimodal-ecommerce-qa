@@ -1,0 +1,32 @@
+{
+  "run_name": "out_of_domain_web_retrieval_20260403T165452Z",
+  "workspace_env": {
+    "HF_HOME": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "TRANSFORMERS_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "HUGGINGFACE_HUB_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home/hub",
+    "HF_HUB_ENABLE_HF_TRANSFER": "0",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "serpapi_api_key_present": false,
+  "jina_api_key_present": false,
+  "text_query": "best all in one pc for office",
+  "image_query": "",
+  "image_path": "dataset/images/computers/all_in_one_pc/000001.jpg",
+  "qwen_model_id": "Qwen/Qwen3.5-4B",
+  "steps": [
+    "image_to_query"
+  ],
+  "text_search_error": "SERPAPI_API_KEY is missing. The SerpAPI code path is implemented, but live search cannot run without an API key.",
+  "generated_image_query": "nexsmart all-in-one pc with webcam and wireless keyboard mouse",
+  "image_search_error": "SERPAPI_API_KEY is missing. The SerpAPI code path is implemented, but live search cannot run without an API key.",
+  "reader_rows": [
+    {
+      "title": "https://huggingface.co/Qwen/Qwen3.5-4B",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B",
+      "reader_content_length": 29607,
+      "reader_content_preview": "Title: Qwen/Qwen3.5-4B · Hugging Face\n\nURL Source: https://huggingface.co/Qwen/Qwen3.5-4B\n\nMarkdown Content:\n![Image 1](https://qianwen-res.oss-accelerate.aliyuncs.com/logo_qwen3.5.png)\n\n[![Image 2: Qwen Chat](https://img.shields.io/badge/%F0%9F%92%9C%EF%B8%8F%20Qwen%20Chat%20-536af5)](https://chat.qwen.ai/)\n\n> This repository contains model weights and configuration files for the post-trained model in the Hugging Face Transformers format.\n> \n> \n> These artifacts are compatible with Hugging Face",
+      "summary": "该页面主要介绍了 Qwen3.5-4B 模型的技术规格、性能基准及部署指南。核心信息包括该模型采用统一的多模态架构，原生支持长达 262,144 个 token 的上下文，并具备强大的视觉理解、代码生成及多语言处理能力。在用途方面，页面详细展示了其在语言、推理、视觉及视频任务上的具体 benchmark 成绩，并说明了其默认开启“思考模式”以生成详细推理过程。关于使用方式，页面提供了通过 SGLang、vLLM 等框架进行本地 API 服务的启动命令，以及使用 OpenAI 兼容 SDK 进行文本、图像和视频输入的 Python 代码示例。此外，还涵盖了如何配置参数以关闭思考模式、利用 Qwen-Agent 构建智能体应用以及处理超长文本的具体最佳实践。"
+    }
+  ]
+}

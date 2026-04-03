@@ -1,0 +1,183 @@
+{
+  "method_name": "qwen3_5_9b",
+  "case_count": 25,
+  "avg_top5_relevant_ratio_gpt": 0.976,
+  "avg_filtered_correct_ratio_gpt": 0.2,
+  "rows": [
+    {
+      "subcategory_slug": "all_in_one_pc",
+      "canonical_zh": "一体机电脑",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "top5准，过滤偏激"
+    },
+    {
+      "subcategory_slug": "ankle_boots",
+      "canonical_zh": "短靴",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "混入切尔西靴"
+    },
+    {
+      "subcategory_slug": "art_frame_tv",
+      "canonical_zh": "艺术边框电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "过滤掉了同类"
+    },
+    {
+      "subcategory_slug": "blazer_jacket",
+      "canonical_zh": "西装外套",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "过滤过严"
+    },
+    {
+      "subcategory_slug": "blue_oxford_shirt",
+      "canonical_zh": "牛津纺衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    },
+    {
+      "subcategory_slug": "bomber_jacket",
+      "canonical_zh": "飞行员夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    },
+    {
+      "subcategory_slug": "bucket_bag",
+      "canonical_zh": "水桶包",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "仅少量真噪声"
+    },
+    {
+      "subcategory_slug": "business_laptop",
+      "canonical_zh": "商务笔记本电脑",
+      "top5_relevant_ratio_gpt": 0.8,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "过滤泛化本较好"
+    },
+    {
+      "subcategory_slug": "canvas_shoes",
+      "canonical_zh": "帆布鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "过滤过严"
+    },
+    {
+      "subcategory_slug": "canvas_tote_bag",
+      "canonical_zh": "帆布手提袋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "多为同类变体"
+    },
+    {
+      "subcategory_slug": "carnation_bouquet",
+      "canonical_zh": "康乃馨花束",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "混合花束可滤"
+    },
+    {
+      "subcategory_slug": "compact_microwave",
+      "canonical_zh": "台式微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "仅少量近邻噪声"
+    },
+    {
+      "subcategory_slug": "convection_microwave",
+      "canonical_zh": "蒸烤一体机",
+      "top5_relevant_ratio_gpt": 0.6,
+      "filtered_correct_ratio_gpt": 0.8,
+      "notes": "前排混入非纯产品"
+    },
+    {
+      "subcategory_slug": "denim_jacket",
+      "canonical_zh": "牛仔夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    },
+    {
+      "subcategory_slug": "denim_shirt",
+      "canonical_zh": "牛仔衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    },
+    {
+      "subcategory_slug": "facial_cleanser",
+      "canonical_zh": "洁面",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.6,
+      "notes": "合集图可过滤"
+    },
+    {
+      "subcategory_slug": "floor_standing_ac",
+      "canonical_zh": "立式空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "过滤掉了同类"
+    },
+    {
+      "subcategory_slug": "gaming_laptop",
+      "canonical_zh": "游戏本",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "榜单图可过滤"
+    },
+    {
+      "subcategory_slug": "gaming_tv",
+      "canonical_zh": "游戏电视",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "过滤过严"
+    },
+    {
+      "subcategory_slug": "grill_microwave",
+      "canonical_zh": "烧烤微波炉",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.4,
+      "notes": "混入蒸烤设备"
+    },
+    {
+      "subcategory_slug": "hawaiian_floral_shirt",
+      "canonical_zh": "夏威夷花衬衫",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "过滤过严"
+    },
+    {
+      "subcategory_slug": "hydrating_toner",
+      "canonical_zh": "爽肤水",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    },
+    {
+      "subcategory_slug": "inverter_ac",
+      "canonical_zh": "变频空调",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.2,
+      "notes": "仅少量近邻误差"
+    },
+    {
+      "subcategory_slug": "leather_jacket",
+      "canonical_zh": "皮夹克",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "飞行员皮夹克仍相关"
+    },
+    {
+      "subcategory_slug": "leather_loafers",
+      "canonical_zh": "乐福鞋",
+      "top5_relevant_ratio_gpt": 1.0,
+      "filtered_correct_ratio_gpt": 0.0,
+      "notes": "同类被误滤"
+    }
+  ]
+}

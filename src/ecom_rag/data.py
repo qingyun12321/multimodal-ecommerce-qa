@@ -87,6 +87,16 @@ def build_query_text(
     product: ProductRecord,
     mode: str = "rich_zh",
 ) -> str:
+    if mode == "compact_rerank_zh":
+        parts = [
+            f"一级类目: {product.category}",
+            f"二级类目: {product.subcategory}",
+            f"商品标题: {product.title}",
+            f"品牌: {product.brand}",
+            f"商品描述: {product.description}",
+        ]
+        return "\n".join(part for part in parts if part.split(": ", 1)[1].strip())
+
     if mode == "description_only":
         return product.description.strip()
 

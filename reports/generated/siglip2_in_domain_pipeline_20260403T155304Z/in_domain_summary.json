@@ -1,0 +1,79 @@
+{
+  "run_name": "siglip2_in_domain_pipeline_20260403T155304Z",
+  "model_name": "siglip2",
+  "checkpoint": "google/siglip2-base-patch16-224",
+  "dataset_dir": "dataset",
+  "repeat_count": 5,
+  "seed": 20260403,
+  "ks": [
+    1,
+    3,
+    5,
+    10,
+    20,
+    50
+  ],
+  "workspace_env": {
+    "HF_HOME": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "TRANSFORMERS_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home",
+    "HUGGINGFACE_HUB_CACHE": "/workspace/multimodal_ecommerce_qa/artifacts/hf_home/hub",
+    "HF_HUB_ENABLE_HF_TRANSFER": "0",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"
+  },
+  "summary_metrics": {
+    "image_to_image": {
+      "query_count": 250.0,
+      "avg_precision@1": 0.92,
+      "avg_recall@1": 0.009292929292929294,
+      "avg_hit@1": 0.92,
+      "avg_precision@3": 0.8533333333333333,
+      "avg_recall@3": 0.02585858585858586,
+      "avg_hit@3": 0.952,
+      "avg_precision@5": 0.8592,
+      "avg_recall@5": 0.04339393939393939,
+      "avg_hit@5": 0.968,
+      "avg_precision@10": 0.8432000000000001,
+      "avg_recall@10": 0.08517171717171716,
+      "avg_hit@10": 0.984,
+      "avg_precision@20": 0.7994,
+      "avg_recall@20": 0.1614949494949495,
+      "avg_hit@20": 1.0,
+      "avg_precision@50": 0.71976,
+      "avg_recall@50": 0.3635151515151515,
+      "avg_hit@50": 1.0
+    },
+    "image_text_to_image": {
+      "query_count": 250.0,
+      "avg_precision@1": 0.932,
+      "avg_recall@1": 0.009414141414141415,
+      "avg_hit@1": 0.932,
+      "avg_precision@3": 0.9,
+      "avg_recall@3": 0.027272727272727275,
+      "avg_hit@3": 0.972,
+      "avg_precision@5": 0.8976000000000001,
+      "avg_recall@5": 0.04533333333333333,
+      "avg_hit@5": 0.984,
+      "avg_precision@10": 0.8916000000000002,
+      "avg_recall@10": 0.09006060606060606,
+      "avg_hit@10": 0.996,
+      "avg_precision@20": 0.8766,
+      "avg_recall@20": 0.17709090909090908,
+      "avg_hit@20": 1.0,
+      "avg_precision@50": 0.8256800000000001,
+      "avg_recall@50": 0.41701010101010105,
+      "avg_hit@50": 1.0
+    },
+    "multi_route_top10": {
+      "avg_precision@10": 0.908,
+      "avg_hit@10": 1.0,
+      "query_count": 250
+    },
+    "image_text_top10_baseline": {
+      "avg_precision@10": 0.8916000000000002,
+      "avg_hit@10": 0.996,
+      "query_count": 250
+    },
+    "query_count": 250
+  }
+}

@@ -1,0 +1,4 @@
+method_name,avg_top5_relevance_ratio,avg_filtered_irrelevant_ratio,case_count
+bge_reranker_v2_m3,0.932,0.316,50
+qwen3_5_4b,0.9413333333333334,0.32,50
+qwen3_5_9b,0.9079999999999999,0.292,50

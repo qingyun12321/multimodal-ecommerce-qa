@@ -1,0 +1,4622 @@
+{
+  "method_name": "qwen3_5_9b",
+  "case_count": 50,
+  "avg_top5_relevance_ratio": 0.9079999999999999,
+  "avg_filtered_irrelevant_ratio": 0.292,
+  "rows": [
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "all_in_one_pc",
+      "category": "电脑",
+      "canonical_zh": "一体机电脑",
+      "custom_query": "我想找一款属于“电脑”类目的“一体机电脑”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "all_in_one_pc_0081",
+        "all_in_one_pc_0020",
+        "all_in_one_pc_0077",
+        "all_in_one_pc_0012",
+        "all_in_one_pc_0055"
+      ],
+      "top5_indices": [
+        1080,
+        1019,
+        1076,
+        1011,
+        1054
+      ],
+      "top5_image_paths": [
+        "images/computers/all_in_one_pc/000081.jpg",
+        "images/computers/all_in_one_pc/000020.png",
+        "images/computers/all_in_one_pc/000077.jpg",
+        "images/computers/all_in_one_pc/000012.jpeg",
+        "images/computers/all_in_one_pc/000055.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: Dongqah 一体机电脑\n品牌: Dongqah\n商品描述: Dongqah 一体机电脑，适合日常使用。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: HP 惠普 AI 27 英寸一体机电脑\n品牌: HP\n商品描述: HP 惠普 AI 27 英寸一体机电脑，白色外观，配备 27 英寸显示屏，适合办公和家庭使用。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: HP 惠普一体机电脑\n品牌: HP\n商品描述: HP 惠普一体机电脑，配备白色键盘和鼠标，屏幕显示 Windows 操作系统界面。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: 华硕 Zen 23.8 英寸一体机电脑\n品牌: 华硕\n商品描述: 华硕 Zen 23.8 英寸一体机电脑，配备金色机身和无线键盘鼠标，运行 Windows 10 操作系统。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: HP ProOne 240 G9 一体机电脑\n品牌: HP\n商品描述: HP ProOne 240 G9 一体机电脑，配备24英寸显示屏，预装Windows 11操作系统，适合办公和家庭使用。"
+      ],
+      "top5_scores": [
+        5.0,
+        1.0,
+        0.0,
+        -1.0,
+        -2.0
+      ],
+      "filtered_product_ids": [
+        "all_in_one_pc_0016",
+        "all_in_one_pc_0084",
+        "all_in_one_pc_0075",
+        "all_in_one_pc_0005",
+        "all_in_one_pc_0011"
+      ],
+      "filtered_indices": [
+        1015,
+        1083,
+        1074,
+        1004,
+        1010
+      ],
+      "filtered_image_paths": [
+        "images/computers/all_in_one_pc/000016.jpg",
+        "images/computers/all_in_one_pc/000084.jpg",
+        "images/computers/all_in_one_pc/000075.jpg",
+        "images/computers/all_in_one_pc/000005.jpg",
+        "images/computers/all_in_one_pc/000011.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: 7 款最佳一体机电脑\n品牌: Acer\n商品描述: 图片展示了7款最佳一体机电脑的主题，右侧展示了一台Acer品牌的一体机电脑，配有黑色键盘和鼠标。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: 最佳一体机电脑\n品牌: ENYX\n商品描述: 展示了一台一体机电脑，屏幕显示着风景壁纸，配有键盘和鼠标，放置在木质桌面上。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: EUIISHIHUA 一体机电脑 360度旋转摄像头 无线充电 内置扬声器\n品牌: EUIISHIHUA\n商品描述: 满足您的专业和娱乐需求，提升您的计算体验。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: 华硕一体机电脑 ET2311INKH-B044M\n品牌: 华硕\n商品描述: 华硕一体机电脑，配备Intel Core i7 4770S处理器，8GB内存，1TB硬盘，23英寸屏幕，预装DOS系统。",
+        "一级类目: 电脑\n二级类目: 一体机电脑\n商品标题: HP 惠普 22 英寸 1080P 全高清显示器 一体机电脑 白色\n品牌: HP\n商品描述: HP 惠普 22 英寸 1080P 全高清显示器 一体机电脑，配备 AMD Ryzen 5 7000 系列处理器，白色外观，适合办公和家庭使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "ankle_boots",
+      "category": "鞋子",
+      "canonical_zh": "短靴",
+      "custom_query": "我想找一款属于“鞋子”类目的“短靴”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "ankle_boots_0062",
+        "ankle_boots_0043",
+        "ankle_boots_0025",
+        "ankle_boots_0045",
+        "ankle_boots_0055"
+      ],
+      "top5_indices": [
+        3561,
+        3542,
+        3524,
+        3544,
+        3554
+      ],
+      "top5_image_paths": [
+        "images/shoes/ankle_boots/000062.jpg",
+        "images/shoes/ankle_boots/000043.jpg",
+        "images/shoes/ankle_boots/000025.jpg",
+        "images/shoes/ankle_boots/000045.jpg",
+        "images/shoes/ankle_boots/000055.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Office 女士粗跟短靴\n品牌: Office\n商品描述: 这款 Office 女士短靴采用优质皮革材质，设计简约大方，粗跟设计既时尚又舒适。方头设计增添复古韵味，适合搭配各种秋冬装束。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: 黑色粗跟短靴\n品牌: Fity\n商品描述: 这款黑色短靴采用粗跟设计，鞋面为光滑皮革材质，侧面配有金色拉链，方便穿脱。鞋口处有毛边设计，增添时尚感。适合搭配牛仔裤或休闲裤，展现优雅与休闲并存的风格。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: 黑色绒面短靴\n品牌: Jdwilliams\n商品描述: 黑色绒面短靴，尖头设计，中粗跟，侧边拉链，适合搭配牛仔裤。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Bambi黑色闪光高跟短靴\n品牌: Bambi\n商品描述: 这款Bambi黑色闪光高跟短靴采用闪亮材质，搭配高跟和厚底设计，适合晚宴或派对穿着。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Kurt Geiger London Langley 圆头粗跟短靴\n品牌: Kurt Geiger London\n商品描述: 这款 Kurt Geiger London Langley 短靴采用经典黑色皮革材质，圆头设计搭配粗跟，既时尚又舒适。适合日常通勤或休闲场合穿着，展现优雅气质。"
+      ],
+      "top5_scores": [
+        5.0,
+        3.0,
+        2.0,
+        1.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "ankle_boots_0019",
+        "ankle_boots_0002",
+        "ankle_boots_0010",
+        "ankle_boots_0027",
+        "ankle_boots_0044"
+      ],
+      "filtered_indices": [
+        3518,
+        3501,
+        3509,
+        3526,
+        3543
+      ],
+      "filtered_image_paths": [
+        "images/shoes/ankle_boots/000019.jpg",
+        "images/shoes/ankle_boots/000002.jpg",
+        "images/shoes/ankle_boots/000010.jpg",
+        "images/shoes/ankle_boots/000027.jpeg",
+        "images/shoes/ankle_boots/000044.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鞋子\n二级类目: 切尔西靴\n商品标题: 男士切尔西靴\n品牌: Freepik\n商品描述: 图片展示了三双不同颜色的男士切尔西靴，颜色分别为黑色、棕色和橙色。靴子采用皮革材质，具有经典的圆头设计和低跟，鞋口为套脚式，侧面有弹性松紧带。靴子整齐地摆放在一个白色的展示台上，背景为深绿色。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Edina Up 短靴\n品牌: Clarks\n商品描述: 这款 Clarks Edina Up 短靴采用经典黑色皮革材质，设计简约大方。鞋头为尖头设计，搭配中跟，既时尚又舒适。侧面配有拉链，方便穿脱。适合日常穿着，百搭各种服装风格。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: FOZZIE 女士黑色高跟短靴\n品牌: Gabor\n商品描述: 这款FOZZIE女士短靴采用黑色皮革材质，设计简约大方，适合多种场合穿着。鞋跟为高跟设计，鞋头为圆头，闭合方式为拉链，方便穿脱。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Mysoft 女士黑色切尔西靴 粗跟踝靴\n品牌: Mysoft\n商品描述: 这款 Mysoft 女士黑色切尔西靴采用绒面革材质，设计简约时尚。靴子配有粗跟，提供舒适和稳定的穿着体验。圆头设计适合各种脚型，套脚款式方便穿脱。适合秋冬季节搭配各种服装，展现优雅气质。",
+        "一级类目: 鞋子\n二级类目: 短靴\n商品标题: Frankie4 Austen 舒适皮革短靴\n品牌: Frankie4\n商品描述: 这款 Frankie4 Austen 舒适皮革短靴采用优质皮革制成，鞋面光滑，鞋口配有弹力松紧带，方便穿脱。鞋跟为低跟设计，提供舒适的穿着体验。鞋头为圆头设计，后跟配有拉环，方便穿脱。鞋底为橡胶材质，提供良好的抓地力和耐磨性。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "art_frame_tv",
+      "category": "电视",
+      "canonical_zh": "艺术边框电视",
+      "custom_query": "我想找一款属于“电视”类目的“艺术边框电视”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "art_frame_tv_0067",
+        "art_frame_tv_0002",
+        "art_frame_tv_0006",
+        "art_frame_tv_0066",
+        "art_frame_tv_0008"
+      ],
+      "top5_indices": [
+        4566,
+        4501,
+        4505,
+        4565,
+        4507
+      ],
+      "top5_image_paths": [
+        "images/televisions/art_frame_tv/000067.jpg",
+        "images/televisions/art_frame_tv/000002.jpg",
+        "images/televisions/art_frame_tv/000006.jpg",
+        "images/televisions/art_frame_tv/000066.jpg",
+        "images/televisions/art_frame_tv/000008.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电视\n二级类目: 艺术边框电视\n商品标题: 三星 The Frame Pro 艺术边框电视\n品牌: 三星\n商品描述: 三星 The Frame Pro 艺术边框电视，采用QLED技术，支持120Hz刷新率，提供多种尺寸选择，可自定义边框颜色，完美融入家居环境。",
+        "一级类目: 电视\n二级类目: 艺术边框电视\n商品标题: 三星艺术边框电视\n品牌: 三星\n商品描述: 这款电视采用独特的艺术边框设计，完美融入家居环境，提供卓越的视觉体验。",
+        "一级类目: 电视\n二级类目: 艺术电视\n商品标题: 三星 The Frame Pro 艺术电视\n品牌: 三星\n商品描述: 三星The Frame Pro艺术电视，支持多种艺术模式，内置艺术画廊，可展示高清艺术品，支持无线投屏，智能语音控制，超薄设计，适合家居装饰。",
+        "一级类目: 电视\n二级类目: 艺术电视\n商品标题: 三星艺术电视 Frame\n品牌: 三星\n商品描述: 三星艺术电视 Frame，将您的客厅变成艺术画廊。支持自定义边框，可显示照片、艺术作品和数字内容。配备QLED面板，提供卓越的画质和色彩表现。",
+        "一级类目: 电视\n二级类目: 艺术电视\n商品标题: 三星 The Frame 艺术电视\n品牌: 三星\n商品描述: 三星 The Frame 艺术电视，将客厅变成画廊。支持多种艺术模式，内置艺术商店，可展示名画和摄影作品。"
+      ],
+      "top5_scores": [
+        3.0,
+        -2.0,
+        5.0,
+        -1.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "art_frame_tv_0093",
+        "art_frame_tv_0013",
+        "art_frame_tv_0018",
+        "art_frame_tv_0038",
+        "art_frame_tv_0007"
+      ],
+      "filtered_indices": [
+        4592,
+        4512,
+        4517,
+        4537,
+        4506
+      ],
+      "filtered_image_paths": [
+        "images/televisions/art_frame_tv/000093.jpg",
+        "images/televisions/art_frame_tv/000013.jpg",
+        "images/televisions/art_frame_tv/000018.jpg",
+        "images/televisions/art_frame_tv/000038.jpg",
+        "images/televisions/art_frame_tv/000007.png"
+      ],
+      "filtered_documents": [
+        "一级类目: 电视\n二级类目: 艺术电视\n商品标题: 三星 The Frame Pro 艺术电视\n品牌: 三星\n商品描述: 三星The Frame Pro艺术电视，采用QLED技术，支持120Hz高刷新率，提供多种尺寸选择，外观简约时尚，可融入家居环境。",
+        "一级类目: 电视\n二级类目: 艺术画框电视\n商品标题: Lake Powell 艺术画框电视\n品牌: Lullink Designs\n商品描述: 这款艺术画框电视将Lake Powell的壮丽景色融入现代家居设计，提供多种尺寸选择，适合各种房间布局。",
+        "一级类目: 电视\n二级类目: 艺术画框电视\n商品标题: Lake Powell 艺术画框电视\n品牌: Lullink Designs\n商品描述: 这款艺术画框电视将Lake Powell的壮丽景色融入现代家居装饰，提供多种尺寸选择，适合各种房间布局。",
+        "一级类目: 电视\n二级类目: 艺术画框电视\n商品标题: 艺术画框电视\n品牌: 创维\n商品描述: 这是一款艺术画框电视，外观简约时尚，适合现代家居装饰。电视采用米色边框设计，搭配白色屏幕，整体风格优雅大方。支持4K分辨率，提供出色的画质体验。",
+        "一级类目: 电视\n二级类目: 艺术画框电视\n商品标题: 艺术画框电视\n品牌: 小米\n商品描述: 艺术画框电视，外观简约时尚，适合家居装饰，支持多种尺寸选择。"
+      ],
+      "top5_relevance_ratio": 0.4,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          3,
+          8,
+          1,
+          7,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "blazer_jacket",
+      "category": "外套",
+      "canonical_zh": "西装外套",
+      "custom_query": "我想找一款属于“外套”类目的“西装外套”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "blazer_jacket_0022",
+        "blazer_jacket_0001",
+        "blazer_jacket_0017",
+        "blazer_jacket_0030",
+        "blazer_jacket_0055"
+      ],
+      "top5_indices": [
+        2021,
+        2000,
+        2016,
+        2029,
+        2054
+      ],
+      "top5_image_paths": [
+        "images/jackets/blazer_jacket/000022.jpg",
+        "images/jackets/blazer_jacket/000001.jpg",
+        "images/jackets/blazer_jacket/000017.jpg",
+        "images/jackets/blazer_jacket/000030.jpg",
+        "images/jackets/blazer_jacket/000055.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 女士Bella海军蓝西装外套\n品牌: Laurie & Jules\n商品描述: 这款女士Bella海军蓝西装外套采用经典设计，适合正式场合或日常穿着。外套为单排三扣设计，配有平驳领和贴袋，下摆后开衩设计增添优雅感。内衬为黑色网眼材质，穿着舒适透气。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: Buttery Leather Bonded Blazer\n品牌: Tom Ford\n商品描述: 这款Buttery Leather Bonded Blazer采用高品质合成皮革制成，触感柔软，外观优雅。经典的平驳领设计和修身版型，适合各种正式场合。黑色设计百搭且经典，是每位男士衣橱中的必备单品。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 深蓝色粗花呢单排扣西装外套\n品牌: Freepik\n商品描述: 深蓝色粗花呢西装外套，单排两粒扣设计，平驳领，双贴袋，修身版型，适合商务休闲场合穿着。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 深蓝色粗花呢单排扣西装外套\n品牌: Freepik\n商品描述: 深蓝色粗花呢西装外套，单排两粒扣设计，平驳领，双贴袋，修身版型，适合商务休闲场合穿着。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 深蓝色双排扣西装外套\n品牌: Maisondvie\n商品描述: 深蓝色双排扣西装外套，翻领设计，贴袋装饰，修身版型，适合正式场合穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "blazer_jacket_0082",
+        "blazer_jacket_0005",
+        "blazer_jacket_0075",
+        "blazer_jacket_0008",
+        "blazer_jacket_0018"
+      ],
+      "filtered_indices": [
+        2081,
+        2004,
+        2074,
+        2007,
+        2017
+      ],
+      "filtered_image_paths": [
+        "images/jackets/blazer_jacket/000082.jpeg",
+        "images/jackets/blazer_jacket/000005.jpg",
+        "images/jackets/blazer_jacket/000075.jpeg",
+        "images/jackets/blazer_jacket/000008.jpg",
+        "images/jackets/blazer_jacket/000018.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: Axiiglly 女士西装外套 翻领修身连衣裙夹克 长袖前扣西装 休闲工作办公室套装外套\n品牌: Axiiglly\n商品描述: 这款Axiiglly女士西装外套采用翻领设计，修身剪裁，适合连衣裙搭配。长袖设计，前扣款式，适合休闲、工作和办公室场合。提供多种颜色选择，包括红色、米色、棕色、白色、粉色、深红色、蓝色和黑色。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 女士休闲西装外套\n品牌: LookbookStore\n商品描述: 这款女士休闲西装外套采用经典翻领设计，搭配棕色纽扣，简约大方。外套内搭白色蕾丝上衣，下身搭配浅色牛仔裤，整体造型时尚休闲。外套材质看起来柔软舒适，适合日常穿着。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 女士纯色翻领西装外套长袖外衣\n品牌: 优衣库\n商品描述: 这款女士西装外套采用纯色设计，翻领款式，长袖设计，适合商务和休闲场合穿着。外套剪裁修身，展现优雅气质。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 女士商务休闲西装外套\n品牌: Sucolan\n商品描述: 这款女士西装外套采用红色设计，适合商务和休闲场合穿着。外套为翻领设计，长袖，修身版型，配有斜插袋。内搭白色上衣，搭配黑色裤子，整体造型简约大方。",
+        "一级类目: 外套\n二级类目: 西装外套\n商品标题: 男士修身单排扣休闲西装外套\n品牌: Storage\n商品描述: 这款男士西装外套采用灰色混纺面料，设计简约时尚，适合商务休闲场合穿着。单排扣设计，修身剪裁，展现优雅气质。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "blue_oxford_shirt",
+      "category": "衬衫",
+      "canonical_zh": "牛津纺衬衫",
+      "custom_query": "我想找一款属于“衬衫”类目的“牛津纺衬衫”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "blue_oxford_shirt_0025",
+        "blue_oxford_shirt_0015",
+        "blue_oxford_shirt_0027",
+        "blue_oxford_shirt_0068",
+        "blue_oxford_shirt_0020"
+      ],
+      "top5_indices": [
+        3024,
+        3014,
+        3026,
+        3067,
+        3019
+      ],
+      "top5_image_paths": [
+        "images/shirts/blue_oxford_shirt/000025.jpg",
+        "images/shirts/blue_oxford_shirt/000015.jpg",
+        "images/shirts/blue_oxford_shirt/000027.jpg",
+        "images/shirts/blue_oxford_shirt/000068.jpg",
+        "images/shirts/blue_oxford_shirt/000020.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 美国蓝牛津纺纽扣领棉质衬衫\n品牌: The Stiff Collar\n商品描述: 这款美国蓝牛津纺纽扣领棉质衬衫，采用优质棉质面料，经典纽扣领设计，单胸袋，适合日常穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: CORDINGS 经典蓝色牛津纺衬衫\n品牌: CORDINGS\n商品描述: CORDINGS 品牌的经典蓝色牛津纺衬衫，采用高品质牛津纺面料，质地柔软舒适，透气性好。标准领设计，搭配白色纽扣，简约大方，适合商务和休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: Hawes & Curtis 中蓝色牛津纺衬衫\n品牌: Hawes & Curtis\n商品描述: 这款中蓝色牛津纺衬衫采用经典的纽扣领设计，适合商务和休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 约翰亨利牛津纺衬衫\n品牌: 约翰亨利\n商品描述: 约翰亨利品牌的牛津纺衬衫，采用纽扣领设计，颜色为蓝色，纽扣为白色。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: BLUEFORT 牛津纺衬衫\n品牌: BLUEFORT\n商品描述: 这款BLUEFORT品牌的牛津纺衬衫采用修身设计，适合日常穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "blue_oxford_shirt_0036",
+        "blue_oxford_shirt_0052",
+        "blue_oxford_shirt_0042",
+        "blue_oxford_shirt_0045",
+        "blue_oxford_shirt_0091"
+      ],
+      "filtered_indices": [
+        3035,
+        3051,
+        3041,
+        3044,
+        3090
+      ],
+      "filtered_image_paths": [
+        "images/shirts/blue_oxford_shirt/000036.jpg",
+        "images/shirts/blue_oxford_shirt/000052.jpg",
+        "images/shirts/blue_oxford_shirt/000042.jpg",
+        "images/shirts/blue_oxford_shirt/000045.jpg",
+        "images/shirts/blue_oxford_shirt/000091.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 浅蓝色纯色经典牛津纺衬衫\n品牌: ETON\n商品描述: 这款ETON浅蓝色纯色经典牛津纺衬衫，采用高品质纯棉面料，触感柔软舒适，透气性佳。经典的牛津纺纹理，彰显低调的优雅与质感。修身剪裁设计，完美贴合身形，展现男士干练气质。标准领口搭配白色纽扣，简约大方，适合商务及休闲多种场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: Eton 纯色浅蓝色皇家牛津纺衬衫\n品牌: Eton\n商品描述: 这款 Eton 纯色浅蓝色皇家牛津纺衬衫采用经典纽扣领设计，左胸配有单口袋，适合商务或休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 浅蓝色纯色经典牛津纺衬衫\n品牌: ETON\n商品描述: 这款浅蓝色纯色经典牛津纺衬衫，采用高品质牛津纺面料，质地细腻，穿着舒适。标准领设计，搭配白色纽扣，简约大方。修身版型，展现优雅气质。适合商务休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 男士浅蓝色牛津纺长袖衬衫\n品牌: NEXT\n商品描述: 这款男士浅蓝色牛津纺长袖衬衫，采用经典纽扣领设计，胸前有品牌刺绣标志。袖子可卷起，适合休闲或商务场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 男士浅蓝色牛津纺长袖衬衫\n品牌: NEXT\n商品描述: 这款男士浅蓝色牛津纺长袖衬衫，采用经典纽扣领设计，胸前有品牌刺绣标志。袖子可卷起，适合休闲或商务场合穿着。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "bomber_jacket",
+      "category": "外套",
+      "canonical_zh": "飞行员夹克",
+      "custom_query": "我想找一款属于“外套”类目的“飞行员夹克”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "bomber_jacket_0018",
+        "bomber_jacket_0039",
+        "bomber_jacket_0010",
+        "bomber_jacket_0036",
+        "bomber_jacket_0069"
+      ],
+      "top5_indices": [
+        2117,
+        2138,
+        2109,
+        2135,
+        2168
+      ],
+      "top5_image_paths": [
+        "images/jackets/bomber_jacket/000018.jpg",
+        "images/jackets/bomber_jacket/000039.jpg",
+        "images/jackets/bomber_jacket/000010.jpg",
+        "images/jackets/bomber_jacket/000036.jpg",
+        "images/jackets/bomber_jacket/000069.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 现代简约白色飞行员夹克前后视图\n品牌: Freepik\n商品描述: 这款现代简约风格的白色飞行员夹克，采用光滑面料制成，设计时尚且实用。夹克配备罗纹领、罗纹袖口和罗纹下摆，确保舒适贴合。全拉链设计方便穿脱，侧边拉链口袋提供额外储物空间。前后视图展示其简洁大方的外观，适合多种场合穿着。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: Wingover 飞行员夹克\n品牌: Wingover\n商品描述: 这是一款经典的黑色飞行员夹克，采用尼龙材质制成，具有耐磨、轻便的特点。夹克采用立领设计，前襟为拉链开合，两侧设有斜插口袋，方便实用。袖口和下摆均采用罗纹收口设计，能够有效防风保暖。整体风格简约时尚，适合日常休闲穿着。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 黑色飞行员夹克\n品牌: Aaron Productions\n商品描述: 黑色飞行员夹克，立领设计，拉链闭合，长袖，适合日常穿着。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士酒红色飞行员夹克\n品牌: Luxe\n商品描述: 这是一款男士酒红色飞行员夹克，采用立领设计，门襟为拉链开合。袖口和下摆均为罗纹收口设计，袖部设有拉链口袋。内搭白色T恤展示穿着效果。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 印花飞行员夹克\n品牌: Charchaand\n商品描述: 这款飞行员夹克采用鲜艳的花卉印花设计，图案包含多种颜色和形状，如红色、橙色、绿色和粉色的花朵和叶子。夹克为立领设计，前拉链开合，袖口和下摆均为罗纹收口，整体风格时尚且充满活力。适合搭配牛仔裤或其他休闲裤，适合日常穿着或休闲场合。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "bomber_jacket_0064",
+        "bomber_jacket_0022",
+        "bomber_jacket_0014",
+        "bomber_jacket_0025",
+        "bomber_jacket_0040"
+      ],
+      "filtered_indices": [
+        2163,
+        2121,
+        2113,
+        2124,
+        2139
+      ],
+      "filtered_image_paths": [
+        "images/jackets/bomber_jacket/000064.jpeg",
+        "images/jackets/bomber_jacket/000022.jpg",
+        "images/jackets/bomber_jacket/000014.jpg",
+        "images/jackets/bomber_jacket/000025.jpg",
+        "images/jackets/bomber_jacket/000040.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士卡其色飞行员夹克\n品牌: Jack & Jones\n商品描述: 这款男士飞行员夹克采用经典的卡其色设计，搭配黑色拉链和罗纹领口，简约时尚。两侧设有斜插口袋，方便实用。适合日常休闲穿着，展现都市男性的干练与优雅。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 冬季B15美式复古飞行员夹克毛领棉服军战术飞行夹克男\n品牌: 波司登\n商品描述: 这款冬季B15美式复古飞行员夹克采用尼龙材质，搭配毛领设计，保暖舒适。金属拉链和斜插袋设计实用方便，松紧袖口和下摆有效防风。适合日常穿着或户外活动。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士酒红色飞行员夹克\n品牌: Luxe\n商品描述: 这款男士飞行员夹克采用酒红色设计，搭配黑色罗纹领口、袖口和下摆，整体风格简约时尚。夹克正面配有金属拉链，两侧设有口袋，袖子上有拉链装饰，内搭白色T恤，展现出休闲与运动的完美结合。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: MA-1 飞行员夹克\n品牌: MA-1\n商品描述: 这款MA-1飞行员夹克采用经典设计，适合日常穿着或户外活动。夹克采用高品质尼龙面料，内衬为鲜艳的橙色，增添时尚感。金色拉链和罗纹袖口、下摆设计，既实用又美观。两侧斜插袋方便携带小物件。适合春秋季节穿着，版型宽松舒适，适合各种身材。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 棕色飞行员夹克\n品牌: Heatworld\n商品描述: 这款棕色飞行员夹克采用尼龙材质，配有毛绒领和两个胸前口袋。袖口和下摆均为罗纹设计，整体风格休闲时尚。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "bucket_bag",
+      "category": "箱包",
+      "canonical_zh": "水桶包",
+      "custom_query": "我想找一款属于“箱包”类目的“水桶包”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "bucket_bag_0088",
+        "bucket_bag_0049",
+        "bucket_bag_0064",
+        "bucket_bag_0018",
+        "bucket_bag_0013"
+      ],
+      "top5_indices": [
+        587,
+        548,
+        563,
+        517,
+        512
+      ],
+      "top5_image_paths": [
+        "images/bags/bucket_bag/000088.jpg",
+        "images/bags/bucket_bag/000049.jpg",
+        "images/bags/bucket_bag/000064.jpg",
+        "images/bags/bucket_bag/000018.jpg",
+        "images/bags/bucket_bag/000013.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 可爱小熊水桶包手提单肩斜挎包\n品牌: READY-TTWN\n商品描述: 这款水桶包采用帆布材质，设计简约可爱，包身印有小熊图案，适合日常使用。包配有手提带和可调节肩带，方便携带。颜色有米色和黑色两种选择，适合不同风格的搭配。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 复古手工软皮水桶包\n品牌: Ever Handmade\n商品描述: 这款复古手工软皮水桶包采用优质真皮材质，手感柔软舒适，色泽自然。包身设计简约大方，配有可拆卸肩带，可手提也可斜挎，适合多种场合。内部空间宽敞，可轻松容纳日常所需物品。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 复古手工软皮水桶包\n品牌: Ever Handmade\n商品描述: 这款复古手工软皮水桶包采用优质真皮材质，手感柔软舒适，色泽自然。包身设计简约大方，配有可拆卸长肩带，可手提也可斜挎，适合多种场合使用。内部空间宽敞，可轻松容纳日常所需物品。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 手工皮革水桶包\n品牌: 迈克高仕\n商品描述: 这是一款手工制作的皮革水桶包，采用卡其色皮革材质，设计简约大方。包身配有抽绳闭合方式，方便调节开口大小。包带可调节，适合肩背或手提。整体风格休闲实用，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: Michael Kors Collection 皮革镶边麂皮水桶包\n品牌: Michael Kors Collection\n商品描述: 这款Michael Kors Collection水桶包采用米色麂皮材质，搭配棕色皮革镶边和银色金属扣，设计简约时尚，适合日常使用。"
+      ],
+      "top5_scores": [
+        4.0,
+        3.0,
+        2.0,
+        1.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "leather_tote_bag_0036",
+        "bucket_bag_0037",
+        "bucket_bag_0005",
+        "bucket_bag_0007",
+        "bucket_bag_0098"
+      ],
+      "filtered_indices": [
+        735,
+        536,
+        504,
+        506,
+        597
+      ],
+      "filtered_image_paths": [
+        "images/bags/leather_tote_bag/000036.jpg",
+        "images/bags/bucket_bag/000037.jpg",
+        "images/bags/bucket_bag/000005.png",
+        "images/bags/bucket_bag/000007.jpg",
+        "images/bags/bucket_bag/000098.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 意大利手工鳄鱼纹手提包\n品牌: ITALYLEATHERIT\n商品描述: 这款意大利手工制作的鳄鱼纹手提包，采用优质皮革，设计经典，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 女士水桶包\n品牌: Bananarepublic\n商品描述: 这款女士水桶包采用优质皮革材质，设计简约大方，适合日常休闲使用。包身配有可调节抽绳，方便开合，肩带可拆卸，可根据需要手提或肩背。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: 棕色抽绳水桶包\n品牌: Harpersbazaar\n商品描述: 这款棕色水桶包采用优质皮革材质，设计简约时尚。包身配有抽绳封口，方便开合，内部空间充足。圆形手柄和可调节长肩带提供了多种携带方式，适合日常使用或休闲场合。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: Mansur Gavriel 棕色皮革抽绳水桶包\n品牌: Mansur Gavriel\n商品描述: 这款 Mansur Gavriel 棕色皮革抽绳水桶包采用高品质皮革制成，设计简约大方。包身采用抽绳设计，方便调节开口大小，兼具实用性和美观性。包身配有可调节肩带，适合单肩或斜挎使用。整体风格复古优雅，适合日常搭配或休闲场合。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: Gap 女士棕色皮革水桶包\n品牌: Gap\n商品描述: 这款 Gap 女士水桶包采用优质棕色皮革制成，设计简约时尚。包身配有金色五金配件和可调节肩带，方便携带。抽绳设计增加了实用性，适合日常使用或休闲场合。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "business_laptop",
+      "category": "电脑",
+      "canonical_zh": "商务笔记本电脑",
+      "custom_query": "我想找一款属于“电脑”类目的“商务笔记本电脑”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "business_laptop_0088",
+        "business_laptop_0079",
+        "business_laptop_0007",
+        "business_laptop_0038",
+        "business_laptop_0086"
+      ],
+      "top5_indices": [
+        1187,
+        1178,
+        1106,
+        1137,
+        1185
+      ],
+      "top5_image_paths": [
+        "images/computers/business_laptop/000088.jpg",
+        "images/computers/business_laptop/000079.png",
+        "images/computers/business_laptop/000007.jpg",
+        "images/computers/business_laptop/000038.jpg",
+        "images/computers/business_laptop/000086.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: ThinkPad 商务笔记本电脑\n品牌: ThinkPad\n商品描述: 这款 ThinkPad 商务笔记本电脑专为商务人士设计，配备 14 英寸屏幕和 Windows 11 操作系统。键盘和触控板均采用 ThinkPad 品牌设计，提供出色的使用体验。",
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: 戴尔 Vostro 笔记本电脑\n品牌: 戴尔\n商品描述: 这款戴尔 Vostro 笔记本电脑专为商务人士设计，配备高性能处理器和大容量内存，满足日常办公需求。屏幕显示清晰，色彩还原度高，适合处理文档、表格和演示文稿。轻薄便携，易于携带，是商务出行的理想选择。",
+        "一级类目: 电脑\n二级类目: 商务笔记本\n商品标题: HP 惠普 14 英寸轻薄商务笔记本电脑\n品牌: HP\n商品描述: 这款HP 14英寸商务笔记本电脑采用银色金属机身设计，外观简约时尚，适合商务办公使用。配备14英寸高清显示屏，显示效果清晰细腻。搭载Intel Core i5处理器，性能强劲，运行流畅。8GB内存和256GB SSD硬盘，提供充足的存储空间和快速的读写速度。轻薄便携，方便携带，适合商务人士日常使用。",
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: 商务笔记本电脑\n品牌: ThinkPad\n商品描述: 商务笔记本电脑，适合办公使用，配备键盘和触控板，屏幕显示网页内容，旁边放置有手机、笔记本和咖啡杯。",
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: 最佳商务笔记本电脑\n品牌: Empocorp\n商品描述: 图片展示了多款适合商务使用的笔记本电脑，背景为浅绿色，文字说明为“Best Laptops for Business”。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        -2.0,
+        -3.0,
+        3.0
+      ],
+      "filtered_product_ids": [
+        "ultrabook_0028",
+        "ultrabook_0095",
+        "business_laptop_0054",
+        "business_laptop_0050",
+        "business_laptop_0057"
+      ],
+      "filtered_indices": [
+        1427,
+        1494,
+        1153,
+        1149,
+        1156
+      ],
+      "filtered_image_paths": [
+        "images/computers/ultrabook/000028.jpg",
+        "images/computers/ultrabook/000095.jpg",
+        "images/computers/business_laptop/000054.jpg",
+        "images/computers/business_laptop/000050.jpg",
+        "images/computers/business_laptop/000057.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 轻薄笔记本电脑\n品牌: Techradar\n商品描述: 这是一款银色的超极本笔记本电脑，配备全尺寸键盘和大触控板，机身轻薄，适合移动办公和日常使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 轻薄笔记本电脑\n品牌: Techradar\n商品描述: 这是一款银色的超极本笔记本电脑，配备全尺寸键盘和大触控板，设计轻薄便携，适合移动办公使用。",
+        "一级类目: 电脑\n二级类目: 笔记本电脑\n商品标题: 笔记本电脑\n品牌: Sell\n商品描述: 银色笔记本电脑，黑色键盘，正在被双手操作，屏幕显示亚马逊购物页面。",
+        "一级类目: 电脑\n二级类目: 笔记本电脑\n商品标题: 笔记本电脑\n品牌: Istockphoto\n商品描述: 银色笔记本电脑，黑色键盘，触控板，屏幕显示在线商店页面，展示多种商品，包括电子产品、家居用品等。",
+        "一级类目: 电脑\n二级类目: 笔记本电脑\n商品标题: 笔记本电脑\n品牌: Freepik\n商品描述: 银色笔记本电脑放置在木质桌面上，屏幕显示电商网站界面，背景为模糊的室内环境。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          8,
+          9,
+          3
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          8,
+          9,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "canvas_shoes",
+      "category": "鞋子",
+      "canonical_zh": "帆布鞋",
+      "custom_query": "我想找一款属于“鞋子”类目的“帆布鞋”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "canvas_shoes_0053",
+        "canvas_shoes_0083",
+        "canvas_shoes_0017",
+        "canvas_shoes_0004",
+        "canvas_shoes_0038"
+      ],
+      "top5_indices": [
+        3652,
+        3682,
+        3616,
+        3603,
+        3637
+      ],
+      "top5_image_paths": [
+        "images/shoes/canvas_shoes/000053.png",
+        "images/shoes/canvas_shoes/000083.jpg",
+        "images/shoes/canvas_shoes/000017.jpg",
+        "images/shoes/canvas_shoes/000004.png",
+        "images/shoes/canvas_shoes/000038.png"
+      ],
+      "top5_documents": [
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 柠檬图案黑色低帮帆布鞋\n品牌: Dedoles\n商品描述: 这款黑色低帮帆布鞋采用柠檬和绿叶图案设计，鞋面为黑色帆布材质，搭配白色橡胶鞋底和鞋头。鞋带为黑色，整体风格清新自然，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 经典黑色低帮帆布鞋\n品牌: Namibian\n商品描述: 这款经典黑色低帮帆布鞋采用优质帆布材质，搭配白色橡胶鞋底和鞋头包边设计，简约时尚，适合日常休闲穿着。鞋带为白色，与黑色鞋面形成鲜明对比，增添视觉层次感。鞋底采用防滑橡胶材质，提供良好的抓地力和耐磨性。适合春夏秋三季穿着，男女皆宜。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 时尚低帮帆布鞋男女休闲板鞋\n品牌: Bubble\n商品描述: 时尚低帮帆布鞋，适合男女穿着，简约设计，舒适耐穿，适合日常休闲搭配。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 经典款男士低帮帆布鞋\n品牌: Canvas-shoes\n商品描述: 这是一款经典款男士低帮帆布鞋，鞋面采用深蓝色帆布材质，搭配白色鞋带和白色橡胶鞋底，鞋底边缘有黑色线条装饰。鞋头为圆头设计，整体风格简约时尚，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 经典款男士低帮帆布鞋\n品牌: Canvas-shoes\n商品描述: 这款经典款男士低帮帆布鞋采用优质帆布鞋面和橡胶鞋底，设计简约时尚，适合日常休闲穿着。鞋带为白色，与深蓝色鞋面形成鲜明对比，鞋头为圆头设计，穿着舒适。"
+      ],
+      "top5_scores": [
+        5.0,
+        3.0,
+        4.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "canvas_shoes_0062",
+        "canvas_shoes_0044",
+        "canvas_shoes_0070",
+        "canvas_shoes_0003",
+        "canvas_shoes_0005"
+      ],
+      "filtered_indices": [
+        3661,
+        3643,
+        3669,
+        3602,
+        3604
+      ],
+      "filtered_image_paths": [
+        "images/shoes/canvas_shoes/000062.jpg",
+        "images/shoes/canvas_shoes/000044.jpg",
+        "images/shoes/canvas_shoes/000070.png",
+        "images/shoes/canvas_shoes/000003.jpg",
+        "images/shoes/canvas_shoes/000005.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 全黑帆布鞋\n品牌: Roadtek\n商品描述: 这是一款全黑色的帆布鞋，鞋面采用黑色帆布材质，搭配黑色橡胶鞋底和黑色鞋带。鞋带孔为金属材质，整体设计简洁大方，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 全黑帆布鞋\n品牌: Roadtek\n商品描述: 这是一款全黑色的帆布鞋，鞋面采用黑色帆布材质，鞋带和鞋底均为黑色，整体设计简洁大方。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 水景迷彩低帮帆布鞋\n品牌: Dedoles\n商品描述: 这款低帮帆布鞋采用水景迷彩设计，鞋面融合了蓝色、绿色和紫色的渐变图案，搭配蓝色鞋带和白色橡胶鞋头及鞋底。鞋底侧面有一条蓝色条纹，整体设计时尚且充满活力。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 男士硫化橡胶帆布鞋\n品牌: VANCN\n商品描述: 这是一款男士硫化橡胶帆布鞋，鞋面为蓝色，鞋底为白色，配有白色鞋带。",
+        "一级类目: 鞋子\n二级类目: 帆布鞋\n商品标题: 经典白色低帮帆布鞋\n品牌: Canvas-shoes\n商品描述: 这款经典白色低帮帆布鞋采用优质帆布材质，搭配白色鞋带和橡胶鞋底，设计简约时尚，适合日常休闲穿着。鞋内标有尺码37，适合追求舒适与百搭风格的用户。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "canvas_tote_bag",
+      "category": "箱包",
+      "canonical_zh": "帆布手提袋",
+      "custom_query": "我想找一款属于“箱包”类目的“帆布手提袋”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "canvas_tote_bag_0033",
+        "canvas_tote_bag_0010",
+        "canvas_tote_bag_0068",
+        "canvas_tote_bag_0002",
+        "canvas_tote_bag_0080"
+      ],
+      "top5_indices": [
+        632,
+        609,
+        667,
+        601,
+        679
+      ],
+      "top5_image_paths": [
+        "images/bags/canvas_tote_bag/000033.jpg",
+        "images/bags/canvas_tote_bag/000010.jpg",
+        "images/bags/canvas_tote_bag/000068.jpg",
+        "images/bags/canvas_tote_bag/000002.jpg",
+        "images/bags/canvas_tote_bag/000080.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 帆布手提袋样机\n品牌: Freepik\n商品描述: 这款帆布手提袋采用米色帆布材质，配有黑色提手，设计简约大方。袋身印有精美的日落风景图案，色彩丰富，包括橙色、紫色和蓝色等，营造出宁静而美丽的自然氛围。手提袋适合用于购物、休闲或日常使用，既实用又美观。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 定制帆布手提袋\n品牌: 新秀丽\n商品描述: 这款定制帆布手提袋采用米色帆布材质，搭配棕色皮革手柄，设计简约大方。适合日常使用或作为礼品。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 环保帆布手提袋 黑色提手 可定制\n品牌: Storage\n商品描述: 这款帆布手提袋采用天然米色帆布材质，搭配黑色提手，设计简约大方，适合日常购物、环保出行等多种场景。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 8盎司小号12英寸天然帆布手提袋\n品牌: Cotton Creations\n商品描述: 这款8盎司小号12英寸天然帆布手提袋，采用优质天然帆布材质，手感柔软，耐用性强。手提袋设计简洁大方，适合日常购物、休闲出行等多种场合使用。手提带结实舒适，方便携带。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 纯色帆布手提袋\n品牌: Namibian\n商品描述: 纯色帆布手提袋，简约设计，适合日常使用。"
+      ],
+      "top5_scores": [
+        5.0,
+        3.0,
+        0.0,
+        -1.0,
+        -2.0
+      ],
+      "filtered_product_ids": [
+        "canvas_tote_bag_0039",
+        "canvas_tote_bag_0019",
+        "canvas_tote_bag_0046",
+        "canvas_tote_bag_0017",
+        "canvas_tote_bag_0011"
+      ],
+      "filtered_indices": [
+        638,
+        618,
+        645,
+        616,
+        610
+      ],
+      "filtered_image_paths": [
+        "images/bags/canvas_tote_bag/000039.jpg",
+        "images/bags/canvas_tote_bag/000019.jpg",
+        "images/bags/canvas_tote_bag/000046.jpg",
+        "images/bags/canvas_tote_bag/000017.jpg",
+        "images/bags/canvas_tote_bag/000011.jpeg"
+      ],
+      "filtered_documents": [
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 帆布手提袋样机\n品牌: Freepik\n商品描述: 米色帆布手提袋，正面印有彩色抽象图案和“Canvas Tote Mockup”字样，适合用于商品样机展示。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 定制帆布手提袋\n品牌: 迈克高仕\n商品描述: 这是一款米色帆布手提袋，配有棕色皮革手柄。包身正面印有黑色“Custom canvas tote bag”字样。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 定制帆布手提袋\n品牌: 迈克高仕\n商品描述: 这款定制帆布手提袋采用米色帆布材质，搭配棕色皮革手柄，设计简约大方。适合日常使用或作为礼品。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 纯色加厚帆布手提袋\n品牌: Freepik\n商品描述: 纯色加厚帆布手提袋，简约设计，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 帆布手提袋\n商品标题: 简约纯色帆布手提袋\n品牌: Playground\n商品描述: 这款简约纯色帆布手提袋采用优质帆布材质，手感柔软，耐用性强。设计简洁大方，适合日常购物、休闲出行等多种场合。手提带设计舒适，方便携带。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          3,
+          6,
+          7,
+          8
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "carnation_bouquet",
+      "category": "鲜花",
+      "canonical_zh": "康乃馨花束",
+      "custom_query": "我想找一款属于“鲜花”类目的“康乃馨花束”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "carnation_bouquet_0074",
+        "carnation_bouquet_0081",
+        "carnation_bouquet_0073",
+        "carnation_bouquet_0037",
+        "carnation_bouquet_0059"
+      ],
+      "top5_indices": [
+        1573,
+        1580,
+        1572,
+        1536,
+        1558
+      ],
+      "top5_image_paths": [
+        "images/flowers/carnation_bouquet/000074.jpg",
+        "images/flowers/carnation_bouquet/000081.jpg",
+        "images/flowers/carnation_bouquet/000073.jpg",
+        "images/flowers/carnation_bouquet/000037.jpg",
+        "images/flowers/carnation_bouquet/000059.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 可爱粉色康乃馨花束\n品牌: Fnp\n商品描述: 花束由粉色康乃馨和紫色满天星组成，用棕色麻布包装，系有麻绳。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 可爱橙色康乃馨花束\n品牌: Fnp\n商品描述: 这款可爱的橙色康乃馨花束，由多朵盛开的橙色康乃馨组成，搭配白色满天星和绿色叶子，整体包装在麻布中，显得温馨而优雅。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: Martina 康乃馨花束\n品牌: HEVA GIFTS\n商品描述: Martina 康乃馨花束，包含红色和粉色康乃馨，搭配满天星装饰，采用粉色包装纸和深红色丝带包装。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 康乃馨花束\n品牌: Blooms Flora\n商品描述: 这款康乃馨花束由红色和粉色的康乃馨组成，搭配满天星作为点缀，整体用粉色和金色的包装纸包裹，显得优雅而温馨。花束上印有Blooms Flora的品牌标识，适合用于表达爱意、祝福或庆祝特殊场合。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 康乃馨花束\n品牌: Blooms Flora\n商品描述: 这款康乃馨花束由红色和粉色的康乃馨组成，搭配满天星作为点缀，整体包装采用粉色和金色的包装纸，显得高贵典雅。花束底部系有品牌丝带，适合用于表达爱意和祝福。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        1.0,
+        0.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "carnation_bouquet_0082",
+        "carnation_bouquet_0076",
+        "carnation_bouquet_0086",
+        "carnation_bouquet_0095",
+        "carnation_bouquet_0018"
+      ],
+      "filtered_indices": [
+        1581,
+        1575,
+        1585,
+        1594,
+        1517
+      ],
+      "filtered_image_paths": [
+        "images/flowers/carnation_bouquet/000082.jpg",
+        "images/flowers/carnation_bouquet/000076.jpg",
+        "images/flowers/carnation_bouquet/000086.jpg",
+        "images/flowers/carnation_bouquet/000095.jpg",
+        "images/flowers/carnation_bouquet/000018.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 可爱橙色康乃馨花束\n品牌: Fnp\n商品描述: 这款可爱的橙色康乃馨花束由多朵盛开的橙色康乃馨组成，搭配白色满天星点缀，整体用麻布包装，显得自然温馨。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 可爱橙色康乃馨花束\n品牌: Fnp\n商品描述: 这款可爱的橙色康乃馨花束由多朵盛开的橙色康乃馨组成，搭配白色满天星点缀，整体用麻布包裹，显得温馨而自然。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 粉色康乃馨与白玫瑰混合花束\n品牌: AfterRain Florist\n商品描述: 包含粉色康乃馨、白色玫瑰和绿叶的精美花束，适合母亲节或感谢礼物。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 粉色康乃馨花束\n品牌: Thatflowershop\n商品描述: 粉色康乃馨花束，适合日常使用。",
+        "一级类目: 鲜花\n二级类目: 康乃馨花束\n商品标题: 粉色康乃馨与白玫瑰混合花束\n品牌: Animalia-life\n商品描述: 包含粉色康乃馨、白色玫瑰、满天星和绿色叶材的精美花束，包装有白色包装纸和麻绳，系有粉色和白色丝带。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          5,
+          6,
+          7
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "compact_microwave",
+      "category": "微波炉",
+      "canonical_zh": "台式微波炉",
+      "custom_query": "我想找一款属于“微波炉”类目的“台式微波炉”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "compact_microwave_0011",
+        "compact_microwave_0069",
+        "retro_microwave_0045",
+        "compact_microwave_0028",
+        "compact_microwave_0050"
+      ],
+      "top5_indices": [
+        2510,
+        2568,
+        2844,
+        2527,
+        2549
+      ],
+      "top5_image_paths": [
+        "images/microwave_ovens/compact_microwave/000011.jpg",
+        "images/microwave_ovens/compact_microwave/000069.jpg",
+        "images/microwave_ovens/retro_microwave/000045.jpg",
+        "images/microwave_ovens/compact_microwave/000028.jpg",
+        "images/microwave_ovens/compact_microwave/000050.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 微波炉\n二级类目: 台式微波炉\n商品标题: Comfee 复古风格多功能微波炉，带预设菜单和数字显示屏\n品牌: Comfee\n商品描述: 这款 Comfee 微波炉采用复古设计，外观为米色，带有垂直门把手和数字显示屏。微波炉内部可见爆米花包装袋，表明其具备预设的爆米花功能。控制面板上有多个按钮，包括预设菜单选择、重量/时间/菜单选择、解冻、定时/时钟、30秒快速启动等功能。显示屏上显示时间为0:28。",
+        "一级类目: 微波炉\n二级类目: 台式微波炉\n商品标题: Mainstays 0.7 立方英尺紧凑型台式微波炉\n品牌: Mainstays\n商品描述: 这是一款黑色的紧凑型台式微波炉，容量为 0.7 立方英尺。微波炉正面有一个透明的观察窗，右侧是控制面板，包括数字键盘和多个预设功能按钮，如土豆、爆米花、披萨、饮料、冷冻餐、重解冻、时钟、厨房定时器、功率等级、快速烹饪等。微波炉顶部有通风口，底部有支撑脚。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia Electrics 0.9立方英尺800瓦复古微波炉 - 红色\n品牌: Nostalgia Electrics\n商品描述: 这款Nostalgia Electrics复古微波炉采用经典的红色外观，搭配白色门把手和银色装饰条，完美复刻了20世纪50年代的设计风格。微波炉尺寸为20.50 x 16.50 x 11.50英寸，适合放置在厨房台面上，不占用过多空间。控制面板配备数字显示屏和旋钮，方便用户设置时间和功率。0.9立方英尺的容量足以满足日常烹饪需求，800瓦的功率确保食物快速均匀加热。这款微波炉不仅功能实用，还是一件精美的厨房装饰品，为您的厨房增添一抹复古风情。",
+        "一级类目: 微波炉\n二级类目: 紧凑型微波炉\n商品标题: SIMOE 紧凑型微波炉，专为小空间设计\n品牌: SIMOE\n商品描述: 这款紧凑型微波炉专为小空间设计，适合放置在厨房台面上。微波炉门打开，内部放置了一块披萨，显示其实际使用场景。控制面板上有多个按钮和一个旋钮，方便用户操作。微波炉外观简洁，适合现代厨房环境。",
+        "一级类目: 微波炉\n二级类目: 紧凑型微波炉\n商品标题: SIMOE 紧凑型微波炉，专为小空间设计，带自动烹饪功能\n品牌: SIMOE\n商品描述: 这款紧凑型微波炉专为小空间设计，适合放置在厨房台面上。它配备了自动烹饪功能，方便用户快速加热食物。微波炉的门是打开的，可以看到内部正在加热披萨。控制面板上有多个按钮和一个旋钮，用于调节时间和功率。微波炉的外观简洁，适合现代厨房的装饰风格。"
+      ],
+      "top5_scores": [
+        0.0,
+        -1.0,
+        5.0,
+        3.0,
+        2.0
+      ],
+      "filtered_product_ids": [
+        "retro_microwave_0077",
+        "solo_microwave_0096",
+        "compact_microwave_0025",
+        "grill_microwave_0008",
+        "compact_microwave_0096"
+      ],
+      "filtered_indices": [
+        2876,
+        2995,
+        2524,
+        2707,
+        2595
+      ],
+      "filtered_image_paths": [
+        "images/microwave_ovens/retro_microwave/000077.jpg",
+        "images/microwave_ovens/solo_microwave/000096.png",
+        "images/microwave_ovens/compact_microwave/000025.jpg",
+        "images/microwave_ovens/grill_microwave/000008.jpeg",
+        "images/microwave_ovens/compact_microwave/000096.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia Electrics 复古微波炉 - 红色\n品牌: Nostalgia Electrics\n商品描述: 这款 Nostalgia Electrics 复古微波炉采用经典的红色外观，具有紧凑的占地面积，适合各种厨房空间。其复古设计包括圆形门和镀铬装饰，提供现代厨房所需的怀旧风格。微波炉配备数字时钟和多个控制按钮，方便用户操作。",
+        "一级类目: 微波炉\n二级类目: 单功能微波炉\n商品标题: 松下 Panasonic 单功能微波炉 黑色 家用 智能控制\n品牌: 松下\n商品描述: 松下单功能微波炉，采用黑色外观设计，简约时尚。配备智能触控面板，操作便捷。适合家庭日常使用，快速加热食物，保持营养。",
+        "一级类目: 微波炉\n二级类目: 小型微波炉\n商品标题: Comfee复古小型微波炉，9种预设菜单，900瓦\n品牌: Comfee\n商品描述: 这款Comfee复古小型微波炉采用蓝色外观，设计简约时尚，适合现代厨房。配备9种预设菜单，包括爆米花、饮料、蔬菜、肉类、披萨、土豆、意大利面、汤和重热功能，操作便捷。900瓦功率，容量为0.7立方英尺，适合单人或小家庭使用。数字显示屏和旋钮+按钮控制方式，方便用户轻松操作。不锈钢门把手和玻璃门设计，美观耐用。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 东芝34L烧烤微波炉 MM-EG34P(BK)\n品牌: 东芝\n商品描述: 这款东芝34L烧烤微波炉采用黑色外观设计，配备数字按键控制面板和LED显示屏，支持烧烤、微波和组合功能，适合家庭日常使用。",
+        "一级类目: 微波炉\n二级类目: 小型微波炉\n商品标题: Comfee 复古小型微波炉，9 种预设菜单，900 瓦\n品牌: Comfee\n商品描述: 这款 Comfee 复古小型微波炉采用时尚的蓝色外观，适合现代厨房。配备 900 瓦功率和 0.7 立方英尺容量，满足日常烹饪需求。内置 9 种预设菜单，包括爆米花、饮料、蔬菜、肉类、披萨、土豆、意大利面、汤和重热功能，操作简便。数字 LED 显示屏和旋钮 + 按钮控制方式，提供精准的时间控制和多种烹饪模式。不锈钢门把手和金属网门设计，兼具美观与实用性。ECO 模式和 30 秒快速加热功能，节能环保，使用便捷。"
+      ],
+      "top5_relevance_ratio": 0.4,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          6,
+          7,
+          1,
+          3,
+          4
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "convection_microwave",
+      "category": "微波炉",
+      "canonical_zh": "蒸烤一体机",
+      "custom_query": "我想找一款属于“微波炉”类目的“蒸烤一体机”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "convection_microwave_0036",
+        "convection_microwave_0062",
+        "convection_microwave_0004",
+        "convection_microwave_0019",
+        "grill_microwave_0076"
+      ],
+      "top5_indices": [
+        2635,
+        2661,
+        2603,
+        2618,
+        2775
+      ],
+      "top5_image_paths": [
+        "images/microwave_ovens/convection_microwave/000036.jpg",
+        "images/microwave_ovens/convection_microwave/000062.jpg",
+        "images/microwave_ovens/convection_microwave/000004.jpg",
+        "images/microwave_ovens/convection_microwave/000019.png",
+        "images/microwave_ovens/grill_microwave/000076.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 微波炉\n二级类目: 蒸烤一体机\n商品标题: 轻糖烘焙 轻松制作 如云朵般松软戚风\n品牌: 美的\n商品描述: 轻糖烘焙 轻松制作 如云朵般松软戚风 智造研发减糖烘焙烹饪 减糖40% 糖水摄入29% 碳水摄入 低糖人士 健身塑形人士更友好",
+        "一级类目: 微波炉\n二级类目: 蒸烤一体机\n商品标题: 轻糖烘焙 轻松制作 如云朵般松软戚风\n品牌: 美的\n商品描述: 轻糖烘焙 轻松制作 如云朵般松软戚风 智造研发减糖烘焙烹饪 减糖40% 糖水摄入29% 碳水摄入 低糖人士 健身塑形人士更友好",
+        "一级类目: 微波炉\n二级类目: 对流式微波炉\n商品标题: 惠而浦 29L 对流式微波炉带空气炸功能 黑色\n品牌: 惠而浦\n商品描述: 这款惠而浦 29L 对流式微波炉带空气炸功能，外观为黑色，设计现代，适合家庭使用。",
+        "一级类目: 微波炉\n二级类目: 对流式微波炉\n商品标题: 夏普平板对流式微波炉带烧烤功能 25升\n品牌: SHARP\n商品描述: 这款夏普平板对流式微波炉带烧烤功能，容量为25升，适合家庭日常使用。其黑色玻璃面板设计现代简约，银色金属门把手增添质感。微波炉配备数字显示屏和触摸按键控制面板，操作便捷。内置微波、对流和烧烤功能，满足多种烹饪需求。底座为黑色塑料，稳固耐用。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 900W速蒸锁鲜更营养 25升大容量多功能电烤箱\n品牌: 格兰仕\n商品描述: 900W速蒸锁鲜更营养，肉质入口够鲜够嫩，15min快蒸鲈鱼，25升大容量，适合家庭使用。"
+      ],
+      "top5_scores": [
+        0.0,
+        -2.0,
+        2.0,
+        1.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "grill_microwave_0022",
+        "grill_microwave_0024",
+        "grill_microwave_0067",
+        "grill_microwave_0073",
+        "grill_microwave_0092"
+      ],
+      "filtered_indices": [
+        2721,
+        2723,
+        2766,
+        2772,
+        2791
+      ],
+      "filtered_image_paths": [
+        "images/microwave_ovens/grill_microwave/000022.jpg",
+        "images/microwave_ovens/grill_microwave/000024.jpg",
+        "images/microwave_ovens/grill_microwave/000067.jpg",
+        "images/microwave_ovens/grill_microwave/000073.jpg",
+        "images/microwave_ovens/grill_microwave/000092.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: SAM MG23A3515AK 烧烤微波炉\n品牌: SAM\n商品描述: 这是一款SAM品牌的烧烤微波炉，具有自动烹饪菜单和除臭功能。微波炉的门是打开的，内部有一个玻璃转盘。控制面板上有多个按钮和一个旋钮，显示屏显示时间为12:00。微波炉放置在木质桌面上，背景模糊。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 美的42L微波炉带烧烤功能数字触控控制1000W功率儿童安全锁7种自动菜单LED显示屏带定时器烧烤烤制烹饪功能大容量银色EG142A5L\n品牌: 美的\n商品描述: 这款美的42L微波炉带烧烤功能，采用数字触控控制，功率为1000W，具有儿童安全锁，提供7种自动菜单，配备LED显示屏和定时器，支持烧烤、微波、组合烹饪等多种功能，适合家庭使用。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 双烧烤微波炉\n品牌: IFB\n商品描述: 这款双烧烤微波炉具有均匀烧烤和上色的功能，适合家庭厨房使用。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 全家烧烤趴定制温馨晚餐时光光波微波双管齐下外酥里嫩好滋味20L适中容量满足三口之家日常需求\n品牌: 美的\n商品描述: 光波+微波双管齐下，外酥里嫩好滋味，20L适中容量，满足三口之家日常需求。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 全家烧烤趴 定制温馨晚餐时光\n品牌: 美的\n商品描述: 光波+微波双管齐下，外酥里嫩好滋味。20L适中容量，满足三口之家日常需求。"
+      ],
+      "top5_relevance_ratio": 0.4,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          6,
+          8,
+          4,
+          5,
+          7
+        ],
+        "filtered_doc_ids": [
+          6,
+          8,
+          4,
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "denim_jacket",
+      "category": "外套",
+      "canonical_zh": "牛仔夹克",
+      "custom_query": "我想找一款属于“外套”类目的“牛仔夹克”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "denim_jacket_0010",
+        "denim_jacket_0094",
+        "denim_jacket_0017",
+        "denim_jacket_0032",
+        "denim_jacket_0060"
+      ],
+      "top5_indices": [
+        2209,
+        2293,
+        2216,
+        2231,
+        2259
+      ],
+      "top5_image_paths": [
+        "images/jackets/denim_jacket/000010.jpg",
+        "images/jackets/denim_jacket/000094.png",
+        "images/jackets/denim_jacket/000017.jpeg",
+        "images/jackets/denim_jacket/000032.jpg",
+        "images/jackets/denim_jacket/000060.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 经典水洗牛仔夹克\n品牌: Freepik\n商品描述: 这款经典水洗牛仔夹克采用优质牛仔布制成，呈现自然的蓝色水洗效果。夹克设计有翻领、双胸袋和双侧袋，门襟和袖口均配有纽扣调节，下摆也可通过纽扣调整松紧。整体风格休闲百搭，适合多种场合穿着。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: Wales Bonner Sea Denim Jacket\n品牌: Wales Bonner\n商品描述: 这款Wales Bonner Sea Denim Jacket是一款经典的牛仔夹克，采用深蓝色牛仔布制成，搭配黑色皮革领，增添时尚感。夹克正面有金属纽扣，左胸有一个带品牌标签的口袋，整体设计简约大方，适合多种场合穿着。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: Wrangler 中洗复古褶裥牛仔夹克\n品牌: Wrangler\n商品描述: 这款 Wrangler 中洗复古褶裥牛仔夹克采用经典牛仔布材质，呈现复古风格。夹克设计有胸前两个带盖口袋，两侧斜插口袋，以及经典的铜色纽扣。中洗蓝色调赋予其独特的复古质感，适合多种休闲场合穿着。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 经典款浅蓝色牛仔夹克\n品牌: Freepik\n商品描述: 这是一款浅蓝色的牛仔夹克，采用经典翻领设计，正面配有纽扣门襟。夹克两侧设有带盖的胸袋，袖口为卷边设计，整体风格休闲百搭。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 经典水洗牛仔夹克\n品牌: Freepik\n商品描述: 这款经典水洗牛仔夹克采用优质牛仔布制成，呈现自然的蓝色水洗效果。夹克设计简洁大方，配有翻领、双胸袋和双侧袋，实用性强。门襟和袖口、下摆均配有纽扣，方便调节松紧。整体风格休闲复古，适合日常穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        3.0,
+        -2.0,
+        2.0,
+        4.0
+      ],
+      "filtered_product_ids": [
+        "denim_jacket_0100",
+        "denim_jacket_0073",
+        "denim_jacket_0083",
+        "denim_jacket_0040",
+        "denim_jacket_0029"
+      ],
+      "filtered_indices": [
+        2299,
+        2272,
+        2282,
+        2239,
+        2228
+      ],
+      "filtered_image_paths": [
+        "images/jackets/denim_jacket/000100.jpg",
+        "images/jackets/denim_jacket/000073.jpg",
+        "images/jackets/denim_jacket/000083.jpg",
+        "images/jackets/denim_jacket/000040.jpeg",
+        "images/jackets/denim_jacket/000029.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 复古水洗牛仔夹克男宽松工装外套\n品牌: 波司登\n商品描述: 这款牛仔夹克采用经典水洗工艺，呈现自然的复古做旧质感。版型宽松舒适，适合日常休闲穿搭。设计有单侧胸袋和单侧贴袋，实用且具工装风格。纽扣门襟设计，翻领造型利落。面料厚实耐磨，适合春秋季节穿着。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 经典牛仔夹克\n品牌: Marks & Spencer\n商品描述: 这款经典牛仔夹克采用优质牛仔布制成，设计简约大方，适合日常穿着。夹克配有棕色纽扣和胸前两个带盖口袋，翻领设计增添时尚感。袖口可调节，方便适应不同体型。内搭灰色T恤，搭配黑色裤子，整体造型休闲舒适。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: 经典牛仔夹克\n品牌: 玛莎百货\n商品描述: 这款经典牛仔夹克采用优质牛仔布制成，设计简约大方，适合日常穿着。夹克配有棕色纽扣和两个胸前口袋，翻领设计增添时尚感。袖口可调节，方便适应不同体型。整体风格休闲百搭，是衣橱中的必备单品。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: Wrangler 中洗复古褶裥牛仔夹克\n品牌: Wrangler\n商品描述: 这款 Wrangler 中洗复古褶裥牛仔夹克采用经典牛仔布材质，设计简约大方。夹克正面配有铜色纽扣，胸前设有两个带盖口袋，两侧为斜插口袋。翻领设计搭配可调节纽扣袖口和下摆，既实用又时尚。适合日常休闲穿着，展现复古风格。",
+        "一级类目: 外套\n二级类目: 牛仔夹克\n商品标题: Gap 女士牛仔夹克\n品牌: Gap\n商品描述: 这款 Gap 女士牛仔夹克采用经典设计，适合日常休闲穿着。夹克采用优质牛仔面料，手感舒适，耐磨耐用。翻领设计增添时尚感，纽扣门襟方便穿脱。双胸袋和双侧袋提供充足的储物空间，满足日常使用需求。袖口和下摆采用直筒设计，版型修身，展现优雅气质。无论是搭配牛仔裤还是休闲裤，都能轻松驾驭，是衣橱必备单品。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          3,
+          8,
+          4,
+          2
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "denim_shirt",
+      "category": "衬衫",
+      "canonical_zh": "牛仔衬衫",
+      "custom_query": "我想找一款属于“衬衫”类目的“牛仔衬衫”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "denim_shirt_0034",
+        "denim_shirt_0039",
+        "denim_shirt_0011",
+        "denim_shirt_0026",
+        "denim_shirt_0059"
+      ],
+      "top5_indices": [
+        3133,
+        3138,
+        3110,
+        3125,
+        3158
+      ],
+      "top5_image_paths": [
+        "images/shirts/denim_shirt/000034.jpg",
+        "images/shirts/denim_shirt/000039.jpg",
+        "images/shirts/denim_shirt/000011.png",
+        "images/shirts/denim_shirt/000026.jpeg",
+        "images/shirts/denim_shirt/000059.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士经典牛仔衬衫\n品牌: Sistema\n商品描述: 这款男士经典牛仔衬衫采用优质牛仔布制成，设计简约大方。长袖款式，翻领设计，单胸袋点缀，纽扣门襟，适合多种场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士经典牛仔衬衫\n品牌: Sistema\n商品描述: 这款男士经典牛仔衬衫采用优质牛仔布制成，设计简约大方。长袖款式，翻领设计，单胸袋点缀，纽扣门襟，适合多种场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士长袖牛仔衬衫\n品牌: Pngtree\n商品描述: 经典款男士牛仔衬衫，采用水洗牛仔面料，质感舒适。设计有双胸袋和纽扣门襟，适合休闲或日常穿着。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士牛仔衬衫长袖纽扣衬衫棉质修身休闲工装衬衫\n品牌: Dubinik\n商品描述: 这是一款男士牛仔衬衫，采用棉质面料，长袖设计，翻领，纽扣门襟，双胸袋，修身版型，适合休闲或工装风格穿着。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士牛仔衬衫长袖纽扣休闲工装衬衫\n品牌: Dubinik\n商品描述: 这款男士牛仔衬衫采用棉质面料，设计简约大方，适合日常休闲或工装场合穿着。衬衫为长袖款式，配有双胸袋和白色纽扣，整体呈现经典蓝色调。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "denim_shirt_0014",
+        "denim_shirt_0020",
+        "denim_shirt_0040",
+        "denim_shirt_0051",
+        "denim_shirt_0075"
+      ],
+      "filtered_indices": [
+        3113,
+        3119,
+        3139,
+        3150,
+        3174
+      ],
+      "filtered_image_paths": [
+        "images/shirts/denim_shirt/000014.jpeg",
+        "images/shirts/denim_shirt/000020.jpg",
+        "images/shirts/denim_shirt/000040.jpg",
+        "images/shirts/denim_shirt/000051.jpg",
+        "images/shirts/denim_shirt/000075.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: Hotojiny男士牛仔衬衫时尚长袖纽扣衬衫带两个口袋牛仔裤外观工作服衬衫\n品牌: Hotojiny\n商品描述: 这款Hotojiny男士牛仔衬衫采用经典牛仔布材质，设计时尚大方。长袖款式，翻领设计，前襟配有纽扣，方便穿脱。胸前设有两个实用口袋，增加储物功能。整体风格休闲，适合日常穿着或作为工作服。宽松的版型设计，穿着舒适，适合各种体型。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士深蓝色长袖牛仔衬衫\n品牌: Menshealth\n商品描述: 这款男士牛仔衬衫采用深蓝色牛仔面料制成，设计简约时尚。长袖设计，袖口可卷起，适合多种场合穿着。双胸袋设计增加了实用性，纽扣门襟方便穿脱。修身版型能够很好地展现身材线条，适合搭配牛仔裤或休闲裤。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: Brooklyn Denim Co. 男士纽扣衬衫\n品牌: Brooklyn Denim Co.\n商品描述: 这款Brooklyn Denim Co.男士纽扣衬衫采用经典牛仔布材质，设计简约大方。衬衫为长袖款式，配有翻领和双胸袋，纽扣为金色，缝线为黄色，整体风格复古且实用。适合日常穿着或休闲场合。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: Brunello Cucinelli 修身切领水洗牛仔衬衫\n品牌: Brunello Cucinelli\n商品描述: 这款 Brunello Cucinelli 男士牛仔衬衫采用修身剪裁，切领设计，水洗蓝色调，金属纽扣点缀，适合休闲或半正式场合穿着。",
+        "一级类目: 衬衫\n二级类目: 牛仔衬衫\n商品标题: 男士经典牛仔衬衫\n品牌: Levi's\n商品描述: 这款男士经典牛仔衬衫采用优质牛仔布制成，设计简约大方，适合日常休闲穿着。衬衫配有双胸袋和金属纽扣，领口为翻领设计，袖口可调节。内搭白色T恤，搭配卡其色裤子，整体造型时尚舒适。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "facial_cleanser",
+      "category": "护肤品",
+      "canonical_zh": "洁面",
+      "custom_query": "我想找一款属于“护肤品”类目的“洁面”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "facial_cleanser_0080",
+        "facial_cleanser_0035",
+        "facial_cleanser_0089",
+        "facial_cleanser_0009",
+        "facial_cleanser_0003"
+      ],
+      "top5_indices": [
+        4079,
+        4034,
+        4088,
+        4008,
+        4002
+      ],
+      "top5_image_paths": [
+        "images/skincare/facial_cleanser/000080.jpg",
+        "images/skincare/facial_cleanser/000035.jpg",
+        "images/skincare/facial_cleanser/000089.jpg",
+        "images/skincare/facial_cleanser/000009.jpeg",
+        "images/skincare/facial_cleanser/000003.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: Phyto-Ceutical Skincare 面部洁面凝胶\n品牌: Phyto-Ceutical Skincare\n商品描述: Phyto-Ceutical Skincare 面部洁面凝胶，含有罗布麻茶提取物，无皂配方，温和清洁肌肤。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: BRAND 洁面乳\n品牌: BRAND\n商品描述: BRAND 品牌洁面乳，适用于所有肤质，采用按压泵头设计，容量为120 mL。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: MooGoo 温和泡沫洁面乳\n品牌: MooGoo\n商品描述: MooGoo 温和泡沫洁面乳，专为敏感肌肤设计，能够温和清洁肌肤，同时舒缓肌肤，预防粉刺。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: BWC 维生素C辅酶Q10洁面乳\n品牌: BWC\n商品描述: BWC 维生素C辅酶Q10洁面乳，富含抗氧化成分，清洁、焕肤、抗氧化，适合所有肤质。",
+        "一级类目: 护肤品\n二级类目: 洁面乳\n商品标题: Cetaphil 丝塔芙 每日洁面乳 16 盎司\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙每日洁面乳，专为正常至油性皮肤设计，温和清洁，适合敏感肌肤，皮肤科医生推荐。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "facial_cleanser_0034",
+        "facial_cleanser_0027",
+        "facial_cleanser_0064",
+        "facial_cleanser_0063",
+        "facial_cleanser_0065"
+      ],
+      "filtered_indices": [
+        4033,
+        4026,
+        4063,
+        4062,
+        4064
+      ],
+      "filtered_image_paths": [
+        "images/skincare/facial_cleanser/000034.jpeg",
+        "images/skincare/facial_cleanser/000027.jpg",
+        "images/skincare/facial_cleanser/000064.jpg",
+        "images/skincare/facial_cleanser/000063.jpg",
+        "images/skincare/facial_cleanser/000065.jpeg"
+      ],
+      "filtered_documents": [
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: BWC 维生素C辅酶Q10洁面乳\n品牌: BWC\n商品描述: BWC 维生素C辅酶Q10洁面乳，富含抗氧化成分，清洁、焕活肌肤。无对羟基苯甲酸酯、无皂基、pH平衡，适合素食者和纯素食者。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: 四款热门洁面乳合集：理肤泉、CeraVe、KORA、Cetaphil\n品牌: 理肤泉\n商品描述: 图片展示了四款不同品牌的洁面产品，包括理肤泉Effaclar、CeraVe保湿洁面、KORA有机洁面和Cetaphil温和洁面。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: 三款热门洁面产品合集\n品牌: Ole Henriksen\n商品描述: 图片展示了三款不同品牌的洁面产品：左侧为 Ole Henriksen 的橙色瓶身泡沫洁面乳，中间为 Kiehl's 的白色管装洁面乳，右侧为 La Roche-Posay 的白色瓶装洁面乳。背景为蓝色水波纹理。",
+        "一级类目: 护肤品\n二级类目: 洁面乳\n商品标题: 四种热门洁面乳合集：理肤泉、CeraVe、KORA、Cetaphil\n品牌: 理肤泉\n商品描述: 图片展示了四款不同品牌的洁面产品，从左至右依次为：理肤泉（La Roche-Posay）Effaclar 清痘净肤洁面凝胶，主打控油祛痘；CeraVe 适乐肤保湿洁面乳，主打保湿修护；KORA Organics 有机洁面乳，主打温和清洁；Cetaphil 丝塔芙温和洁面乳，主打温和不刺激。",
+        "一级类目: 护肤品\n二级类目: 洁面乳\n商品标题: Cetaphil 丝塔芙每日洁面乳 16 盎司\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙每日洁面乳 16 盎司，适合日常使用。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 0.4,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          7
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "floor_standing_ac",
+      "category": "空调",
+      "canonical_zh": "立式空调",
+      "custom_query": "我想找一款属于“空调”类目的“立式空调”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "floor_standing_ac_0094",
+        "floor_standing_ac_0097",
+        "floor_standing_ac_0014",
+        "floor_standing_ac_0013",
+        "floor_standing_ac_0045"
+      ],
+      "top5_indices": [
+        93,
+        96,
+        13,
+        12,
+        44
+      ],
+      "top5_image_paths": [
+        "images/air_conditioners/floor_standing_ac/000094.jpg",
+        "images/air_conditioners/floor_standing_ac/000097.jpeg",
+        "images/air_conditioners/floor_standing_ac/000014.jpg",
+        "images/air_conditioners/floor_standing_ac/000013.jpg",
+        "images/air_conditioners/floor_standing_ac/000045.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: 格力智能立式空调\n品牌: 格力\n商品描述: 格力智能立式空调，具备定时、三维送风、防冷风设计、静音设计、睡眠模式、节能、童锁、电辅热、多档风速等功能，适合家庭和商业场所使用。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: TCL 立式空调\n品牌: TCL\n商品描述: TCL 立式空调，具有简洁的白色外观，配备数字显示屏和顶部出风口，适合家庭或办公室使用。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LED立式空调，侧弧设计，适用于家庭\n品牌: CNCILiang\n商品描述: 这款LED立式空调采用侧弧设计，适用于家庭使用。具备一键强力制冷制热功能，可快速进入舒适模式，让家在一杯茶的功夫内变得温暖。快速制冷，远离高温，快速制热，无惧严寒。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LG 立式空调\n品牌: LG\n商品描述: 图片展示了一台白色的立式空调，放置在现代风格的室内环境中，旁边有绿植和沙发。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LG 立式空调\n品牌: LG\n商品描述: LG 立式空调，外观简洁大方，适合现代家居或办公环境使用。"
+      ],
+      "top5_scores": [
+        -1.0,
+        0.0,
+        -2.0,
+        5.0,
+        4.0
+      ],
+      "filtered_product_ids": [
+        "floor_standing_ac_0073",
+        "floor_standing_ac_0088",
+        "floor_standing_ac_0078",
+        "floor_standing_ac_0043",
+        "floor_standing_ac_0055"
+      ],
+      "filtered_indices": [
+        72,
+        87,
+        77,
+        42,
+        54
+      ],
+      "filtered_image_paths": [
+        "images/air_conditioners/floor_standing_ac/000073.jpg",
+        "images/air_conditioners/floor_standing_ac/000088.jpg",
+        "images/air_conditioners/floor_standing_ac/000078.jpg",
+        "images/air_conditioners/floor_standing_ac/000043.png",
+        "images/air_conditioners/floor_standing_ac/000055.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LG 立式空调\n品牌: LG\n商品描述: LG 立式空调，外观简洁大方，适合现代家居或办公环境使用。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LG 立式空调\n品牌: LG\n商品描述: LG 立式空调，外观简洁大方，适合现代家居或办公环境使用。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: LG 立式空调\n品牌: LG\n商品描述: LG 立式空调，外观简洁，适合现代家居环境。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: 立式空调\n品牌: Globalsources\n商品描述: 现代简约风格的立式空调，适用于客厅或办公室，设计时尚，功能齐全。",
+        "一级类目: 空调\n二级类目: 立式空调\n商品标题: 36000 BTU 立式空调 - 非变频制冷专用\n品牌: 未指定\n商品描述: 这是一款36000 BTU的立式空调，专为制冷设计，非变频型号。外观为白色，适合需要高效制冷的空间使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          7,
+          6,
+          8,
+          1,
+          2
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "gaming_laptop",
+      "category": "电脑",
+      "canonical_zh": "游戏本",
+      "custom_query": "我想找一款属于“电脑”类目的“游戏本”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "gaming_laptop_0027",
+        "gaming_laptop_0084",
+        "gaming_laptop_0068",
+        "gaming_laptop_0020",
+        "gaming_laptop_0063"
+      ],
+      "top5_indices": [
+        1226,
+        1283,
+        1267,
+        1219,
+        1262
+      ],
+      "top5_image_paths": [
+        "images/computers/gaming_laptop/000027.jpg",
+        "images/computers/gaming_laptop/000084.jpg",
+        "images/computers/gaming_laptop/000068.jpg",
+        "images/computers/gaming_laptop/000020.jpg",
+        "images/computers/gaming_laptop/000063.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电脑\n二级类目: 游戏笔记本电脑\n商品标题: 高性能游戏笔记本电脑\n品牌: Dell\n商品描述: 这款高性能游戏笔记本电脑专为游戏玩家设计，配备16英寸高清屏幕，搭载Intel Core i9处理器和NVIDIA GeForce RTX 4080显卡，提供流畅的游戏体验。32GB DDR5内存和1TB NVMe SSD确保快速响应和大容量存储。RGB键盘背光和无线游戏鼠标增添炫酷效果，三风扇散热系统保证长时间游戏稳定运行。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 机械革命 极光Pro 15.6英寸游戏笔记本电脑\n品牌: 机械革命\n商品描述: 机械革命 极光Pro 是一款专为游戏玩家设计的高性能笔记本电脑，配备15.6英寸FHD屏幕，搭载Intel Core i7-10750H处理器和NVIDIA GeForce RTX 2060显卡，支持RGB背光键盘，提供出色的游戏体验。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 戴尔 G16 16 英寸游戏笔记本电脑\n品牌: 戴尔\n商品描述: 戴尔 G16 游戏笔记本电脑，搭载 Intel Core i7-13700HX 处理器和 NVIDIA GeForce RTX 4060 显卡，配备 16 英寸 2560x1600 分辨率 165Hz 高刷新率屏幕，16GB DDR5 内存和 1TB NVMe SSD 存储，支持 RGB 背光键盘，适合游戏玩家和专业用户。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 联想 Legion 9i 游戏笔记本电脑\n品牌: 联想\n商品描述: 联想 Legion 9i 游戏笔记本电脑，配备16英寸高分辨率屏幕，搭载NVIDIA GeForce RTX显卡和Intel 酷睿 i9处理器，支持RGB背光键盘，适合游戏玩家和专业用户。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 宏碁掠夺者 Helios 游戏笔记本电脑\n品牌: 宏碁\n商品描述: 宏碁掠夺者 Helios 游戏笔记本电脑，配备高性能处理器和独立显卡，适合游戏玩家和专业用户。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        1.0,
+        -1.0,
+        -3.0
+      ],
+      "filtered_product_ids": [
+        "gaming_laptop_0029",
+        "gaming_laptop_0025",
+        "gaming_laptop_0061",
+        "gaming_laptop_0039",
+        "gaming_laptop_0065"
+      ],
+      "filtered_indices": [
+        1228,
+        1224,
+        1260,
+        1238,
+        1264
+      ],
+      "filtered_image_paths": [
+        "images/computers/gaming_laptop/000029.jpg",
+        "images/computers/gaming_laptop/000025.jpg",
+        "images/computers/gaming_laptop/000061.jpg",
+        "images/computers/gaming_laptop/000039.jpg",
+        "images/computers/gaming_laptop/000065.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 华硕游戏笔记本电脑\n品牌: 华硕\n商品描述: 这是一款华硕品牌的游戏笔记本电脑，机身主要为黑色，键盘带有RGB背光效果，触控板边缘有红色装饰。屏幕显示着充满科幻色彩的游戏壁纸，背景中有一个发光的角色形象。笔记本旁边放置着一个鼠标，背景中可以看到一台带有RGB风扇的台式电脑主机。整体环境灯光昏暗，营造出一种科技感十足的氛围。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 最佳游戏笔记本电脑\n品牌: 外星人\n商品描述: 展示了两款顶级游戏笔记本电脑，一款为外星人品牌，屏幕显示《S.T.A.L.K.E.R. 2：心之深渊》游戏画面，另一款为ROG品牌，屏幕显示“FOR THOSE WHO DARE”标语。背景为渐变色，左上角有“PCGamesN BEST GAMING LAPTOP”字样。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: GAMING SERIES 17 游戏本\n品牌: LOGO\n商品描述: 17英寸宽屏游戏本，100%高清生产力，RGB背光键盘，支持9.0 RGB，美国最佳科技公司NO.1。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: RTX 40系列游戏笔记本电脑\n品牌: Idgameware\n商品描述: 这是一款配备RTX 40系列显卡的游戏笔记本电脑，具有RGB背光键盘和高刷新率显示屏，适合游戏玩家使用。",
+        "一级类目: 电脑\n二级类目: 游戏本\n商品标题: 华硕TUF Gaming与宏碁Nitro游戏笔记本电脑对比\n品牌: 华硕\n商品描述: 图片展示了两款游戏笔记本电脑，左侧为华硕TUF Gaming系列，屏幕显示橙色背景，键盘带有橙色背光；右侧为宏碁Nitro系列，屏幕显示游戏画面，键盘带有红色背光。两款笔记本均配备高性能配置，适合游戏玩家使用。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          5,
+          7,
+          9
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          5,
+          7,
+          9
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "gaming_tv",
+      "category": "电视",
+      "canonical_zh": "游戏电视",
+      "custom_query": "我想找一款属于“电视”类目的“游戏电视”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "gaming_tv_0032",
+        "gaming_tv_0008",
+        "gaming_tv_0044",
+        "gaming_tv_0006",
+        "gaming_tv_0031"
+      ],
+      "top5_indices": [
+        4631,
+        4607,
+        4643,
+        4605,
+        4630
+      ],
+      "top5_image_paths": [
+        "images/televisions/gaming_tv/000032.jpg",
+        "images/televisions/gaming_tv/000008.jpg",
+        "images/televisions/gaming_tv/000044.jpg",
+        "images/televisions/gaming_tv/000006.jpg",
+        "images/televisions/gaming_tv/000031.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 三星游戏电视\n品牌: 三星\n商品描述: 三星游戏电视，配备三星游戏中心，支持Xbox Game Pass、Halo Infinite、Fortnite等游戏，内置多种游戏应用和配件，提供沉浸式游戏体验。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 三星游戏电视\n品牌: 三星\n商品描述: 专为游戏玩家打造，搭载144Hz高刷新率与1ms响应速度，支持HDMI 2.1接口，带来极致流畅的游戏体验。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: TCL QLED C745 游戏电视\n品牌: TCL\n商品描述: TCL QLED C745 游戏电视，配备 144Hz 刷新率、VRR 可变刷新率、Game Master 游戏模式及 HDR1000 高动态范围，支持 Google TV 系统。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 飞利浦游戏电视\n品牌: 飞利浦\n商品描述: 专为游戏玩家设计，支持120Hz高刷新率，提供流畅游戏体验。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 索尼游戏电视\n品牌: 索尼\n商品描述: 这是一款专为游戏玩家设计的索尼游戏电视，支持4K分辨率和120Hz刷新率，提供流畅的游戏体验。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        2.0,
+        3.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "gaming_tv_0011",
+        "gaming_tv_0018",
+        "gaming_tv_0024",
+        "gaming_tv_0010",
+        "gaming_tv_0019"
+      ],
+      "filtered_indices": [
+        4610,
+        4617,
+        4623,
+        4609,
+        4618
+      ],
+      "filtered_image_paths": [
+        "images/televisions/gaming_tv/000011.jpg",
+        "images/televisions/gaming_tv/000018.jpg",
+        "images/televisions/gaming_tv/000024.jpg",
+        "images/televisions/gaming_tv/000010.jpg",
+        "images/televisions/gaming_tv/000019.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 三星游戏电视\n品牌: 三星\n商品描述: 专为游戏玩家打造，支持144Hz高刷新率，低延迟，完美呈现《堡垒之夜》等游戏画面。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 索尼游戏电视展示《瑞奇与叮当：时空跳转》\n品牌: 索尼\n商品描述: 这款索尼游戏电视专为游戏玩家设计，支持4K分辨率和120Hz刷新率，提供流畅的游戏体验。屏幕显示效果出色，色彩鲜艳，适合观看《瑞奇与叮当：时空跳转》等游戏。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 游戏电视\n品牌: Uk\n商品描述: 专为游戏玩家设计，支持高刷新率和低延迟，提供沉浸式游戏体验。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 三星游戏电视套装\n品牌: 三星\n商品描述: 专为游戏玩家打造，支持120Hz高刷新率，配备Game Pass游戏订阅服务，画面色彩鲜艳，响应速度快。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 索尼游戏电视展示《瑞奇与叮当：时空跳转》\n品牌: 索尼\n商品描述: 这款索尼游戏电视专为游戏玩家设计，支持4K分辨率和120Hz刷新率，提供流畅的游戏体验。电视屏幕上正在播放《瑞奇与叮当：时空跳转》，展示了其出色的色彩表现和动态效果。电视采用黑色边框设计，外观简洁现代，适合各种家居环境。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          4,
+          3,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "grill_microwave",
+      "category": "微波炉",
+      "canonical_zh": "烧烤微波炉",
+      "custom_query": "我想找一款属于“微波炉”类目的“烧烤微波炉”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "grill_microwave_0044",
+        "grill_microwave_0058",
+        "grill_microwave_0014",
+        "grill_microwave_0035",
+        "grill_microwave_0046"
+      ],
+      "top5_indices": [
+        2743,
+        2757,
+        2713,
+        2734,
+        2745
+      ],
+      "top5_image_paths": [
+        "images/microwave_ovens/grill_microwave/000044.jpg",
+        "images/microwave_ovens/grill_microwave/000058.jpg",
+        "images/microwave_ovens/grill_microwave/000014.jpg",
+        "images/microwave_ovens/grill_microwave/000035.jpg",
+        "images/microwave_ovens/grill_microwave/000046.png"
+      ],
+      "top5_documents": [
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 双烧烤微波炉\n品牌: IFB\n商品描述: 这款双烧烤微波炉能够实现均匀烧烤和上色，适合家庭厨房使用。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 双烧烤微波炉\n品牌: IFB\n商品描述: 这款双烧烤微波炉具有均匀烧烤和上色的功能，适合家庭厨房使用。",
+        "一级类目: 微波炉\n二级类目: 带烧烤功能的微波炉\n商品标题: 美的 (Midea) MMO-EG925MX 微波炉带烧烤功能\n品牌: 美的\n商品描述: 这是一款美的 (Midea) 品牌的微波炉，型号为 MMO-EG925MX。它具备微波和烧烤双重烹饪功能，提供 800W 的微波输出功率。产品拥有 6 个自动菜单，方便用户快速烹饪。包装上显示该产品为官方合作伙伴产品，并提供 10 年保修服务。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: 松下 20L 烧烤微波炉 机械旋钮\n品牌: 松下\n商品描述: 松下20L烧烤微波炉，配备机械旋钮，提供健康烧烤和微波功能，带来美味结果。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 20PG4S 20升 烧烤微波炉\n品牌: IFB\n商品描述: IFB 20PG4S 是一款20升容量的烧烤微波炉，外观设计简洁，采用黑色和银色搭配。控制面板上有多个功能按键，包括烧烤、微波、解冻等模式，显示屏清晰显示时间和设置。适合家庭日常使用，提供便捷的烹饪体验。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "grill_microwave_0067",
+        "convection_microwave_0026",
+        "grill_microwave_0002",
+        "convection_microwave_0100",
+        "grill_microwave_0006"
+      ],
+      "filtered_indices": [
+        2766,
+        2625,
+        2701,
+        2699,
+        2705
+      ],
+      "filtered_image_paths": [
+        "images/microwave_ovens/grill_microwave/000067.jpg",
+        "images/microwave_ovens/convection_microwave/000026.png",
+        "images/microwave_ovens/grill_microwave/000002.png",
+        "images/microwave_ovens/convection_microwave/000100.jpg",
+        "images/microwave_ovens/grill_microwave/000006.png"
+      ],
+      "filtered_documents": [
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 双烧烤微波炉\n品牌: IFB\n商品描述: 这款双烧烤微波炉具有均匀烧烤和上色的功能，适合家庭厨房使用。",
+        "一级类目: 微波炉\n二级类目: 对流式微波炉\n商品标题: IFB 30BRC3 对流式微波炉，黑色，30升，101种自动烹饪菜单\n品牌: IFB\n商品描述: 这款IFB 30BRC3对流式微波炉采用黑色外观，配备银色门把手和数字显示屏。它具有101种自动烹饪菜单，支持对流式烹饪、烧烤和微波加热功能。控制面板上有多个按钮，方便用户选择不同的烹饪模式。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 20升金属银色烧烤微波炉\n品牌: IFB\n商品描述: 这款IFB烧烤微波炉采用金属银色外观，容量为20升，适合家庭使用。门已打开，内部灯亮起，显示内部空间宽敞，配有玻璃转盘。控制面板位于右侧，具有多种烹饪模式，包括烧烤、微波和组合烹饪功能。",
+        "一级类目: 微波炉\n二级类目: 蒸烤一体机\n商品标题: DAEWOO 大宇 星河灵动UI触控 智能蒸烤一体机 家用多功能烤箱\n品牌: DAEWOO\n商品描述: DAEWOO 大宇星河灵动UI触控蒸烤一体机，内置67道智能菜谱，无需调控火候时间，自动烹饪无需看管，一键出炉更省功夫。专业广域控温技术，一机满足解冻、发酵、风干、保温等重要环节，家里料理的好帮手。",
+        "一级类目: 微波炉\n二级类目: 烧烤微波炉\n商品标题: IFB 20PG4S 烧烤微波炉\n品牌: IFB\n商品描述: IFB 20PG4S 烧烤微波炉，具有20升容量，采用金属银色设计，配备数字显示屏和多种烹饪功能，适合家庭使用。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 0.4,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          8,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "hawaiian_floral_shirt",
+      "category": "衬衫",
+      "canonical_zh": "夏威夷花衬衫",
+      "custom_query": "我想找一款属于“衬衫”类目的“夏威夷花衬衫”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "hawaiian_floral_shirt_0040",
+        "hawaiian_floral_shirt_0072",
+        "hawaiian_floral_shirt_0005",
+        "hawaiian_floral_shirt_0088",
+        "hawaiian_floral_shirt_0058"
+      ],
+      "top5_indices": [
+        3239,
+        3271,
+        3204,
+        3287,
+        3257
+      ],
+      "top5_image_paths": [
+        "images/shirts/hawaiian_floral_shirt/000040.jpg",
+        "images/shirts/hawaiian_floral_shirt/000072.jpg",
+        "images/shirts/hawaiian_floral_shirt/000005.jpg",
+        "images/shirts/hawaiian_floral_shirt/000088.jpeg",
+        "images/shirts/hawaiian_floral_shirt/000058.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 夏威夷花衬衫\n品牌: Giftwingz\n商品描述: 这款夏威夷花衬衫采用黑色底色，搭配橙色、蓝色和绿色的花卉与叶子图案，设计时尚且充满活力。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 夏威夷花衬衫\n品牌: Giftwingz\n商品描述: 这款夏威夷花衬衫采用黑色底色，搭配橙色、蓝色和绿色的花卉与叶子图案，设计时尚且充满活力。适合休闲场合穿着，展现出轻松愉悦的风格。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 夏威夷花衬衫\n品牌: Giftwingz\n商品描述: 这款夏威夷花衬衫采用黑色底色，搭配橙色、蓝色和绿色的花卉与叶子图案，设计时尚且充满活力。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 复古3D印花夏威夷花衬衫男士夏季宽松翻领休闲街头风海滩短袖衬衫\n品牌: 海澜之家\n商品描述: 这款复古3D印花夏威夷花衬衫采用宽松版型设计，适合夏季穿着。衬衫以鲜艳的花卉图案为主，搭配绿色叶子，充满热带风情。翻领设计，短袖款式，适合休闲、街头风或海滩风格穿搭。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 黑色底红色黄色花卉图案夏威夷衬衫\n品牌: George\n商品描述: 这款夏威夷花衬衫以黑色为底色，上面印有鲜艳的红色和黄色花朵图案，搭配绿色的叶子，整体设计充满热带风情。衬衫采用V领设计，短袖款式，适合夏季穿着。面料看起来柔软舒适，适合日常休闲或度假时穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "hawaiian_floral_shirt_0002",
+        "hawaiian_floral_shirt_0071",
+        "hawaiian_floral_shirt_0038",
+        "hawaiian_floral_shirt_0032",
+        "hawaiian_floral_shirt_0041"
+      ],
+      "filtered_indices": [
+        3201,
+        3270,
+        3237,
+        3231,
+        3240
+      ],
+      "filtered_image_paths": [
+        "images/shirts/hawaiian_floral_shirt/000002.jpg",
+        "images/shirts/hawaiian_floral_shirt/000071.jpg",
+        "images/shirts/hawaiian_floral_shirt/000038.jpg",
+        "images/shirts/hawaiian_floral_shirt/000032.jpg",
+        "images/shirts/hawaiian_floral_shirt/000041.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 热带白色木槿花与绿叶图案夏威夷衬衫\n品牌: Trendy Aloha\n商品描述: 这款夏威夷衬衫采用鲜艳的热带花卉图案，包括白色木槿花和绿色叶子，背景为蓝色和绿色波浪纹。适合海滩度假或休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 男士夏威夷花衬衫短袖休闲度假风印花衬衫\n品牌: Fity\n商品描述: 这款男士夏威夷花衬衫采用短袖设计，翻领款式，修身版型，适合休闲度假穿着。衬衫以深蓝色为底色，印有鲜艳的红色花朵和绿色叶子图案，整体风格时尚且充满活力。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 热带花卉图案夏威夷衬衫\n品牌: Ar\n商品描述: 这款夏威夷花衬衫采用鲜艳的热带花卉图案设计，红色和绿色的花朵在深蓝色背景上显得格外醒目。衬衫适合在度假或休闲场合穿着，带来轻松愉悦的氛围。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 男士夏威夷花衬衫 棉麻短袖纽扣衬衫\n品牌: COOFANDY\n商品描述: 这款男士夏威夷花衬衫采用棉麻材质，短袖设计，翻领和纽扣门襟，图案为蓝色底色上的绿色叶子和粉色花朵，适合休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 夏威夷花衬衫\n商品标题: 定制夏威夷花衬衫 - 热带图案带自定义面孔\n品牌: Printerval\n商品描述: 这款夏威夷花衬衫采用热带图案设计，背景为黑色，配有红色花朵和绿色叶子。衬衫上印有自定义面孔，适合个性化定制。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "hydrating_toner",
+      "category": "护肤品",
+      "canonical_zh": "爽肤水",
+      "custom_query": "我想找一款属于“护肤品”类目的“爽肤水”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "hydrating_toner_0004",
+        "hydrating_toner_0005",
+        "hydrating_toner_0003",
+        "hydrating_toner_0010",
+        "hydrating_toner_0019"
+      ],
+      "top5_indices": [
+        4103,
+        4104,
+        4102,
+        4109,
+        4118
+      ],
+      "top5_image_paths": [
+        "images/skincare/hydrating_toner/000004.jpg",
+        "images/skincare/hydrating_toner/000005.png",
+        "images/skincare/hydrating_toner/000003.jpg",
+        "images/skincare/hydrating_toner/000010.jpg",
+        "images/skincare/hydrating_toner/000019.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: CeraVe 保湿爽肤水 200ml\n品牌: CeraVe\n商品描述: CeraVe 保湿爽肤水，专为正常至干性皮肤设计。含有3种必需神经酰胺、透明质酸和烟酰胺，帮助保湿、去除残留物并恢复皮肤屏障。不含酒精。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Murad 保湿爽肤水\n品牌: Murad\n商品描述: Murad 保湿爽肤水，为肌肤提供深层保湿，帮助肌肤保持水润状态。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: PCA Skin 保湿爽肤水\n品牌: PCA Skin\n商品描述: PCA Skin 保湿爽肤水，质地轻盈，能够深层补水，帮助肌肤保持水润状态。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Skin Cafe 花卉保湿爽肤水\n品牌: Skin Cafe\n商品描述: Skin Cafe 花卉保湿爽肤水，采用天然花卉精华，帮助收缩毛孔，平衡肌肤pH值，适合所有肤质使用。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Beautitionary 保湿爽肤水\n品牌: Beautitionary\n商品描述: Beautitionary 保湿爽肤水，含有玫瑰水和黄瓜成分，为肌肤提供深层保湿。"
+      ],
+      "top5_scores": [
+        0.0,
+        2.0,
+        -3.0,
+        -4.0,
+        5.0
+      ],
+      "filtered_product_ids": [
+        "hydrating_toner_0062",
+        "hydrating_toner_0097",
+        "hydrating_toner_0047",
+        "hydrating_toner_0066",
+        "hydrating_toner_0021"
+      ],
+      "filtered_indices": [
+        4161,
+        4196,
+        4146,
+        4165,
+        4120
+      ],
+      "filtered_image_paths": [
+        "images/skincare/hydrating_toner/000062.jpg",
+        "images/skincare/hydrating_toner/000097.jpg",
+        "images/skincare/hydrating_toner/000047.png",
+        "images/skincare/hydrating_toner/000066.jpg",
+        "images/skincare/hydrating_toner/000021.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Beautitionary 保湿爽肤水\n品牌: Beautitionary\n商品描述: Beautitionary 保湿爽肤水，含有玫瑰水和黄瓜成分，适合所有肤质使用。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Beautitionary 保湿爽肤水\n品牌: Beautitionary\n商品描述: Beautitionary 保湿爽肤水，含有玫瑰水和黄瓜成分，适合日常保湿使用。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: Murad 保湿爽肤水\n品牌: Murad\n商品描述: Murad 保湿爽肤水，为肌肤提供深层保湿，帮助肌肤保持水润状态。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: CeraVe 保湿爽肤水 200ml\n品牌: CeraVe\n商品描述: CeraVe 保湿爽肤水，专为正常至干性皮肤设计。含有3种必需神经酰胺、透明质酸和烟酰胺，帮助保湿、去除残留物并恢复皮肤屏障。无酒精配方。",
+        "一级类目: 护肤品\n二级类目: 爽肤水\n商品标题: CeraVe 保湿爽肤水 200ml\n品牌: CeraVe\n商品描述: CeraVe 保湿爽肤水，专为正常至干性皮肤设计。含有3种必需神经酰胺、透明质酸和烟酰胺，帮助保湿、去除残留并修复皮肤屏障。无酒精配方。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          6,
+          4,
+          9,
+          10,
+          1
+        ],
+        "filtered_doc_ids": [
+          6,
+          4,
+          9,
+          10,
+          1
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "inverter_ac",
+      "category": "空调",
+      "canonical_zh": "变频空调",
+      "custom_query": "我想找一款属于“空调”类目的“变频空调”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "inverter_ac_0073",
+        "inverter_ac_0025",
+        "inverter_ac_0008",
+        "inverter_ac_0024",
+        "inverter_ac_0095"
+      ],
+      "top5_indices": [
+        172,
+        124,
+        107,
+        123,
+        194
+      ],
+      "top5_image_paths": [
+        "images/air_conditioners/inverter_ac/000073.jpg",
+        "images/air_conditioners/inverter_ac/000025.jpg",
+        "images/air_conditioners/inverter_ac/000008.jpg",
+        "images/air_conditioners/inverter_ac/000024.jpg",
+        "images/air_conditioners/inverter_ac/000095.png"
+      ],
+      "top5_documents": [
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: IFB 变频空调\n品牌: IFB\n商品描述: 这款 IFB 变频空调采用白色设计，配备 FASTCOOL 快速制冷功能，适合家庭使用。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 壁挂式空调\n品牌: LG\n商品描述: LG 壁挂式空调，采用 DUAL Inverter 双级变频技术，配备 ThinQ 智能控制功能，LED 显示屏显示当前温度。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 双变频空调\n品牌: LG\n商品描述: LG 双变频空调，采用双变频压缩机技术，节能省电，快速制冷，运行静音。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 变频空调\n品牌: LG\n商品描述: LG 变频空调，采用 Smart Inverter 技术，外观为白色，背景为绿色自然风格，带有风力发电机和树木图案。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: 海尔荣馨变频空调挂机\n品牌: 海尔\n商品描述: 海尔荣馨系列变频空调，采用高效节能压缩机，新一级能效，静音舒适，适合卧室及客厅使用。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "inverter_ac_0031",
+        "inverter_ac_0060",
+        "inverter_ac_0039",
+        "inverter_ac_0001",
+        "inverter_ac_0014"
+      ],
+      "filtered_indices": [
+        130,
+        159,
+        138,
+        100,
+        113
+      ],
+      "filtered_image_paths": [
+        "images/air_conditioners/inverter_ac/000031.jpg",
+        "images/air_conditioners/inverter_ac/000060.jpg",
+        "images/air_conditioners/inverter_ac/000039.jpg",
+        "images/air_conditioners/inverter_ac/000001.jpg",
+        "images/air_conditioners/inverter_ac/000014.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 空调 18000 BTU 双变频压缩机\n品牌: LG\n商品描述: LG 空调，配备双变频压缩机，型号为 IAQ18G1，容量为 18000 BTU。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 变频空调 DUAL Inverter 系列\n品牌: LG\n商品描述: LG 品牌的灰色变频空调，配备 DUAL Inverter 技术和 ThinQ 智能功能。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 18000BTU 双冷标准 Plus R32 变频空调（带WiFi）\n品牌: LG\n商品描述: 这款LG 18000BTU 双冷标准 Plus R32 变频空调采用流线型曲面设计，外观时尚且超薄，适合各种室内环境。配备能量显示模式，方便用户随时查看空调运行状态。支持WiFi 智能控制，可通过手机远程操控。采用R32 制冷剂，环保节能。双冷模式可根据需要调节制冷效果，满足不同场景需求。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: LG 窗式空调，智能控制，双变频技术，Wi-Fi 连接，静音运行，适合卧室和小型房间\n品牌: LG\n商品描述: 这款 LG 窗式空调采用双变频技术，提供高效节能的制冷效果。支持 Wi-Fi 连接，可通过 ThinQ 智能应用远程控制，实现智能化管理。静音运行设计，适合卧室和小型房间使用。",
+        "一级类目: 空调\n二级类目: 变频空调\n商品标题: LG 变频空调 AMNC18GDKR0\n品牌: LG\n商品描述: LG 变频空调，配备离子化功能，数字显示屏显示当前温度23°C，黑色外观，设计简洁现代。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "leather_jacket",
+      "category": "外套",
+      "canonical_zh": "皮夹克",
+      "custom_query": "我想找一款属于“外套”类目的“皮夹克”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "leather_jacket_0093",
+        "leather_jacket_0030",
+        "leather_jacket_0027",
+        "leather_jacket_0096",
+        "leather_jacket_0020"
+      ],
+      "top5_indices": [
+        2392,
+        2329,
+        2326,
+        2395,
+        2319
+      ],
+      "top5_image_paths": [
+        "images/jackets/leather_jacket/000093.jpg",
+        "images/jackets/leather_jacket/000030.jpeg",
+        "images/jackets/leather_jacket/000027.png",
+        "images/jackets/leather_jacket/000096.jpg",
+        "images/jackets/leather_jacket/000020.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: 复古棕色皮夹克男宽松机车风外套\n品牌: FASHION\n商品描述: 这款复古棕色皮夹克采用高品质PU皮材质，手感柔软，耐磨耐用。宽松版型设计，适合各种身材，穿着舒适不紧绷。翻领设计，经典机车风格，尽显时尚品味。拉链门襟，方便穿脱，松紧袖口和下摆，防风保暖。贴袋设计，实用美观。无论是日常休闲还是街头潮流，都是您的理想选择。",
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: 复古飞行员皮夹克\n品牌: Ufo3d\n商品描述: 这款复古飞行员皮夹克采用优质棕色皮革制成，设计经典，适合多种场合穿着。夹克配有立领、金属拉链和斜插袋，袖口和下摆采用罗纹收口设计，确保舒适贴合。内衬为黄色，增添了一丝复古气息。",
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: John Doe JLE6002 技术皮夹克\n品牌: John Doe\n商品描述: John Doe JLE6002 技术皮夹克，采用高品质皮革制成，设计时尚且功能性强。夹克配备多个实用口袋，包括胸前拉链口袋和侧边口袋，方便存放物品。肩部和肘部有加固设计，提供额外保护。整体风格硬朗，适合机车骑行和日常穿着。",
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: 男士机车风黑色皮夹克修身拉链铆钉外套\n品牌: 太平鸟\n商品描述: 这款黑色皮夹克采用机车风格设计，立领搭配金属铆钉装饰，增添硬朗帅气感。前襟采用拉链开合，两侧设有拉链口袋，方便实用。修身剪裁贴合身形，展现男性魅力。适合日常休闲或搭配牛仔裤、工装裤穿着，是秋冬季节的理想选择。",
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: 男士黑色牛皮卡夫雷皮夹克\n品牌: Angel Jackets\n商品描述: 这款男士黑色牛皮卡夫雷皮夹克采用经典设计，立领和拉链门襟，单胸袋，适合日常穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        0.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "bomber_jacket_0063",
+        "bomber_jacket_0094",
+        "bomber_jacket_0004",
+        "bomber_jacket_0095",
+        "leather_jacket_0006"
+      ],
+      "filtered_indices": [
+        2162,
+        2193,
+        2103,
+        2194,
+        2305
+      ],
+      "filtered_image_paths": [
+        "images/jackets/bomber_jacket/000063.jpg",
+        "images/jackets/bomber_jacket/000094.jpg",
+        "images/jackets/bomber_jacket/000004.jpg",
+        "images/jackets/bomber_jacket/000095.jpg",
+        "images/jackets/leather_jacket/000006.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士飞行员夹克\n品牌: Jack & Jones\n商品描述: 这款男士飞行员夹克采用经典设计，适合日常休闲穿着。夹克为绿色，搭配立领和拉链门襟，袖口和下摆均为罗纹收口设计，两侧设有插袋。内搭浅色T恤，整体风格简约时尚。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 米色格纹飞行员夹克\n品牌: French Crown\n商品描述: 这款米色格纹飞行员夹克采用经典设计，搭配黑色罗纹领口、袖口和下摆，金色拉链增添时尚感。适合日常休闲穿着，展现简约而不失格调的风格。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士棕色MA-1皮革飞行员夹克\n品牌: JacketsMasters\n商品描述: 这款男士棕色MA-1皮革飞行员夹克采用经典设计，立领和罗纹袖口及下摆，左臂有口袋，适合秋冬季节穿着。",
+        "一级类目: 外套\n二级类目: 飞行员夹克\n商品标题: 男士飞行员夹克\n品牌: Lindbergh\n商品描述: 这款男士飞行员夹克采用经典的卡其色设计，搭配立领和金属拉链，展现出简约而时尚的风格。夹克内搭一件蓝白格子衬衫，下身搭配灰色长裤，整体造型休闲且富有层次感。夹克的袖口和下摆采用松紧设计，既保暖又舒适。适合日常休闲穿着，适合春秋季节。",
+        "一级类目: 外套\n二级类目: 皮夹克\n商品标题: Ranger 做旧棕色飞行员夹克\n品牌: Buffalo Jackson\n商品描述: 这款 Ranger 飞行员夹克采用做旧棕色皮革制成，展现出复古的质感和风格。夹克设计经典，配有翻领、全拉链门襟和两个斜插袋。袖口和下摆采用罗纹收口设计，确保穿着舒适且保暖。内衬为深蓝色，与棕色皮革形成鲜明对比。这款夹克适合日常休闲穿着，也可作为时尚单品搭配各种服装。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.8,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          6,
+          7
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "leather_loafers",
+      "category": "鞋子",
+      "canonical_zh": "乐福鞋",
+      "custom_query": "我想找一款属于“鞋子”类目的“乐福鞋”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "leather_loafers_0089",
+        "leather_loafers_0022",
+        "leather_loafers_0037",
+        "leather_loafers_0004",
+        "leather_loafers_0099"
+      ],
+      "top5_indices": [
+        3788,
+        3721,
+        3736,
+        3703,
+        3798
+      ],
+      "top5_image_paths": [
+        "images/shoes/leather_loafers/000089.png",
+        "images/shoes/leather_loafers/000022.jpg",
+        "images/shoes/leather_loafers/000037.jpg",
+        "images/shoes/leather_loafers/000004.jpg",
+        "images/shoes/leather_loafers/000099.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 高端休闲真皮流苏乐福鞋\n品牌: StyleNSmile\n商品描述: 这款高端休闲真皮流苏乐福鞋采用优质头层牛皮制作，触感柔软舒适，透气性好。经典的流苏设计增添时尚感，适合商务、休闲等多种场合穿着。鞋底采用耐磨橡胶材质，防滑性能好，穿着舒适。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 棕色真皮乐福鞋\n品牌: Freepik\n商品描述: 这是一双棕色的真皮乐福鞋，鞋面采用光面皮材质，鞋头为圆头设计，鞋底为平底，鞋带为无设计，鞋跟为平跟。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 棕色真皮乐福鞋\n品牌: Freepik\n商品描述: 这是一双棕色的真皮乐福鞋，采用经典的套脚设计，鞋面有缝线装饰，鞋头圆润，整体风格简约优雅，适合日常穿着。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士黑色真皮乐福鞋\n品牌: Freepik\n商品描述: 这是一双男士黑色真皮乐福鞋，鞋面光滑有光泽，鞋头圆润，配有经典的金属孔眼装饰。鞋底为黑色低跟设计，内里为棕色皮革，整体风格简约大方，适合商务或休闲场合穿着。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: Fellmonger 双色拼接男士乐福鞋\n品牌: Fellmonger\n商品描述: Fellmonger 经典双色拼接乐福鞋，采用优质真皮材质，手工缝制工艺，舒适内里设计，适合商务休闲场合穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "leather_loafers_0078",
+        "leather_loafers_0086",
+        "leather_loafers_0084",
+        "leather_loafers_0071",
+        "leather_loafers_0090"
+      ],
+      "filtered_indices": [
+        3777,
+        3785,
+        3783,
+        3770,
+        3789
+      ],
+      "filtered_image_paths": [
+        "images/shoes/leather_loafers/000078.jpg",
+        "images/shoes/leather_loafers/000086.jpg",
+        "images/shoes/leather_loafers/000084.jpg",
+        "images/shoes/leather_loafers/000071.jpg",
+        "images/shoes/leather_loafers/000090.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士时尚休闲真皮乐福鞋\n品牌: Frostfreak\n商品描述: 这款男士时尚休闲真皮乐福鞋采用优质真皮材质，鞋面呈现自然的纹理和光泽，颜色为鲜艳的红色。鞋头部分有精致的缝线装饰，增加了鞋子的立体感和时尚感。鞋底为黑色，与红色鞋面形成鲜明对比，整体设计简约大方，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士时尚休闲真皮乐福鞋\n品牌: Frostfreak\n商品描述: 这款男士乐福鞋采用优质真皮材质，触感柔软舒适，透气性好。鞋面设计简洁大方，搭配金属装饰扣，增添时尚感。鞋底采用橡胶材质，防滑耐磨，提供良好的抓地力和支撑力。适合日常休闲穿着，搭配牛仔裤、休闲裤等多种服饰，展现优雅绅士风范。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士时尚棕色皮革乐福鞋\n品牌: Frostfreak\n商品描述: 这款男士时尚棕色皮革乐福鞋采用优质皮革材质，设计简约大方，适合日常休闲穿着。鞋面配有金属装饰扣，增添时尚感。鞋底为黑色，提供良好的抓地力和舒适性。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士时尚休闲真皮乐福鞋\n品牌: Frostfreak\n商品描述: 这款男士时尚休闲真皮乐福鞋采用优质真皮材质，鞋面呈现自然的纹理和光泽，颜色为鲜艳的红色。鞋头部分有精致的缝线装饰，增加了鞋子的立体感和时尚感。鞋底为黑色橡胶材质，具有良好的耐磨性和防滑性能。整体设计简约大方，适合日常休闲穿着，既舒适又百搭。",
+        "一级类目: 鞋子\n二级类目: 乐福鞋\n商品标题: 男士时尚真皮乐福鞋\n品牌: Frostfreak\n商品描述: 这款男士时尚真皮乐福鞋采用优质棕色皮革制成，鞋面配有金属扣装饰，设计简约大方，适合日常休闲穿着。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "leather_tote_bag",
+      "category": "箱包",
+      "canonical_zh": "手提包",
+      "custom_query": "我想找一款属于“箱包”类目的“手提包”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "leather_tote_bag_0025",
+        "leather_tote_bag_0030",
+        "leather_tote_bag_0008",
+        "leather_tote_bag_0054",
+        "leather_tote_bag_0096"
+      ],
+      "top5_indices": [
+        724,
+        729,
+        707,
+        753,
+        795
+      ],
+      "top5_image_paths": [
+        "images/bags/leather_tote_bag/000025.jpg",
+        "images/bags/leather_tote_bag/000030.jpg",
+        "images/bags/leather_tote_bag/000008.jpg",
+        "images/bags/leather_tote_bag/000054.jpg",
+        "images/bags/leather_tote_bag/000096.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: Tydloos 棕色皮革手提包\n品牌: Tydloos\n商品描述: 这款 Tydloos 手提包采用棕色和米色皮革制成，设计简约大方，配有前袋，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: Tydloos 棕色皮革手提包\n品牌: Tydloos\n商品描述: 这款 Tydloos 手提包采用棕色和米色皮革制成，设计简约大方，带有实用的口袋，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 男士深榛子色皮革手提包\n品牌: Buffalo Jackson\n商品描述: 这款深榛子色皮革手提包采用优质皮革制成，设计简约大方，适合日常使用。手提包具有大容量，可以容纳多种物品，适合男士日常携带。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 男士深榛子色皮革手提包\n品牌: Buffalo Jackson\n商品描述: 这款深榛子色皮革手提包采用优质皮革制成，设计简约大方，适合日常使用。手提包具有大容量，可以轻松容纳各种物品。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 复古棕色皮革手提包\n品牌: ANUENT\n商品描述: 这款复古棕色皮革手提包采用优质皮革制成，设计简约大方，适合日常使用。包身配有可调节肩带和金属扣件，方便携带。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "leather_tote_bag_0044",
+        "bucket_bag_0001",
+        "leather_tote_bag_0001",
+        "leather_tote_bag_0053",
+        "leather_tote_bag_0079"
+      ],
+      "filtered_indices": [
+        743,
+        500,
+        700,
+        752,
+        778
+      ],
+      "filtered_image_paths": [
+        "images/bags/leather_tote_bag/000044.jpg",
+        "images/bags/bucket_bag/000001.jpg",
+        "images/bags/leather_tote_bag/000001.jpg",
+        "images/bags/leather_tote_bag/000053.jpg",
+        "images/bags/leather_tote_bag/000079.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: Zakara 女士棕色皮革手提包\n品牌: Zakara\n商品描述: 这款 Zakara 女士手提包采用优质棕色皮革制成，设计简约大方，适合日常使用。包身配有可调节肩带，底部有加固设计，增加了耐用性。",
+        "一级类目: 箱包\n二级类目: 水桶包\n商品标题: Marc Jacobs 黑色皮革水桶包\n品牌: Marc Jacobs\n商品描述: 这款 Marc Jacobs 水桶包采用黑色皮革材质，设计简约时尚。包身正面印有灰色大写字母 'THE BUCKET' 和 'MARC JACOBS' 字样。包口配有抽绳设计，方便调节开口大小。手柄通过金色金属环扣与包身连接，整体风格休闲且实用。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 复古棕色皮革手提包\n品牌: Semashow\n商品描述: 这款复古棕色皮革手提包采用优质皮革制成，设计简约大方，适合日常使用。手提包配有两条肩带，方便携带。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 经典托特包\n品牌: Portland Leather Goods\n商品描述: 这款经典托特包采用优质皮革制成，设计简约大方，适合日常使用。前袋设计增加了实用性，方便存放小物件。",
+        "一级类目: 箱包\n二级类目: 手提包\n商品标题: 简约大容量女士手提包\n品牌: LeatherNeo\n商品描述: 这款简约大容量的女士手提包，采用优质皮革材质，手感柔软，耐用性强。米色设计百搭时尚，适合各种场合。内部多隔层设计，方便分类存放物品。可调节肩带，舒适背负。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "lily_bouquet",
+      "category": "鲜花",
+      "canonical_zh": "百合花束",
+      "custom_query": "我想找一款属于“鲜花”类目的“百合花束”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "lily_bouquet_0086",
+        "lily_bouquet_0041",
+        "lily_bouquet_0080",
+        "lily_bouquet_0058",
+        "lily_bouquet_0044"
+      ],
+      "top5_indices": [
+        1685,
+        1640,
+        1679,
+        1657,
+        1643
+      ],
+      "top5_image_paths": [
+        "images/flowers/lily_bouquet/000086.jpg",
+        "images/flowers/lily_bouquet/000041.jpg",
+        "images/flowers/lily_bouquet/000080.jpg",
+        "images/flowers/lily_bouquet/000058.jpg",
+        "images/flowers/lily_bouquet/000044.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 白色百合花束\n品牌: Cityroseflowers\n商品描述: 精美的白色百合花束，搭配满天星和绿叶，用棕色包装纸包裹，适合送礼或装饰。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 白色百合花束\n品牌: UAE Flowers\n商品描述: 这是一束由白色百合花、粉色小花和绿叶组成的花束，包装在粉色包装纸中，系有粉色丝带。花束由一名穿着黑色UAE Flowers品牌Polo衫的男子手持。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 白色百合花束\n品牌: UAE Flowers\n商品描述: 这是一束由白色百合花、粉色小花和绿叶组成的花束，包装在粉色和黑色的包装纸中，系有粉色丝带。花束由一名穿着黑色UAE Flowers制服的男子手持。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 白色百合花束\n品牌: Cityroseflowers\n商品描述: 精美的白色百合花束，搭配绿色满天星，采用牛皮纸包装和麻绳装饰，清新自然，适合送礼或装饰。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 精致粉色百合花束\n品牌: Bloomroomofmornington\n商品描述: 包含盛开的粉色百合花和含苞待放的花蕾，搭配绿色和深色叶子，包装在白色纸中。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "lily_bouquet_0079",
+        "lily_bouquet_0043",
+        "lily_bouquet_0004",
+        "lily_bouquet_0073",
+        "lily_bouquet_0019"
+      ],
+      "filtered_indices": [
+        1678,
+        1642,
+        1603,
+        1672,
+        1618
+      ],
+      "filtered_image_paths": [
+        "images/flowers/lily_bouquet/000079.jpg",
+        "images/flowers/lily_bouquet/000043.jpg",
+        "images/flowers/lily_bouquet/000004.jpg",
+        "images/flowers/lily_bouquet/000073.jpg",
+        "images/flowers/lily_bouquet/000019.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 甜香东方百合花束\n品牌: Adelaidehillsflorist\n商品描述: 包含盛开的粉色百合花和多个绿色花蕾，搭配绿叶，包装纸为粉色和米色。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 亚洲百合花束\n品牌: Red Earth Flowers\n商品描述: 精美的亚洲百合花束，包含粉色百合花和绿色叶子，用粉色包装纸和绿色丝带精心包装，适合送礼或装饰。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 粉色百合花束\n品牌: Leflora\n商品描述: 这款粉色百合花束由多支盛开的粉色百合组成，搭配绿色尤加利叶和白色满天星，整体包装采用粉色包装纸和粉色丝带，显得浪漫而优雅。适合用于生日、情人节、母亲节等场合，传递美好的祝福与爱意。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 亚洲百合花束\n品牌: Red Earth Flowers\n商品描述: 精美的亚洲百合花束，包含粉色百合花和绿色叶子，用粉色包装纸包裹，系有绿色丝带。",
+        "一级类目: 鲜花\n二级类目: 百合花束\n商品标题: 粉色百合花束\n品牌: Lefloraflowers\n商品描述: 精美的粉色百合花束，搭配绿色叶子和白色小花，用粉色和棕色包装纸包裹，系有粉色丝带。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "mini_crossbody_bag",
+      "category": "箱包",
+      "canonical_zh": "迷你斜挎包",
+      "custom_query": "我想找一款属于“箱包”类目的“迷你斜挎包”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "mini_crossbody_bag_0056",
+        "mini_crossbody_bag_0029",
+        "mini_crossbody_bag_0058",
+        "mini_crossbody_bag_0024",
+        "mini_crossbody_bag_0074"
+      ],
+      "top5_indices": [
+        855,
+        828,
+        857,
+        823,
+        873
+      ],
+      "top5_image_paths": [
+        "images/bags/mini_crossbody_bag/000056.jpg",
+        "images/bags/mini_crossbody_bag/000029.jpg",
+        "images/bags/mini_crossbody_bag/000058.jpg",
+        "images/bags/mini_crossbody_bag/000024.jpg",
+        "images/bags/mini_crossbody_bag/000074.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 男士时尚迷你斜挎包\n品牌: MauveLily\n商品描述: 这款男士迷你斜挎包采用时尚设计，适合日常休闲使用。包身小巧轻便，方便携带手机、钱包等随身物品。肩带可调节，舒适贴合。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 时尚简约迷你斜挎包女\n品牌: FASHION TREND\n商品描述: 这款迷你斜挎包采用简约设计，适合日常搭配。黑色和米色两种经典配色，百搭耐看。包身小巧轻便，适合携带手机、钱包等随身物品。肩带可调节，舒适贴合。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 时尚简约迷你斜挎包女\n品牌: FASHION TREND\n商品描述: 这款迷你斜挎包采用简约设计，适合日常搭配。黑色和米色两种经典配色，百搭实用。包身小巧轻便，可调节肩带，方便斜挎或单肩背。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 橄榄绿仿皮迷你斜挎包\n品牌: 新秀丽\n商品描述: 这款橄榄绿色的迷你斜挎包采用仿皮材质，设计简约时尚。包身正面配有翻盖和金属按扣，方便开合。可调节的肩带使其既可单肩背也可斜挎，适合日常出行或休闲搭配。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 小型斜挎包 纯素皮革\n品牌: CHARLES & KEITH\n商品描述: 这是一款小型斜挎包，采用纯素皮革材质，颜色为绿色。包身设计简约，配有金属扣和肩带，适合日常使用。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "mini_crossbody_bag_0050",
+        "mini_crossbody_bag_0026",
+        "mini_crossbody_bag_0036",
+        "mini_crossbody_bag_0080",
+        "mini_crossbody_bag_0013"
+      ],
+      "filtered_indices": [
+        849,
+        825,
+        835,
+        879,
+        812
+      ],
+      "filtered_image_paths": [
+        "images/bags/mini_crossbody_bag/000050.jpg",
+        "images/bags/mini_crossbody_bag/000026.jpg",
+        "images/bags/mini_crossbody_bag/000036.jpg",
+        "images/bags/mini_crossbody_bag/000080.jpg",
+        "images/bags/mini_crossbody_bag/000013.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 白色菱格纹迷你斜挎包\n品牌: Baginning\n商品描述: 这款白色菱格纹迷你斜挎包采用经典菱格设计，搭配金色金属扣，尽显优雅与精致。小巧的尺寸适合日常携带，无论是搭配休闲装还是正式装都能轻松驾驭。链条肩带设计，既实用又时尚，是您出行的理想选择。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 黑色菱格纹迷你斜挎包\n品牌: Baginning\n商品描述: 这款黑色菱格纹迷你斜挎包采用优质PU皮革材质，手感柔软且耐用。经典的菱格纹设计增添优雅气质，金色金属链条肩带与包身相得益彰，尽显时尚品味。小巧的尺寸适合日常携带手机、钱包等必需品，是都市女性的理想选择。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 黑色菱格纹迷你斜挎包\n品牌: Baginning\n商品描述: 这款黑色菱格纹迷你斜挎包采用优质PU皮革材质，手感柔软且耐用。经典的菱格纹设计增添优雅气质，金色金属链条肩带与锁扣相得益彰，彰显精致品味。小巧的尺寸适合日常携带手机、钱包等必需品，是时尚女性的理想选择。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: 黑色菱格纹迷你斜挎包\n品牌: Baginning\n商品描述: 这款黑色菱格纹迷你斜挎包采用优质PU皮革材质，手感柔软且耐用。经典的菱格纹设计增添优雅气质，金色金属链条肩带与包身相得益彰，尽显时尚品味。小巧的尺寸适合日常携带手机、钱包等必需品，无论是搭配休闲装还是正式装都能完美驾驭。磁吸扣设计方便开合，实用性强。",
+        "一级类目: 箱包\n二级类目: 迷你斜挎包\n商品标题: Teri迷你斜挎包 - 经典印花帆布配唇印图案\n品牌: Coach\n商品描述: 这款Teri迷你斜挎包采用经典印花帆布材质，搭配唇印图案设计，时尚又实用。包身小巧精致，适合日常出行或约会使用。内部设有多个隔层，可轻松收纳手机、钱包、钥匙等随身物品。金色五金配件增添奢华感，是都市女性的理想选择。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "mini_led_tv",
+      "category": "电视",
+      "canonical_zh": "Mini LED电视",
+      "custom_query": "我想找一款属于“电视”类目的“Mini LED电视”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "mini_led_tv_0083",
+        "mini_led_tv_0099",
+        "mini_led_tv_0008",
+        "mini_led_tv_0072",
+        "mini_led_tv_0017"
+      ],
+      "top5_indices": [
+        4782,
+        4798,
+        4707,
+        4771,
+        4716
+      ],
+      "top5_image_paths": [
+        "images/televisions/mini_led_tv/000083.png",
+        "images/televisions/mini_led_tv/000099.jpg",
+        "images/televisions/mini_led_tv/000008.png",
+        "images/televisions/mini_led_tv/000072.jpg",
+        "images/televisions/mini_led_tv/000017.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: Mini LED电视\n品牌: 小米\n商品描述: 采用Mini LED背光技术，提供卓越画质表现。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: E7N ULED超画质 Mini LED 100英寸电视\n品牌: TCL\n商品描述: E7N系列100英寸Mini LED电视，搭载ULED超画质技术，支持Dolby Vision IQ、Dolby Atmos、IMAX Enhanced及帧绘映画MAX，带来极致视听体验。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: TCL第四代Mini LED电视\n品牌: TCL\n商品描述: 第四代TCL Mini LED电视，采用第四代Mini LED背光技术，提供卓越画质体验。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: Mini LED智能电视\n品牌: Google\n商品描述: 搭载Google TV系统，支持Mini LED背光技术，提供卓越画质与流畅体验。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: TCL 85英寸4K QD-Mini LED智能电视\n品牌: TCL\n商品描述: 采用QD-Mini LED技术，提供卓越画质与色彩表现，支持HDR，配备智能系统。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        1.0,
+        -4.0
+      ],
+      "filtered_product_ids": [
+        "mini_led_tv_0049",
+        "mini_led_tv_0070",
+        "oled_tv_0025",
+        "oled_tv_0053",
+        "mini_led_tv_0013"
+      ],
+      "filtered_indices": [
+        4748,
+        4769,
+        4824,
+        4852,
+        4712
+      ],
+      "filtered_image_paths": [
+        "images/televisions/mini_led_tv/000049.png",
+        "images/televisions/mini_led_tv/000070.jpg",
+        "images/televisions/oled_tv/000025.jpg",
+        "images/televisions/oled_tv/000053.jpg",
+        "images/televisions/mini_led_tv/000013.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: TCL第四代Mini LED电视\n品牌: TCL\n商品描述: 第四代TCL Mini LED电视，采用第四代Mini LED背光技术，提供卓越画质体验。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: 下一代 Mini LED 电视\n品牌: Smartprix\n商品描述: 下一代 Mini LED 电视，采用先进 Mini LED 背光技术，提供卓越画质表现。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG OLED 8K 电视展示\n品牌: LG\n商品描述: LG OLED 8K 电视展示，屏幕显示布拉格查理大桥风景，背景为LG ThinQ AI展台。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG OLED evo AI 电视\n品牌: LG\n商品描述: LG OLED evo AI 电视，采用 Hyper Radiant Color Tech 技术，提供无与伦比的亮度和完美黑色与色彩。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: 三星 RGB Micro LED 电视展示图\n品牌: 三星\n商品描述: 三星最新推出的RGB Micro LED电视，采用自发光技术，色彩表现力极强，画面纯净度高，支持4K超高清分辨率和120Hz高刷新率，带来极致视觉体验。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.4,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          5,
+          10
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "mini_pc",
+      "category": "电脑",
+      "canonical_zh": "迷你电脑",
+      "custom_query": "我想找一款属于“电脑”类目的“迷你电脑”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "mini_pc_0073",
+        "mini_pc_0031",
+        "mini_pc_0056",
+        "mini_pc_0081",
+        "mini_pc_0006"
+      ],
+      "top5_indices": [
+        1372,
+        1330,
+        1355,
+        1380,
+        1305
+      ],
+      "top5_image_paths": [
+        "images/computers/mini_pc/000073.jpg",
+        "images/computers/mini_pc/000031.jpg",
+        "images/computers/mini_pc/000056.jpg",
+        "images/computers/mini_pc/000081.jpg",
+        "images/computers/mini_pc/000006.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: Bmax B1 迷你电脑主机，Intel N100 处理器，8GB RAM，256GB SSD，支持 HDMI/DP/USB 接口，适用于家庭娱乐、办公、游戏\n品牌: Bmax\n商品描述: Bmax B1 迷你电脑主机采用 Intel N100 处理器，配备 8GB 内存和 256GB SSD，性能强劲，适合家庭娱乐、办公、游戏等多种用途。支持 HDMI、DP、USB 等多种接口，兼容性强。采用被动散热设计，静音运行。小巧体积，易于安装和携带。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: FICEP N5095迷你电脑Win11双频WiFi HDMI接口\n品牌: FICEP\n商品描述: FICEP N5095迷你电脑，搭载Intel N5095处理器，支持Windows 11操作系统，配备2.4GHz和5GHz双频WiFi，提供HDMI和VGA接口，适合DIY组装和多屏显示需求。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: FICEP N5095迷你电脑主机\n品牌: FICEP\n商品描述: FICEP品牌的迷你电脑主机，采用Intel N5095处理器，预装Windows 11操作系统，支持2.4GHz和5GHz双频WiFi，配备HDMI、VGA、USB及音频接口，适合DIY组装和多屏显示需求。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: FICEP N5095迷你电脑主机\n品牌: FICEP\n商品描述: FICEP N5095迷你电脑主机，采用Intel N5095处理器，支持Windows 11操作系统，配备2.4GHz和5GHz双频WiFi，提供HDMI、VGA、USB及音频接口，金属外壳设计，适合DIY组装和多屏显示需求。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: Bmax B1 迷你电脑主机\n品牌: Bmax\n商品描述: Bmax B1 迷你电脑主机，搭载 Intel Celeron N5105 处理器，配备 8GB DDR4 内存和 256GB SSD，支持 Windows 11 Pro 操作系统。机身采用黑色设计，配备多个接口，包括 USB 3.0、USB 2.0、HDMI、DP、LAN 和音频接口，适合办公和家庭使用。"
+      ],
+      "top5_scores": [
+        3.0,
+        -1.0,
+        -3.0,
+        -4.0,
+        5.0
+      ],
+      "filtered_product_ids": [
+        "mini_pc_0057",
+        "mini_pc_0028",
+        "mini_pc_0049",
+        "mini_pc_0030",
+        "mini_pc_0029"
+      ],
+      "filtered_indices": [
+        1356,
+        1327,
+        1348,
+        1329,
+        1328
+      ],
+      "filtered_image_paths": [
+        "images/computers/mini_pc/000057.jpg",
+        "images/computers/mini_pc/000028.jpg",
+        "images/computers/mini_pc/000049.jpg",
+        "images/computers/mini_pc/000030.jpg",
+        "images/computers/mini_pc/000029.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: Bmax B1 迷你电脑主机，Intel 处理器，适用于家庭办公、游戏、媒体中心\n品牌: Bmax\n商品描述: Bmax B1 迷你电脑主机，搭载 Intel Celeron N5105 处理器，4GB 内存和 64GB 存储，适用于家庭办公、游戏、媒体中心。配备多个接口，包括 USB 3.0、HDMI、DP、LAN 和音频接口，支持 Windows 10/11 操作系统。采用被动散热设计，静音运行。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: 迷你电脑主机\n品牌: Goldsteps\n商品描述: 这是一款迷你电脑主机，外观为黑色，带有蓝色LED灯条装饰。主机侧面和正面均设有多个接口，包括USB、HDMI、LAN、DC和音频接口。主机顶部有Intel品牌标识，侧面有品牌标志。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: 迷你电脑主机\n品牌: Fity\n商品描述: 黑色迷你电脑主机，配备多个USB接口、HDMI接口、LAN接口、DC电源接口和音频接口，顶部有蓝色LED灯带装饰，侧面有品牌标志。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: 迷你电脑主机 N4500/N5095 四核处理器 4GB/8GB内存 128GB/256GB/512GB SSD 支持4K双屏输出\n品牌: Machineryoffers\n商品描述: 这款迷你电脑主机采用Intel N4500/N5095四核处理器，支持4GB或8GB内存和128GB/256GB/512GB SSD存储。配备VGA、DP、HDMI接口，支持4K双屏输出，适合办公、家庭娱乐等多种场景。",
+        "一级类目: 电脑\n二级类目: 迷你电脑\n商品标题: Beelink 迷你电脑主机\n品牌: Beelink\n商品描述: Beelink 迷你电脑主机，配备多个接口，包括USB、HDMI、LAN和DC电源接口，适合桌面显示使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          3,
+          7,
+          9,
+          10,
+          1
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "moisturizing_cream",
+      "category": "护肤品",
+      "canonical_zh": "保湿霜",
+      "custom_query": "我想找一款属于“护肤品”类目的“保湿霜”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "moisturizing_cream_0077",
+        "moisturizing_cream_0030",
+        "moisturizing_cream_0064",
+        "moisturizing_cream_0018",
+        "moisturizing_cream_0010"
+      ],
+      "top5_indices": [
+        4276,
+        4229,
+        4263,
+        4217,
+        4209
+      ],
+      "top5_image_paths": [
+        "images/skincare/moisturizing_cream/000077.jpg",
+        "images/skincare/moisturizing_cream/000030.png",
+        "images/skincare/moisturizing_cream/000064.jpeg",
+        "images/skincare/moisturizing_cream/000018.png",
+        "images/skincare/moisturizing_cream/000010.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 护肤品\n二级类目: 保湿霜\n商品标题: Deep Moisturizing Cream 深层保湿霜\n品牌: FOREVER\n商品描述: FOREVER 品牌深层保湿霜，质地轻盈，能够有效滋润肌肤，保持肌肤水润。",
+        "一级类目: 护肤品\n二级类目: 保湿霜\n商品标题: 深层保湿霜\n品牌: FOREVER\n商品描述: 深层保湿霜，专为深层滋润肌肤设计，适用于所有肤质，帮助肌肤保持水润。",
+        "一级类目: 护肤品\n二级类目: 保湿霜\n商品标题: Cetaphil 保湿霜 16 盎司\n品牌: Cetaphil\n商品描述: Cetaphil 保湿霜，专为非常干燥至干燥及敏感肌肤设计。新升级配方，能够保湿长达48小时并完全修复皮肤屏障。",
+        "一级类目: 护肤品\n二级类目: 保湿霜\n商品标题: 深层保湿霜\n品牌: FOREVER\n商品描述: 深层保湿霜，适合日常使用。",
+        "一级类目: 护肤品\n二级类目: 面霜\n商品标题: 深层保湿霜\n品牌: FOREVER\n商品描述: 深层保湿霜，适合日常使用。"
+      ],
+      "top5_scores": [
+        3.0,
+        1.0,
+        0.0,
+        2.0,
+        5.0
+      ],
+      "filtered_product_ids": [
+        "moisturizing_cream_0056",
+        "moisturizing_cream_0066",
+        "moisturizing_cream_0005",
+        "moisturizing_cream_0082",
+        "moisturizing_cream_0021"
+      ],
+      "filtered_indices": [
+        4255,
+        4265,
+        4204,
+        4281,
+        4220
+      ],
+      "filtered_image_paths": [
+        "images/skincare/moisturizing_cream/000056.jpg",
+        "images/skincare/moisturizing_cream/000066.jpg",
+        "images/skincare/moisturizing_cream/000005.jpg",
+        "images/skincare/moisturizing_cream/000082.jpeg",
+        "images/skincare/moisturizing_cream/000021.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 护肤品\n二级类目: 面霜\n商品标题: Deep Moisturizing Cream\n品牌: FOREVER\n商品描述: Deep Moisturizing Cream，适合日常使用。",
+        "一级类目: 护肤品\n二级类目: 润肤霜\n商品标题: Cetaphil 丝塔芙 保湿霜 3oz\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙保湿霜，专为极干至干性敏感肌肤设计。含有甜杏仁油和必需维生素B5及B3，能够保湿长达48小时并完全修复皮肤屏障。",
+        "一级类目: 护肤品\n二级类目: 身体乳\n商品标题: Cetaphil 丝塔芙 强效保湿霜 含麦地泡沫油 3oz\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙强效保湿霜，含有麦地泡沫油，专为身体最干燥部位设计，适合干性和敏感性肌肤使用。",
+        "一级类目: 护肤品\n二级类目: 身体乳\n商品标题: Cetaphil 丝塔芙 保湿霜 16oz\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙保湿霜，专为非常干燥和敏感肌肤设计，提供24小时深层保湿。",
+        "一级类目: 护肤品\n二级类目: 保湿霜\n商品标题: 白色保湿面霜\n品牌: Freepik\n商品描述: 质地轻盈的保湿面霜，适用于日常护肤，帮助肌肤保持水润。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 0.8,
+      "raw_response": {
+        "ranked_doc_ids": [
+          3,
+          5,
+          6,
+          4,
+          1
+        ],
+        "filtered_doc_ids": [
+          3,
+          5,
+          6,
+          4,
+          1,
+          2,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "nylon_backpack",
+      "category": "箱包",
+      "canonical_zh": "尼龙双肩包",
+      "custom_query": "我想找一款属于“箱包”类目的“尼龙双肩包”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "nylon_backpack_0058",
+        "nylon_backpack_0013",
+        "nylon_backpack_0038",
+        "nylon_backpack_0022",
+        "nylon_backpack_0057"
+      ],
+      "top5_indices": [
+        957,
+        912,
+        937,
+        921,
+        956
+      ],
+      "top5_image_paths": [
+        "images/bags/nylon_backpack/000058.jpg",
+        "images/bags/nylon_backpack/000013.jpg",
+        "images/bags/nylon_backpack/000038.jpg",
+        "images/bags/nylon_backpack/000022.jpg",
+        "images/bags/nylon_backpack/000057.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 箱包\n二级类目: 尼龙双肩包\n商品标题: 1017 ALYX 9SM 尼龙双肩包\n品牌: 1017 ALYX 9SM\n商品描述: 这款1017 ALYX 9SM尼龙双肩包采用经典黑色设计，材质为耐磨尼龙。包身正面设有拉链口袋和独特的金属扣带装饰，兼具实用性与时尚感。顶部配有提手，方便手提或肩背。适合日常通勤或休闲出行使用。",
+        "一级类目: 箱包\n二级类目: 尼龙双肩包\n商品标题: Marc Jacobs 尼龙双肩包\n品牌: Marc Jacobs\n商品描述: 这款 Marc Jacobs 尼龙双肩包采用黑色设计，配有多个拉链口袋，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 尼龙双肩包\n商品标题: Marc Jacobs 尼龙双肩包\n品牌: Marc Jacobs\n商品描述: 这款 Marc Jacobs 尼龙双肩包采用经典黑色设计，搭配金色拉链，简约时尚。包身设有多个实用口袋，包括前袋和侧袋，方便存放日常物品。顶部配有提手，肩带可调节，适合通勤或休闲使用。",
+        "一级类目: 箱包\n二级类目: 尼龙双肩包\n商品标题: Marc Jacobs 尼龙双肩包\n品牌: Marc Jacobs\n商品描述: 这款 Marc Jacobs 尼龙双肩包采用鲜艳的红色设计，搭配棕色皮革提手和品牌标识。包身配有金色拉链，前袋设计实用，适合日常使用。",
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Berluti Logo Nylon Backpack\n品牌: Berluti\n商品描述: 这款 Berluti Logo Nylon Backpack 采用高品质尼龙材质，设计简约时尚，适合日常通勤和旅行使用。背包正面配有金属扣带，增加实用性和装饰性。整体为黑色，经典百搭，适合各种场合。"
+      ],
+      "top5_scores": [
+        5.0,
+        1.0,
+        -2.0,
+        -4.0,
+        4.0
+      ],
+      "filtered_product_ids": [
+        "nylon_backpack_0014",
+        "nylon_backpack_0054",
+        "nylon_backpack_0017",
+        "nylon_backpack_0034",
+        "nylon_backpack_0040"
+      ],
+      "filtered_indices": [
+        913,
+        953,
+        916,
+        933,
+        939
+      ],
+      "filtered_image_paths": [
+        "images/bags/nylon_backpack/000014.jpg",
+        "images/bags/nylon_backpack/000054.jpg",
+        "images/bags/nylon_backpack/000017.jpg",
+        "images/bags/nylon_backpack/000034.jpg",
+        "images/bags/nylon_backpack/000040.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Salvatore Ferragamo 尼龙背包\n品牌: Salvatore Ferragamo\n商品描述: 这款 Salvatore Ferragamo 尼龙背包采用深蓝色设计，表面有精致的菱格纹装饰，搭配黑色拉链和皮革提手，兼具时尚与实用性。适合日常通勤或休闲出行使用。",
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Salvatore Ferragamo 尼龙背包\n品牌: Salvatore Ferragamo\n商品描述: 这款 Salvatore Ferragamo 尼龙背包采用经典的菱格纹设计，搭配黑色拉链和皮革提手，兼具时尚与实用性。适合日常通勤或休闲出行使用。",
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Bally 尼龙背包\n品牌: Bally\n商品描述: 这款Bally尼龙背包采用高品质尼龙材质，设计简约大方，适合商务和日常使用。背包配有拉链前袋和主隔层，方便分类存放物品。顶部设有织物提手，便于手提携带。整体色调为黑色，经典百搭，适合各种场合。",
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Rains 尼龙皮革背包\n品牌: Rains\n商品描述: 这款Rains尼龙皮革背包采用高品质尼龙材质，设计简约时尚，适合日常通勤使用。背包具有防水和耐用的特点，配备多个隔层，方便分类存放物品。黑色外观百搭，适合各种场合。",
+        "一级类目: 箱包\n二级类目: 尼龙背包\n商品标题: Tumi 尼龙背包\n品牌: Tumi\n商品描述: 这款Tumi尼龙背包采用蓝色尼龙材质，设计简洁实用，适合日常使用。背包配有多个拉链口袋，方便存放物品。肩带和提手设计舒适，适合长时间背负。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          5,
+          8,
+          10,
+          2
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "oled_tv",
+      "category": "电视",
+      "canonical_zh": "OLED电视",
+      "custom_query": "我想找一款属于“电视”类目的“OLED电视”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "oled_tv_0018",
+        "oled_tv_0031",
+        "oled_tv_0058",
+        "oled_tv_0019",
+        "oled_tv_0003"
+      ],
+      "top5_indices": [
+        4817,
+        4830,
+        4857,
+        4818,
+        4802
+      ],
+      "top5_image_paths": [
+        "images/televisions/oled_tv/000018.jpg",
+        "images/televisions/oled_tv/000031.jpg",
+        "images/televisions/oled_tv/000058.jpg",
+        "images/televisions/oled_tv/000019.jpg",
+        "images/televisions/oled_tv/000003.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG透明OLED电视OLED T\n品牌: LG\n商品描述: LG透明OLED电视OLED T，展示透明屏幕技术，屏幕显示LG标志，背景为展会环境。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG透明OLED电视展示\n品牌: LG\n商品描述: LG透明OLED电视展示，支持透明显示技术，适用于零售展示和创意应用。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG OLED Easel 艺术系列电视\n品牌: LG\n商品描述: LG OLED Easel艺术系列电视，采用独特的画架设计，下半部分为米色织物材质，上半部分为OLED屏幕，显示效果逼真，适合现代家居装饰。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: LG OLED evo 电视\n品牌: LG\n商品描述: LG OLED evo电视，10年OLED电视销量第一，展现极致色彩与画质。",
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: 三星OLED电视\n品牌: 三星\n商品描述: 三星OLED电视，采用自发光OLED面板，色彩鲜艳，对比度高，支持4K超高清分辨率和120Hz高刷新率，带来极致视觉体验。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "oled_tv_0034",
+        "gaming_tv_0013",
+        "mini_led_tv_0016",
+        "mini_led_tv_0002",
+        "gaming_tv_0002"
+      ],
+      "filtered_indices": [
+        4833,
+        4612,
+        4715,
+        4701,
+        4601
+      ],
+      "filtered_image_paths": [
+        "images/televisions/oled_tv/000034.jpg",
+        "images/televisions/gaming_tv/000013.jpg",
+        "images/televisions/mini_led_tv/000016.jpg",
+        "images/televisions/mini_led_tv/000002.jpg",
+        "images/televisions/gaming_tv/000002.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电视\n二级类目: OLED电视\n商品标题: OLED电视\n品牌: Perplexity\n商品描述: OLED电视，采用自发光技术，提供卓越的色彩表现和对比度，支持4K超高清分辨率和120Hz高刷新率，带来流畅的视觉体验。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: 索尼游戏电视\n品牌: 索尼\n商品描述: 专为游戏玩家打造的高性能电视，支持120Hz高刷新率，配备HDMI 2.1接口，提供沉浸式游戏体验。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: Mini LED电视展示图\n品牌: Whathifi\n商品描述: 这款电视采用Mini LED技术，显示效果出色，画面清晰细腻，适合家庭娱乐使用。",
+        "一级类目: 电视\n二级类目: Mini LED电视\n商品标题: Mini LED电视展示图\n品牌: Techradar\n商品描述: 这款电视采用Mini LED技术，显示效果出色，画面色彩鲜艳，细节丰富。",
+        "一级类目: 电视\n二级类目: 游戏电视\n商品标题: LG OLED 游戏电视\n品牌: LG\n商品描述: LG OLED游戏电视，支持120Hz高刷新率，提供沉浸式游戏体验。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.8,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "plaid_flannel_shirt",
+      "category": "衬衫",
+      "canonical_zh": "格子法兰绒衬衫",
+      "custom_query": "我想找一款属于“衬衫”类目的“格子法兰绒衬衫”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "plaid_flannel_shirt_0047",
+        "plaid_flannel_shirt_0056",
+        "plaid_flannel_shirt_0048",
+        "plaid_flannel_shirt_0004",
+        "plaid_flannel_shirt_0016"
+      ],
+      "top5_indices": [
+        3346,
+        3355,
+        3347,
+        3303,
+        3315
+      ],
+      "top5_image_paths": [
+        "images/shirts/plaid_flannel_shirt/000047.png",
+        "images/shirts/plaid_flannel_shirt/000056.png",
+        "images/shirts/plaid_flannel_shirt/000048.jpg",
+        "images/shirts/plaid_flannel_shirt/000004.jpeg",
+        "images/shirts/plaid_flannel_shirt/000016.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 100 HANDS 蓝色格子法兰绒衬衫\n品牌: 100 HANDS\n商品描述: 这款100 HANDS品牌的蓝色格子法兰绒衬衫，采用经典的格子图案设计，主色调为蓝色，搭配棕色和白色线条，展现出复古而优雅的风格。衬衫为翻领设计，配有透明纽扣，袖口为单扣设计，整体剪裁合身，适合日常休闲或商务休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 100 HANDS 蓝色格子法兰绒衬衫\n品牌: 100 HANDS\n商品描述: 这款100 HANDS品牌的蓝色格子法兰绒衬衫，采用经典的格子图案设计，主要颜色为蓝色、棕色、白色和黑色。衬衫为长袖款式，配有透明纽扣，领口为翻领设计。适合秋冬季节穿着，保暖舒适。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 定制刺绣格子法兰绒衬衫\n品牌: WalaKustom\n商品描述: 这是一款经典的格子法兰绒衬衫，采用蓝色和黑色相间的格子图案设计。衬衫为长袖款式，配有翻领和双胸袋，适合日常穿着或户外活动。衬衫支持定制刺绣服务，可以在胸前添加个性化图案或文字。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: LODIENY男士法兰绒格子衬衫长袖休闲纽扣衬衫\n品牌: LODIENY\n商品描述: LODIENY男士法兰绒格子衬衫，长袖设计，翻领，纽扣门襟，双胸袋，常规版型，红色与黑色格子图案，适合休闲穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 女士红黑格子法兰绒衬衫\n品牌: Sanmar\n商品描述: 这款女士红黑格子法兰绒衬衫采用经典的格子图案设计，长袖款式，翻领设计，单胸袋，纽扣门襟，适合休闲或户外活动穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "plaid_flannel_shirt_0089",
+        "plaid_flannel_shirt_0031",
+        "plaid_flannel_shirt_0006",
+        "plaid_flannel_shirt_0051",
+        "plaid_flannel_shirt_0042"
+      ],
+      "filtered_indices": [
+        3388,
+        3330,
+        3305,
+        3350,
+        3341
+      ],
+      "filtered_image_paths": [
+        "images/shirts/plaid_flannel_shirt/000089.jpg",
+        "images/shirts/plaid_flannel_shirt/000031.jpg",
+        "images/shirts/plaid_flannel_shirt/000006.jpg",
+        "images/shirts/plaid_flannel_shirt/000051.jpg",
+        "images/shirts/plaid_flannel_shirt/000042.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 衬衫\n二级类目: 格纹法兰绒衬衫\n商品标题: Eton 红色格纹法兰绒衬衫\n品牌: Eton\n商品描述: 这款 Eton 红色格纹法兰绒衬衫采用经典的格纹设计，颜色包括红色、黑色、棕色和米色。衬衫为标准领设计，配有棕色纽扣，适合秋冬季节穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: Eton 格子法兰绒衬衫\n品牌: Eton\n商品描述: Eton 品牌的格子法兰绒衬衫，采用经典的格子图案设计，颜色包括蓝色、棕色、黑色和米色。长袖设计，纽扣领，适合休闲或半正式场合穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: Eton 黄色格子法兰绒衬衫\n品牌: Eton\n商品描述: Eton 品牌的黄色格子法兰绒衬衫，采用经典的格子图案设计，主色调为黄色，搭配黑色、灰色和蓝色的线条。衬衫为长袖设计，领口为纽扣领，前襟配有棕色纽扣。整体风格休闲且经典，适合多种场合穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 女士红黑格子法兰绒衬衫\n品牌: Sanmar\n商品描述: 这款女士红黑格子法兰绒衬衫采用经典的格子图案设计，红色与黑色相间，展现出复古而时尚的风格。衬衫为长袖款式，翻领设计，前襟配有纽扣，方便穿脱。左胸处有一个单口袋，增加了实用性。面料为法兰绒材质，手感柔软舒适，适合秋冬季节穿着。整体剪裁合身，能够很好地修饰身形，适合日常休闲或户外活动穿着。",
+        "一级类目: 衬衫\n二级类目: 格子法兰绒衬衫\n商品标题: 女士红黑格子法兰绒长袖衬衫\n品牌: Sanmar\n商品描述: 这款女士红黑格子法兰绒长袖衬衫采用经典格子图案设计，翻领和纽扣门襟，双胸袋，适合休闲或户外活动穿着。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "portable_air_conditioner",
+      "category": "空调",
+      "canonical_zh": "移动空调",
+      "custom_query": "我想找一款属于“空调”类目的“移动空调”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "portable_air_conditioner_0054",
+        "portable_air_conditioner_0080",
+        "portable_air_conditioner_0033",
+        "portable_air_conditioner_0028",
+        "portable_air_conditioner_0020"
+      ],
+      "top5_indices": [
+        253,
+        279,
+        232,
+        227,
+        219
+      ],
+      "top5_image_paths": [
+        "images/air_conditioners/portable_air_conditioner/000054.jpeg",
+        "images/air_conditioners/portable_air_conditioner/000080.jpeg",
+        "images/air_conditioners/portable_air_conditioner/000033.jpg",
+        "images/air_conditioners/portable_air_conditioner/000028.jpg",
+        "images/air_conditioners/portable_air_conditioner/000020.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: Cooper Hunter 14,000 BTU 移动空调/加热器\n品牌: Cooper Hunter\n商品描述: 这款Cooper Hunter移动空调/加热器具有14,000 BTU的制冷能力，适用于最多450平方英尺的空间。它采用双管设计，配备遥控器和窗套，方便移动和安装。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: Cooper Hunter 14,000 BTU 移动空调/加热器\n品牌: Cooper Hunter\n商品描述: 这款Cooper Hunter移动空调/加热器具有14,000 BTU的制冷量，适用于最多450平方英尺的空间。它采用双管设计，配备遥控器和窗套，方便移动和安装。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: Black+Decker 移动空调\n品牌: Black+Decker\n商品描述: 这是一款Black+Decker品牌的移动空调，外观为白色，设计简洁现代。空调顶部有出风口，侧面有进风口，配备可伸缩的排气管，方便安装到窗户上。空调底部装有轮子，便于移动。适用于家庭或办公室使用，提供制冷和除湿功能。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: 16000 BTU 5合1 移动空调一体机\n品牌: Nellis\n商品描述: 这款移动空调采用白色机身设计，配备圆形出风口，可360度旋转送风。支持通过遥控器或手机APP进行智能控制，具备制冷、制热、除湿、送风等多种功能。顶部设有LED显示屏，可实时显示温度和运行状态。底部装有轮子，方便移动。适用于家庭、办公室等多种场景，提供高效舒适的温度调节体验。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: NewAir 移动空调\n品牌: NewAir\n商品描述: NewAir 移动空调，配备数字显示屏和灵活排气管，适用于家庭室内降温。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "portable_air_conditioner_0011",
+        "portable_air_conditioner_0035",
+        "portable_air_conditioner_0064",
+        "portable_air_conditioner_0017",
+        "portable_air_conditioner_0001"
+      ],
+      "filtered_indices": [
+        210,
+        234,
+        263,
+        216,
+        200
+      ],
+      "filtered_image_paths": [
+        "images/air_conditioners/portable_air_conditioner/000011.jpg",
+        "images/air_conditioners/portable_air_conditioner/000035.png",
+        "images/air_conditioners/portable_air_conditioner/000064.jpg",
+        "images/air_conditioners/portable_air_conditioner/000017.jpg",
+        "images/air_conditioners/portable_air_conditioner/000001.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: 德龙Pinguino PACEX130ECOREALFEEL 移动空调\n品牌: 德龙\n商品描述: 德龙Pinguino系列移动空调，黑色机身设计，配备数字显示屏，显示当前温度26°C。空调通过可伸缩软管连接至窗户，适用于卧室等室内环境。背景为现代简约风格的卧室，配有床、床头柜和地毯。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: 便携式移动空调\n品牌: Whirlpool\n商品描述: 这是一款便携式移动空调，外观为白色，设计简洁现代。空调顶部配有可调节的排气管，方便通过窗户排出热气。机身底部装有轮子，便于移动和调整位置。适合家庭或办公室使用，提供舒适的制冷和除湿功能。",
+        "一级类目: 空调\n二级类目: 移动空调\n商品标题: 德龙Pinguino PACEX130ECO 移动空调\n品牌: 德龙\n商品描述: 德龙Pinguino PACEX130ECO 移动空调，黑色机身，配备数字显示屏，显示当前温度26°C。适用于卧室等室内环境，具有制冷、除湿和通风功能。配备可伸缩排气管，方便安装和移动。",
+        "一级类目: 空调\n二级类目: 便携式空调\n商品标题: 便携式空调风扇加湿器\n品牌: 海尔\n商品描述: 这是一款便携式空调风扇加湿器，具有黑色外观，配备USB充电器和数据线。设备顶部有透明水箱，可添加水进行加湿。前面板有多个控制按钮，包括风扇速度调节、灯光控制和定时功能。风扇部分有保护网罩，可产生强劲风力。设备设计紧凑，适合移动使用，可通过USB充电。",
+        "一级类目: 空调\n二级类目: 便携式空调\n商品标题: 便携式空调风扇，USB充电，可加水冰镇，带LED灯和定时功能\n品牌: CoolingFan\n商品描述: 这是一款便携式空调风扇，具有USB充电功能，可加水冰镇，带有LED灯和定时功能。产品外观为黑色，设计简洁，适合室内和户外使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.4,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "puffer_jacket",
+      "category": "外套",
+      "canonical_zh": "羽绒服",
+      "custom_query": "我想找一款属于“外套”类目的“羽绒服”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "puffer_jacket_0039",
+        "puffer_jacket_0040",
+        "puffer_jacket_0006",
+        "puffer_jacket_0016",
+        "puffer_jacket_0020"
+      ],
+      "top5_indices": [
+        2438,
+        2439,
+        2405,
+        2415,
+        2419
+      ],
+      "top5_image_paths": [
+        "images/jackets/puffer_jacket/000039.jpg",
+        "images/jackets/puffer_jacket/000040.jpg",
+        "images/jackets/puffer_jacket/000006.jpg",
+        "images/jackets/puffer_jacket/000016.jpg",
+        "images/jackets/puffer_jacket/000020.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 男士羽绒服\n品牌: FITTD\n商品描述: 这款男士羽绒服采用高品质90%白鸭绒填充，保暖性能卓越。立领设计防风保暖，修身版型展现时尚轮廓。适合秋冬季节穿着，兼具实用性与时尚感。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 男士羽绒服\n品牌: FITTD\n商品描述: 这是一款男士羽绒服，采用立领设计，整体为灰色，具有修身版型。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 时尚冬季羽绒服\n品牌: Freepik\n商品描述: 这是一款时尚的冬季羽绒服，采用绿色设计，连帽款式，配有金属拉链和两侧拉链口袋。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 时尚冬季羽绒服\n品牌: Freepik\n商品描述: 这是一款时尚的冬季羽绒服，采用绿色设计，连帽款式，配有金属拉链和两侧拉链口袋。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 橙色连帽羽绒服\n品牌: Freepik\n商品描述: 一件鲜艳的橙色连帽羽绒服，采用蓬松设计，适合寒冷天气穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "puffer_jacket_0002",
+        "puffer_jacket_0038",
+        "blazer_jacket_0089",
+        "puffer_jacket_0036",
+        "puffer_jacket_0021"
+      ],
+      "filtered_indices": [
+        2401,
+        2437,
+        2088,
+        2435,
+        2420
+      ],
+      "filtered_image_paths": [
+        "images/jackets/puffer_jacket/000002.jpg",
+        "images/jackets/puffer_jacket/000038.jpg",
+        "images/jackets/blazer_jacket/000089.jpg",
+        "images/jackets/puffer_jacket/000036.jpg",
+        "images/jackets/puffer_jacket/000021.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: ONER 女士黑色羽绒服\n品牌: ONER\n商品描述: 这款 ONER 女士黑色羽绒服采用经典短款设计，立领设计保暖舒适，金属拉链开合方便。羽绒服表面光滑，内里填充优质保暖材料，适合秋冬季节穿着。袖口和下摆设计贴合身形，有效防风保暖。整体风格简约时尚，适合日常休闲或运动场合穿着。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: Alaska 羽绒服\n品牌: Just Brand\n商品描述: 这款 Alaska 羽绒服采用深蓝色设计，立领设计，全拉链开合，适合寒冷天气穿着。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: PEGADOR Jara Oversized Box 羽绒服\n品牌: PEGADOR\n商品描述: PEGADOR Jara Oversized Box 羽绒服，采用高品质尼龙面料，搭配蓬松羽绒填充，保暖舒适。立领设计防风保暖，灯笼袖版型时尚百搭，适合秋冬季节穿着。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: PEGADOR 女士黑色羽绒服\n品牌: PEGADOR\n商品描述: 这款 PEGADOR 女士黑色羽绒服采用短款设计，连帽款式，适合冬季穿着。外套表面有品牌标识，内搭白色上衣，整体风格简约时尚。",
+        "一级类目: 外套\n二级类目: 羽绒服\n商品标题: 时尚冬季连帽羽绒服\n品牌: Freepik\n商品描述: 这款时尚冬季连帽羽绒服采用紫色设计，外观蓬松保暖，适合寒冷天气穿着。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "qled_tv",
+      "category": "电视",
+      "canonical_zh": "QLED电视",
+      "custom_query": "我想找一款属于“电视”类目的“QLED电视”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "qled_tv_0073",
+        "qled_tv_0011",
+        "qled_tv_0002",
+        "qled_tv_0088",
+        "qled_tv_0048"
+      ],
+      "top5_indices": [
+        4972,
+        4910,
+        4901,
+        4987,
+        4947
+      ],
+      "top5_image_paths": [
+        "images/televisions/qled_tv/000073.jpg",
+        "images/televisions/qled_tv/000011.png",
+        "images/televisions/qled_tv/000002.jpg",
+        "images/televisions/qled_tv/000088.jpg",
+        "images/televisions/qled_tv/000048.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星 QLED Q7F 4K 智能电视\n品牌: 三星\n商品描述: 三星 QLED Q7F 4K 智能电视，采用量子点技术，色彩鲜艳，画质清晰，支持HDR10+，带来沉浸式观影体验。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星QLED电视\n品牌: 三星\n商品描述: 这款电视采用QLED量子点技术，提供卓越的色彩表现和亮度。屏幕显示效果清晰，色彩鲜艳，适合观看电影和体育赛事。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星85英寸QLED 4K智能电视\n品牌: 三星\n商品描述: 三星85英寸QLED电视，搭载量子点技术，提供卓越色彩表现和清晰度。支持4K分辨率和120Hz刷新率，带来流畅的观影体验。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星85英寸QLED智能电视\n品牌: 三星\n商品描述: 三星85英寸QLED智能电视，搭载量子点技术，呈现卓越画质，支持AI图像增强，带来沉浸式观影体验。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: Mitchell & Brown QLED电视\n品牌: Mitchell & Brown\n商品描述: 这款QLED电视采用先进的量子点技术，提供卓越的色彩表现和清晰度。适合家庭娱乐和电影观看。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        2.0,
+        1.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "qled_tv_0007",
+        "qled_tv_0083",
+        "qled_tv_0094",
+        "qled_tv_0020",
+        "qled_tv_0021"
+      ],
+      "filtered_indices": [
+        4906,
+        4982,
+        4993,
+        4919,
+        4920
+      ],
+      "filtered_image_paths": [
+        "images/televisions/qled_tv/000007.jpg",
+        "images/televisions/qled_tv/000083.jpg",
+        "images/televisions/qled_tv/000094.png",
+        "images/televisions/qled_tv/000020.jpg",
+        "images/televisions/qled_tv/000021.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星QLED/OLED/Neo QLED电视系列展示\n品牌: 三星\n商品描述: 展示三星QLED、OLED及Neo QLED三种电视技术，画面色彩鲜艳，对比度高，适合家庭娱乐使用。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星85英寸QLED 4K智能电视\n品牌: 三星\n商品描述: 三星85英寸QLED电视，采用量子点技术，提供卓越的色彩表现和清晰度。配备智能操作系统，支持多种流媒体应用。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星50英寸QLED Q7F 4K智能电视 2025款\n品牌: 三星\n商品描述: 这款三星QLED电视采用先进的量子点技术，提供卓越的色彩表现和清晰度。配备4K分辨率和智能功能，适合家庭娱乐。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星98英寸QLED电视\n品牌: 三星\n商品描述: 这款三星QLED电视拥有98英寸超大屏幕，带来震撼的视觉体验。采用先进的QLED技术，色彩鲜艳，对比度高，支持4K超高清分辨率和120Hz高刷新率，适合观看电影和玩游戏。",
+        "一级类目: 电视\n二级类目: QLED电视\n商品标题: 三星 98英寸 QLED 4K 智能电视\n品牌: 三星\n商品描述: 这款电视采用98英寸超大QLED屏幕，提供沉浸式观影体验。支持4K分辨率和120Hz高刷新率，画面清晰流畅。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          4,
+          5,
+          7
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "retro_microwave",
+      "category": "微波炉",
+      "canonical_zh": "复古微波炉",
+      "custom_query": "我想找一款属于“微波炉”类目的“复古微波炉”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "retro_microwave_0091",
+        "retro_microwave_0067",
+        "retro_microwave_0007",
+        "retro_microwave_0062",
+        "retro_microwave_0004"
+      ],
+      "top5_indices": [
+        2890,
+        2866,
+        2806,
+        2861,
+        2803
+      ],
+      "top5_image_paths": [
+        "images/microwave_ovens/retro_microwave/000091.jpeg",
+        "images/microwave_ovens/retro_microwave/000067.jpg",
+        "images/microwave_ovens/retro_microwave/000007.jpeg",
+        "images/microwave_ovens/retro_microwave/000062.jpeg",
+        "images/microwave_ovens/retro_microwave/000004.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia Electrics RetroWave 复古微波炉 0.9立方英尺 800瓦 台面式 水蓝色\n品牌: Nostalgia Electrics\n商品描述: 这款Nostalgia Electrics RetroWave复古微波炉采用经典水蓝色外观，搭配镀铬装饰和复古设计元素，完美融入现代厨房。0.9立方英尺的容量适合日常使用，800瓦功率可快速加热食物。配备数字显示屏、旋钮控制和多个功能按钮，支持定时、重量感应和快速烹饪模式。台面式设计节省空间，适合家庭、办公室或小型厨房使用。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: 复古微波炉家用小型迷你烘焙多功能光波\n品牌: Goodseller-household\n商品描述: 这是一款复古风格的微波炉，外观采用淡绿色设计，搭配银色把手和旋钮，整体造型简约而优雅。微波炉正面有一个大尺寸的黑色玻璃门，方便观察内部食物的烹饪情况。右侧控制面板上有多个按钮和一个数字显示屏，显示屏上显示时间为0:50。微波炉放置在一张木质桌子上，旁边有一个黑色花瓶，背景为简洁的白色墙面，整体环境显得干净明亮。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 现代复古 0.7 立方英尺 700 瓦微波炉烤箱 红色\n品牌: Nostalgia\n商品描述: 这款 Nostalgia 现代复古微波炉烤箱采用经典的红色外观，搭配银色把手和装饰条，具有 0.7 立方英尺的容量和 700 瓦的功率。控制面板包括数字显示屏、多个按钮和一个旋钮，支持多种功能如解冻、定时等。适合追求复古风格的家庭使用。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 复古微波炉 0.7立方英尺 700瓦 红色\n品牌: Nostalgia\n商品描述: 这款Nostalgia复古微波炉采用经典的红色外观，搭配银色把手和装饰条，具有现代复古风格。控制面板包括数字显示屏、多个按钮和一个旋钮，支持多种功能如解冻、定时等。适合追求复古风格的家庭使用。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 复古微波炉 0.7立方英尺 700瓦 台面微波炉 玻璃转盘 儿童安全锁 8种自动烹饪程序 数字时钟 水蓝色\n品牌: Nostalgia\n商品描述: 这款Nostalgia复古微波炉采用水蓝色设计，外观时尚，适合现代厨房。配备700瓦功率，0.7立方英尺容量，适合日常使用。具有8种自动烹饪程序，包括爆米花、土豆、披萨等，操作简便。数字时钟显示清晰，玻璃转盘方便清洁。儿童安全锁设计，确保使用安全。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "retro_microwave_0065",
+        "retro_microwave_0044",
+        "retro_microwave_0063",
+        "retro_microwave_0031",
+        "retro_microwave_0043"
+      ],
+      "filtered_indices": [
+        2864,
+        2843,
+        2862,
+        2830,
+        2842
+      ],
+      "filtered_image_paths": [
+        "images/microwave_ovens/retro_microwave/000065.jpeg",
+        "images/microwave_ovens/retro_microwave/000044.jpg",
+        "images/microwave_ovens/retro_microwave/000063.jpg",
+        "images/microwave_ovens/retro_microwave/000031.jpg",
+        "images/microwave_ovens/retro_microwave/000043.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 现代复古 0.7 立方英尺 700 瓦微波炉烤箱 红色\n品牌: Nostalgia\n商品描述: 这款 Nostalgia 现代复古微波炉烤箱采用经典的红色外观，搭配镀铬门把手和装饰条，具有 0.7 立方英尺的容量和 700 瓦的功率。它配备了数字显示屏和多个功能按钮，包括微波功率、快速烹饪、预设时钟、解冻、暂停/取消、即时启动、自动烹饪和时间重量等功能。适合追求复古风格的家庭使用。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 复古微波炉 0.7立方英尺 700瓦 台面微波炉 玻璃转盘 儿童安全锁 8种自动烹饪程序 数字时钟 水蓝色\n品牌: Nostalgia\n商品描述: 这款Nostalgia复古微波炉采用经典设计，配备玻璃转盘和儿童安全锁，适合台面使用。具有8种自动烹饪程序，包括爆米花、土豆、披萨等，方便日常使用。数字时钟显示时间，水蓝色外观增添复古风情。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 复古微波炉 0.7立方英尺 700瓦 台面微波炉 玻璃转盘 儿童安全锁 8种自动烹饪程序 数字时钟 水蓝色\n品牌: Nostalgia\n商品描述: 这款Nostalgia复古微波炉采用经典设计，配备玻璃转盘和儿童安全锁，适合台面使用。具有8种自动烹饪程序，包括爆米花、土豆、披萨等，方便日常使用。数字时钟显示时间，水蓝色外观增添复古风情。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: 800W 20L 复古微波炉，带LED显示屏\n品牌: The Range\n商品描述: 这款复古微波炉采用红色外观，配备LED数字显示屏和机械旋钮控制，方便用户精确控制烹饪时间。预设多种烹饪菜单，包括自动加热、肉类、蔬菜、鱼类、披萨、意大利面、汤和土豆等。适合追求经典设计和便捷操作的家庭使用。",
+        "一级类目: 微波炉\n二级类目: 复古微波炉\n商品标题: Nostalgia 复古风格微波炉\n品牌: Nostalgia\n商品描述: 这是一款复古风格的微波炉，外观采用蓝色设计，带有金属门把手和数字显示屏。品牌为Nostalgia，适合追求经典外观的消费者。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "rose_bouquet",
+      "category": "鲜花",
+      "canonical_zh": "玫瑰花束",
+      "custom_query": "我想找一款属于“鲜花”类目的“玫瑰花束”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "rose_bouquet_0029",
+        "rose_bouquet_0036",
+        "rose_bouquet_0001",
+        "rose_bouquet_0006",
+        "rose_bouquet_0009"
+      ],
+      "top5_indices": [
+        1728,
+        1735,
+        1700,
+        1705,
+        1708
+      ],
+      "top5_image_paths": [
+        "images/flowers/rose_bouquet/000029.jpg",
+        "images/flowers/rose_bouquet/000036.jpg",
+        "images/flowers/rose_bouquet/000001.jpg",
+        "images/flowers/rose_bouquet/000006.jpg",
+        "images/flowers/rose_bouquet/000009.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 盛大玫瑰花束\n品牌: Flowersofescondido\n商品描述: 盛大玫瑰花束，适合日常使用。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: Mi Amore 红玫瑰礼盒\n品牌: Renato's Florist\n商品描述: 这款Mi Amore红玫瑰礼盒包含12支鲜艳的红玫瑰，搭配满天星和绿叶，用双层包装纸和黑色丝带精心包装，适合情人节、纪念日、生日、求婚等浪漫场合。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 11朵红玫瑰精美花束\n品牌: BloomsFlora\n商品描述: 精选优质红玫瑰11朵，搭配绿色叶片，采用红色包装纸和红色缎带精心包装，寓意热情与爱意，适合表达深情与祝福。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 浪漫红粉玫瑰混合花束\n品牌: Myflowertree\n商品描述: 包含红色、粉色及白色玫瑰的混合花束，搭配满天星和绿叶，粉色包装纸，红色丝带装饰。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 永恒红玫瑰大花束\n品牌: Fity\n商品描述: 这款永恒红玫瑰大花束由大量鲜艳的红玫瑰组成，搭配米色包装纸和红色蝴蝶结，底部点缀有满天星，整体设计优雅大方，适合表达深情与爱意。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        0.0,
+        -1.0,
+        -2.0
+      ],
+      "filtered_product_ids": [
+        "rose_bouquet_0018",
+        "rose_bouquet_0039",
+        "rose_bouquet_0084",
+        "rose_bouquet_0013",
+        "rose_bouquet_0030"
+      ],
+      "filtered_indices": [
+        1717,
+        1738,
+        1783,
+        1712,
+        1729
+      ],
+      "filtered_image_paths": [
+        "images/flowers/rose_bouquet/000018.jpg",
+        "images/flowers/rose_bouquet/000039.jpg",
+        "images/flowers/rose_bouquet/000084.jpg",
+        "images/flowers/rose_bouquet/000013.jpg",
+        "images/flowers/rose_bouquet/000030.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 50朵红玫瑰心形花束配瓢虫装饰\n品牌: Goldies Flower Shop\n商品描述: 这款精美的花束由50朵鲜艳的红玫瑰组成，排列成心形，象征着爱与浪漫。花束用黑色包装纸包裹，显得高贵典雅。顶部装饰有可爱的瓢虫，为整体增添了一丝俏皮和趣味。适合用于情人节、纪念日或任何表达爱意的场合。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 50朵红玫瑰心形花束配瓢虫装饰\n品牌: Goldiesflowershop\n商品描述: 50朵鲜艳红玫瑰组成的心形花束，搭配黑色包装纸和可爱的瓢虫装饰，适合周年纪念日或浪漫场合。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 50朵红玫瑰礼盒装\n品牌: Fity\n商品描述: 50朵鲜艳红玫瑰组成的圆形花束，搭配黑色包装纸和可爱的瓢虫装饰，适合送礼。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 11支红玫瑰礼盒\n品牌: Bouquet\n商品描述: 精美的红玫瑰花束，包含11支鲜艳的红玫瑰，搭配绿叶和满天星，置于红色花瓶中，适合送礼或装饰。",
+        "一级类目: 鲜花\n二级类目: 玫瑰花束\n商品标题: 多色玫瑰混合花束\n品牌: Blooms Flora\n商品描述: 精选高品质红、粉、香槟三色玫瑰，搭配清新尤加利叶与满天星，深蓝色包装纸衬托出花朵的娇艳与高贵。适合送给爱人、朋友或家人，传递真挚情感。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          6,
+          7,
+          8
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "running_shoes",
+      "category": "鞋子",
+      "canonical_zh": "跑鞋",
+      "custom_query": "我想找一款属于“鞋子”类目的“跑鞋”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "running_shoes_0007",
+        "running_shoes_0021",
+        "running_shoes_0025",
+        "running_shoes_0029",
+        "running_shoes_0017"
+      ],
+      "top5_indices": [
+        3806,
+        3820,
+        3824,
+        3828,
+        3816
+      ],
+      "top5_image_paths": [
+        "images/shoes/running_shoes/000007.jpg",
+        "images/shoes/running_shoes/000021.jpg",
+        "images/shoes/running_shoes/000025.jpg",
+        "images/shoes/running_shoes/000029.jpg",
+        "images/shoes/running_shoes/000017.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鞋子\n二级类目: 跑鞋\n商品标题: 编织纹理运动跑鞋\n品牌: Freepik\n商品描述: 这款跑鞋采用灰色编织网布鞋面，搭配蓝色鞋带和橙色装饰细节，设计时尚且透气。鞋底为白色橡胶材质，提供良好的抓地力和舒适性。",
+        "一级类目: 鞋子\n二级类目: 跑鞋\n商品标题: 编织纹理运动跑鞋\n品牌: Freepik\n商品描述: 这款跑鞋采用灰色编织网面设计，搭配蓝色鞋带和橙色装饰细节，鞋底为白色与蓝色拼接，整体风格时尚且透气。",
+        "一级类目: 鞋子\n二级类目: 跑鞋\n商品标题: 针织网面透气跑鞋\n品牌: Freepik\n商品描述: 这是一款采用针织网面材质的跑鞋，鞋面呈现蓝色与橙色交织的纹理设计，搭配蓝色鞋带。鞋底为白色中底搭配橙色外底，整体设计轻便透气，适合跑步运动。",
+        "一级类目: 鞋子\n二级类目: 跑鞋\n商品标题: 橙色透气运动跑鞋\n品牌: Dreamstime\n商品描述: 这是一款橙色的透气运动跑鞋，鞋面采用网面材质，配有系带闭合方式，适合跑步场景，鞋底为橡胶材质。",
+        "一级类目: 鞋子\n二级类目: 跑鞋\n商品标题: 多彩透气跑鞋\n品牌: Freepik\n商品描述: 这是一款设计现代的跑鞋，鞋面采用透气网布材质，侧面有蜂窝状镂空设计，增强空气流通。鞋带为系带闭合方式，方便调节松紧。鞋底厚实，具有良好的缓震效果，适合跑步运动。整体配色采用蓝色、粉色和橙色的渐变效果，时尚动感。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        -4.0
+      ],
+      "filtered_product_ids": [
+        "running_shoes_0020",
+        "white_sneakers_0066",
+        "white_sneakers_0032",
+        "white_sneakers_0038",
+        "canvas_shoes_0063"
+      ],
+      "filtered_indices": [
+        3819,
+        3965,
+        3931,
+        3937,
+        3662
+      ],
+      "filtered_image_paths": [
+        "images/shoes/running_shoes/000020.jpg",
+        "images/shoes/white_sneakers/000066.jpeg",
+        "images/shoes/white_sneakers/000032.JPG",
+        "images/shoes/white_sneakers/000038.JPG",
+        "images/shoes/canvas_shoes/000063.png"
+      ],
+      "filtered_documents": [
+        "一级类目: 鞋子\n二级类目: 跑步鞋\n商品标题: 索康尼跑步鞋 透气网面运动鞋 减震跑鞋\n品牌: 索康尼\n商品描述: 索康尼品牌跑步鞋，采用透气网面鞋面，系带闭合方式，适合跑步运动，鞋底为橡胶材质，提供良好抓地力和减震效果。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: Calcetto 男士休闲运动鞋\n品牌: Calcetto\n商品描述: Calcetto男士休闲运动鞋，采用白色与灰色拼接设计，搭配红色点缀，时尚百搭。鞋面为合成革材质，透气舒适，系带闭合方式，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 男士白色休闲运动鞋\n品牌: Bewakoof\n商品描述: 这款男士白色运动鞋采用合成皮革与网布拼接设计，搭配灰色装饰线条，时尚百搭。系带闭合方式，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 男士白色休闲运动鞋\n品牌: Bewakoof\n商品描述: 这款白色运动鞋采用合成革鞋面，搭配灰色装饰线条，设计简约时尚。系带闭合方式，适合日常休闲穿着。鞋底为橡胶材质，提供良好的抓地力和耐磨性。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: Jordan Sneaker\n品牌: Jordan\n商品描述: Jordan Sneaker，适合日常使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          10
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          10,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "solo_microwave",
+      "category": "微波炉",
+      "canonical_zh": "单门微波炉",
+      "custom_query": "我想找一款属于“微波炉”类目的“单门微波炉”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "solo_microwave_0027",
+        "solo_microwave_0039",
+        "solo_microwave_0043",
+        "solo_microwave_0004",
+        "compact_microwave_0053"
+      ],
+      "top5_indices": [
+        2926,
+        2938,
+        2942,
+        2903,
+        2552
+      ],
+      "top5_image_paths": [
+        "images/microwave_ovens/solo_microwave/000027.jpeg",
+        "images/microwave_ovens/solo_microwave/000039.jpg",
+        "images/microwave_ovens/solo_microwave/000043.jpg",
+        "images/microwave_ovens/solo_microwave/000004.jpg",
+        "images/microwave_ovens/compact_microwave/000053.png"
+      ],
+      "top5_documents": [
+        "一级类目: 微波炉\n二级类目: 单门微波炉\n商品标题: VON 20L 数字单门微波炉\n品牌: VON\n商品描述: VON 20L 数字单门微波炉，配备10个功率等级和重量解冻系统，适合快速烹饪和加热食物。",
+        "一级类目: 微波炉\n二级类目: 单门微波炉\n商品标题: Oscar 25L 白色单门微波炉\n品牌: Oscar\n商品描述: Oscar 25L 白色单门微波炉，适合家庭使用，具备基本加热功能。",
+        "一级类目: 微波炉\n二级类目: 单门微波炉\n商品标题: 松下 25L 单门微波炉 一键开门\n品牌: Panasonic\n商品描述: 松下25L单门微波炉，配备一键开门按钮，方便轻松开启。",
+        "一级类目: 微波炉\n二级类目: 单门微波炉\n商品标题: 美的20升单门微波炉\n品牌: 美的\n商品描述: 这是一款美的品牌的20升单门微波炉，采用黑色外观设计，配备机械旋钮控制面板，支持微波加热和解冻功能。",
+        "一级类目: 微波炉\n二级类目: 紧凑型微波炉\n商品标题: 松下20升黑色紧凑型微波炉\n品牌: 松下\n商品描述: 这是一款松下品牌的20升黑色紧凑型微波炉，适合小空间使用。"
+      ],
+      "top5_scores": [
+        5.0,
+        2.0,
+        1.0,
+        -2.0,
+        -1.0
+      ],
+      "filtered_product_ids": [
+        "solo_microwave_0036",
+        "solo_microwave_0066",
+        "convection_microwave_0060",
+        "solo_microwave_0016",
+        "solo_microwave_0021"
+      ],
+      "filtered_indices": [
+        2935,
+        2965,
+        2659,
+        2915,
+        2920
+      ],
+      "filtered_image_paths": [
+        "images/microwave_ovens/solo_microwave/000036.jpg",
+        "images/microwave_ovens/solo_microwave/000066.jpg",
+        "images/microwave_ovens/convection_microwave/000060.jpg",
+        "images/microwave_ovens/solo_microwave/000016.jpg",
+        "images/microwave_ovens/solo_microwave/000021.png"
+      ],
+      "filtered_documents": [
+        "一级类目: 微波炉\n二级类目: 单功能微波炉\n商品标题: 肯星 Solo 20L 单功能微波炉\n品牌: 肯星\n商品描述: 这是一款肯星品牌的单功能微波炉，型号为Solo，容量为20升。微波炉采用黑色外观，配备旋钮式控制面板，适合家庭日常使用。",
+        "一级类目: 微波炉\n二级类目: 单功能微波炉\n商品标题: 肯斯达 Solo 20L 单功能微波炉\n品牌: 肯斯达\n商品描述: 这是一款肯斯达品牌的单功能微波炉，型号为Solo，容量为20升。微波炉采用黑色外观，配备旋钮式控制面板，适合家庭日常使用。",
+        "一级类目: 微波炉\n二级类目: 蒸烤一体机\n商品标题: 嵌入式蒸烤一体机 智能触控大屏 多功能家用微波炉\n品牌: CAIDOR\n商品描述: 这是一款白色的嵌入式蒸烤一体机，放置在厨房台面上。设备正面配备有黑色玻璃门和触控显示屏，屏幕下方显示有数字时间。机身侧面可见散热孔设计，整体外观简洁现代。",
+        "一级类目: 微波炉\n二级类目: 单模式微波炉\n商品标题: 肯星 Dura Chef 单模式微波炉\n品牌: 肯星\n商品描述: 这款肯星 Dura Chef 单模式微波炉采用黑色设计，配备30分钟定时器，让烹饪变得简单。",
+        "一级类目: 微波炉\n二级类目: 单模式微波炉\n商品标题: IFB 20升单模式微波炉，带定时器选项，黑色\n品牌: IFB\n商品描述: 这是一款IFB品牌的20升单模式微波炉，带有定时器选项，颜色为黑色。微波炉门已打开，可以看到内部结构，包括转盘和加热元件。控制面板上有两个旋钮，分别用于调节功率和时间。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 1.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          4,
+          5,
+          8,
+          7
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "sunflower_bouquet",
+      "category": "鲜花",
+      "canonical_zh": "向日葵花束",
+      "custom_query": "我想找一款属于“鲜花”类目的“向日葵花束”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "sunflower_bouquet_0070",
+        "sunflower_bouquet_0057",
+        "sunflower_bouquet_0092",
+        "sunflower_bouquet_0048",
+        "sunflower_bouquet_0100"
+      ],
+      "top5_indices": [
+        1869,
+        1856,
+        1891,
+        1847,
+        1899
+      ],
+      "top5_image_paths": [
+        "images/flowers/sunflower_bouquet/000070.jpg",
+        "images/flowers/sunflower_bouquet/000057.jpg",
+        "images/flowers/sunflower_bouquet/000092.jpg",
+        "images/flowers/sunflower_bouquet/000048.jpg",
+        "images/flowers/sunflower_bouquet/000100.png"
+      ],
+      "top5_documents": [
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Giftoo\n商品描述: 向日葵花束，包含多朵向日葵和满天星，黑色包装纸，红色丝带装饰。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Flowers Manila\n商品描述: 这款向日葵花束由多朵鲜艳的向日葵组成，搭配满天星点缀，整体用麻布包装纸包裹，显得自然且充满生机。适合用于表达祝福、庆祝或装饰。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 7支向日葵花束配满天星\n品牌: Onlineflowerexpress\n商品描述: 包含7支向日葵和满天星的花束，包装有粉色和白色纸张，顶部有粉色蝴蝶结。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束配满天星\n品牌: Bloomsflora\n商品描述: 这款向日葵花束以鲜艳的黄色向日葵为主，搭配洁白的满天星，整体用米色包装纸包裹，并系有米色丝带，显得温馨而优雅。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 经典向日葵花束\n品牌: Onlineflowershop\n商品描述: 经典向日葵花束，包含多朵盛开的向日葵，搭配绿色叶子，用米色包装纸包裹，底部系有麻绳。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        2.0,
+        -1.0,
+        -3.0
+      ],
+      "filtered_product_ids": [
+        "sunflower_bouquet_0001",
+        "sunflower_bouquet_0008",
+        "sunflower_bouquet_0063",
+        "sunflower_bouquet_0021",
+        "sunflower_bouquet_0088"
+      ],
+      "filtered_indices": [
+        1800,
+        1807,
+        1862,
+        1820,
+        1887
+      ],
+      "filtered_image_paths": [
+        "images/flowers/sunflower_bouquet/000001.jpg",
+        "images/flowers/sunflower_bouquet/000008.jpeg",
+        "images/flowers/sunflower_bouquet/000063.jpg",
+        "images/flowers/sunflower_bouquet/000021.jpg",
+        "images/flowers/sunflower_bouquet/000088.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Flowers Manila\n商品描述: 这款向日葵花束由多朵鲜艳的向日葵组成，搭配满天星点缀，整体用麻布包装纸包裹，显得自然且充满生机。适合用于生日、节日或表达祝福的场合。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Petalpalaceco\n商品描述: 向日葵花束，适合日常使用。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Mister-berry\n商品描述: 向日葵花束，适合日常使用。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Bloomsflora\n商品描述: 包含多朵向日葵和绿色配叶的精美花束，用米色包装纸包裹，系有金色丝带。",
+        "一级类目: 鲜花\n二级类目: 向日葵花束\n商品标题: 向日葵花束\n品牌: Bloomsflora\n商品描述: 向日葵花束，适合日常使用。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          4,
+          7,
+          9
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "sunscreen_lotion",
+      "category": "护肤品",
+      "canonical_zh": "防晒霜",
+      "custom_query": "我想找一款属于“护肤品”类目的“防晒霜”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "sunscreen_lotion_0047",
+        "sunscreen_lotion_0015",
+        "sunscreen_lotion_0095",
+        "sunscreen_lotion_0026",
+        "sunscreen_lotion_0058"
+      ],
+      "top5_indices": [
+        4346,
+        4314,
+        4394,
+        4325,
+        4357
+      ],
+      "top5_image_paths": [
+        "images/skincare/sunscreen_lotion/000047.jpg",
+        "images/skincare/sunscreen_lotion/000015.jpg",
+        "images/skincare/sunscreen_lotion/000095.png",
+        "images/skincare/sunscreen_lotion/000026.png",
+        "images/skincare/sunscreen_lotion/000058.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 护肤品\n二级类目: 防晒乳液\n商品标题: 高倍防晒乳液\n品牌: thibaultcosmetics\n商品描述: 高倍防晒乳液，SPF50+ PA++++，无添加防腐剂和其他有毒化学物质，适合日常防晒使用。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: Rocky Mountain Sunscreen SPF 50 防晒霜乳液\n品牌: Rocky Mountain Sunscreen\n商品描述: 适合家庭度假使用的防晒霜乳液，SPF 50 广谱防晒，防水80分钟，适合所有肤质。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: Mancode SPF 50+ 防晒霜乳液\n品牌: Mancode\n商品描述: Mancode SPF 50+ 防晒霜乳液，有效防护UVA和UVB，防止皮肤老化和晒黑。质地清爽不油腻，易于吸收。",
+        "一级类目: 护肤品\n二级类目: 防晒乳液\n商品标题: NIVEA SUN 防晒保湿乳液 SPF50+\n品牌: NIVEA\n商品描述: NIVEA SUN 防晒保湿乳液，SPF50+ 高倍防晒，提供 UVA/UVB 广谱防护，4小时防水，有效保护肌肤免受紫外线伤害，同时深层保湿，适合日常户外活动使用。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: Aveeno 艾维诺 保护+保湿 防晒霜 SPF 60\n品牌: Aveeno\n商品描述: Aveeno 艾维诺 保护+保湿 防晒霜，SPF 60，含益生元燕麦，无氧苯酮，防水防汗80分钟。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        2.0,
+        -1.0,
+        -3.0
+      ],
+      "filtered_product_ids": [
+        "sunscreen_lotion_0013",
+        "sunscreen_lotion_0008",
+        "facial_cleanser_0027",
+        "sunscreen_lotion_0033",
+        "sunscreen_lotion_0096"
+      ],
+      "filtered_indices": [
+        4312,
+        4307,
+        4026,
+        4332,
+        4395
+      ],
+      "filtered_image_paths": [
+        "images/skincare/sunscreen_lotion/000013.jpg",
+        "images/skincare/sunscreen_lotion/000008.jpg",
+        "images/skincare/facial_cleanser/000027.jpg",
+        "images/skincare/sunscreen_lotion/000033.jpg",
+        "images/skincare/sunscreen_lotion/000096.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 护肤品\n二级类目: 防晒乳液\n商品标题: 海滩防晒乳液\n品牌: Vecteezy\n商品描述: 橙色管状防晒乳液，置于木质桌面上，背景为海滩、棕榈树和橙色遮阳伞。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: Vacation Classic Lotion 经典防晒霜\n品牌: Vacation\n商品描述: Vacation Classic Lotion 经典防晒霜，SPF 30 广谱防晒，防水80分钟，含椰子、香蕉和芦荟成分，带来夏日清新香气。",
+        "一级类目: 护肤品\n二级类目: 洁面\n商品标题: 四款热门洁面乳合集：理肤泉、CeraVe、KORA、Cetaphil\n品牌: 理肤泉\n商品描述: 图片展示了四款不同品牌的洁面产品，包括理肤泉Effaclar、CeraVe保湿洁面、KORA有机洁面和Cetaphil温和洁面。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: SPF 50+ 防晒霜套装\n品牌: 玉兰油\n商品描述: SPF 50+ 防晒霜套装，包含多种包装形式，适合日常防晒使用。",
+        "一级类目: 护肤品\n二级类目: 防晒霜\n商品标题: Cetaphil 丝塔芙 矿物防晒乳 SPF50\n品牌: Cetaphil\n商品描述: Cetaphil 丝塔芙矿物防晒乳，SPF50，专为敏感肌肤设计，温和不刺激，提供广谱防晒保护。"
+      ],
+      "top5_relevance_ratio": 0.6,
+      "filtered_irrelevant_ratio": 0.4,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          4,
+          7,
+          9
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          4,
+          7,
+          9,
+          8,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "tulip_bouquet",
+      "category": "鲜花",
+      "canonical_zh": "郁金香花束",
+      "custom_query": "我想找一款属于“鲜花”类目的“郁金香花束”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "tulip_bouquet_0087",
+        "tulip_bouquet_0053",
+        "tulip_bouquet_0001",
+        "tulip_bouquet_0019",
+        "tulip_bouquet_0077"
+      ],
+      "top5_indices": [
+        1986,
+        1952,
+        1900,
+        1918,
+        1976
+      ],
+      "top5_image_paths": [
+        "images/flowers/tulip_bouquet/000087.png",
+        "images/flowers/tulip_bouquet/000053.jpeg",
+        "images/flowers/tulip_bouquet/000001.jpg",
+        "images/flowers/tulip_bouquet/000019.jpg",
+        "images/flowers/tulip_bouquet/000077.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 梦幻紫郁金香花束\n品牌: BLOOMS\n商品描述: 包含白色和紫色郁金香的精美花束，搭配绿色叶片，用印有品牌名称的白色缎带系扎，附赠黑色信封。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: Lilla Fiori 郁金香花束\n品牌: Lilla Fiori\n商品描述: 这款郁金香花束由粉色和白色的郁金香组成，搭配绿色的叶子，整体用淡紫色的包装纸包裹，并附有一张品牌卡片。花束设计精美，适合送礼或装饰。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 白色郁金香新娘手捧花束\n品牌: Ar\n商品描述: 白色郁金香花束，搭配绿色叶片，花束底部用白色包装纸包裹，并装饰有珍珠。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 优雅红郁金香花束\n品牌: Petite Fleur\n商品描述: 一束由多支红色郁金香组成的花束，包装精美，采用棕色牛皮纸和白色薄纱，系有粉色丝带，适合送礼。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 紫色郁金香花束\n品牌: Hobby Florist\n商品描述: 精美的紫色郁金香花束，采用白色和米色包装纸搭配紫色丝带，适合纪念日或礼物赠送。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        0.0,
+        -3.0,
+        -4.0
+      ],
+      "filtered_product_ids": [
+        "tulip_bouquet_0011",
+        "tulip_bouquet_0052",
+        "tulip_bouquet_0022",
+        "tulip_bouquet_0068",
+        "tulip_bouquet_0017"
+      ],
+      "filtered_indices": [
+        1910,
+        1951,
+        1921,
+        1967,
+        1916
+      ],
+      "filtered_image_paths": [
+        "images/flowers/tulip_bouquet/000011.jpg",
+        "images/flowers/tulip_bouquet/000052.jpg",
+        "images/flowers/tulip_bouquet/000022.jpg",
+        "images/flowers/tulip_bouquet/000068.jpg",
+        "images/flowers/tulip_bouquet/000017.png"
+      ],
+      "filtered_documents": [
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 郁金香花束\n品牌: THE FLOWER STAND\n商品描述: 这是一束由多种颜色的郁金香组成的花束，包括粉色、红色和白色。花束用黑色丝带包装，丝带上印有“THE FLOWER STAND”字样。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 混合粉色郁金香花束\n品牌: THE FLOWER STAND\n商品描述: 这款混合粉色郁金香花束由多种颜色的郁金香组成，包括粉色、红色和白色，搭配绿色叶子，整体显得非常鲜艳和美丽。花束用黑色丝带包装，丝带上印有品牌名称。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 郁金香花束\n品牌: HOBBY FLORIST\n商品描述: 精美的郁金香花束，包含红色和粉色的郁金香，搭配绿色叶子，用米色和棕色包装纸包裹，系有粉色丝带。花束由一只手拿着，背景为室内环境，旁边有一个复古收音机。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 郁金香花束\n品牌: HOBBY FLORIST\n商品描述: 精美的郁金香花束，包含红色和粉色的郁金香，搭配绿色叶子，用多层米色和棕色包装纸包裹，底部系有粉色丝带。花束由HOBBY FLORIST提供，位于吉隆坡。",
+        "一级类目: 鲜花\n二级类目: 郁金香花束\n商品标题: 粉色郁金香与白色玫瑰婚礼花束\n品牌: Clweddings\n商品描述: 这款精美的婚礼花束以粉色郁金香为主，搭配白色玫瑰、白色飞燕草和淡粉色玫瑰，点缀银色尤加利叶和干花。花束用粉色丝带优雅地捆绑，整体色调柔和浪漫，适合婚礼或特殊场合。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          6,
+          9,
+          10
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "ultrabook",
+      "category": "电脑",
+      "canonical_zh": "超极本",
+      "custom_query": "我想找一款属于“电脑”类目的“超极本”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "ultrabook_0035",
+        "ultrabook_0077",
+        "ultrabook_0033",
+        "ultrabook_0007",
+        "ultrabook_0072"
+      ],
+      "top5_indices": [
+        1434,
+        1476,
+        1432,
+        1406,
+        1471
+      ],
+      "top5_image_paths": [
+        "images/computers/ultrabook/000035.jpg",
+        "images/computers/ultrabook/000077.jpg",
+        "images/computers/ultrabook/000033.jpg",
+        "images/computers/ultrabook/000007.jpg",
+        "images/computers/ultrabook/000072.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 三星超极本\n品牌: 三星\n商品描述: 三星超极本，轻薄便携设计，适合移动办公和娱乐使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 三星超极本\n品牌: 三星\n商品描述: 三星超极本，轻薄便携，适合商务办公和日常使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 三星 Series 7 Ultra 超极本笔记本电脑\n品牌: 三星\n商品描述: 三星 Series 7 Ultra 超极本，轻薄便携，配备13.3英寸高清屏幕，Intel Core i5处理器，4GB内存，320GB SSD固态硬盘，适合商务办公和日常娱乐使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 华硕超极本笔记本电脑\n品牌: 华硕\n商品描述: 这是一款华硕品牌的超极本笔记本电脑，外观为银色，屏幕显示华硕标志。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 华硕超极本笔记本电脑\n品牌: 华硕\n商品描述: 这款华硕超极本笔记本电脑采用银色金属机身设计，轻薄便携，适合商务办公和日常使用。配备13.3英寸高清显示屏，提供出色的视觉体验。搭载Intel Core i5处理器和8GB内存，运行流畅，满足各种办公需求。256GB SSD固态硬盘，读写速度快，启动迅速。Intel HD Graphics显卡，支持高清视频播放和轻度图形处理。Windows 10操作系统，界面友好，功能强大。全国联保，一年保修，售后无忧。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        3.0,
+        2.0,
+        1.0
+      ],
+      "filtered_product_ids": [
+        "business_laptop_0006",
+        "business_laptop_0009",
+        "business_laptop_0016",
+        "ultrabook_0074",
+        "ultrabook_0089"
+      ],
+      "filtered_indices": [
+        1105,
+        1108,
+        1115,
+        1473,
+        1488
+      ],
+      "filtered_image_paths": [
+        "images/computers/business_laptop/000006.jpeg",
+        "images/computers/business_laptop/000009.jpg",
+        "images/computers/business_laptop/000016.png",
+        "images/computers/ultrabook/000074.png",
+        "images/computers/ultrabook/000089.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: HP EliteBook 840 G8 商务笔记本电脑 14英寸 FHD IPS 显示屏 Intel i5-1135G7 Intel Iris Xe 64GB RAM 1TB m.2 SATA SSD 背光键盘 指纹识别 2个Thunderbolt\n品牌: HP\n商品描述: HP EliteBook 840 G8 商务笔记本电脑，配备14英寸FHD IPS显示屏，Intel i5-1135G7处理器，64GB RAM，1TB m.2 SATA SSD，背光键盘，指纹识别，2个Thunderbolt接口。",
+        "一级类目: 电脑\n二级类目: 商务笔记本电脑\n商品标题: 现代商务笔记本电脑展示图\n品牌: Freepik\n商品描述: 这是一款现代商务笔记本电脑，外观设计简洁时尚，银色机身搭配黑色键盘，屏幕显示色彩鲜艳，适合办公和娱乐使用。",
+        "一级类目: 电脑\n二级类目: 商务笔记本\n商品标题: 戴尔 Latitude 9420 商务笔记本电脑\n品牌: 戴尔\n商品描述: 戴尔 Latitude 9420 商务笔记本电脑，采用银色金属机身设计，配备14英寸高清显示屏，搭载Intel Core i5/i7处理器，8GB/16GB内存，256GB/512GB SSD固态硬盘，Intel Iris Xe显卡，支持USB-C、USB-A、HDMI等多种接口，重量约1.3kg，轻薄便携，适合商务办公使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: 宏碁 Swift Go 14 AI 超极本笔记本电脑\n品牌: 宏碁\n商品描述: 宏碁 Swift Go 14 AI 超极本是一款专为现代专业人士设计的轻薄笔记本电脑。它搭载了最新的Intel Core Ultra 7 155H处理器，配备16GB LPDDR5X内存和512GB SSD，提供出色的性能和快速响应速度。14英寸高清显示屏带来沉浸式的视觉体验，而1080p FHD摄像头则确保清晰的视频通话。此外，该笔记本还配备了Thunderbolt 4接口、USB-C、USB-A、HDMI和3.5mm耳机孔等多种接口，满足各种连接需求。其铝合金机身设计不仅坚固耐用，而且轻便易携，重量仅约1.2kg，非常适合商务人士和学生使用。",
+        "一级类目: 电脑\n二级类目: 超极本\n商品标题: Acer 宏碁 Aspire 3 超极本笔记本电脑\n品牌: Acer\n商品描述: Acer 宏碁 Aspire 3 超极本是一款轻薄便携的笔记本电脑，适合日常办公、学习和娱乐使用。配备Intel Core处理器，提供流畅的性能体验。15.6英寸高清显示屏，色彩鲜艳，视野开阔。8GB/16GB内存和256GB/512GB SSD硬盘，快速启动，大容量存储。Windows 11操作系统，界面友好，功能强大。USB 3.2、USB-C、HDMI等多种接口，满足各种连接需求。720p HD摄像头，支持高清视频通话。全尺寸背光键盘，打字舒适。多点触控板，操作便捷。银色外观，时尚大方。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.6,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "vitamin_c_serum",
+      "category": "护肤品",
+      "canonical_zh": "维生素C精华",
+      "custom_query": "我想找一款属于“护肤品”类目的“维生素C精华”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "vitamin_c_serum_0032",
+        "vitamin_c_serum_0027",
+        "vitamin_c_serum_0068",
+        "vitamin_c_serum_0006",
+        "vitamin_c_serum_0026"
+      ],
+      "top5_indices": [
+        4431,
+        4426,
+        4467,
+        4405,
+        4425
+      ],
+      "top5_image_paths": [
+        "images/skincare/vitamin_c_serum/000032.jpg",
+        "images/skincare/vitamin_c_serum/000027.jpg",
+        "images/skincare/vitamin_c_serum/000068.jpg",
+        "images/skincare/vitamin_c_serum/000006.jpg",
+        "images/skincare/vitamin_c_serum/000026.png"
+      ],
+      "top5_documents": [
+        "一级类目: 护肤品\n二级类目: 维生素C精华\n商品标题: White Naturals 维生素C面部精华液\n品牌: White Naturals\n商品描述: White Naturals 维生素C面部精华液，采用天然成分，帮助肌肤焕发自然光泽。",
+        "一级类目: 护肤品\n二级类目: 精华液\n商品标题: Batiaranm 维生素C精华液\n品牌: Batiaranm\n商品描述: Batiaranm维生素C精华液，蕴含高纯度维生素C成分，有效提亮肤色、淡化色斑，抗氧化效果显著。质地轻盈易吸收，适合所有肤质使用。",
+        "一级类目: 护肤品\n二级类目: 精华液\n商品标题: Eclat 维生素C精华\n品牌: Eclat\n商品描述: Eclat 维生素C精华，具有抗衰老和抗氧化功效，适合日常护肤使用。",
+        "一级类目: 护肤品\n二级类目: 精华液\n商品标题: Lotus Organic 维生素C精华液\n品牌: Lotus Organic\n商品描述: 富含维生素C的精华液，具有提亮肤色和深层保湿功效，适合所有肤质使用。",
+        "一级类目: 护肤品\n二级类目: vitamin_c_serum\n商品标题: MeasurabledifferenceVitamin C Serum\n品牌: Measurabledifference\n商品描述: MeasurabledifferenceVitamin C Serum，适合日常使用。"
+      ],
+      "top5_scores": [
+        0.0,
+        1.0,
+        5.0,
+        -4.0,
+        3.0
+      ],
+      "filtered_product_ids": [
+        "vitamin_c_serum_0072",
+        "vitamin_c_serum_0061",
+        "vitamin_c_serum_0073",
+        "vitamin_c_serum_0092",
+        "vitamin_c_serum_0002"
+      ],
+      "filtered_indices": [
+        4471,
+        4460,
+        4472,
+        4491,
+        4401
+      ],
+      "filtered_image_paths": [
+        "images/skincare/vitamin_c_serum/000072.jpg",
+        "images/skincare/vitamin_c_serum/000061.png",
+        "images/skincare/vitamin_c_serum/000073.jpg",
+        "images/skincare/vitamin_c_serum/000092.jpg",
+        "images/skincare/vitamin_c_serum/000002.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 护肤品\n二级类目: 精华液\n商品标题: Vitamin C Citrus Stem Cell Serum\n品牌: Dr. Jennifer Walden\n商品描述: 这款精华液富含Vitamin C和Caribbean Orange Oil，能够深层滋养肌肤，提升肌肤光泽度。",
+        "一级类目: 护肤品\n二级类目: 精华\n商品标题: MD 维生素C精华\n品牌: Measurable Difference\n商品描述: MD 维生素C精华是一款皮肤滋养的面部精华，具有保湿功效，能够减少衰老迹象。",
+        "一级类目: 护肤品\n二级类目: 维生素C精华\n商品标题: White Naturals 维生素C面部精华液\n品牌: White Naturals\n商品描述: White Naturals 维生素C面部精华液，采用天然成分，帮助肌肤焕发自然光泽。",
+        "一级类目: 护肤品\n二级类目: 维生素C精华\n商品标题: White Naturals 维生素C面部精华液\n品牌: White Naturals\n商品描述: White Naturals 维生素C面部精华液，帮助肌肤自然焕发光彩。",
+        "一级类目: 护肤品\n二级类目: 精华\n商品标题: Andalou Naturals 姜黄+C 焕亮精华\n品牌: Andalou Naturals\n商品描述: 这款 Andalou Naturals 焕亮精华富含姜黄和维生素C，专为提亮肤色设计。瓶身采用橙色设计，搭配白色泵头和银色瓶盖，简约时尚。背景中可见新鲜橙子和姜黄粉末，突显天然成分。适合所有肤质使用，帮助改善肤色不均，焕发肌肤光彩。"
+      ],
+      "top5_relevance_ratio": 0.2,
+      "filtered_irrelevant_ratio": 0.6,
+      "raw_response": {
+        "ranked_doc_ids": [
+          6,
+          5,
+          1,
+          10,
+          3
+        ],
+        "filtered_doc_ids": [
+          6,
+          5,
+          1,
+          10,
+          3,
+          9,
+          4
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "wall_split_ac",
+      "category": "空调",
+      "canonical_zh": "壁挂式空调",
+      "custom_query": "我想找一款属于“空调”类目的“壁挂式空调”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "wall_split_ac_0003",
+        "wall_split_ac_0052",
+        "wall_split_ac_0011",
+        "wall_split_ac_0076",
+        "wall_split_ac_0082"
+      ],
+      "top5_indices": [
+        302,
+        351,
+        310,
+        375,
+        381
+      ],
+      "top5_image_paths": [
+        "images/air_conditioners/wall_split_ac/000003.jpg",
+        "images/air_conditioners/wall_split_ac/000052.jpg",
+        "images/air_conditioners/wall_split_ac/000011.jpg",
+        "images/air_conditioners/wall_split_ac/000076.jpg",
+        "images/air_conditioners/wall_split_ac/000082.png"
+      ],
+      "top5_documents": [
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 12000 BTU WiFi智能A易装DIY直流变频壁挂式空调\n品牌: A\n商品描述: 这款壁挂式空调具有12000 BTU的制冷量，支持WiFi智能控制，方便用户远程操作。采用直流变频技术，节能高效。DIY易装设计，安装简单快捷。配备4.5米长的管道，适合不同安装需求。外观简洁现代，适合各种家居风格。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 12000 BTU WiFi智能A易装DIY直流变频壁挂式空调\n品牌: A\n商品描述: 这款12000 BTU的壁挂式空调采用直流变频技术，支持WiFi智能控制，方便用户远程操作。其DIY易装设计使得安装过程更加简单快捷，适合家庭使用。空调外观简洁，白色机身与多种室内装饰风格相协调。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: R410A 绿色制冷剂 Seer 21 115V 迷你空调变频壁挂式空调冷暖两用\n品牌: Zhongbao\n商品描述: 这是一款由 Zhongbao 品牌生产的壁挂式空调，采用 R410A 绿色制冷剂，具有 Seer 21 的能效比，适用于 115V 电压环境。该空调为变频设计，具备冷暖两用功能，外观为白色，设计简洁现代。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 高效节能冷暖型壁挂式空调\n品牌: Kumeijia\n商品描述: 这款壁挂式空调采用高效节能技术，具备冷暖双功能，适用于家庭和商业场所。产品外观简洁大方，白色机身设计，易于清洁和维护。配备LED数字显示屏，可清晰显示当前温度和运行状态。遥控器控制方便，操作简便。一级能效等级，节能环保，降低使用成本。噪音低，运行平稳，提供舒适的室内环境。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: Puremind 壁挂式空调，超静音设计，最低18dB运行噪音\n品牌: Puremind\n商品描述: 这款Puremind壁挂式空调采用超静音设计，最低运行噪音仅为18dB，非常适合卧室使用。空调外观简洁，白色机身易于融入各种家居风格。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        0.0,
+        -3.0,
+        -4.0
+      ],
+      "filtered_product_ids": [
+        "wall_split_ac_0038",
+        "wall_split_ac_0049",
+        "wall_split_ac_0041",
+        "wall_split_ac_0053",
+        "wall_split_ac_0057"
+      ],
+      "filtered_indices": [
+        337,
+        348,
+        340,
+        352,
+        356
+      ],
+      "filtered_image_paths": [
+        "images/air_conditioners/wall_split_ac/000038.jpg",
+        "images/air_conditioners/wall_split_ac/000049.jpg",
+        "images/air_conditioners/wall_split_ac/000041.jpg",
+        "images/air_conditioners/wall_split_ac/000053.jpg",
+        "images/air_conditioners/wall_split_ac/000057.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 白色壁挂式空调室内机\n品牌: Freepik\n商品描述: 白色壁挂式空调室内机，安装在蓝色墙面上，外观简洁现代。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 白色壁挂式空调室内机\n品牌: Freepik\n商品描述: 白色壁挂式空调室内机，安装在蓝色墙面上，外观简洁现代。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: 白色壁挂式空调室内机\n品牌: Freepik\n商品描述: 白色壁挂式空调室内机，安装在蓝色墙面上，外观简洁现代。",
+        "一级类目: 空调\n二级类目: 壁挂式空调\n商品标题: Electriq iQool9Plus 壁挂式空调\n品牌: Electriq\n商品描述: 现代简约风格的白色壁挂式空调，安装在米色墙壁上，显示温度为26°C。",
+        "一级类目: 空调\n二级类目: 分体式空调\n商品标题: 分体式空调室外机\n品牌: beko\n商品描述: 分体式空调室外机，适用于冷暖季节，能效等级为4级，具体型号包括12k、18k、24k等。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          6,
+          9,
+          10
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "white_dress_shirt",
+      "category": "衬衫",
+      "canonical_zh": "白色正装衬衫",
+      "custom_query": "我想找一款属于“衬衫”类目的“白色正装衬衫”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "white_dress_shirt_0070",
+        "white_dress_shirt_0092",
+        "white_dress_shirt_0006",
+        "white_dress_shirt_0053",
+        "white_dress_shirt_0058"
+      ],
+      "top5_indices": [
+        3469,
+        3491,
+        3405,
+        3452,
+        3457
+      ],
+      "top5_image_paths": [
+        "images/shirts/white_dress_shirt/000070.png",
+        "images/shirts/white_dress_shirt/000092.png",
+        "images/shirts/white_dress_shirt/000006.jpg",
+        "images/shirts/white_dress_shirt/000053.jpg",
+        "images/shirts/white_dress_shirt/000058.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: Abercrombie & Fitch 男士白色正装衬衫\n品牌: Abercrombie & Fitch\n商品描述: 一件折叠整齐的白色正装衬衫，品牌为 Abercrombie & Fitch，尺码为 L，领口处有品牌标签，显示产地为越南制造。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: Abercrombie & Fitch 男士白色正装衬衫\n品牌: Abercrombie & Fitch\n商品描述: Abercrombie & Fitch 品牌的白色正装衬衫，尺码为 L，采用标准领设计，配有白色纽扣，产地为越南。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: 白色正装衬衫\n品牌: Pngtree\n商品描述: 这是一款白色正装衬衫，采用标准领设计，配有白色纽扣。衬衫整体简洁大方，适合商务或正式场合穿着。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: CUP O' JOE 定制白色正装衬衫\n品牌: CUP O' JOE\n商品描述: 这是一款白色长袖正装衬衫，左胸口袋上方印有棕色的“CUP O' JOE”品牌Logo。衬衫剪裁合身，适合商务或正式场合穿着。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: CUP O' JOE 定制白色正装衬衫\n品牌: CUP O' JOE\n商品描述: 这是一款白色长袖正装衬衫，左胸口袋上方印有棕色的“CUP O' JOE”品牌刺绣标志。衬衫采用经典的翻领设计，整体剪裁合身，适合商务或正式场合穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        4.0,
+        2.0,
+        1.0,
+        0.0
+      ],
+      "filtered_product_ids": [
+        "white_dress_shirt_0099",
+        "white_dress_shirt_0040",
+        "blue_oxford_shirt_0004",
+        "white_dress_shirt_0010",
+        "white_dress_shirt_0011"
+      ],
+      "filtered_indices": [
+        3498,
+        3439,
+        3003,
+        3409,
+        3410
+      ],
+      "filtered_image_paths": [
+        "images/shirts/white_dress_shirt/000099.jpg",
+        "images/shirts/white_dress_shirt/000040.jpg",
+        "images/shirts/blue_oxford_shirt/000004.jpg",
+        "images/shirts/white_dress_shirt/000010.jpeg",
+        "images/shirts/white_dress_shirt/000011.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: Slim Fit 白色正装衬衫 - 黑色纽扣\n品牌: BLUEFORT\n商品描述: 这款白色正装衬衫采用修身剪裁设计，搭配黑色纽扣，适合正式场合穿着。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: 男士白色正装衬衫\n品牌: Moss\n商品描述: 这款男士白色正装衬衫设计简洁大方，适合商务和正式场合穿着。衬衫采用标准领设计，搭配白色纽扣，整体风格优雅且专业。",
+        "一级类目: 衬衫\n二级类目: 牛津纺衬衫\n商品标题: 男士蓝色牛津纺衬衫\n品牌: TAILORSTORE\n商品描述: 这是一款男士蓝色牛津纺衬衫，采用标准领设计，配有白色纽扣。衬衫内衬为波点图案，整体设计简洁大方，适合商务或休闲场合穿着。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: IKE by Ike Behar 白色纹理正装衬衫\n品牌: IKE by Ike Behar\n商品描述: 一件白色纹理正装衬衫，采用Performance Cotton材质，配有法式袖口和袖扣。",
+        "一级类目: 衬衫\n二级类目: 白色正装衬衫\n商品标题: 男士白色正装衬衫\n品牌: Moss\n商品描述: 这款男士白色正装衬衫采用经典设计，适合正式场合穿着。衬衫为长袖款式，配有标准领和白色纽扣，整体剪裁合身，展现出优雅与专业。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.2,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "white_sneakers",
+      "category": "鞋子",
+      "canonical_zh": "运动鞋",
+      "custom_query": "我想找一款属于“鞋子”类目的“运动鞋”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "white_sneakers_0016",
+        "white_sneakers_0014",
+        "white_sneakers_0038",
+        "white_sneakers_0079",
+        "white_sneakers_0003"
+      ],
+      "top5_indices": [
+        3915,
+        3913,
+        3937,
+        3978,
+        3902
+      ],
+      "top5_image_paths": [
+        "images/shoes/white_sneakers/000016.jpg",
+        "images/shoes/white_sneakers/000014.jpg",
+        "images/shoes/white_sneakers/000038.JPG",
+        "images/shoes/white_sneakers/000079.jpg",
+        "images/shoes/white_sneakers/000003.jpg"
+      ],
+      "top5_documents": [
+        "一级类目: 鞋子\n二级类目: 小白鞋\n商品标题: 简约白色低帮休闲运动鞋\n品牌: Nytimes\n商品描述: 经典纯白色低帮板鞋，采用优质皮革鞋面，搭配白色橡胶大底，设计简约百搭，适合日常通勤与休闲穿搭。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 白色休闲运动鞋\n品牌: Vecteezy\n商品描述: 白色系带运动鞋，鞋面采用皮革材质，搭配灰色内衬和鞋底，设计简约时尚，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 男士白色休闲运动鞋\n品牌: Bewakoof\n商品描述: 这款白色运动鞋采用合成革鞋面，搭配灰色装饰线条，设计简约时尚。系带闭合方式，适合日常休闲穿着。鞋底为橡胶材质，提供良好的抓地力和耐磨性。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 白色休闲板鞋女款\n品牌: Burberry\n商品描述: 简约百搭白色板鞋，采用优质皮革鞋面，舒适透气，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 阿迪达斯 Stan Smith 白色休闲板鞋\n品牌: 阿迪达斯\n商品描述: 经典白色板鞋，简约时尚设计，适合日常穿着。"
+      ],
+      "top5_scores": [
+        5.0,
+        2.0,
+        0.0,
+        -1.0,
+        -3.0
+      ],
+      "filtered_product_ids": [
+        "white_sneakers_0027",
+        "white_sneakers_0071",
+        "white_sneakers_0012",
+        "white_sneakers_0019",
+        "white_sneakers_0042"
+      ],
+      "filtered_indices": [
+        3926,
+        3970,
+        3911,
+        3918,
+        3941
+      ],
+      "filtered_image_paths": [
+        "images/shoes/white_sneakers/000027.jpg",
+        "images/shoes/white_sneakers/000071.jpg",
+        "images/shoes/white_sneakers/000012.jpg",
+        "images/shoes/white_sneakers/000019.JPG",
+        "images/shoes/white_sneakers/000042.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 鞋子\n二级类目: 休闲鞋\n商品标题: 简约白色休闲运动鞋\n品牌: Dreamstime\n商品描述: 这款简约的白色休闲运动鞋，采用优质皮革鞋面，搭配白色橡胶鞋底，设计时尚大方，适合日常休闲穿着。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: 白色休闲板鞋\n品牌: 耐克\n商品描述: 白色休闲板鞋，适合日常使用。",
+        "一级类目: 鞋子\n二级类目: 休闲鞋\n商品标题: 白色休闲板鞋\n品牌: Istockphoto\n商品描述: 白色休闲板鞋，适合日常使用。",
+        "一级类目: 鞋子\n二级类目: 女鞋\n商品标题: 白色厚底休闲板鞋\n品牌: Indiamart\n商品描述: 白色厚底休闲板鞋，适合日常使用。",
+        "一级类目: 鞋子\n二级类目: 运动鞋\n商品标题: Adidas 白色休闲板鞋\n品牌: Adidas\n商品描述: Adidas 经典白色休闲板鞋，采用皮革鞋面，系带设计，适合日常休闲穿着。"
+      ],
+      "top5_relevance_ratio": 0.8,
+      "filtered_irrelevant_ratio": 0.6,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          4,
+          6,
+          7,
+          9
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "method_name": "qwen3_5_9b",
+      "subcategory_slug": "window_ac",
+      "category": "空调",
+      "canonical_zh": "窗式空调",
+      "custom_query": "我想找一款属于“空调”类目的“窗式空调”。请优先保留真正属于这个子类别、商品信息匹配、明显不是其他近似子类别的结果。",
+      "top5_product_ids": [
+        "window_ac_0017",
+        "window_ac_0004",
+        "window_ac_0018",
+        "window_ac_0073",
+        "window_ac_0089"
+      ],
+      "top5_indices": [
+        416,
+        403,
+        417,
+        472,
+        488
+      ],
+      "top5_image_paths": [
+        "images/air_conditioners/window_ac/000017.jpeg",
+        "images/air_conditioners/window_ac/000004.jpg",
+        "images/air_conditioners/window_ac/000018.jpeg",
+        "images/air_conditioners/window_ac/000073.jpeg",
+        "images/air_conditioners/window_ac/000089.jpeg"
+      ],
+      "top5_documents": [
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: DURASTAR 8000 BTU 窗式空调带加热器和遥控器\n品牌: DURASTAR\n商品描述: 这款DURASTAR窗式空调适用于350平方英尺的房间，具备制冷和制热功能，配备遥控器，电压为115伏，制冷量为8000 BTU。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: RCA 400平方英尺窗式空调，115伏，10000 BTU\n品牌: RCA\n商品描述: RCA 400平方英尺窗式空调，115伏，10000 BTU，白色外观，适合中小型房间使用。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: Perfect Aire 15000 BTU 窗式空调\n品牌: Perfect Aire\n商品描述: 这款 Perfect Aire 窗式空调具有 15000 BTU 的制冷量，适合中等大小的房间使用。它配备了电子控制面板，可以方便地调节温度和模式。空调采用白色设计，外观简洁大方，易于安装和维护。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: DURASTAR 8000 BTU 窗式空调带加热器和遥控器\n品牌: DURASTAR\n商品描述: 这款DURASTAR窗式空调配备遥控器，提供制冷和制热功能，适用于350平方英尺的空间。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: DURASTAR 8000 BTU 窗式空调带加热器和遥控器\n品牌: DURASTAR\n商品描述: 这款DURASTAR窗式空调适用于350平方英尺的房间，具备制冷和制热功能，配备遥控器，电压为115伏。"
+      ],
+      "top5_scores": [
+        5.0,
+        0.0,
+        -1.0,
+        4.0,
+        3.0
+      ],
+      "filtered_product_ids": [
+        "window_ac_0086",
+        "window_ac_0021",
+        "window_ac_0029",
+        "window_ac_0045",
+        "window_ac_0014"
+      ],
+      "filtered_indices": [
+        485,
+        420,
+        428,
+        444,
+        413
+      ],
+      "filtered_image_paths": [
+        "images/air_conditioners/window_ac/000086.jpg",
+        "images/air_conditioners/window_ac/000021.jpg",
+        "images/air_conditioners/window_ac/000029.jpg",
+        "images/air_conditioners/window_ac/000045.jpg",
+        "images/air_conditioners/window_ac/000014.jpg"
+      ],
+      "filtered_documents": [
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: 窗式空调\n品牌: Homppeal\n商品描述: 这是一款白色的窗式空调，具有电子控制面板和水平百叶窗式出风口，适合安装在窗户上使用。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: AmazonBasics 窗式空调器\n品牌: AmazonBasics\n商品描述: AmazonBasics 窗式空调器，配备机械控制旋钮，适合安装在窗户上。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: RCA 400平方英尺窗式空调 115伏 10000 BTU\n品牌: RCA\n商品描述: RCA 400平方英尺窗式空调，115伏，10000 BTU制冷量。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: 遥控窗式空调\n品牌: TCL\n商品描述: 这是一款白色的窗式空调，配备遥控器，适合安装在窗户上使用。",
+        "一级类目: 空调\n二级类目: 窗式空调\n商品标题: 8000 BTU T1 T3 R32 变频制冷窗式空调\n品牌: AirBrisk\n商品描述: 这是一款8000 BTU的窗式空调，采用T1 T3 R32变频技术，仅具备制冷功能。"
+      ],
+      "top5_relevance_ratio": 1.0,
+      "filtered_irrelevant_ratio": 0.0,
+      "raw_response": {
+        "ranked_doc_ids": [
+          1,
+          6,
+          7,
+          2,
+          3
+        ],
+        "filtered_doc_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    }
+  ]
+}

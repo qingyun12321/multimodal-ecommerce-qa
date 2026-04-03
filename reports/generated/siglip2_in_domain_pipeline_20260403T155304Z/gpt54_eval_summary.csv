@@ -1,0 +1,4 @@
+method_name,avg_top5_relevant_ratio_gpt,avg_filtered_correct_ratio_gpt,case_count
+bge_reranker_v2_m3,0.9640000000000001,0.19199999999999995,50
+qwen3_5_4b,0.9893333333333334,0.23199999999999996,50
+qwen3_5_9b,0.9839999999999999,0.504,50
