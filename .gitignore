@@ -12,6 +12,7 @@ sample.jpg
 
 # Tool caches
 .cache/
+.pytest_cache/
 
 # Editor / OS noise
 .DS_Store
