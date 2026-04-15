@@ -24,7 +24,7 @@ from transformers import (
     CLIPProcessor,
 )
 
-from ecom_rag.gme_retriever import GMERetriever
+from ecom_qa.retrieval.gme import GMERetriever
 
 
 def choose_torch_dtype(device: str, torch_dtype: str) -> torch.dtype:

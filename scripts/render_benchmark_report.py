@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 
-ROOT = Path("/workspace/multimodal_ecommerce_qa")
+ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT_JSON = ROOT / "reports/generated/official_multilingual_t2i_20260403T125235Z/combined_metrics.json"
 DEFAULT_OUTPUT_IMAGE = ROOT / "official_multilingual_results_sample_style.jpg"
 FONT_REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"

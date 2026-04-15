@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 
-ROOT = Path("/workspace/multimodal_ecommerce_qa")
+ROOT = Path(__file__).resolve().parents[1]
 RUN_DIR = ROOT / "reports/generated/siglip2_in_domain_pipeline_20260403T155304Z"
 FONT_REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"

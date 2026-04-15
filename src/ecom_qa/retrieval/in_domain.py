@@ -8,8 +8,12 @@ from random import Random
 
 import numpy as np
 
-from ecom_rag.data import ProductRecord, SubcategoryQuery
-from ecom_rag.subcategory_eval import evaluate_subcategory_queries, hit_at_k, precision_at_k
+from ecom_qa.data.catalog import ProductRecord, SubcategoryQuery
+from ecom_qa.evaluation.subcategory import (
+    evaluate_subcategory_queries,
+    hit_at_k,
+    precision_at_k,
+)
 
 
 SIGLIP2_T2I_PROMPT = "This is a photo of {label}."

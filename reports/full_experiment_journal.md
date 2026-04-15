@@ -140,7 +140,7 @@ Planned workflow:
 
 ## Environment Notes
 
-- workspace root: `/workspace/multimodal_ecommerce_qa`
+- workspace root during the original run: `/workspace/multimodal_ecommerce_qa`
 - GPU detected: `RTX 5090 32GB`
 - persistent caches stay under workspace paths
 - current `.gitignore` excludes:
@@ -185,7 +185,7 @@ Planned workflow:
 - Confirmed `transformers==4.51.3` cannot load `Qwen3.5` because the checkpoint uses `model_type=qwen3_5`.
 - Started the environment upgrade and created this durable journal before implementing the remaining stages.
 - Upgraded the environment to a newer `transformers` main build and added `openai` support so `Qwen3.5` checkpoints could load.
-- Implemented the in-domain SigLIP2 pipeline in `src/ecom_rag/in_domain_pipeline.py` and `scripts/run_siglip2_in_domain_pipeline.py`.
+- Implemented the in-domain SigLIP2 pipeline in `src/ecom_qa/retrieval/in_domain.py` and `scripts/run_retrieval_pipeline.py`.
 - Ran the in-domain retrieval benchmark and saved the final retained run at `reports/generated/siglip2_in_domain_pipeline_20260403T155304Z`.
 - Final in-domain retrieval results:
   - image-to-image mean precision: `0.8325`
@@ -213,8 +213,8 @@ Planned workflow:
   - `Qwen3.5-4B`: top5 `0.9893`, filtered `0.2320`
   - `Qwen3.5-9B`: top5 `0.9840`, filtered `0.5040`
 - Implemented the out-of-domain retrieval code in:
-  - `src/ecom_rag/web_retrieval.py`
-  - `scripts/run_out_of_domain_retrieval.py`
+  - `src/ecom_qa/retrieval/web.py`
+  - `scripts/run_web_search.py`
 - Final retained out-of-domain run is `reports/generated/out_of_domain_web_retrieval_20260403T165452Z`.
 - Verified:
   - image-to-query generation works with `Qwen3.5-4B`
@@ -226,13 +226,13 @@ Planned workflow:
   - `reports/generated/out_of_domain_web_retrieval_20260403T165452Z`
 - Upgraded the environment to `transformers` mainline (`5.6.0.dev0` in this run) and added `openai` so the repo can follow the current Qwen3.5-compatible stack.
 - Implemented the reusable in-domain pipeline modules:
-  - `src/ecom_rag/in_domain_pipeline.py`
-  - `src/ecom_rag/rerankers.py`
-  - `scripts/run_siglip2_in_domain_pipeline.py`
-  - `scripts/run_rerank_filters.py`
+  - `src/ecom_qa/retrieval/in_domain.py`
+  - `src/ecom_qa/retrieval/rerankers.py`
+  - `scripts/run_retrieval_pipeline.py`
+  - `scripts/run_reranking.py`
 - Implemented the out-of-domain retrieval modules:
-  - `src/ecom_rag/web_retrieval.py`
-  - `scripts/run_out_of_domain_retrieval.py`
+  - `src/ecom_qa/retrieval/web.py`
+  - `scripts/run_web_search.py`
 - Ran the SigLIP2 in-domain pipeline:
   - run name: `siglip2_in_domain_pipeline_20260403T155304Z`
   - image-to-image mean precision: `0.8325`

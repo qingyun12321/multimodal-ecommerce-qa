@@ -6,7 +6,7 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ecom_rag.web_retrieval import (
+from ecom_qa.retrieval.web import (
     JinaReaderClient,
     Qwen3_5TextGenerator,
     SerpAPIClient,

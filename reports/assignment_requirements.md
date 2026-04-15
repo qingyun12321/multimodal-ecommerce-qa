@@ -25,7 +25,7 @@ The PDF asks for the following workflow in the retrieval module:
 
 ## Local Interpretation Used Here
 
-Because the synthetic `subcategory` field inside `dataset/products.jsonl` contains many noisy synonyms, the reproducible canonical subcategory definition comes from the image folder layout:
+Because the synthetic `subcategory` field inside `dataset/catalog/products.jsonl` contains many noisy synonyms, the reproducible canonical subcategory definition comes from the image folder layout:
 
 - `dataset/images/<category_slug>/<subcategory_slug>/<image_file>`
 

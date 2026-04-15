@@ -7,7 +7,7 @@ __pycache__/
 dataset/
 artifacts/
 weights/
-ecommerce_qa_assignment.pdf
+*.pdf
 sample.jpg
 
 # Tool caches
@@ -15,3 +15,6 @@ sample.jpg
 
 # Editor / OS noise
 .DS_Store
+
+docs
+tests

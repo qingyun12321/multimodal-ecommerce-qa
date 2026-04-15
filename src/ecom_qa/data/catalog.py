@@ -62,7 +62,11 @@ class SubcategoryQuery:
 
 
 def load_products(dataset_dir: Path) -> list[ProductRecord]:
-    products_path = dataset_dir / "products.jsonl"
+    candidates = [
+        dataset_dir / "catalog" / "products.jsonl",
+        dataset_dir / "products.jsonl",
+    ]
+    products_path = next((path for path in candidates if path.exists()), candidates[0])
     records: list[ProductRecord] = []
     with products_path.open("r", encoding="utf-8") as fh:
         for line in fh:

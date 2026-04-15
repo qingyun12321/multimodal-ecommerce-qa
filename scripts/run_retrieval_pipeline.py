@@ -9,8 +9,8 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ecom_rag.data import build_query_text, build_subcategory_queries, load_products
-from ecom_rag.in_domain_pipeline import (
+from ecom_qa.data.catalog import build_query_text, build_subcategory_queries, load_products
+from ecom_qa.retrieval.in_domain import (
     TOP_KS,
     build_aggregated_candidates,
     build_case_metrics,
@@ -19,8 +19,8 @@ from ecom_rag.in_domain_pipeline import (
     sample_repeat_cases,
     write_json,
 )
-from ecom_rag.model_retrievers import ModelRunConfig, build_retriever
-from ecom_rag.rerankers import BGEReranker, QwenFilter
+from ecom_qa.retrieval.models import ModelRunConfig, build_retriever
+from ecom_qa.retrieval.rerankers import BGEReranker, QwenFilter
 
 
 def parse_args() -> argparse.Namespace:

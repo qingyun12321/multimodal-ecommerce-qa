@@ -204,8 +204,8 @@ Interpretation:
 
 Implemented code:
 
-- `src/ecom_rag/web_retrieval.py`
-- `scripts/run_out_of_domain_retrieval.py`
+- `src/ecom_qa/retrieval/web.py`
+- `scripts/run_web_search.py`
 
 Capabilities in the repo:
 

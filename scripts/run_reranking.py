@@ -6,8 +6,8 @@ import json
 import os
 from pathlib import Path
 
-from ecom_rag.data import build_query_text, build_subcategory_queries, load_products
-from ecom_rag.rerankers import BGEReranker, QwenFilter
+from ecom_qa.data.catalog import build_query_text, build_subcategory_queries, load_products
+from ecom_qa.retrieval.rerankers import BGEReranker, QwenFilter
 
 
 def parse_args() -> argparse.Namespace:

@@ -17,8 +17,8 @@ from transformers import (
     BitsAndBytesConfig,
 )
 
-from ecom_rag.data import ProductRecord, build_query_text
-from ecom_rag.model_retrievers import choose_torch_dtype
+from ecom_qa.data.catalog import ProductRecord, build_query_text
+from ecom_qa.retrieval.models import choose_torch_dtype
 
 
 def _chunked(items: list, batch_size: int):

@@ -11,10 +11,10 @@ from pathlib import Path
 
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "0"
 
-from ecom_rag.data import build_subcategory_queries, load_products
-from ecom_rag.eval import compute_ranked_lists
-from ecom_rag.model_retrievers import ModelRunConfig, build_retriever
-from ecom_rag.subcategory_eval import evaluate_subcategory_queries
+from ecom_qa.data.catalog import build_subcategory_queries, load_products
+from ecom_qa.evaluation.ranking import compute_ranked_lists
+from ecom_qa.evaluation.subcategory import evaluate_subcategory_queries
+from ecom_qa.retrieval.models import ModelRunConfig, build_retriever
 
 
 MODEL_ORDER = ["clip", "chinese_clip", "siglip2", "gme_2b"]
