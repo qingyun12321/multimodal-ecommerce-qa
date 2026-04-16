@@ -21,15 +21,19 @@ The repo also keeps durable Markdown notes so the long experiment chain can be r
 ## Layout
 
 - `src/ecom_qa/data/`: dataset schemas and catalog loading
+- `src/ecom_qa/data/qa_generation.py`: local Gemma 4 preview QA generation helpers
 - `src/ecom_qa/retrieval/`: embedding models, in-domain retrieval, reranking, and web retrieval
 - `src/ecom_qa/evaluation/`: ranked-list and subcategory evaluation helpers
 - `dataset/catalog/`: structured product metadata such as `products.jsonl`
 - `dataset/manifests/`: manifests and split metadata
 - `dataset/images/`: gallery images grouped by category and subcategory
+- `dataset/qa/generated/`: generated QA preview runs and timing summaries
 - `scripts/run_retrieval_benchmark.py`: official-aligned multilingual text-to-image benchmark
 - `scripts/run_retrieval_pipeline.py`: SigLIP2 image-to-image, image+text-to-image, multi-route recall, and reranking
 - `scripts/run_reranking.py`: reusable BGE / Qwen3.5 reranking on saved candidates
 - `scripts/run_web_search.py`: SerpAPI + Jina Reader + Qwen3.5 web retrieval pipeline
+- `scripts/generate_qa_preview.py`: generate preview QA pairs with local `llama.cpp` + Gemma 4
+- `scripts/build_assignment2_dataset.py`: generate 5k QA pairs with Gemma 4 from the current catalog
 - `scripts/render_benchmark_report.py`: renders the benchmark white-table image
 - `scripts/render_pipeline_report.py`: renders the in-domain retrieval and reranking summary tables
 - `reports/official_multilingual_results.md`: final benchmark summary
@@ -48,6 +52,41 @@ uv sync
 .venv/bin/python scripts/run_retrieval_benchmark.py --help
 .venv/bin/python scripts/run_retrieval_pipeline.py --help
 .venv/bin/python scripts/run_web_search.py --help
+.venv/bin/python scripts/generate_qa_preview.py --help
+.venv/bin/python scripts/build_assignment2_dataset.py --help
 ```
 
 All caches and model downloads stay inside this workspace so they persist across sessions.
+
+## QA Preview Generation
+
+Use the local `llama.cpp` Gemma 4 path to generate a small QA preview before scaling up:
+
+```bash
+.venv/bin/python scripts/generate_qa_preview.py \
+  --multimodal-count 8 \
+  --text-count 2
+```
+
+The script writes each run under `dataset/qa/generated/<run_name>/` with:
+
+- `qa_pairs.jsonl`: generated QA rows
+- `run_summary.json`: startup and per-sample timing summary
+- `llama_server.log`: local server log for debugging
+
+## Assignment 2 Full Generation
+
+Use the end-to-end script when you want to generate a full 5k QA set with local Gemma 4 from the current catalog. If you want to preserve the current catalog state, create a manual backup before running the script.
+
+```bash
+.venv/bin/python scripts/build_assignment2_dataset.py \
+  --multimodal-count 4000 \
+  --text-count 1000
+```
+
+Each run writes:
+
+- `dataset/qa/generated/<run_name>/qa_pairs.jsonl`: generated QA rows
+- `dataset/qa/generated/<run_name>/run_summary.json`: QA generation timing summary
+- `dataset/qa/generated/<run_name>/assignment2_run_summary.json`: overall QA run summary
+- `dataset/qa/generated/<run_name>/llama_server.log`: `llama.cpp` server log
