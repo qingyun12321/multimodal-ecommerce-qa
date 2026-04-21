@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import json
 import mimetypes
+import os
 import subprocess
 import time
 import urllib.error
@@ -275,6 +276,10 @@ def wait_for_server(base_url: str, *, timeout_seconds: float = 300.0) -> float:
 def run_llama_server(config: ServerConfig, *, log_path: Path):
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("w", encoding="utf-8") as log_file:
+        env = os.environ.copy()
+        lib_dir = str(config.server_binary.parent)
+        current_ld_path = env.get("LD_LIBRARY_PATH", "")
+        env["LD_LIBRARY_PATH"] = lib_dir if not current_ld_path else f"{lib_dir}:{current_ld_path}"
         args = [
             str(config.server_binary),
             "-m",
@@ -298,7 +303,7 @@ def run_llama_server(config: ServerConfig, *, log_path: Path):
             "--alias",
             MODEL_ALIAS,
         ]
-        process = subprocess.Popen(args, stdout=log_file, stderr=subprocess.STDOUT)
+        process = subprocess.Popen(args, stdout=log_file, stderr=subprocess.STDOUT, env=env)
         try:
             startup_seconds = wait_for_server(config.base_url)
             yield startup_seconds
