@@ -8,7 +8,7 @@ from pathlib import Path
 from random import Random
 from typing import Any, Iterable
 
-from ecom_qa.data.q_generation import (
+from ecom_qa.data.qa_generation import (
     MODEL_ALIAS,
     ServerConfig,
     extract_json_object,

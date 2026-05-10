@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from ecom_qa.data.catalog import load_products
-from ecom_qa.data.q_generation import (
+from ecom_qa.data.qa_generation import (
     ServerConfig,
     build_preview_requests,
     build_result_record,

@@ -5,7 +5,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ecom_qa.data.q_generation import ServerConfig
+from ecom_qa.data.qa_generation import ServerConfig
 from ecom_qa.data.tool_call_generation import (
     SOURCES,
     load_source_rows,
@@ -16,31 +16,25 @@ from ecom_qa.data.tool_call_generation import (
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate VLM tool-call annotations with local llama.cpp.")
+    parser = argparse.ArgumentParser(description="Run a preview generation for VLM tool-call annotations.")
     parser.add_argument(
         "--sources",
         nargs="+",
         choices=sorted(SOURCES),
         default=sorted(SOURCES),
-        help="Unified VQA sources to include.",
+        help="Unified VQA sources to include in the preview.",
     )
     parser.add_argument(
         "--count",
         type=int,
-        default=None,
+        default=20,
         help="Balanced total sample count across the selected sources.",
-    )
-    parser.add_argument(
-        "--per-source-limit",
-        type=int,
-        default=None,
-        help="Fixed sample count to draw from each selected source.",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("dataset/tool_call/generated"),
-        help="Parent directory for generation runs.",
+        help="Parent directory for preview runs.",
     )
     parser.add_argument("--seed", type=int, default=20260421)
     return parser.parse_args()
@@ -52,13 +46,13 @@ def main() -> None:
     plan = make_sampling_plan(
         source_rows,
         count=args.count,
-        per_source_limit=args.per_source_limit,
+        per_source_limit=None,
         seed=args.seed,
     )
     requests = sample_requests(source_rows, plan=plan, seed=args.seed)
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_name = f"qwen35_tool_call_{plan.total}_{timestamp}"
+    run_name = f"qwen35_tool_call_preview_{plan.total}_{timestamp}"
     run_dir = args.output_dir / run_name
     run_dir.mkdir(parents=True, exist_ok=False)
 
