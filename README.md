@@ -21,7 +21,7 @@ The repo also keeps durable Markdown notes so the long experiment chain can be r
 ## Layout
 
 - `src/ecom_qa/data/`: dataset schemas and catalog loading
-- `src/ecom_qa/data/q_generation.py`: local Gemma 4 QA generation helpers
+- `src/ecom_qa/data/qa_generation.py`: local Gemma 4 QA generation helpers
 - `src/ecom_qa/data/tool_call_generation.py`: local Gemma 4 tool-call annotation helpers
 - `src/ecom_qa/retrieval/`: embedding models, in-domain retrieval, reranking, and web retrieval
 - `src/ecom_qa/evaluation/`: ranked-list and subcategory evaluation helpers
@@ -35,6 +35,7 @@ The repo also keeps durable Markdown notes so the long experiment chain can be r
 - `scripts/run_web_search.py`: SerpAPI + Jina Reader + Qwen3.5 web retrieval pipeline
 - `scripts/generate_qa/generate_qa_preview.py`: generate preview QA pairs with local `llama.cpp` + Gemma 4
 - `scripts/generate_qa/generate_qa.py`: generate 5k QA pairs with local `llama.cpp` + Gemma 4 from the current catalog
+- `scripts/generate_qa/generate_targeted_qa.py`: generate QA pairs targeted at specific expected tool-call classes
 - `scripts/generate_tool_calls/`: InfoSeek sampling, unified VQA view building, tool-call annotation generation, and label cleaning
 - `scripts/render_benchmark_report.py`: renders the benchmark white-table image
 - `scripts/render_pipeline_report.py`: renders the in-domain retrieval and reranking summary tables
@@ -56,6 +57,7 @@ uv sync
 .venv/bin/python scripts/run_web_search.py --help
 .venv/bin/python scripts/generate_qa/generate_qa_preview.py --help
 .venv/bin/python scripts/generate_qa/generate_qa.py --help
+.venv/bin/python scripts/generate_qa/generate_targeted_qa.py --help
 .venv/bin/python scripts/generate_tool_calls/generate_tool_calls_preview.py --help
 .venv/bin/python scripts/generate_tool_calls/generate_tool_calls.py --help
 ```

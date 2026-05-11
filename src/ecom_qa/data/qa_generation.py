@@ -46,6 +46,14 @@ class PreviewRequest:
 
 
 @dataclass(frozen=True, slots=True)
+class TargetedQARequest:
+    target_tool_class: str
+    product: ProductRecord
+    image_path: Path
+    source_row_index: int
+
+
+@dataclass(frozen=True, slots=True)
 class ServerConfig:
     server_binary: Path = SERVER_BINARY
     model_path: Path = MODEL_PATH
@@ -58,6 +66,31 @@ class ServerConfig:
     @property
     def base_url(self) -> str:
         return f"http://{self.host}:{self.port}"
+
+
+TARGET_TOOL_CLASSES: dict[str, dict[str, object]] = {
+    "web_search": {
+        "search_tool": "Web_search",
+        "use_grounding": False,
+        "description": "需要 Web_search，不需要图像裁剪。",
+    },
+    "web_search_grounding": {
+        "search_tool": "Web_search",
+        "use_grounding": True,
+        "description": "需要先对图片中的具体商品、实体、标志、局部文字或局部对象做图像裁剪，再调用 Web_search。",
+    },
+    "rag_search_grounding": {
+        "search_tool": "RAG_search",
+        "use_grounding": True,
+        "description": "需要先对图片中的具体商品、实体、标志、局部文字或局部对象做图像裁剪，再调用 RAG_search。",
+    },
+}
+
+
+def validate_target_tool_class(target_tool_class: str) -> None:
+    if target_tool_class not in TARGET_TOOL_CLASSES:
+        allowed = ", ".join(sorted(TARGET_TOOL_CLASSES))
+        raise ValueError(f"Unsupported target tool class: {target_tool_class}. Expected one of: {allowed}.")
 
 
 def build_preview_requests(
@@ -88,6 +121,26 @@ def build_preview_requests(
             )
         )
     return requests
+
+
+def build_product_block(product: ProductRecord) -> str:
+    return "\n".join(
+        [
+            f"商品ID: {product.id}",
+            f"一级类目: {product.category}",
+            f"二级类目: {product.subcategory}",
+            f"商品标题: {product.title}",
+            f"品牌: {product.brand}",
+            f"价格: {product.price:.2f} 元",
+            f"颜色: {'、'.join(product.colors) if product.colors else '未知'}",
+            f"尺码/规格: {'、'.join(product.sizes) if product.sizes else '未知'}",
+            f"评分: {product.rating}",
+            f"店铺: {product.shop_name}",
+            f"售后: {json.dumps(product.after_sales, ensure_ascii=False)}",
+            f"商品参数: {json.dumps(product.parameters, ensure_ascii=False)}",
+            f"商品描述: {product.description}",
+        ]
+    )
 
 
 def build_system_prompt(qa_type: str) -> str:
@@ -128,23 +181,7 @@ def build_system_prompt(qa_type: str) -> str:
 
 def build_user_content(request: PreviewRequest) -> list[dict[str, Any]] | str:
     product = request.product
-    product_block = "\n".join(
-        [
-            f"商品ID: {product.id}",
-            f"一级类目: {product.category}",
-            f"二级类目: {product.subcategory}",
-            f"商品标题: {product.title}",
-            f"品牌: {product.brand}",
-            f"价格: {product.price:.2f} 元",
-            f"颜色: {'、'.join(product.colors) if product.colors else '未知'}",
-            f"尺码/规格: {'、'.join(product.sizes) if product.sizes else '未知'}",
-            f"评分: {product.rating}",
-            f"店铺: {product.shop_name}",
-            f"售后: {json.dumps(product.after_sales, ensure_ascii=False)}",
-            f"商品参数: {json.dumps(product.parameters, ensure_ascii=False)}",
-            f"商品描述: {product.description}",
-        ]
-    )
+    product_block = build_product_block(product)
     instruction_lines = [
         "请生成 1 条中文 QA。\n"
         "要求：\n"
@@ -194,6 +231,70 @@ def build_user_content(request: PreviewRequest) -> list[dict[str, Any]] | str:
     instruction = "".join(instruction_lines) + "\n" + product_block
     if request.qa_type == "text_only":
         return instruction
+    return [
+        {"type": "text", "text": instruction},
+        {"type": "image_url", "image_url": {"url": image_path_to_data_url(request.image_path)}},
+    ]
+
+
+def build_targeted_system_prompt(request: TargetedQARequest) -> str:
+    validate_target_tool_class(request.target_tool_class)
+    target = TARGET_TOOL_CLASSES[request.target_tool_class]
+    common = (
+        "你要根据给定的电商商品信息和图片，生成 1 条中文 QA 样本。"
+        "这条 QA 的目的不是覆盖普通电商属性，而是专门制造一个后续工具调用模型应当落入指定工具类别的问题。"
+        "只输出一个 JSON 对象，字段只能是 query 和 answer。"
+        "问题要像真实用户会问的，不能出现商品ID、一级类目、二级类目、source_row_index 等内部字段名或其取值。"
+        "答案要简洁直接，但必须是自然、完整的中文句子。"
+        "不要使用像从图片来看、从图片细节来看、图中显示这类说明式措辞。"
+        "不要把候选答案直接堆在问题里。"
+        f"目标工具类别是：{target['description']}"
+        "你必须让 query 本身自然地需要这个目标工具类别；不要在 query 里直接写 RAG_search、Web_search、图像裁剪、工具调用等标注词。"
+    )
+    if request.target_tool_class == "web_search":
+        return (
+            common
+            + "请生成需要网络检索的开放性问题。"
+            + "问题应围绕品牌历史、品类起源、发明者、技术背景、行业常识、命名来源、国家或时间背景等外部知识。"
+            + "问题对象要清楚，可以使用商品品牌、品类或自然商品名。"
+            + "不要让问题依赖图片中的局部位置、局部文字、局部标志或多个候选目标，因此后续不应需要图像裁剪。"
+            + "不要生成仅靠图片或商品字段就能直接回答的问题。"
+        )
+    if request.target_tool_class == "web_search_grounding":
+        return (
+            common
+            + "请生成需要先定位图片中的具体视觉实体，再进行网络检索的开放性问题。"
+            + "图像裁剪规则：只要用户关注的是图片中的具体对象、商品、动物、人物、植物、标志、局部文字或局部区域，而不是整条街道、整体场景、地点或背景，就可以需要图像裁剪。"
+            + "query 应自然指向图片中的某个具体实体，例如这个商品、这台设备、包装上的标志、衣服上的图案、瓶身上的文字、屏幕上的图标等。"
+            + "答案所需事实应来自网络常识或外部资料，例如品牌历史、标志含义、技术来源、品类起源、发明者、通用百科事实。"
+            + "不要生成只需要本地商品页即可回答的价格、店铺、售后、评分等问题。"
+        )
+    if request.target_tool_class == "rag_search_grounding":
+        return (
+            common
+            + "请生成需要先定位图片中的具体视觉实体，再检索本地电商商品库的商品事实问题。"
+            + "图像裁剪规则：只要用户关注的是图片中的具体对象、商品、局部标志、局部文字或局部区域，而不是整条街道、整体场景、地点或背景，就可以需要图像裁剪。"
+            + "query 应自然指向图片中的具体商品或局部特征，例如这台带显示屏的设备、瓶身有标签的产品、带图案的衣服、带链条的包、包装上的这款商品等。"
+            + "答案必须能从提供的本地商品信息中得到，例如价格、店铺、评分、颜色、型号、适用面积、控制方式、售后或参数。"
+            + "不要生成品牌历史、发明者、百科知识这类应使用 Web_search 的问题。"
+        )
+    raise AssertionError(f"Unhandled target tool class: {request.target_tool_class}")
+
+
+def build_targeted_user_content(request: TargetedQARequest) -> list[dict[str, Any]]:
+    validate_target_tool_class(request.target_tool_class)
+    target = TARGET_TOOL_CLASSES[request.target_tool_class]
+    instruction_lines = [
+        "请生成 1 条中文 QA。\n"
+        "硬性要求：\n"
+        "1. 只生成 1 个问题和 1 个答案。\n"
+        f"2. 目标工具类别：{target['description']}\n"
+        "3. query 必须自然触发这个目标工具类别。\n"
+        "4. 不要在 query 或 answer 中写出工具名称、标注意图或工具调用判断。\n"
+        "5. 输出必须是合法 JSON。\n"
+        "6. 问题和答案都要自然，不要写成标注说明或数据字段复述。\n"
+    ]
+    instruction = "".join(instruction_lines) + "\n" + build_product_block(request.product)
     return [
         {"type": "text", "text": instruction},
         {"type": "image_url", "image_url": {"url": image_path_to_data_url(request.image_path)}},
@@ -342,11 +443,54 @@ def generate_one_qa(request: PreviewRequest, config: ServerConfig) -> tuple[dict
     }, elapsed_seconds
 
 
+def generate_one_targeted_qa(request: TargetedQARequest, config: ServerConfig) -> tuple[dict[str, str], float]:
+    payload = {
+        "model": MODEL_ALIAS,
+        "temperature": TEMPERATURE,
+        "top_p": TOP_P,
+        "top_k": TOP_K,
+        "presence_penalty": PRESENCE_PENALTY,
+        "cache_prompt": False,
+        "chat_template_kwargs": {"enable_thinking": False},
+        "response_format": qa_response_format(),
+        "messages": [
+            {"role": "system", "content": build_targeted_system_prompt(request)},
+            {"role": "user", "content": build_targeted_user_content(request)},
+        ],
+    }
+    started_at = time.perf_counter()
+    response = post_json(f"{config.base_url}/v1/chat/completions", payload)
+    elapsed_seconds = time.perf_counter() - started_at
+    message = response["choices"][0]["message"]["content"]
+    qa = extract_json_object(message)
+    return {
+        "query": str(qa["query"]).strip(),
+        "answer": str(qa["answer"]).strip(),
+    }, elapsed_seconds
+
+
 def build_result_record(request: PreviewRequest, qa: dict[str, str], elapsed_seconds: float) -> dict[str, Any]:
     return {
         "query": qa["query"],
         "answer": qa["answer"],
         "qa_type": request.qa_type,
+        "source_row_index": request.source_row_index,
+        "product_id": request.product.id,
+        "image_path": request.product.image_path,
+        "source_title": request.product.title,
+        "elapsed_seconds": round(elapsed_seconds, 3),
+    }
+
+
+def build_targeted_result_record(
+    request: TargetedQARequest,
+    qa: dict[str, str],
+    elapsed_seconds: float,
+) -> dict[str, Any]:
+    return {
+        "query": qa["query"],
+        "answer": qa["answer"],
+        "qa_type": "multimodal",
         "source_row_index": request.source_row_index,
         "product_id": request.product.id,
         "image_path": request.product.image_path,
