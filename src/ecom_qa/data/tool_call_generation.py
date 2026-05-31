@@ -1,26 +1,39 @@
 from __future__ import annotations
 
 import json
+import re
 import time
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from random import Random
 from typing import Any, Iterable
 
-from ecom_qa.data.qa_generation import (
-    MODEL_ALIAS,
+from ecom_qa.data.model_client import (
     ServerConfig,
-    extract_json_object,
     image_path_to_data_url,
     post_json,
     run_llama_server,
     write_json,
-    write_jsonl,
 )
 
 
 UNIFIED_VQA_DIR = Path("dataset/unified_vqa")
+DEFAULT_SOURCE_COUNTS = {
+    "ecom_qa_pairs": 2500,
+    "ecom_qa_pairs_open_question": 2500,
+    "ecom_qa_pairs_supplement": 2000,
+    "infoseek_sample": 8000,
+}
+TOOL_CALL_CTX_SIZE = 16384
+TOOL_CALL_PARALLEL = 2
+TAG_NAMES = ("Think", "Answer", "RAG_search", "Web_search", "Grounding")
+TAG_PATTERNS = {
+    tag: re.compile(rf"<{tag}>\s*(.*?)\s*</{tag}>", re.DOTALL | re.IGNORECASE)
+    for tag in TAG_NAMES
+}
+NO_GROUNDING_VALUES = {"", "no", "none", "false", "不需要", "无需", "否", "不用"}
 
 
 @dataclass(frozen=True, slots=True)
@@ -29,13 +42,11 @@ class ToolCallSource:
     path: Path
     domain: str
     language: str
-    prompt_style: str
 
 
 @dataclass(frozen=True, slots=True)
 class ToolCallRequest:
     source_name: str
-    prompt_style: str
     row_index: int
     row: dict[str, Any]
 
@@ -88,23 +99,30 @@ SOURCES: dict[str, ToolCallSource] = {
         path=UNIFIED_VQA_DIR / "ecom_qa_pairs.jsonl",
         domain="in_domain",
         language="zh",
-        prompt_style="in_domain",
     ),
     "ecom_qa_pairs_open_question": ToolCallSource(
         name="ecom_qa_pairs_open_question",
         path=UNIFIED_VQA_DIR / "ecom_qa_pairs_open_question.jsonl",
         domain="in_domain",
         language="zh",
-        prompt_style="in_domain",
+    ),
+    "ecom_qa_pairs_supplement": ToolCallSource(
+        name="ecom_qa_pairs_supplement",
+        path=UNIFIED_VQA_DIR / "ecom_qa_pairs_supplement.jsonl",
+        domain="in_domain",
+        language="zh",
     ),
     "infoseek_sample": ToolCallSource(
         name="infoseek_sample",
         path=UNIFIED_VQA_DIR / "infoseek_sample.jsonl",
         domain="out_of_domain",
         language="en",
-        prompt_style="out_of_domain",
     ),
 }
+
+
+def default_tool_call_server_config() -> ServerConfig:
+    return ServerConfig(ctx_size=TOOL_CALL_CTX_SIZE, parallel=TOOL_CALL_PARALLEL)
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -117,12 +135,14 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def append_jsonl(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
 def load_source_rows(source_names: Iterable[str]) -> dict[str, list[dict[str, Any]]]:
-    loaded: dict[str, list[dict[str, Any]]] = {}
-    for name in source_names:
-        source = SOURCES[name]
-        loaded[name] = load_jsonl(source.path)
-    return loaded
+    return {name: load_jsonl(SOURCES[name].path) for name in source_names}
 
 
 def compute_balanced_counts(total: int, source_names: list[str]) -> dict[str, int]:
@@ -141,20 +161,32 @@ def make_sampling_plan(
     *,
     count: int | None,
     per_source_limit: int | None,
+    source_counts: dict[str, int] | None = None,
     seed: int,
 ) -> SamplingPlan:
     del seed
-    if count is not None and per_source_limit is not None:
-        raise ValueError("Use either count or per_source_limit, not both.")
-    if count is None and per_source_limit is None:
-        per_source = {name: len(rows) for name, rows in source_rows.items()}
-    elif count is not None:
+    configured_modes = sum(value is not None for value in (count, per_source_limit, source_counts))
+    if configured_modes > 1:
+        raise ValueError("Use only one of count, per_source_limit, or source_counts.")
+
+    if count is not None:
         per_source = compute_balanced_counts(count, list(source_rows))
-    else:
-        assert per_source_limit is not None
+    elif per_source_limit is not None:
         per_source = {name: per_source_limit for name in source_rows}
+    elif source_counts is not None:
+        missing = sorted(set(source_rows) - set(source_counts))
+        if missing:
+            raise ValueError(f"Missing --source-count value(s): {', '.join(missing)}")
+        per_source = {name: source_counts[name] for name in source_rows}
+    else:
+        per_source = {
+            name: min(DEFAULT_SOURCE_COUNTS.get(name, len(rows)), len(rows))
+            for name, rows in source_rows.items()
+        }
 
     for name, wanted in per_source.items():
+        if wanted <= 0:
+            raise ValueError(f"{name} sample count must be greater than 0.")
         available = len(source_rows[name])
         if wanted > available:
             raise ValueError(f"{name} only has {available} rows, cannot sample {wanted}.")
@@ -172,12 +204,10 @@ def sample_requests(
     requests: list[ToolCallRequest] = []
     for source_name, rows in source_rows.items():
         chosen_indices = sorted(rng.sample(range(len(rows)), plan.per_source[source_name]))
-        source = SOURCES[source_name]
         for row_index in chosen_indices:
             requests.append(
                 ToolCallRequest(
                     source_name=source_name,
-                    prompt_style=source.prompt_style,
                     row_index=row_index,
                     row=rows[row_index],
                 )
@@ -186,210 +216,131 @@ def sample_requests(
     return requests
 
 
-def build_system_prompt(request: ToolCallRequest) -> str:
-    common = (
-        "你是一个多模态工具调用数据标注助手。"
-        "你的任务不是回答用户问题，而是判断为了回答该问题，模型应该直接回答还是调用工具。"
-        "可用能力只有四类："
-        "1. 直接回答：当图片本身加上常识已经足够作答时使用。"
-        "2. RAG_search：仅用于图片或问题明显围绕某个电商商品，且问题所求信息通常需要从电商网站或商品页检索才能获得时使用，例如价格、品牌、颜色、规格、参数、售后、商品属性等。"
-        "3. Web_search：用于通用世界知识、品牌历史、人物、动物、地点、时间、发明者、百科信息等网络检索。"
-        "4. 图像裁剪：当问题关注图片中的某个具体视觉实体，且背景大多无关时，需要同时调用图像裁剪；具体实体包括商品、动物、人物、植物、交通工具、标志、包装、标签、局部文字、局部图案或局部区域。如果问题关心整条街道、整个场景、地点或整体环境，则不要调用图像裁剪。"
-        "只输出 1 个 JSON 对象，不要输出 Markdown，不要回答原问题。"
-        "JSON 字段只能包含 think、search_tool、use_grounding。"
-        "其中 search_tool 只能是 none、RAG_search、Web_search 之一。"
-        "如果 search_tool 为 none，则 use_grounding 必须为 false。"
-        "think 要用自然中文简洁说明判断依据，必须明确提到为什么是直接回答、RAG_search 或 Web_search，以及是否需要图像裁剪。"
-        "请严格按第一轮工具规划来判断：你当前只有图片和问题，还没有任何检索返回的 information。"
-        "如果图片本身已经足够支持答案，或者答案可以直接通过看图识别、读图中文字、识别品牌标识、观察外观结构、部件类型或布局得到，优先选择直接回答，不要为了保守而额外调用搜索工具。"
-        "只有当图片不足以支撑答案时，才调用 RAG_search 或 Web_search。"
-        "如果问题明显是具体商品属性或商品页事实，优先考虑先调用 RAG_search；如果后续 RAG 结果仍不足，再在多轮流程里升级到 Web_search。"
-        "如果问题明显是品牌历史、人物、动物、地点、发明者、通用常识、命名来源、时间背景等超出商品页的信息，直接选择 Web_search。"
-        "对于域外或通用问题，如果图片本身已经足以支持一个高层次、常识性的答案，就优先直接回答；不要因为问题听起来像百科题，就默认调用 Web_search。"
-        "如果图片只能支持你识别出一个通用类别、职业、食物类型、可见结构、部件类型、服务场景或明显的用途，而这个层次已经足够回答问题，就直接回答。"
-        "如果图片并不能唯一识别出某个具体命名实体，就不要假设你已经知道它是谁、是哪座建筑、哪种材料或哪个品牌系列，再据此调用 Web_search。"
-        "图像裁剪规则：如果用户的问题是关于图片中的某个具体对象或实体，例如手机、大熊猫、某件商品、某个包装标志、某段标签文字等，就可以使用图像裁剪来过滤无关背景。"
-        "不要求必须存在多个候选目标或很小的局部文字；只要问题关注的是具体视觉实体而不是整体场景，图像裁剪就是合理的。"
-        "如果问题讨论的是整条街道、整个场景、地点归属、整体环境或背景，不要使用图像裁剪。"
-        "如果问题围绕图片中的具体商品或实体继续追问品牌历史、发明者、技术来源、价格、参数、售后等检索信息，也可以同时使用图像裁剪，因为第一步需要先聚焦用户关注的视觉实体。"
-        "要按问题字面含义判断，不要把模糊词自动扩展成别的意思；例如 source 可能是来源、产生者或出处，不一定是产地。"
-        "如果问题需要的答案是图中可见的部件、结构类型、文字、标志、界面布局、局部配置，即使措辞看起来专业，也优先直接回答。"
-        "不要假设你已经看过任何商品详情、catalog 行或检索结果。"
-        "对于材质、成分、纤维、鞋面材质、包材质、面料成分这类问题，除非图片中有明确可读文字直接写出材质，或视觉证据几乎无歧义，否则默认不要直接回答，优先选择 RAG_search。"
-        "如果问题混合了可见信息和不可见商品属性，只要关键答案的一部分不能从图片稳定得到，就不要直接回答。"
+def build_first_round_prompt(*, has_image_input: bool, domain: str) -> str:
+    image_note = (
+        "当前输入包含图片。"
+        if has_image_input
+        else "当前输入没有图片，因此不能使用图像线索，也不能真正对图片做 Grounding；如果调用搜索工具，必须输出 <Grounding>No</Grounding>。"
     )
-    if request.qa_type == "text_only":
-        return (
-            common
-            + "当前样本是纯文本问题，没有图片输入。"
-            + "因此你不能依赖任何视觉线索，也不能使用图像裁剪。"
-            + "纯文本样本中，只有在常识足以直接回答时才可以直接回答；如果是电商商品事实问题，优先选择 RAG_search；如果是品牌历史、发明者、通用世界知识，则选择 Web_search。"
-        )
-    return common
+    domain_note = (
+        "当前样本属于电商域内 VQA：如果问题需要商品页或本地商品库中的价格、规格、参数、售后、店铺、评分、材质、成分等信息，应优先使用 RAG_search。"
+        if domain == "in_domain"
+        else "当前样本属于域外开源 VQA，不属于本地电商商品库：不要使用 RAG_search；如果图片和常识不足以直接回答，应使用 Web_search。"
+    )
+    return (
+        "你是一名专业的视觉助手。你的任务是基于给定图片回答用户问题，但在第一轮你必须先判断应该直接回答还是调用工具。\n"
+        f"{image_note}\n"
+        f"{domain_note}\n\n"
+        "第 1 步：分析图片。\n"
+        "仔细检查图片和用户问题，识别所有可见实体、物体、文字、标志、局部细节以及其他视觉线索。\n\n"
+        "第 2 步：规划动作。\n"
+        "根据你的分析，你必须执行以下三个动作中的一个。选择动作之前，必须先把思考过程写在 <Think>...</Think> 标签内。"
+        "思考过程必须简洁，不要超过 100 个汉字或 60 个英文词，不要分条列举。\n\n"
+        "Action 1：直接回答。\n"
+        "如果你能够根据图片中的视觉元素、可读文字、标志、结构、布局、常识或自身知识，确信已经有足够事实回答问题，"
+        "就直接给出简洁答案，并把答案写在 <Answer>...</Answer> 标签内。直接回答时不要写“无需调用工具”，而是写真实答案。\n"
+        "如果选择 Action 1，只能输出 <Think>...</Think> 和 <Answer>...</Answer>，禁止输出 <Grounding>。\n"
+        "输出格式：\n"
+        "<Think>推理过程</Think>\n"
+        "<Answer>最终答案</Answer>\n\n"
+        "Action 2：使用 RAG_search。\n"
+        "如果图片或问题明显关于购物、电商商品、商品价格或商品属性，并且答案通常需要从电商网站、商品页或本地商品库获得，"
+        "就使用 RAG_search。必须把简洁的检索对象或类别名写在 <RAG_search>...</RAG_search> 标签内，例如 <RAG_search>iPhone</RAG_search>。\n\n"
+        "Action 3：使用 Web_search。\n"
+        "如果问题是通用问题，或图片信息以及 Action 2 的电商检索信息不足以回答，需要更具体的互联网外部信息，"
+        "就使用 Web_search。必须把简洁的检索对象或查询词写在 <Web_search>...</Web_search> 标签内，例如 <Web_search>大熊猫</Web_search>。\n\n"
+        "如果使用 Action 2 或 Action 3，还必须决定是否使用图像处理工具：\n"
+        "Grounding Tool：如果问题明确关于某个具体视觉元素，例如物体、人物、动物、植物、飞行器、商品、包装、标签、局部文字、局部图案或局部区域，"
+        "或者背景与问题无关，就使用 Grounding Tool，并把简洁目标写在 <Grounding>...</Grounding> 标签内，例如 <Grounding>大熊猫</Grounding>。\n"
+        "No Grounding Tool：只有当问题关于整个场景、位置、地点归属、整体环境或整体上下文时，才不使用 Grounding Tool。此时只输出 <Grounding>No</Grounding>。\n\n"
+        "请记住：搜索结果会在后续轮次提供给你。所有搜索结果会放在 <information>...</information> 标签内返回。"
+        "当你准备最终回答时，才把最终答案写在 <Answer>...</Answer> 标签内。\n\n"
+        "本轮只输出第一轮动作所需的标签，不要输出 Markdown，不要输出 JSON，不要输出额外解释。"
+        "所有标签必须完整闭合。"
+        "如果选择 RAG_search 或 Web_search，本轮不要同时输出 <Answer>。\n\n"
+        "输出示例 1：\n"
+        "<Think>推理过程</Think>\n"
+        "<Answer>...</Answer>\n\n"
+        "输出示例 2：\n"
+        "<Think>推理过程</Think>\n"
+        "<RAG_search>iPhone</RAG_search>\n"
+        "<Grounding>iPhone</Grounding>\n\n"
+        "输出示例 3：\n"
+        "<Think>推理过程</Think>\n"
+        "<Web_search>大熊猫</Web_search>\n"
+        "<Grounding>大熊猫</Grounding>\n\n"
+        "输出示例 4：\n"
+        "<Think>推理过程</Think>\n"
+        "<Web_search>埃菲尔铁塔</Web_search>\n"
+        "<Grounding>No</Grounding>"
+    )
 
 
-def build_user_content(request: ToolCallRequest) -> list[dict[str, Any]]:
-    lines = [
-        f"问题: {request.query}",
-        (
-            "请仅根据这张图片和这个问题，判断第一轮应当直接回答还是调用工具。"
-            if request.has_image_input
-            else "当前只有这个问题文本，没有图片。请据此判断第一轮应当直接回答还是调用工具。"
-        ),
+def build_system_prompt(request: ToolCallRequest) -> str:
+    return build_first_round_prompt(
+        has_image_input=request.has_image_input,
+        domain=request.domain,
+    )
+
+
+def build_user_content(request: ToolCallRequest) -> list[dict[str, Any]] | str:
+    text = f"这里是图片和问题：<image>\n问题：{request.query}"
+    if not request.has_image_input:
+        return f"这里是问题，没有图片输入。\n问题：{request.query}"
+    return [
+        {"type": "text", "text": text},
+        {"type": "image_url", "image_url": {"url": image_path_to_data_url(request.image_path)}},
     ]
-    content: list[dict[str, Any]] = [{"type": "text", "text": "\n".join(lines)}]
-    if request.has_image_input:
-        content.append({"type": "image_url", "image_url": {"url": image_path_to_data_url(request.image_path)}})
-    return content
 
 
-def tool_call_response_format() -> dict[str, Any]:
+def extract_tags(text: str) -> dict[str, list[str]]:
     return {
-        "type": "json_schema",
-        "json_schema": {
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "think": {"type": "string", "minLength": 6},
-                    "search_tool": {
-                        "type": "string",
-                        "enum": ["none", "RAG_search", "Web_search"],
-                    },
-                    "use_grounding": {"type": "boolean"},
-                },
-                "required": ["think", "search_tool", "use_grounding"],
-                "additionalProperties": False,
-            }
-        },
+        tag: [match.group(1).strip() for match in pattern.finditer(text)]
+        for tag, pattern in TAG_PATTERNS.items()
     }
 
 
-def query_disallows_grounding(query: str) -> bool:
-    text = query.strip().lower()
-    disallow_markers = [
-        "这个街道",
-        "这条街",
-        "这个场景",
-        "这个地方",
-        "这片区域",
-        "这个环境",
-        "背景",
-        "street",
-        "scene",
-        "landscape",
-        "environment",
-        "background",
-        "where is this street",
-        "where is this place",
-        "where is this scene",
-    ]
-    return any(marker in text for marker in disallow_markers)
+def parse_tool_call_output(raw_output: str) -> dict[str, Any]:
+    tags = extract_tags(raw_output)
 
+    def latest(tag: str) -> str:
+        values = tags.get(tag) or []
+        return values[-1] if values else ""
 
-def think_has_negated_tool_request(think: str) -> bool:
-    text = think.lower()
-    markers = [
-        "无需调用",
-        "不需要调用",
-        "无需使用",
-        "不需要使用",
-        "不应调用",
-        "不用调用",
-        "无需 r",
-        "无需 w",
-        "cannot use",
-        "no need",
-    ]
-    return any(marker in text for marker in markers)
+    warnings: list[str] = []
+    think = latest("Think")
+    direct_answer = latest("Answer")
+    rag_input = latest("RAG_search")
+    web_input = latest("Web_search")
+    grounding_input = latest("Grounding")
 
+    if not think:
+        warnings.append("missing_think")
+    if rag_input and web_input:
+        warnings.append("multiple_search_tools")
 
-def think_requests_rag(think: str) -> bool:
-    text = think.lower()
-    markers = [
-        "应调用rag_search",
-        "需要调用rag_search",
-        "应使用rag_search",
-        "需要使用rag_search",
-        "选择rag_search",
-        "改为使用 rag_search",
-    ]
-    return any(marker in text for marker in markers)
-
-
-def think_requests_web(think: str) -> bool:
-    text = think.lower()
-    markers = [
-        "应调用web_search",
-        "需要调用web_search",
-        "应使用web_search",
-        "需要使用web_search",
-        "选择web_search",
-        "改为使用 web_search",
-        "需要网络检索",
-    ]
-    return any(marker in text for marker in markers)
-
-
-def think_requests_grounding(think: str) -> bool:
-    text = think.lower()
-    markers = [
-        "需要图像裁剪",
-        "需要裁剪",
-        "过滤无关背景",
-        "需要 grounding",
-        "需要grounding",
-        "需要定位局部",
-        "需要定位具体对象",
-        "具体视觉实体",
-        "具体对象",
-        "关注图片中的",
-        "多个候选目标",
-        "局部文字",
-        "局部标签",
-        "标志",
-        "标签文字",
-        "包装",
-        "图案",
-    ]
-    return any(marker in text for marker in markers)
-
-
-def normalize_tool_plan(request: ToolCallRequest, raw_plan: dict[str, Any]) -> dict[str, Any]:
-    search_tool = str(raw_plan["search_tool"]).strip()
-    use_grounding = bool(raw_plan["use_grounding"])
-    think = str(raw_plan["think"]).strip()
-
-    if request.prompt_style == "out_of_domain" and search_tool == "RAG_search":
+    search_tool = "none"
+    search_input = ""
+    if rag_input:
+        search_tool = "RAG_search"
+        search_input = rag_input
+    elif web_input:
         search_tool = "Web_search"
-        if "RAG_search" not in think:
-            think = think + " 该样本属于域外问题，因此改为使用 Web_search。"
-
-    if search_tool == "none" and not think_has_negated_tool_request(think):
-        if request.prompt_style == "out_of_domain" and think_requests_web(think):
-            search_tool = "Web_search"
-            think = think + " 由于图片不足以直接回答，该样本改为使用 Web_search。"
-        elif request.prompt_style == "in_domain" and think_requests_rag(think):
-            search_tool = "RAG_search"
-            think = think + " 由于问题依赖本地商品信息，该样本改为使用 RAG_search。"
-
-    if not request.has_image_input:
-        use_grounding = False
-        think = think.replace("需要图像裁剪", "不需要图像裁剪")
-        think = think.replace("需要裁剪", "不需要裁剪")
+        search_input = web_input
 
     if search_tool == "none":
+        if not direct_answer:
+            warnings.append("missing_action")
+        if grounding_input:
+            warnings.append("grounding_without_search")
         use_grounding = False
-    elif query_disallows_grounding(request.query):
-        use_grounding = False
-        think = think.replace("需要图像裁剪", "不需要图像裁剪")
-        think = think.replace("需要裁剪", "不需要裁剪")
-    elif not use_grounding and think_requests_grounding(think):
-        use_grounding = True
-        think = think.replace("不需要图像裁剪", "需要图像裁剪")
-        think = think.replace("无需图像裁剪", "需要图像裁剪")
-        think = think.replace("也不需要图像裁剪", "并且需要图像裁剪")
-        if "图像裁剪" not in think:
-            think = think + " 该问题需要定位局部目标或局部文字，因此补充图像裁剪。"
+        grounding_input = ""
+    else:
+        if direct_answer:
+            warnings.append("answer_with_search")
+        if not grounding_input:
+            warnings.append("missing_grounding")
+        use_grounding = grounding_input.strip().lower() not in NO_GROUNDING_VALUES
 
     tool_calls: list[str] = []
     if search_tool != "none":
@@ -397,34 +348,44 @@ def normalize_tool_plan(request: ToolCallRequest, raw_plan: dict[str, Any]) -> d
         if use_grounding:
             tool_calls.append("图像裁剪")
 
-    if not tool_calls:
-        answer = "直接回答，无需调用工具"
+    if search_tool == "none":
         decision_type = "direct_answer"
+        answer = direct_answer
     else:
-        answer = f"调用工具【{'，'.join(tool_calls)}】"
         decision_type = "tool_call"
+        answer = f"调用工具【{'，'.join(tool_calls)}】"
 
     return {
-        "query": request.query,
+        "raw_output": raw_output.strip(),
         "think": think,
         "answer": answer,
+        "direct_answer": direct_answer,
         "decision_type": decision_type,
         "search_tool": search_tool,
+        "search_input": search_input,
         "use_grounding": use_grounding,
+        "grounding_input": grounding_input if search_tool != "none" else "",
         "tool_calls": tool_calls,
+        "parsed_tags": tags,
+        "parse_warnings": warnings,
     }
 
 
-def generate_one_tool_call(request: ToolCallRequest, config: ServerConfig) -> tuple[dict[str, Any], float]:
+def generate_one_tool_call(
+    request: ToolCallRequest,
+    config: ServerConfig,
+    *,
+    max_tokens: int,
+) -> tuple[dict[str, Any], float]:
     payload = {
-        "model": MODEL_ALIAS,
+        "model": config.alias,
         "temperature": 0.2,
         "top_p": 0.8,
         "top_k": 20,
         "presence_penalty": 0.2,
+        "max_tokens": max_tokens,
         "cache_prompt": False,
         "chat_template_kwargs": {"enable_thinking": False},
-        "response_format": tool_call_response_format(),
         "messages": [
             {"role": "system", "content": build_system_prompt(request)},
             {"role": "user", "content": build_user_content(request)},
@@ -433,9 +394,8 @@ def generate_one_tool_call(request: ToolCallRequest, config: ServerConfig) -> tu
     started_at = time.perf_counter()
     response = post_json(f"{config.base_url}/v1/chat/completions", payload)
     elapsed_seconds = time.perf_counter() - started_at
-    message = response["choices"][0]["message"]["content"]
-    raw_plan = extract_json_object(message)
-    return normalize_tool_plan(request, raw_plan), elapsed_seconds
+    raw_output = str(response["choices"][0]["message"]["content"]).strip()
+    return parse_tool_call_output(raw_output), elapsed_seconds
 
 
 def detect_image_format(image_path: Path) -> str:
@@ -445,7 +405,7 @@ def detect_image_format(image_path: Path) -> str:
 
 def build_result_record(
     request: ToolCallRequest,
-    tool_plan: dict[str, Any],
+    parsed: dict[str, Any],
     elapsed_seconds: float,
 ) -> dict[str, Any]:
     row = request.row
@@ -453,10 +413,12 @@ def build_result_record(
     metadata.update(
         {
             "tool_plan": {
-                "decision_type": tool_plan["decision_type"],
-                "search_tool": tool_plan["search_tool"],
-                "use_grounding": tool_plan["use_grounding"],
-                "tool_calls": tool_plan["tool_calls"],
+                "decision_type": parsed["decision_type"],
+                "search_tool": parsed["search_tool"],
+                "search_input": parsed["search_input"],
+                "use_grounding": parsed["use_grounding"],
+                "grounding_input": parsed["grounding_input"],
+                "tool_calls": parsed["tool_calls"],
             },
             "source_record_id": row.get("record_id"),
             "source_task_type": row.get("task_type"),
@@ -464,6 +426,7 @@ def build_result_record(
             "source_answers": row.get("answers"),
             "generation_row_index": request.row_index,
             "elapsed_seconds": round(elapsed_seconds, 3),
+            "parse_warnings": parsed["parse_warnings"],
         }
     )
     return {
@@ -474,13 +437,19 @@ def build_result_record(
         "source_file": str(SOURCES[request.source_name].path.resolve()),
         "source_record_key": request.record_id,
         "language": request.language,
-        "query": tool_plan["query"],
-        "think": tool_plan["think"],
-        "answer": tool_plan["answer"],
-        "decision_type": tool_plan["decision_type"],
-        "search_tool": tool_plan["search_tool"],
-        "use_grounding": tool_plan["use_grounding"],
-        "tool_calls": tool_plan["tool_calls"],
+        "query": request.query,
+        "raw_output": parsed["raw_output"],
+        "think": parsed["think"],
+        "answer": parsed["answer"],
+        "direct_answer": parsed["direct_answer"],
+        "decision_type": parsed["decision_type"],
+        "search_tool": parsed["search_tool"],
+        "search_input": parsed["search_input"],
+        "use_grounding": parsed["use_grounding"],
+        "grounding_input": parsed["grounding_input"],
+        "tool_calls": parsed["tool_calls"],
+        "parsed_tags": parsed["parsed_tags"],
+        "parse_warnings": parsed["parse_warnings"],
         "image_path": str(request.image_path.resolve()),
         "image_rel_path": request.image_rel_path,
         "image_id": row.get("image_id"),
@@ -508,6 +477,97 @@ def split_records_by_source(records: list[dict[str, Any]]) -> dict[str, list[dic
     return dict(grouped)
 
 
+def build_tool_ratio_table(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    total = len(records)
+    counts = Counter()
+    counts["直接回答"] = sum(1 for record in records if record["search_tool"] == "none")
+    counts["RAG_search"] = sum(1 for record in records if record["search_tool"] == "RAG_search")
+    counts["Web_search"] = sum(1 for record in records if record["search_tool"] == "Web_search")
+    counts["图像裁剪"] = sum(1 for record in records if record["use_grounding"])
+    return [
+        {
+            "tool_class": name,
+            "count": count,
+            "percent": round(count / total * 100, 2) if total else 0.0,
+        }
+        for name, count in counts.items()
+    ]
+
+
+@dataclass(slots=True)
+class ToolCallSummaryAccumulator:
+    generated_count: int = 0
+    generation_seconds_total: float = 0.0
+    retried_record_count: int = 0
+    retry_attempts_total: int = 0
+    search_tool_distribution: Counter[str] = field(default_factory=Counter)
+    action_distribution: Counter[str] = field(default_factory=Counter)
+    grounding_distribution: Counter[bool] = field(default_factory=Counter)
+    warning_distribution: Counter[str] = field(default_factory=Counter)
+    per_source_counts: Counter[str] = field(default_factory=Counter)
+
+    def add(self, record: dict[str, Any]) -> None:
+        self.generated_count += 1
+        self.generation_seconds_total += float(record["metadata"]["elapsed_seconds"])
+        retry_count = int(record.get("retry_count") or 0)
+        if retry_count:
+            self.retried_record_count += 1
+            self.retry_attempts_total += retry_count
+        self.search_tool_distribution[str(record["search_tool"])] += 1
+        self.action_distribution[str(record["answer"])] += 1
+        self.grounding_distribution[bool(record["use_grounding"])] += 1
+        self.warning_distribution.update(record.get("parse_warnings") or [])
+        self.per_source_counts[str(record["source_dataset"])] += 1
+
+    def tool_ratio_table(self) -> list[dict[str, Any]]:
+        total = self.generated_count
+        rows = [
+            ("直接回答", self.search_tool_distribution["none"]),
+            ("RAG_search", self.search_tool_distribution["RAG_search"]),
+            ("Web_search", self.search_tool_distribution["Web_search"]),
+            ("图像裁剪", self.grounding_distribution[True]),
+        ]
+        return [
+            {
+                "tool_class": name,
+                "count": count,
+                "percent": round(count / total * 100, 2) if total else 0.0,
+            }
+            for name, count in rows
+        ]
+
+    def to_summary(
+        self,
+        *,
+        requested_counts: dict[str, int],
+        startup_seconds: float,
+        total_wall_seconds: float,
+    ) -> dict[str, Any]:
+        return {
+            "requested_counts": requested_counts,
+            "generated_count": self.generated_count,
+            "server_startup_seconds": round(startup_seconds, 3),
+            "generation_seconds_total": round(self.generation_seconds_total, 3),
+            "total_wall_seconds": round(total_wall_seconds, 3),
+            "average_elapsed_seconds": (
+                round(self.generation_seconds_total / self.generated_count, 3)
+                if self.generated_count
+                else 0.0
+            ),
+            "retried_record_count": self.retried_record_count,
+            "retry_attempts_total": self.retry_attempts_total,
+            "tool_ratio_table": self.tool_ratio_table(),
+            "search_tool_distribution": dict(self.search_tool_distribution),
+            "action_distribution": dict(self.action_distribution),
+            "use_grounding_distribution": {
+                str(key).lower(): value
+                for key, value in self.grounding_distribution.items()
+            },
+            "parse_warning_distribution": dict(self.warning_distribution),
+            "per_source_counts": dict(self.per_source_counts),
+        }
+
+
 def build_run_summary(
     records: list[dict[str, Any]],
     *,
@@ -516,9 +576,13 @@ def build_run_summary(
     total_wall_seconds: float,
 ) -> dict[str, Any]:
     generation_seconds_total = sum(float(record["metadata"]["elapsed_seconds"]) for record in records)
-    tool_distribution = Counter(record["answer"] for record in records)
-    grounding_distribution = Counter(bool(record["use_grounding"]) for record in records)
     per_source = split_records_by_source(records)
+    search_tool_distribution = Counter(record["search_tool"] for record in records)
+    action_distribution = Counter(record["answer"] for record in records)
+    grounding_distribution = Counter(bool(record["use_grounding"]) for record in records)
+    warning_distribution: Counter[str] = Counter()
+    for record in records:
+        warning_distribution.update(record.get("parse_warnings") or [])
     return {
         "requested_counts": requested_counts,
         "generated_count": len(records),
@@ -526,8 +590,11 @@ def build_run_summary(
         "generation_seconds_total": round(generation_seconds_total, 3),
         "total_wall_seconds": round(total_wall_seconds, 3),
         "average_elapsed_seconds": round(generation_seconds_total / len(records), 3) if records else 0.0,
-        "tool_answer_distribution": dict(tool_distribution),
+        "tool_ratio_table": build_tool_ratio_table(records),
+        "search_tool_distribution": dict(search_tool_distribution),
+        "action_distribution": dict(action_distribution),
         "use_grounding_distribution": {str(key).lower(): value for key, value in grounding_distribution.items()},
+        "parse_warning_distribution": dict(warning_distribution),
         "per_source_counts": {name: len(rows) for name, rows in per_source.items()},
     }
 
@@ -537,57 +604,191 @@ def run_generation(
     *,
     config: ServerConfig,
     run_dir: Path,
+    max_tokens: int,
+    max_retries: int,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
     combined_path = run_dir / "tool_call_records.jsonl"
     summary_path = run_dir / "run_summary.json"
     failed_path = run_dir / "failed_rows.jsonl"
     server_log_path = run_dir / "llama_server.log"
+    prompt_path = run_dir / "first_round_prompt.md"
     per_source_dir = run_dir / "per_source"
 
     started_at = time.perf_counter()
-    records: list[dict[str, Any]] = []
-    failed_rows: list[dict[str, Any]] = []
-
     requested_counts = dict(Counter(request.source_name for request in requests))
-    render_progress(0, len(requests), 0, 0)
-    with run_llama_server(config, log_path=server_log_path) as startup_seconds:
-        for index, request in enumerate(requests, start=1):
+    summary_accumulator = ToolCallSummaryAccumulator()
+    failed_count = 0
+
+    prompt_path.write_text(
+        "# 第一轮工具调用 Prompt\n\n"
+        "## 图文电商域内\n\n"
+        + build_first_round_prompt(has_image_input=True, domain="in_domain")
+        + "\n\n## 纯文本电商域内\n\n"
+        + build_first_round_prompt(has_image_input=False, domain="in_domain")
+        + "\n\n## 域外图文\n\n"
+        + build_first_round_prompt(has_image_input=True, domain="out_of_domain")
+        + "\n",
+        encoding="utf-8",
+    )
+
+    def generate_request(
+        order: int,
+        request: ToolCallRequest,
+    ) -> tuple[int, dict[str, Any] | None, dict[str, Any] | None]:
+        last_error = ""
+        last_parsed: dict[str, Any] | None = None
+        total_elapsed_seconds = 0.0
+        attempts = max_retries + 1
+        for attempt in range(1, attempts + 1):
             try:
-                tool_plan, elapsed_seconds = generate_one_tool_call(request, config)
+                parsed, elapsed_seconds = generate_one_tool_call(
+                    request,
+                    config,
+                    max_tokens=max_tokens,
+                )
+                total_elapsed_seconds += elapsed_seconds
+                last_parsed = parsed
             except Exception as exc:
-                failed_rows.append(
+                last_error = str(exc)
+                if attempt <= max_retries:
+                    continue
+                return (
+                    order,
+                    None,
                     {
                         "source_dataset": request.source_name,
                         "source_record_key": request.record_id,
                         "row_index": request.row_index,
                         "query": request.query,
                         "image_path": str(request.image_path),
-                        "error": str(exc),
-                    }
+                        "attempts": attempt,
+                        "error": last_error,
+                    },
                 )
-                render_progress(index, len(requests), len(records), len(failed_rows))
+
+            parse_warnings = list(parsed.get("parse_warnings") or [])
+            if not parse_warnings:
+                record = build_result_record(request, parsed, total_elapsed_seconds)
+                retry_count = attempt - 1
+                record["retry_count"] = retry_count
+                record["attempts"] = attempt
+                record["metadata"]["retry_count"] = retry_count
+                record["metadata"]["attempts"] = attempt
+                return order, record, None
+
+            last_error = f"parse_warnings: {', '.join(parse_warnings)}"
+            if attempt <= max_retries:
                 continue
-            records.append(build_result_record(request, tool_plan, elapsed_seconds))
-            render_progress(index, len(requests), len(records), len(failed_rows))
+
+        assert last_parsed is not None
+        return (
+            order,
+            None,
+            {
+                "source_dataset": request.source_name,
+                "source_record_key": request.record_id,
+                "row_index": request.row_index,
+                "query": request.query,
+                "image_path": str(request.image_path),
+                "attempts": attempts,
+                "error": last_error,
+                "parse_warnings": last_parsed.get("parse_warnings") or [],
+                "raw_output": last_parsed.get("raw_output") or "",
+            },
+        )
+
+    max_workers = max(1, int(config.parallel or 1))
+    next_request_index = 0
+    next_write_order = 1
+    completed_count = 0
+    pending_records: dict[int, dict[str, Any]] = {}
+    pending_failed_rows: dict[int, dict[str, Any]] = {}
+
+    def submit_next(
+        executor: ThreadPoolExecutor,
+        in_flight: dict[Future[tuple[int, dict[str, Any] | None, dict[str, Any] | None]], int],
+    ) -> None:
+        nonlocal next_request_index
+        if next_request_index >= len(requests):
+            return
+        order = next_request_index + 1
+        future = executor.submit(generate_request, order, requests[next_request_index])
+        in_flight[future] = order
+        next_request_index += 1
+
+    def flush_ready_rows() -> None:
+        nonlocal next_write_order, failed_count
+        while True:
+            record = pending_records.pop(next_write_order, None)
+            if record is not None:
+                append_jsonl(combined_path, record)
+                append_jsonl(per_source_dir / f"{record['source_dataset']}.jsonl", record)
+                summary_accumulator.add(record)
+                next_write_order += 1
+                continue
+
+            failed_row = pending_failed_rows.pop(next_write_order, None)
+            if failed_row is not None:
+                append_jsonl(failed_path, failed_row)
+                failed_count += 1
+                next_write_order += 1
+                continue
+
+            break
+
+    per_source_dir.mkdir(parents=True, exist_ok=True)
+
+    render_progress(0, len(requests), 0, 0)
+    with run_llama_server(config, log_path=server_log_path) as startup_seconds:
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            in_flight: dict[Future[tuple[int, dict[str, Any] | None, dict[str, Any] | None]], int] = {}
+            for _ in range(min(max_workers, len(requests))):
+                submit_next(executor, in_flight)
+
+            while in_flight:
+                done, _ = wait(in_flight, return_when=FIRST_COMPLETED)
+                for future in done:
+                    in_flight.pop(future)
+                    completed_count += 1
+                    order, record, failed_row = future.result()
+                    if failed_row is not None:
+                        pending_failed_rows[order] = failed_row
+                    else:
+                        assert record is not None
+                        pending_records[order] = record
+                    flush_ready_rows()
+                    submit_next(executor, in_flight)
+
+                displayed_failed_count = failed_count + len(pending_failed_rows)
+                render_progress(
+                    completed_count,
+                    len(requests),
+                    summary_accumulator.generated_count + len(pending_records),
+                    displayed_failed_count,
+                )
     print()
+    flush_ready_rows()
 
     total_wall_seconds = time.perf_counter() - started_at
-    summary = build_run_summary(
-        records,
+    summary = summary_accumulator.to_summary(
         requested_counts=requested_counts,
         startup_seconds=startup_seconds,
         total_wall_seconds=total_wall_seconds,
     )
     summary["combined_path"] = str(combined_path)
     summary["server_log_path"] = str(server_log_path)
-    if failed_rows:
+    summary["prompt_path"] = str(prompt_path)
+    summary["server_config"] = {
+        "ctx_size": config.ctx_size,
+        "parallel": config.parallel,
+        "request_workers": max_workers,
+        "threads": config.threads,
+        "flash_attn": config.flash_attn,
+    }
+    summary["failed_count"] = failed_count
+    summary["max_retries"] = max_retries
+    if failed_count:
         summary["failed_rows_path"] = str(failed_path)
 
-    write_jsonl(combined_path, records)
-    per_source_dir.mkdir(parents=True, exist_ok=True)
-    for source_name, rows in split_records_by_source(records).items():
-        write_jsonl(per_source_dir / f"{source_name}.jsonl", rows)
-    if failed_rows:
-        write_jsonl(failed_path, failed_rows)
     write_json(summary_path, summary)
-    return records, failed_rows, summary
+    return [], [], summary

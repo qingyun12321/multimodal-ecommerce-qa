@@ -28,6 +28,11 @@ def parse_args() -> argparse.Namespace:
         description="Build unified VQA JSONL views without modifying original datasets."
     )
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Allow overwriting existing unified VQA JSONL and manifest files.",
+    )
     return parser.parse_args()
 
 
@@ -155,7 +160,7 @@ def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
 def main() -> None:
     args = parse_args()
     output_dir = args.output_dir.resolve()
-    if output_dir.exists():
+    if output_dir.exists() and not args.overwrite:
         raise FileExistsError(f"Output directory already exists: {output_dir}")
 
     sources = [
@@ -174,6 +179,13 @@ def main() -> None:
             language="zh",
         ),
         SourceSpec(
+            name="ecom_qa_pairs_supplement",
+            domain="in_domain",
+            source_file=DATASET_DIR / "qa" / "qa_pairs_supplement.jsonl",
+            image_root=DATASET_DIR,
+            language="zh",
+        ),
+        SourceSpec(
             name="infoseek_sample",
             domain="out_of_domain",
             source_file=DATASET_DIR / "infoseek_sample" / "metadata.jsonl",
@@ -186,7 +198,7 @@ def main() -> None:
     per_source_outputs: dict[str, str] = {}
     per_source_summary: dict[str, dict[str, Any]] = {}
 
-    output_dir.mkdir(parents=True, exist_ok=False)
+    output_dir.mkdir(parents=True, exist_ok=args.overwrite)
 
     for source in sources:
         rows = load_jsonl(source.source_file)

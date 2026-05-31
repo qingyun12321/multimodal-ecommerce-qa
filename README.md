@@ -37,6 +37,7 @@ The repo also keeps durable Markdown notes so the long experiment chain can be r
 - `scripts/generate_qa/generate_qa.py`: generate 5k QA pairs with local `llama.cpp` + Gemma 4 from the current catalog
 - `scripts/generate_qa/generate_targeted_qa.py`: generate QA pairs targeted at specific expected tool-call classes
 - `scripts/generate_tool_calls/`: InfoSeek sampling, unified VQA view building, tool-call annotation generation, and label cleaning
+- `scripts/tool_call_inference/`: Qwen3-VL GGUF tool-call inference harness
 - `scripts/render_benchmark_report.py`: renders the benchmark white-table image
 - `scripts/render_pipeline_report.py`: renders the in-domain retrieval and reranking summary tables
 - `reports/official_multilingual_results.md`: final benchmark summary
@@ -58,8 +59,8 @@ uv sync
 .venv/bin/python scripts/generate_qa/generate_qa_preview.py --help
 .venv/bin/python scripts/generate_qa/generate_qa.py --help
 .venv/bin/python scripts/generate_qa/generate_targeted_qa.py --help
-.venv/bin/python scripts/generate_tool_calls/generate_tool_calls_preview.py --help
 .venv/bin/python scripts/generate_tool_calls/generate_tool_calls.py --help
+.venv/bin/python scripts/tool_call_inference/run_qwen3_vl_tool_call_inference.py --help
 ```
 
 All caches and model downloads stay inside this workspace so they persist across sessions.
@@ -93,3 +94,30 @@ Each run writes:
 - `dataset/qa/generated/<run_name>/qa_pairs.jsonl`: generated QA rows
 - `dataset/qa/generated/<run_name>/run_summary.json`: QA generation timing summary
 - `dataset/qa/generated/<run_name>/llama_server.log`: `llama.cpp` server log
+
+## Tool-Call Inference
+
+Use the Qwen3-VL GGUF harness to run tool-call inference against the balanced tool-call dataset. The default run starts the 4B and 8B models one at a time through the local `llama.cpp` OpenAI-compatible server.
+
+```bash
+.venv/bin/python scripts/tool_call_inference/run_qwen3_vl_tool_call_inference.py \
+  --input dataset/tool_call/tool_call_records_balanced.jsonl
+```
+
+For a short smoke run:
+
+```bash
+.venv/bin/python scripts/tool_call_inference/run_qwen3_vl_tool_call_inference.py \
+  --models qwen3-vl-4b \
+  --limit 20 \
+  --run-name smoke_qwen3_vl_4b
+```
+
+The inference harness defaults to `--grounding-policy balanced`, which is conservative for mixed old and targeted labels. Use `--grounding-policy aggressive` when evaluating grounding-heavy targeted samples. It also runs with memory-conscious defaults for this short tool-call task: `--parallel 1`, `--ctx-size 8192`, `--max-tokens 512`, `--batch-size 1024`, and `--ubatch-size 256`.
+
+Each run writes under `dataset/tool_call_inference/generated/<run_name>/<model_key>/`:
+
+- `predictions.jsonl`: raw model output, parsed tool-call decision, and exact-match fields
+- `run_summary.json`: per-model metrics, timing, and generation parameters
+- `failed_rows.jsonl`: rows that failed during inference, only when failures occur
+- `llama_server.log`: local server log for debugging
