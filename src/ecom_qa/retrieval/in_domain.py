@@ -8,7 +8,7 @@ from random import Random
 
 import numpy as np
 
-from ecom_qa.data.catalog import ProductRecord, SubcategoryQuery
+from ecom_qa.datasets.catalog import ProductRecord, SubcategoryQuery
 from ecom_qa.evaluation.subcategory import (
     evaluate_subcategory_queries,
     hit_at_k,

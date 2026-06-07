@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="${REPO_DIR:-$(cd "${SCRIPT_DIR}/../../.." && pwd)}"
+SFT_CONFIG_DIR="${SFT_CONFIG_DIR:-${REPO_DIR}/configs/training/sft}"
+source "${SFT_ENV_FILE:-${SFT_CONFIG_DIR}/sft-env.sh}"
+CONFIG_FILE="${SFT_CONFIG_FILE:-${SFT_CONFIG_DIR}/qwen3_vl_8b_lora_sft_smoke.args}"
+mkdir -p "${SFT_CHECKPOINT_ROOT:-/workspace/checkpoints/qwen3-vl-8b-tool-call-sft-v2}/smoke" \
+  "${SFT_RUN_ROOT:-/workspace/runs/qwen3-vl-8b-tool-call-sft-v2}/smoke" /workspace/logs
+exec swift sft $(tr '\n' ' ' < "${CONFIG_FILE}")

@@ -17,7 +17,7 @@ from transformers import (
     BitsAndBytesConfig,
 )
 
-from ecom_qa.data.catalog import ProductRecord, build_query_text
+from ecom_qa.datasets.catalog import ProductRecord, build_query_text
 from ecom_qa.retrieval.models import choose_torch_dtype
 
 

@@ -4,11 +4,16 @@ __pycache__/
 *.pyc
 
 # Workspace-local data and model artifacts
+data/
+# Deprecated local data root; kept ignored so old generated outputs are never committed.
 dataset/
 artifacts/
 weights/
 *.pdf
+*.json
+*.csv
 sample.jpg
+reports/generated/
 
 # Tool caches
 .cache/
