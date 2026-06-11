@@ -55,6 +55,8 @@ The CLI is the supported entrypoint. Old script paths are intentionally not reta
 
 `data/` is the only repository-local data root. Generated data and run outputs should go under `data/**/generated/` or `data/runs/` and remain outside version control.
 
+SFT multi-turn data generation reads tool-call splits from `data/tool_call/` and writes ms-swift JSONL under `data/training/sft/generated/codex_multiturn/` by default. The SFT builder uses Codex CLI to fill tag-free answer fields; repository scripts own rendering of `<Think>`, `<Answer>`, `<RAG_search>`, `<Web_search>`, `<Grounding>`, and `<information>` tags. RAG turns can continue into Web_search when local retrieval is insufficient, and only the Web turn may end with the fixed unable-to-answer text. Web `<information>` rows contain content only, without title/source URL fields. SFT data generation defaults to `gpt-5.3-codex-spark` with low reasoning, 5 Codex workers, worker fallback `5,3,1`, and at most 5 web evidence items. It does not require the local llama.cpp summary server or SearXNG service.
+
 `reports/experiments/` keeps selected, durable summaries and compact metrics needed to understand retained results. Raw generated report runs belong in `reports/generated/`, which is ignored by git.
 
 ## Docs

@@ -12,17 +12,31 @@ LOG_FILE="/workspace/logs/smoke-sft-${STAMP}.log"
 
 "${SCRIPT_DIR}/monitor_smoke_resources.sh" "${SFT_DATA_DIR}/resource_snapshot_before_smoke.json"
 
-(cd "${REPO_DIR}" && uv run ecom-qa train sft-build-data \
-  --repo-dir "${REPO_DIR}" \
-  --output-dir "${SFT_DATA_DIR}" \
-  --smoke \
-  --smoke-train-size "${SMOKE_TRAIN_SIZE:-32}" \
-  --smoke-val-size "${SMOKE_VAL_SIZE:-16}" \
-  --web-mode searxng \
-  --searxng-url "${SEARXNG_URL:-http://127.0.0.1:8080}" \
-  --summary-url "${SUMMARY_URL:-http://127.0.0.1:8088}" \
-  --live-web-limit "${SMOKE_LIVE_WEB_LIMIT:-32}" \
-  --require-live-web)
+BUILD_ARGS=(
+  --output-dir "${SFT_DATA_DIR}"
+  --smoke
+  --smoke-train-size "${SMOKE_TRAIN_SIZE:-24}"
+  --smoke-val-size "${SMOKE_VAL_SIZE:-8}"
+  --codex-bin "${SFT_CODEX_BIN:-codex}"
+  --codex-model "${SFT_CODEX_MODEL}"
+  --codex-reasoning-effort "${SFT_CODEX_REASONING_EFFORT}"
+  --codex-workers "${SFT_CODEX_WORKERS}"
+  --worker-fallbacks "${SFT_CODEX_WORKER_FALLBACKS}"
+  --web-max-items "${SFT_WEB_MAX_ITEMS}"
+  --codex-timeout-seconds "${SFT_CODEX_TIMEOUT_SECONDS:-900}"
+  --max-retries "${SFT_CODEX_MAX_RETRIES:-2}"
+  --clear-output
+  --clear-cache
+)
+
+if [[ "${SFT_NO_CODEX_CACHE:-0}" == "1" || "${SFT_NO_CODEX_CACHE:-false}" == "true" ]]; then
+  BUILD_ARGS+=(--no-codex-cache)
+fi
+if [[ "${SFT_KEEP_CODEX_DEBUG:-0}" == "1" || "${SFT_KEEP_CODEX_DEBUG:-false}" == "true" ]]; then
+  BUILD_ARGS+=(--keep-codex-debug)
+fi
+
+(cd "${REPO_DIR}" && uv run ecom-qa train sft-build-data "${BUILD_ARGS[@]}")
 
 "${SCRIPT_DIR}/monitor_smoke_resources.sh" "${SFT_DATA_DIR}/resource_snapshot_after_data.json"
 

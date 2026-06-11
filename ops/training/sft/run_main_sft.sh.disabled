@@ -7,4 +7,5 @@ source "${SFT_ENV_FILE:-${SFT_CONFIG_DIR}/sft-env.sh}"
 CONFIG_FILE="${SFT_CONFIG_FILE:-${SFT_CONFIG_DIR}/qwen3_vl_8b_lora_sft_main.args}"
 mkdir -p "${SFT_CHECKPOINT_ROOT:-/workspace/checkpoints/qwen3-vl-8b-tool-call-sft-v2}/main" \
   "${SFT_RUN_ROOT:-/workspace/runs/qwen3-vl-8b-tool-call-sft-v2}/main" /workspace/logs
+cd "${REPO_DIR}"
 exec swift sft $(tr '\n' ' ' < "${CONFIG_FILE}")

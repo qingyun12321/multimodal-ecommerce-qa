@@ -3,10 +3,10 @@ name = "multimodal-ecommerce-qa"
 version = "0.1.0"
 description = "Multimodal ecommerce QA workflows for retrieval, reranking, and web search experiments."
 readme = "README.md"
-requires-python = ">=3.10,<3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
   "accelerate>=1.10.1",
-  "bitsandbytes>=0.48.1",
+  "bitsandbytes>=0.49.2,<0.50",
   "datasets>=4.0.0",
   "huggingface-hub>=0.34.0",
   "mlflow>=3.13.0",
@@ -18,10 +18,23 @@ dependencies = [
   "pypdf>=5.4.0",
   "qwen-vl-utils>=0.0.11",
   "requests>=2.32.0",
-  "torch==2.8.0",
-  "torchvision==0.23.0",
+  "torch==2.10.0",
+  "torchvision==0.25.0+cu128",
   "tqdm>=4.67.1",
-  "transformers[serving]==5.5.0",
+  "transformers[serving]==5.8.1",
+]
+
+[dependency-groups]
+train = [
+  "deepspeed==0.19.1",
+  "modelscope==1.37.1",
+  "ms-swift==4.2.3",
+  "peft==0.19.1",
+  "sentencepiece==0.2.1",
+  "tensorboard==2.20.0",
+  "tiktoken==0.13.0",
+  "transformers-stream-generator==0.0.5",
+  "trl==0.29.1",
 ]
 
 [project.scripts]
@@ -36,6 +49,13 @@ packages = ["src/ecom_qa"]
 
 [tool.uv]
 package = true
+default-groups = ["train"]
 
 [tool.uv.sources]
-transformers = { git = "https://github.com/huggingface/transformers.git", rev = "main" }
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

@@ -15,7 +15,8 @@ from typing import Any
 
 WORKSPACE = Path(os.environ.get("WORKSPACE_HOME", "/workspace"))
 REPO_DIR = Path(os.environ.get("REPO_DIR", WORKSPACE / "repos" / "multimodal-ecommerce-qa"))
-DATA_DIR = Path(os.environ.get("SFT_DATA_DIR", WORKSPACE / "data" / "ecom-qa-tool-call-sft-v2"))
+DEFAULT_SFT_DATA_DIR = REPO_DIR / "data" / "training" / "sft" / "generated" / "codex_multiturn"
+DATA_DIR = Path(os.environ.get("SFT_DATA_DIR", DEFAULT_SFT_DATA_DIR))
 CHECKPOINT_ROOT = Path(
     os.environ.get("SFT_CHECKPOINT_ROOT", WORKSPACE / "checkpoints" / "qwen3-vl-8b-tool-call-sft-v2")
 )
@@ -162,8 +163,8 @@ def collect_data_params(validation_report: dict[str, Any], run_kind: str) -> dic
             "rows",
             "missing_images",
             "invalid_format",
+            "codex_failures",
             "information_rows",
-            "live_web_rows",
             "grounding_rows",
         ):
             if key in payload:
@@ -298,18 +299,13 @@ def main() -> int:
         log_artifact_if_exists(config_path, "config", logged_artifacts)
         log_artifact_if_exists(validation_path, "data", logged_artifacts)
         for filename in (
-            "smoke_review_samples.jsonl",
-            "smoke_metadata.jsonl",
-            "smoke_web_summary_trace.jsonl",
+            f"{'smoke_' if args.run_kind == 'smoke' else ''}review_samples.jsonl",
+            f"{'smoke_' if args.run_kind == 'smoke' else ''}metadata.jsonl",
+            f"{'smoke_' if args.run_kind == 'smoke' else ''}codex_failures.jsonl",
             "resource_report_smoke.json",
             "training_time_estimate_smoke.json",
         ):
             log_artifact_if_exists(DATA_DIR / filename, "data", logged_artifacts)
-        tool_smoke_dir = DATA_DIR / "tool_smoke"
-        if tool_smoke_dir.exists():
-            for path in sorted(tool_smoke_dir.glob("*")):
-                if path.is_file():
-                    log_artifact_if_exists(path, "data/tool_smoke", logged_artifacts)
         log_artifact_if_exists(logging_path, "training", logged_artifacts)
         if latest_log is not None:
             log_artifact_if_exists(latest_log, "training", logged_artifacts)

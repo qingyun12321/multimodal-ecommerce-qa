@@ -13,7 +13,8 @@ from ecom_qa.common.paths import resolve_data_root
 
 WORKSPACE = Path(os.environ.get("WORKSPACE_HOME", "/workspace"))
 REPO_DIR = Path(os.environ.get("REPO_DIR", WORKSPACE / "repos" / "multimodal-ecommerce-qa"))
-DATA_DIR = Path(os.environ.get("SFT_DATA_DIR", WORKSPACE / "data" / "ecom-qa-tool-call-sft-v2"))
+DEFAULT_SFT_DATA_DIR = REPO_DIR / "data" / "training" / "sft" / "generated" / "codex_multiturn"
+DATA_DIR = Path(os.environ.get("SFT_DATA_DIR", DEFAULT_SFT_DATA_DIR))
 PROJECT_DATA_DIR = resolve_data_root(REPO_DIR)
 CHECKPOINT_ROOT = Path(
     os.environ.get("SFT_CHECKPOINT_ROOT", WORKSPACE / "checkpoints" / "qwen3-vl-8b-tool-call-sft-v2")
@@ -106,7 +107,7 @@ def main() -> int:
         "estimated_data_generation_hours_full": estimated_data_seconds / 3600,
         "notes": [
             "This estimate is derived from the smoke test and should be treated as an order-of-magnitude forecast.",
-            "If live Web_search summaries are generated for every web row, full data generation time is dominated by SearXNG, page fetch, and Qwen3.5 summary latency.",
+            "Full data generation time is dominated by Codex CLI content filling, especially Web_search rows that use live search.",
             "Main training is intentionally not started by this workflow.",
         ],
     }
