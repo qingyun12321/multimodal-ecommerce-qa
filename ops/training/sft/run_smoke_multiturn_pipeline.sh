@@ -17,23 +17,27 @@ BUILD_ARGS=(
   --smoke
   --smoke-train-size "${SMOKE_TRAIN_SIZE:-24}"
   --smoke-val-size "${SMOKE_VAL_SIZE:-8}"
-  --codex-bin "${SFT_CODEX_BIN:-codex}"
-  --codex-model "${SFT_CODEX_MODEL}"
-  --codex-reasoning-effort "${SFT_CODEX_REASONING_EFFORT}"
-  --codex-workers "${SFT_CODEX_WORKERS}"
-  --worker-fallbacks "${SFT_CODEX_WORKER_FALLBACKS}"
+  --api-model "${SFT_API_MODEL}"
+  --api-reasoning-effort "${SFT_API_REASONING_EFFORT}"
+  --api-workers "${SFT_API_WORKERS}"
+  --worker-fallbacks "${SFT_API_WORKER_FALLBACKS}"
   --web-max-items "${SFT_WEB_MAX_ITEMS}"
-  --codex-timeout-seconds "${SFT_CODEX_TIMEOUT_SECONDS:-900}"
-  --max-retries "${SFT_CODEX_MAX_RETRIES:-2}"
+  --api-timeout-seconds "${SFT_API_TIMEOUT_SECONDS:-900}"
+  --max-retries "${SFT_API_MAX_RETRIES:-2}"
+  --searxng-url "${SFT_SEARXNG_URL}"
+  --searxng-engines "${SFT_SEARXNG_ENGINES}"
   --clear-output
   --clear-cache
 )
 
-if [[ "${SFT_NO_CODEX_CACHE:-0}" == "1" || "${SFT_NO_CODEX_CACHE:-false}" == "true" ]]; then
-  BUILD_ARGS+=(--no-codex-cache)
+if [[ "${SFT_NO_API_CACHE:-0}" == "1" || "${SFT_NO_API_CACHE:-false}" == "true" ]]; then
+  BUILD_ARGS+=(--no-api-cache)
 fi
-if [[ "${SFT_KEEP_CODEX_DEBUG:-0}" == "1" || "${SFT_KEEP_CODEX_DEBUG:-false}" == "true" ]]; then
-  BUILD_ARGS+=(--keep-codex-debug)
+if [[ "${SFT_NO_WEB_CACHE:-0}" == "1" || "${SFT_NO_WEB_CACHE:-false}" == "true" ]]; then
+  BUILD_ARGS+=(--no-web-cache)
+fi
+if [[ "${SFT_KEEP_API_DEBUG:-0}" == "1" || "${SFT_KEEP_API_DEBUG:-false}" == "true" ]]; then
+  BUILD_ARGS+=(--keep-api-debug)
 fi
 
 (cd "${REPO_DIR}" && uv run ecom-qa train sft-build-data "${BUILD_ARGS[@]}")

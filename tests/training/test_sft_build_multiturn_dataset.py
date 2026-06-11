@@ -135,7 +135,7 @@ class SftBuildMultiturnDatasetTest(unittest.TestCase):
             )
             self.assertEqual(meta["warnings"], [])
 
-    def test_web_item_wraps_codex_evidence_as_information(self) -> None:
+    def test_web_item_wraps_api_evidence_as_information(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             repo_dir = Path(tmp)
             data_dir = repo_dir / "data"

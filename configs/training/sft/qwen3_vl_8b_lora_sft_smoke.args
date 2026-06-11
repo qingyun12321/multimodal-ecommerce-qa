@@ -2,8 +2,8 @@
 --model_type qwen3_vl
 --template qwen3_vl
 --tuner_type lora
---dataset data/training/sft/generated/codex_multiturn/smoke_train.ms_swift.jsonl
---val_dataset data/training/sft/generated/codex_multiturn/smoke_val.ms_swift.jsonl
+--dataset data/training/sft/generated/mimo_multiturn/smoke_train.ms_swift.jsonl
+--val_dataset data/training/sft/generated/mimo_multiturn/smoke_val.ms_swift.jsonl
 --torch_dtype bfloat16
 --attn_impl sdpa
 --target_modules all-linear

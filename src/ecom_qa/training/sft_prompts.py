@@ -64,6 +64,7 @@ def build_web_fill_prompt(
     max_items: int,
     search_query: str | None = None,
     previous_information: str | None = None,
+    web_context: str | None = None,
     include_first_think: bool = True,
 ) -> str:
     del answers
@@ -79,10 +80,11 @@ def build_web_fill_prompt(
     )
     query_note = f"\nWeb search query:\n{search_query}" if search_query else ""
     previous_note = f"\nPrevious RAG information:\n{previous_information}" if previous_information else ""
+    context_note = f"\nSelf-hosted SearXNG web evidence candidates:\n{web_context}" if web_context else ""
     return _base_fill_prompt(record=record, answers=[]) + (
         "\n任务：生成 Web_search 多轮样本所需的无标签字段。\n"
-        "请使用 Codex 的联网搜索能力查找能支持回答的信息。"
-        f"最多使用 {max_items} 个网页/搜索结果，优先选择直接支持答案的页面，避免展开过多网页以节省 token。"
+        "网页搜索已经由脚本通过自部署 SearXNG 完成；你只能使用下面提供的 web evidence candidates，不要假设额外网页内容。"
+        f"最多整理 {max_items} 条证据内容，优先选择直接支持答案的候选内容。"
         f"输出 JSON 字段：{fields}。\n"
         "information_items 是检索证据内容列表，每个 item 只能是一段事实摘要字符串。"
         "不要在 information_items 中写标题、来源、URL、Markdown、引用编号或 XML/HTML 标签。"
@@ -90,7 +92,7 @@ def build_web_fill_prompt(
         f"{first_think_instruction}after_tool_think 要说明如何根据 information_items 得到答案。"
         "final_answer 是最终短答案；如果 information_items 不支持回答，即使 reference answers 中有答案，也必须使用固定无法回答句。"
         "不要在任何字段里提及 reference answers、gold answer、标注答案或数据集答案。"
-        f"{query_note}{previous_note}"
+        f"{query_note}{previous_note}{context_note}"
     )
 
 

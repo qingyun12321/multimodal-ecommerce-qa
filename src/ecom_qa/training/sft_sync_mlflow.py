@@ -15,7 +15,7 @@ from typing import Any
 
 WORKSPACE = Path(os.environ.get("WORKSPACE_HOME", "/workspace"))
 REPO_DIR = Path(os.environ.get("REPO_DIR", WORKSPACE / "repos" / "multimodal-ecommerce-qa"))
-DEFAULT_SFT_DATA_DIR = REPO_DIR / "data" / "training" / "sft" / "generated" / "codex_multiturn"
+DEFAULT_SFT_DATA_DIR = REPO_DIR / "data" / "training" / "sft" / "generated" / "mimo_multiturn"
 DATA_DIR = Path(os.environ.get("SFT_DATA_DIR", DEFAULT_SFT_DATA_DIR))
 CHECKPOINT_ROOT = Path(
     os.environ.get("SFT_CHECKPOINT_ROOT", WORKSPACE / "checkpoints" / "qwen3-vl-8b-tool-call-sft-v2")
@@ -163,7 +163,7 @@ def collect_data_params(validation_report: dict[str, Any], run_kind: str) -> dic
             "rows",
             "missing_images",
             "invalid_format",
-            "codex_failures",
+            "api_failures",
             "information_rows",
             "grounding_rows",
         ):
@@ -301,7 +301,7 @@ def main() -> int:
         for filename in (
             f"{'smoke_' if args.run_kind == 'smoke' else ''}review_samples.jsonl",
             f"{'smoke_' if args.run_kind == 'smoke' else ''}metadata.jsonl",
-            f"{'smoke_' if args.run_kind == 'smoke' else ''}codex_failures.jsonl",
+            f"{'smoke_' if args.run_kind == 'smoke' else ''}api_failures.jsonl",
             "resource_report_smoke.json",
             "training_time_estimate_smoke.json",
         ):

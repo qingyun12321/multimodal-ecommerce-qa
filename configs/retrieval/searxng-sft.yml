@@ -1,0 +1,71 @@
+use_default_settings:
+  engines:
+    keep_only:
+      - google
+      - duckduckgo
+      - qwant
+      - wikipedia
+      - wikibooks
+      - wikinews
+      - wikiquote
+      - wikisource
+      - wikispecies
+      - wiktionary
+      - wikiversity
+      - wikivoyage
+
+general:
+  instance_name: "ecom-qa-sft-searxng"
+  debug: false
+
+search:
+  safe_search: 1
+  autocomplete: ""
+  formats:
+    - html
+    - json
+
+server:
+  port: 8888
+  bind_address: "127.0.0.1"
+  secret_key: "ecom-qa-sft-local-secret"
+  limiter: false
+  image_proxy: false
+
+engines:
+  - name: google
+    disabled: false
+    timeout: 8.0
+  - name: duckduckgo
+    disabled: false
+    timeout: 8.0
+  - name: qwant
+    disabled: false
+    timeout: 8.0
+  - name: wikipedia
+    disabled: false
+    timeout: 8.0
+  - name: wikibooks
+    disabled: false
+    timeout: 8.0
+  - name: wikinews
+    disabled: false
+    timeout: 8.0
+  - name: wikiquote
+    disabled: false
+    timeout: 8.0
+  - name: wikisource
+    disabled: false
+    timeout: 8.0
+  - name: wikispecies
+    disabled: false
+    timeout: 8.0
+  - name: wiktionary
+    disabled: false
+    timeout: 8.0
+  - name: wikiversity
+    disabled: false
+    timeout: 8.0
+  - name: wikivoyage
+    disabled: false
+    timeout: 8.0

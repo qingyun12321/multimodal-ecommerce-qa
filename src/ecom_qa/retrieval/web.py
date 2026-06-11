@@ -3,12 +3,17 @@ from __future__ import annotations
 import json
 import re
 import time
-from dataclasses import dataclass
+import hashlib
+import os
+from dataclasses import dataclass, field
 from html import unescape
 from html.parser import HTMLParser
+from pathlib import Path
+from threading import Lock
 from typing import Any
 from urllib.parse import urlparse
 
+import fcntl
 import requests
 
 try:
@@ -110,6 +115,47 @@ class WebSummary:
     error: str = ""
 
 
+@dataclass(frozen=True, slots=True)
+class WebDocument:
+    title: str
+    url: str
+    snippet: str
+    engine: str
+    content: str
+    searxng_score: float
+    hybrid_score: float
+    rerank_score: float
+    fetched_chars: int = 0
+    error: str = ""
+
+
+@dataclass(frozen=True, slots=True)
+class WebEvidenceResult:
+    query: str
+    information_items: list[str]
+    documents: list[WebDocument]
+    timings: dict[str, float]
+    params: dict[str, Any]
+    cache_hit: bool = False
+    errors: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class WebRerankConfig:
+    candidate_k: int = 20
+    top_k: int = 5
+    min_score: float = 0.3
+    embedding_model: str = "BAAI/bge-m3"
+    reranker_model: str = "BAAI/bge-reranker-v2-m3"
+    embedding_weight: float = 0.6
+    searxng_weight: float = 0.4
+    device: str = "auto"
+    batch_size: int = 8
+    fetch_timeout: int = 20
+    max_fetch_chars: int = 12000
+    max_prompt_chars_per_item: int = 1400
+
+
 class _TextExtractor(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -132,7 +178,13 @@ class _TextExtractor(HTMLParser):
 
 
 class SearXNGClient:
-    def __init__(self, base_url: str = "http://127.0.0.1:8080", *, timeout: int = 30, engines: str = "bing") -> None:
+    def __init__(
+        self,
+        base_url: str = "http://127.0.0.1:8888",
+        *,
+        timeout: int = 30,
+        engines: str = "google,duckduckgo,qwant,wikipedia",
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
         self.engines = engines.strip()
@@ -183,6 +235,317 @@ class SearXNGClient:
         return results
 
 
+class SearxngWebEvidenceProvider:
+    def __init__(
+        self,
+        client: SearXNGClient,
+        *,
+        cache_dir: Path | None = None,
+        config: WebRerankConfig | None = None,
+        use_cache: bool = True,
+    ) -> None:
+        self.client = client
+        self.config = config or WebRerankConfig()
+        self.cache_dir = cache_dir
+        self.use_cache = use_cache
+        self._cache_lock = Lock()
+        self._cache_index = load_web_cache_index(cache_dir / "records.jsonl") if cache_dir and use_cache else {}
+        self._embedder: BGETextEmbedder | None = None
+        self._reranker: BGEWebReranker | None = None
+        self._model_lock = Lock()
+
+    def search(self, *, query: str, question: str, max_items: int | None = None, language: str = "auto") -> WebEvidenceResult:
+        max_items = max(1, int(max_items or self.config.top_k))
+        cache_key = self.cache_key(query=query, question=question, max_items=max_items, language=language)
+        if self.use_cache:
+            with self._cache_lock:
+                cached = self._cache_index.get(cache_key)
+            if cached and cached.get("status") == "success":
+                return web_result_from_cache(cached, cache_hit=True)
+
+        timings: dict[str, float] = {}
+        errors: list[str] = []
+        started = time.perf_counter()
+        search_started = time.perf_counter()
+        results = self.client.search(query, num_results=self.config.candidate_k, language=language)
+        timings["searxng_search"] = round(time.perf_counter() - search_started, 3)
+
+        dedupe_started = time.perf_counter()
+        results = dedupe_search_results(results)[: self.config.candidate_k]
+        timings["dedupe"] = round(time.perf_counter() - dedupe_started, 3)
+
+        hybrid_started = time.perf_counter()
+        ranked = self._hybrid_rank(query=query, question=question, results=results, timings=timings, errors=errors)
+        timings["hybrid_score"] = round(time.perf_counter() - hybrid_started, 3)
+
+        rerank_started = time.perf_counter()
+        reranked = self._rerank(query=query, question=question, ranked=ranked, errors=errors)
+        timings["rerank"] = round(time.perf_counter() - rerank_started, 3)
+
+        selected = [item for item in reranked if item["rerank_score"] >= self.config.min_score][:max_items]
+        fetch_started = time.perf_counter()
+        documents = self._fetch_documents(selected)
+        timings["page_fetch"] = round(time.perf_counter() - fetch_started, 3)
+        timings["wall_seconds"] = round(time.perf_counter() - started, 3)
+
+        information_items = [doc.content for doc in documents if doc.content]
+        result = WebEvidenceResult(
+            query=query,
+            information_items=information_items,
+            documents=documents,
+            timings=timings,
+            params=self.params(),
+            cache_hit=False,
+            errors=errors,
+        )
+        self._record_cache(cache_key=cache_key, result=result)
+        return result
+
+    def params(self) -> dict[str, Any]:
+        return {
+            "searxng_url": self.client.base_url,
+            "searxng_engines": self.client.engines,
+            "candidate_k": self.config.candidate_k,
+            "top_k": self.config.top_k,
+            "min_score": self.config.min_score,
+            "embedding_model": self.config.embedding_model,
+            "reranker_model": self.config.reranker_model,
+            "embedding_weight": self.config.embedding_weight,
+            "searxng_weight": self.config.searxng_weight,
+            "device": self.actual_device(),
+            "batch_size": self.config.batch_size,
+            "fetch_timeout": self.config.fetch_timeout,
+            "max_fetch_chars": self.config.max_fetch_chars,
+            "max_prompt_chars_per_item": self.config.max_prompt_chars_per_item,
+        }
+
+    def cache_params(self) -> dict[str, Any]:
+        params = self.params()
+        params["device"] = self.config.device
+        return params
+
+    def actual_device(self) -> str:
+        if self._embedder is not None:
+            return self._embedder.device
+        if self._reranker is not None:
+            return self._reranker.device
+        return self.config.device
+
+    def cache_key(self, *, query: str, question: str, max_items: int, language: str) -> str:
+        payload = {
+            "query": query,
+            "question": question,
+            "max_items": max_items,
+            "language": language,
+            "params": self.cache_params(),
+        }
+        digest = hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:24]
+        return f"web.{digest}"
+
+    def _hybrid_rank(
+        self,
+        *,
+        query: str,
+        question: str,
+        results: list[SearchResult],
+        timings: dict[str, float],
+        errors: list[str],
+    ) -> list[dict[str, Any]]:
+        if not results:
+            return []
+        texts = [search_result_text(result) for result in results]
+        searx_scores = normalize_scores(
+            [
+                float(result.score)
+                if isinstance(result.score, (int, float))
+                else 1.0 / (index + 1)
+                for index, result in enumerate(results)
+            ]
+        )
+        embedding_scores = searx_scores
+        embedding_started = time.perf_counter()
+        try:
+            embedder = self._get_embedder()
+            query_embedding = embedder.encode([question or query])[0]
+            document_embeddings = embedder.encode(texts)
+            embedding_scores = [cosine_similarity(query_embedding, embedding) for embedding in document_embeddings]
+            embedding_scores = normalize_scores(embedding_scores)
+        except Exception as exc:  # noqa: BLE001 - model availability should not kill generation
+            errors.append(f"embedding_error={exc!r}")
+        timings["embedding"] = round(time.perf_counter() - embedding_started, 3)
+
+        ranked: list[dict[str, Any]] = []
+        for result, searx_score, embedding_score in zip(results, searx_scores, embedding_scores, strict=False):
+            hybrid_score = self.config.embedding_weight * embedding_score + self.config.searxng_weight * searx_score
+            ranked.append(
+                {
+                    "result": result,
+                    "text": search_result_text(result),
+                    "searxng_score": round(searx_score, 6),
+                    "embedding_score": round(embedding_score, 6),
+                    "hybrid_score": round(hybrid_score, 6),
+                    "rerank_score": round(hybrid_score, 6),
+                }
+            )
+        ranked.sort(key=lambda item: item["hybrid_score"], reverse=True)
+        return ranked
+
+    def _rerank(self, *, query: str, question: str, ranked: list[dict[str, Any]], errors: list[str]) -> list[dict[str, Any]]:
+        if not ranked:
+            return []
+        query_text = question or query
+        candidates = ranked[: self.config.candidate_k]
+        try:
+            reranker = self._get_reranker()
+            scores = reranker.score(query_text, [str(item["text"]) for item in candidates])
+            for item, score in zip(candidates, scores, strict=False):
+                item["rerank_score"] = round(float(score), 6)
+        except Exception as exc:  # noqa: BLE001 - keep deterministic fallback available
+            errors.append(f"rerank_error={exc!r}")
+        candidates.sort(key=lambda item: item["rerank_score"], reverse=True)
+        return candidates
+
+    def _fetch_documents(self, ranked: list[dict[str, Any]]) -> list[WebDocument]:
+        documents: list[WebDocument] = []
+        for item in ranked:
+            result: SearchResult = item["result"]
+            fetched = ""
+            error = ""
+            try:
+                fetched = fetch_webpage_text(
+                    result.url,
+                    timeout=self.config.fetch_timeout,
+                    max_chars=self.config.max_fetch_chars,
+                )
+            except Exception as exc:  # noqa: BLE001 - use snippets when pages block fetching
+                error = repr(exc)
+            content = normalize_training_text(fetched or result.snippet)
+            if len(content) > self.config.max_prompt_chars_per_item:
+                content = content[: self.config.max_prompt_chars_per_item].rsplit(" ", 1)[0].strip() or content[
+                    : self.config.max_prompt_chars_per_item
+                ]
+            documents.append(
+                WebDocument(
+                    title=result.title,
+                    url=result.url,
+                    snippet=result.snippet,
+                    engine=result.engine,
+                    content=content,
+                    searxng_score=float(item["searxng_score"]),
+                    hybrid_score=float(item["hybrid_score"]),
+                    rerank_score=float(item["rerank_score"]),
+                    fetched_chars=len(fetched),
+                    error=error,
+                )
+            )
+        return documents
+
+    def _get_embedder(self) -> "BGETextEmbedder":
+        with self._model_lock:
+            if self._embedder is None:
+                self._embedder = BGETextEmbedder(
+                    model_name=self.config.embedding_model,
+                    device=self.config.device,
+                    batch_size=self.config.batch_size,
+                )
+            return self._embedder
+
+    def _get_reranker(self) -> "BGEWebReranker":
+        with self._model_lock:
+            if self._reranker is None:
+                self._reranker = BGEWebReranker(
+                    model_name=self.config.reranker_model,
+                    device=self.config.device,
+                    batch_size=self.config.batch_size,
+                )
+            return self._reranker
+
+    def _record_cache(self, *, cache_key: str, result: WebEvidenceResult) -> None:
+        if not self.use_cache or self.cache_dir is None:
+            return
+        row = {
+            "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "status": "success",
+            "cache_key": cache_key,
+            "query": result.query,
+            "information_items": result.information_items,
+            "documents": [web_document_to_dict(doc) for doc in result.documents],
+            "timings": result.timings,
+            "params": result.params,
+            "errors": result.errors,
+        }
+        with self._cache_lock:
+            self._cache_index[cache_key] = row
+            append_web_jsonl_locked(self.cache_dir / "records.jsonl", row)
+
+
+class BGETextEmbedder:
+    def __init__(self, *, model_name: str, device: str = "auto", batch_size: int = 8) -> None:
+        import torch
+        from transformers import AutoModel, AutoTokenizer
+
+        self.model_name = model_name
+        self.device = resolve_torch_device(device)
+        self.batch_size = max(1, int(batch_size))
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModel.from_pretrained(model_name).to(self.device)
+        self.model.eval()
+        self._torch = torch
+
+    def encode(self, texts: list[str]) -> list[list[float]]:
+        vectors: list[list[float]] = []
+        for index in range(0, len(texts), self.batch_size):
+            batch = texts[index : index + self.batch_size]
+            encoded = self.tokenizer(
+                batch,
+                padding=True,
+                truncation=True,
+                max_length=512,
+                return_tensors="pt",
+            )
+            encoded = {key: value.to(self.device) for key, value in encoded.items()}
+            with self._torch.no_grad():
+                output = self.model(**encoded)
+                hidden = output.last_hidden_state
+                mask = encoded["attention_mask"].unsqueeze(-1).expand(hidden.size()).float()
+                pooled = (hidden * mask).sum(dim=1) / mask.sum(dim=1).clamp(min=1e-9)
+                pooled = self._torch.nn.functional.normalize(pooled, p=2, dim=1)
+            vectors.extend(pooled.detach().cpu().tolist())
+        return vectors
+
+
+class BGEWebReranker:
+    def __init__(self, *, model_name: str, device: str = "auto", batch_size: int = 8) -> None:
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        self.model_name = model_name
+        self.device = resolve_torch_device(device)
+        self.batch_size = max(1, int(batch_size))
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_name).to(self.device)
+        self.model.eval()
+        self._torch = torch
+
+    def score(self, query: str, documents: list[str]) -> list[float]:
+        scores: list[float] = []
+        for index in range(0, len(documents), self.batch_size):
+            batch = [[query, document] for document in documents[index : index + self.batch_size]]
+            encoded = self.tokenizer(
+                batch,
+                padding=True,
+                truncation=True,
+                max_length=512,
+                return_tensors="pt",
+            )
+            encoded = {key: value.to(self.device) for key, value in encoded.items()}
+            with self._torch.no_grad():
+                logits = self.model(**encoded).logits.view(-1)
+                batch_scores = self._torch.sigmoid(logits).detach().cpu().tolist()
+            scores.extend(float(score) for score in batch_scores)
+        return scores
+
+
 def normalize_training_text(text: str) -> str:
     text = str(text or "").strip()
     text = URL_PATTERN.sub("", text)
@@ -226,6 +589,128 @@ def fetch_webpage_text(url: str, *, timeout: int = 30, max_chars: int = 30000) -
     else:
         text = response.text
     return text[:max_chars].strip()
+
+
+def dedupe_search_results(results: list[SearchResult]) -> list[SearchResult]:
+    seen: set[str] = set()
+    deduped: list[SearchResult] = []
+    for result in results:
+        parsed = urlparse(result.url)
+        key = f"{parsed.netloc.lower()}{parsed.path.rstrip('/')}".strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(result)
+    return deduped
+
+
+def search_result_text(result: SearchResult) -> str:
+    return normalize_training_text(" ".join(part for part in [result.title, result.snippet] if part))
+
+
+def normalize_scores(scores: list[float]) -> list[float]:
+    if not scores:
+        return []
+    minimum = min(scores)
+    maximum = max(scores)
+    if maximum <= minimum:
+        return [1.0 for _ in scores]
+    return [(score - minimum) / (maximum - minimum) for score in scores]
+
+
+def cosine_similarity(left: list[float], right: list[float]) -> float:
+    numerator = sum(a * b for a, b in zip(left, right, strict=False))
+    left_norm = sum(a * a for a in left) ** 0.5
+    right_norm = sum(b * b for b in right) ** 0.5
+    if not left_norm or not right_norm:
+        return 0.0
+    return numerator / (left_norm * right_norm)
+
+
+def resolve_torch_device(device: str) -> str:
+    if device != "auto":
+        return device
+    try:
+        import torch
+
+        return "cuda" if torch.cuda.is_available() else "cpu"
+    except Exception:  # noqa: BLE001 - optional before model load
+        return "cpu"
+
+
+def web_document_to_dict(document: WebDocument) -> dict[str, Any]:
+    return {
+        "title": document.title,
+        "url": document.url,
+        "snippet": document.snippet,
+        "engine": document.engine,
+        "content": document.content,
+        "searxng_score": document.searxng_score,
+        "hybrid_score": document.hybrid_score,
+        "rerank_score": document.rerank_score,
+        "fetched_chars": document.fetched_chars,
+        "error": document.error,
+    }
+
+
+def web_document_from_dict(payload: dict[str, Any]) -> WebDocument:
+    return WebDocument(
+        title=str(payload.get("title") or ""),
+        url=str(payload.get("url") or ""),
+        snippet=str(payload.get("snippet") or ""),
+        engine=str(payload.get("engine") or ""),
+        content=str(payload.get("content") or ""),
+        searxng_score=float(payload.get("searxng_score") or 0.0),
+        hybrid_score=float(payload.get("hybrid_score") or 0.0),
+        rerank_score=float(payload.get("rerank_score") or 0.0),
+        fetched_chars=int(payload.get("fetched_chars") or 0),
+        error=str(payload.get("error") or ""),
+    )
+
+
+def web_result_from_cache(row: dict[str, Any], *, cache_hit: bool) -> WebEvidenceResult:
+    documents = [web_document_from_dict(item) for item in row.get("documents") or [] if isinstance(item, dict)]
+    return WebEvidenceResult(
+        query=str(row.get("query") or ""),
+        information_items=[str(item) for item in row.get("information_items") or []],
+        documents=documents,
+        timings={key: float(value) for key, value in (row.get("timings") or {}).items()},
+        params=dict(row.get("params") or {}),
+        cache_hit=cache_hit,
+        errors=[str(item) for item in row.get("errors") or []],
+    )
+
+
+def load_web_cache_index(path: Path) -> dict[str, dict[str, Any]]:
+    rows: dict[str, dict[str, Any]] = {}
+    if not path.exists():
+        return rows
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            cache_key = str(row.get("cache_key") or "")
+            if cache_key:
+                rows[cache_key] = row
+    return rows
+
+
+def append_web_jsonl_locked(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = path.with_suffix(path.suffix + ".lock")
+    with lock_path.open("a+", encoding="utf-8") as lock_handle:
+        fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX)
+        try:
+            with path.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
+                handle.flush()
+                os.fsync(handle.fileno())
+        finally:
+            fcntl.flock(lock_handle.fileno(), fcntl.LOCK_UN)
 
 
 class LlamaCppSummarizer:

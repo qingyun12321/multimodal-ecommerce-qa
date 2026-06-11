@@ -32,8 +32,8 @@ ROUND_TAG_PATTERNS = {
 class WebSearch:
     mode: str = "mock"
     top_k: int = 5
-    base_url: str = "http://127.0.0.1:8080"
-    engines: str = "bing"
+    base_url: str = "http://127.0.0.1:8888"
+    engines: str = "google,duckduckgo,qwant,wikipedia"
     summary_base_url: str = "http://127.0.0.1:8088"
     summary_model: str = "qwen3.5-9b-summary"
     summarize_pages: int = 2

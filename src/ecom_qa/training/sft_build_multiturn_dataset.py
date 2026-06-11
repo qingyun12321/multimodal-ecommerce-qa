@@ -17,11 +17,12 @@ from typing import Any, Protocol
 
 from ecom_qa.common.paths import repo_root, resolve_data_root
 from ecom_qa.retrieval.local_catalog import LocalRAGSearch, format_information
-from ecom_qa.training.sft_codex import (
+from ecom_qa.retrieval.web import SearXNGClient, SearxngWebEvidenceProvider, WebEvidenceResult, WebRerankConfig
+from ecom_qa.training.sft_api import (
+    ApiClient,
+    ApiGenerationError,
     DIRECT_SCHEMA,
     RAG_SCHEMA,
-    CodexClient,
-    CodexGenerationError,
     make_cache_key,
     web_schema,
 )
@@ -44,7 +45,7 @@ OLD_REPO_ROOTS = (
     "/home/qingyun/projects/multimodal-ecommerce-qa",
     "/workspace/repos/multimodal-ecommerce-qa",
 )
-DEFAULT_OUTPUT_SUBDIR = ("training", "sft", "generated", "codex_multiturn")
+DEFAULT_OUTPUT_SUBDIR = ("training", "sft", "generated", "mimo_multiturn")
 
 
 class JsonGenerator(Protocol):
@@ -58,6 +59,11 @@ class JsonGenerator(Protocol):
         image_paths: list[Path],
         use_search: bool = False,
     ) -> dict[str, Any]:
+        ...
+
+
+class WebEvidenceProvider(Protocol):
+    def search(self, *, query: str, question: str, max_items: int | None = None, language: str = "auto") -> WebEvidenceResult:
         ...
 
 
@@ -288,6 +294,15 @@ def format_web_information(items: list[Any]) -> str:
     return "\n".join(lines)
 
 
+def format_web_context(items: list[str]) -> str:
+    lines: list[str] = []
+    for index, item in enumerate(items, start=1):
+        text = clean_text(item)
+        if text:
+            lines.append(f"[{index}] {text}")
+    return "\n".join(lines) if lines else "未检索到可支持回答的网页内容。"
+
+
 def extract_tags(text: str) -> dict[str, list[str]]:
     return {tag: [match.group(1).strip() for match in pattern.finditer(text)] for tag, pattern in TAG_PATTERNS.items()}
 
@@ -333,11 +348,14 @@ def build_item(
     data_dir: Path,
     generator: JsonGenerator,
     rag: LocalRAGSearch,
+    web_provider: WebEvidenceProvider | None = None,
     web_max_items: int = 5,
+    web_language: str = "auto",
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     answers = expected_answers(row)
     image_absolute_paths, image_output_paths = image_paths_for_row(row, repo_dir=repo_dir, data_dir=data_dir)
-    codex_calls: list[dict[str, Any]] = []
+    api_calls: list[dict[str, Any]] = []
+    web_search_calls: list[dict[str, Any]] = []
     messages = [
         {"role": "system", "content": build_system_prompt(has_image_input=has_image(row), domain=str(row.get("domain") or ""))},
         {"role": "user", "content": user_question_content(row)},
@@ -351,7 +369,7 @@ def build_item(
         "use_grounding": bool(row.get("use_grounding")),
         "image_paths": image_output_paths,
         "image_exists": (not has_image(row)) or (bool(image_absolute_paths) and all(path.is_file() for path in image_absolute_paths)),
-        "codex_failure": "",
+        "api_failure": "",
         "warnings": [],
     }
 
@@ -364,17 +382,18 @@ def build_item(
         use_search: bool,
     ) -> dict[str, Any]:
         started_at = time.perf_counter()
+        cache_key = make_cache_key(record_id=str(row.get("record_id")), kind=cache_kind, prompt=prompt)
         try:
             payload = generator.generate_json(
                 prompt=prompt,
                 schema_name=schema_name,
                 schema=schema,
-                cache_key=make_cache_key(record_id=str(row.get("record_id")), kind=cache_kind, prompt=prompt),
+                cache_key=cache_key,
                 image_paths=image_absolute_paths,
                 use_search=use_search,
             )
         except Exception as exc:
-            codex_calls.append(
+            api_calls.append(
                 {
                     "schema_name": schema_name,
                     "use_search": use_search,
@@ -384,15 +403,44 @@ def build_item(
                 }
             )
             raise
-        codex_calls.append(
+        call_metadata: dict[str, Any] = {}
+        consume_metadata = getattr(generator, "consume_call_metadata", None)
+        if callable(consume_metadata):
+            call_metadata = consume_metadata(cache_key)
+        api_calls.append(
             {
                 "schema_name": schema_name,
                 "use_search": use_search,
                 "elapsed_seconds": round(time.perf_counter() - started_at, 3),
                 "status": "success",
+                **call_metadata,
             }
         )
         return payload
+
+    def retrieve_web_evidence(web_query: str) -> tuple[str, int]:
+        if web_provider is None:
+            return format_web_context([]), 0
+        started_at = time.perf_counter()
+        result = web_provider.search(
+            query=web_query,
+            question=clean_text(row.get("query")),
+            max_items=web_max_items,
+            language=web_language,
+        )
+        web_search_calls.append(
+            {
+                "query": web_query,
+                "cache_hit": result.cache_hit,
+                "information_count": len(result.information_items),
+                "document_count": len(result.documents),
+                "timings": result.timings,
+                "params": result.params,
+                "errors": result.errors,
+                "elapsed_seconds": round(time.perf_counter() - started_at, 3),
+            }
+        )
+        return format_web_context(result.information_items), len(result.information_items)
 
     try:
         if str(row.get("decision_type")) == "direct_answer" or str(row.get("search_tool") or "none") == "none":
@@ -445,12 +493,14 @@ def build_item(
                 metadata["retrieved_count"] = len(rag_items)
             else:
                 web_query = clean_text(payload.get("web_search_query")) or search_input(row) or enhanced_rag_query(row)
+                web_context, raw_web_count = retrieve_web_evidence(web_query)
                 web_prompt = build_web_fill_prompt(
                     record=row,
                     answers=[],
                     max_items=web_max_items,
                     search_query=web_query,
                     previous_information=information,
+                    web_context=web_context,
                     include_first_think=False,
                 )
                 web_payload = timed_generate(
@@ -476,13 +526,16 @@ def build_item(
                 metadata["turn_count"] = 3
                 metadata["sample_kind"] = "rag_to_web"
                 metadata["web_information_count"] = len(web_items)
-                metadata["retrieved_count"] = len(rag_items) + len(web_items)
+                metadata["raw_web_information_count"] = raw_web_count
+                metadata["retrieved_count"] = len(rag_items) + raw_web_count
         elif str(row.get("search_tool")) == "Web_search":
+            web_context, raw_web_count = retrieve_web_evidence(search_input(row))
             prompt = build_web_fill_prompt(
                 record=row,
                 answers=answers,
                 max_items=web_max_items,
                 search_query=search_input(row),
+                web_context=web_context,
                 include_first_think=True,
             )
             payload = timed_generate(
@@ -509,22 +562,28 @@ def build_item(
             metadata["has_information"] = True
             metadata["sample_kind"] = "web_first"
             metadata["web_information_count"] = len(web_items)
-            metadata["retrieved_count"] = len(web_items)
+            metadata["raw_web_information_count"] = raw_web_count
+            metadata["retrieved_count"] = raw_web_count
         else:
             raise ValueError(f"Unsupported search_tool: {row.get('search_tool')!r}")
-    except (CodexGenerationError, KeyError, ValueError) as exc:
-        metadata["codex_failure"] = repr(exc)
+    except (ApiGenerationError, KeyError, ValueError) as exc:
+        metadata["api_failure"] = repr(exc)
         metadata["turn_count"] = 0
         metadata["has_information"] = False
         raise
 
-    metadata["codex_calls"] = codex_calls
-    metadata["codex_call_count"] = len(codex_calls)
-    metadata["codex_schema_names"] = [str(call.get("schema_name")) for call in codex_calls]
-    metadata["codex_generation_seconds"] = round(
-        sum(float(call.get("elapsed_seconds") or 0.0) for call in codex_calls),
+    metadata["api_calls"] = api_calls
+    metadata["api_call_count"] = len(api_calls)
+    metadata["api_schema_names"] = [str(call.get("schema_name")) for call in api_calls]
+    metadata["api_generation_seconds"] = round(
+        sum(float(call.get("elapsed_seconds") or 0.0) for call in api_calls),
         3,
     )
+    metadata["api_prompt_tokens"] = sum(int(call.get("prompt_tokens") or 0) for call in api_calls)
+    metadata["api_completion_tokens"] = sum(int(call.get("completion_tokens") or 0) for call in api_calls)
+    metadata["api_total_tokens"] = sum(int(call.get("total_tokens") or 0) for call in api_calls)
+    metadata["web_search_calls"] = web_search_calls
+    metadata["web_search_call_count"] = len(web_search_calls)
     item = {
         "messages": messages,
         "record_id": row.get("record_id"),
@@ -603,7 +662,7 @@ def metadata_output_path(args: argparse.Namespace) -> Path:
 
 def failures_output_path(args: argparse.Namespace) -> Path:
     prefix = "smoke_" if args.smoke else ""
-    return args.output_dir / f"{prefix}codex_failures.jsonl"
+    return args.output_dir / f"{prefix}api_failures.jsonl"
 
 
 def review_output_path(args: argparse.Namespace) -> Path:
@@ -618,7 +677,7 @@ def clear_generation_outputs(args: argparse.Namespace) -> None:
         f"{prefix}val.ms_swift.jsonl",
         f"{prefix}metadata.jsonl",
         f"{prefix}review_samples.jsonl",
-        f"{prefix}codex_failures.jsonl",
+        f"{prefix}api_failures.jsonl",
         "validation_report.json",
     ]
     for name in names:
@@ -635,6 +694,7 @@ def build_split(
     args: argparse.Namespace,
     generator: JsonGenerator,
     rag: LocalRAGSearch,
+    web_provider: WebEvidenceProvider | None,
 ) -> dict[str, Any]:
     size = args.smoke_train_size if split == "train" else args.smoke_val_size
     selected = smoke_select(rows, size=size, seed=args.seed + (0 if split == "train" else 1)) if args.smoke else rows
@@ -663,7 +723,9 @@ def build_split(
                 data_dir=args.data_dir,
                 generator=generator,
                 rag=rag,
+                web_provider=web_provider,
                 web_max_items=args.web_max_items,
+                web_language=args.searxng_language,
             )
             meta["split"] = split
             meta["output_key"] = key
@@ -676,7 +738,7 @@ def build_split(
                 "record_id": row.get("record_id"),
                 "split": split,
                 "output_key": key,
-                "codex_failure": repr(exc),
+                "api_failure": repr(exc),
                 "decision_type": row.get("decision_type"),
                 "search_tool": row.get("search_tool"),
                 "generation_seconds": round(time.perf_counter() - started_at, 3),
@@ -684,7 +746,7 @@ def build_split(
             failure_appender.append(failure, key=key)
             return {"status": "failed", "output_key": key}
 
-    max_workers = max(1, int(args.codex_workers))
+    max_workers = max(1, int(args.api_workers))
     if max_workers == 1:
         statuses = Counter()
         for row in selected:
@@ -702,15 +764,32 @@ def build_split(
 def split_report(items: list[dict[str, Any]], metas: list[dict[str, Any]], failures: list[dict[str, Any]]) -> dict[str, Any]:
     invalid = [meta for meta in metas if meta.get("warnings")]
     kind_seconds: dict[str, float] = defaultdict(float)
+    api_calls: list[dict[str, Any]] = []
+    web_calls: list[dict[str, Any]] = []
+    web_stage_seconds: dict[str, float] = defaultdict(float)
     for meta in metas:
         kind_seconds[str(meta.get("sample_kind") or "unknown")] += float(meta.get("generation_seconds") or 0.0)
-    failure_text = "\n".join(str(failure.get("codex_failure") or "") for failure in failures).lower()
+        api_calls.extend(call for call in meta.get("api_calls") or [] if isinstance(call, dict))
+        web_calls.extend(call for call in meta.get("web_search_calls") or [] if isinstance(call, dict))
+    for call in web_calls:
+        for key, value in (call.get("timings") or {}).items():
+            if isinstance(value, (int, float)):
+                web_stage_seconds[str(key)] += float(value)
+    failure_text = "\n".join(str(failure.get("api_failure") or "") for failure in failures).lower()
+    api_seconds_total = round(sum(float(call.get("elapsed_seconds") or 0.0) for call in api_calls), 3)
+    api_api_seconds_total = round(sum(float(call.get("api_seconds") or 0.0) for call in api_calls), 3)
+    api_parse_seconds_total = round(sum(float(call.get("parse_seconds") or 0.0) for call in api_calls), 3)
+    token_usage = {
+        "prompt_tokens": sum(int(call.get("prompt_tokens") or 0) for call in api_calls),
+        "completion_tokens": sum(int(call.get("completion_tokens") or 0) for call in api_calls),
+        "total_tokens": sum(int(call.get("total_tokens") or 0) for call in api_calls),
+    }
     return {
         "rows": len(items),
         "unique_record_ids": len({str(item["record_id"]) for item in items}),
         "missing_images": sum(1 for meta in metas if not meta.get("image_exists", True)),
         "invalid_format": len(invalid),
-        "codex_failures": len(failures),
+        "api_failures": len(failures),
         "timeout_failures": failure_text.count("timed out"),
         "json_parse_failures": failure_text.count("json"),
         "qa_type_counts": dict(Counter(str(meta.get("qa_type")) for meta in metas)),
@@ -724,8 +803,16 @@ def split_report(items: list[dict[str, Any]], metas: list[dict[str, Any]], failu
         "empty_search_result_rows": sum(
             1 for meta in metas if meta.get("has_information") and int(meta.get("retrieved_count") or 0) == 0
         ),
-        "codex_call_count": sum(int(meta.get("codex_call_count") or 0) for meta in metas),
-        "codex_generation_seconds_total": round(sum(float(meta.get("codex_generation_seconds") or 0.0) for meta in metas), 3),
+        "api_call_count": len(api_calls),
+        "api_cache_hits": sum(1 for call in api_calls if call.get("cache_hit")),
+        "api_schema_mode_counts": dict(Counter(str(call.get("schema_mode") or "unknown") for call in api_calls)),
+        "api_generation_seconds_total": api_seconds_total,
+        "api_api_seconds_total": api_api_seconds_total,
+        "api_parse_seconds_total": api_parse_seconds_total,
+        "api_token_usage": token_usage,
+        "web_search_call_count": len(web_calls),
+        "web_search_cache_hits": sum(1 for call in web_calls if call.get("cache_hit")),
+        "web_stage_seconds_total": {key: round(value, 3) for key, value in sorted(web_stage_seconds.items())},
         "generation_seconds_by_kind": {key: round(value, 3) for key, value in sorted(kind_seconds.items())},
         "examples_with_warnings": invalid[:10],
         "failure_examples": failures[:10],
@@ -782,8 +869,26 @@ def estimate_seconds_for_rows(*, elapsed_seconds: float, generated_rows: int, ta
     return elapsed_seconds / generated_rows * target_rows
 
 
+def combine_token_usage(*reports: dict[str, Any]) -> dict[str, int]:
+    combined = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    for report in reports:
+        usage = report.get("api_token_usage") or {}
+        for key in combined:
+            combined[key] += int(usage.get(key) or 0)
+    return combined
+
+
+def combine_web_stage_seconds(*reports: dict[str, Any]) -> dict[str, float]:
+    combined: dict[str, float] = defaultdict(float)
+    for report in reports:
+        for key, value in (report.get("web_stage_seconds_total") or {}).items():
+            if isinstance(value, (int, float)):
+                combined[str(key)] += float(value)
+    return {key: round(value, 3) for key, value in sorted(combined.items())}
+
+
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build script-rendered multi-turn SFT JSONL for ms-swift using Codex content filling.")
+    parser = argparse.ArgumentParser(description="Build script-rendered multi-turn SFT JSONL for ms-swift using OpenRouter API filling.")
     parser.add_argument("--train-source", type=Path, default=None)
     parser.add_argument("--val-source", type=Path, default=None)
     parser.add_argument("--output-dir", type=Path, default=None)
@@ -791,18 +896,40 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--smoke-train-size", type=int, default=32)
     parser.add_argument("--smoke-val-size", type=int, default=16)
     parser.add_argument("--seed", type=int, default=20260610)
-    parser.add_argument("--codex-bin", default="codex")
-    parser.add_argument("--codex-model", default="gpt-5.3-codex-spark")
-    parser.add_argument("--codex-reasoning-effort", default="low")
-    parser.add_argument("--codex-workers", type=int, default=5)
+    parser.add_argument("--api-key-env", default="OPENROUTER_API_KEY")
+    parser.add_argument("--api-base-url", default=os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"))
+    parser.add_argument("--api-model", default=os.environ.get("SFT_API_MODEL", "xiaomi/mimo-v2.5"))
+    parser.add_argument("--api-reasoning-effort", default=os.environ.get("SFT_API_REASONING_EFFORT", "none"))
+    parser.add_argument("--include-api-reasoning", action="store_true")
+    parser.add_argument("--api-workers", type=int, default=5)
     parser.add_argument("--worker-fallbacks", default="5,3,1")
     parser.add_argument("--web-max-items", type=int, default=5)
-    parser.add_argument("--codex-timeout-seconds", type=int, default=900)
+    parser.add_argument("--api-timeout-seconds", type=int, default=900)
+    parser.add_argument("--api-temperature", type=float, default=0.1)
+    parser.add_argument("--api-top-p", type=float, default=None)
+    parser.add_argument("--api-max-tokens", type=int, default=1024)
     parser.add_argument("--max-retries", type=int, default=2)
-    parser.add_argument("--no-codex-cache", action="store_true")
+    parser.add_argument("--no-api-cache", action="store_true")
+    parser.add_argument("--no-web-cache", action="store_true")
     parser.add_argument("--clear-cache", action="store_true")
     parser.add_argument("--clear-output", action="store_true")
-    parser.add_argument("--keep-codex-debug", action="store_true")
+    parser.add_argument("--keep-api-debug", action="store_true")
+    parser.add_argument("--searxng-url", default=os.environ.get("SFT_SEARXNG_URL", "http://127.0.0.1:8888"))
+    parser.add_argument("--searxng-engines", default=os.environ.get("SFT_SEARXNG_ENGINES", "google,duckduckgo,qwant,wikipedia"))
+    parser.add_argument("--searxng-timeout", type=int, default=30)
+    parser.add_argument("--searxng-language", default="auto")
+    parser.add_argument("--web-candidate-k", type=int, default=20)
+    parser.add_argument("--web-rerank-top-k", type=int, default=5)
+    parser.add_argument("--web-rerank-min-score", type=float, default=0.3)
+    parser.add_argument("--web-embedding-model", default="BAAI/bge-m3")
+    parser.add_argument("--web-reranker-model", default="BAAI/bge-reranker-v2-m3")
+    parser.add_argument("--web-embedding-weight", type=float, default=0.6)
+    parser.add_argument("--web-searxng-weight", type=float, default=0.4)
+    parser.add_argument("--web-rerank-device", default="auto")
+    parser.add_argument("--web-rerank-batch-size", type=int, default=8)
+    parser.add_argument("--web-fetch-timeout", type=int, default=20)
+    parser.add_argument("--web-max-fetch-chars", type=int, default=12000)
+    parser.add_argument("--web-max-prompt-chars-per-item", type=int, default=1400)
     return parser.parse_args()
 
 
@@ -825,25 +952,53 @@ def main() -> int:
     train_rows = read_jsonl(train_source)
     val_rows = read_jsonl(val_source)
     args.web_max_items = max(1, int(args.web_max_items))
-    requested_workers = max(1, int(args.codex_workers))
+    requested_workers = min(5, max(1, int(args.api_workers)))
+    args.api_workers = requested_workers
     worker_fallbacks = parse_worker_fallbacks(args.worker_fallbacks, requested=requested_workers)
 
     if args.clear_output:
         clear_generation_outputs(args)
     if args.clear_cache:
-        shutil.rmtree(args.output_dir / "codex_cache", ignore_errors=True)
+        shutil.rmtree(args.output_dir / "api_cache", ignore_errors=True)
+        shutil.rmtree(args.output_dir / "web_cache", ignore_errors=True)
 
     rag = LocalRAGSearch.from_dataset(args.data_dir, top_k=5)
-    generator = CodexClient(
+    generator = ApiClient(
         repo_dir=args.repo_dir,
-        cache_dir=args.output_dir / "codex_cache",
-        codex_bin=args.codex_bin,
-        model=args.codex_model,
-        reasoning_effort=args.codex_reasoning_effort,
-        timeout_seconds=args.codex_timeout_seconds,
+        cache_dir=args.output_dir / "api_cache",
+        api_key=os.environ.get(args.api_key_env),
+        base_url=args.api_base_url,
+        model=args.api_model,
+        reasoning_effort=args.api_reasoning_effort,
+        reasoning_exclude=not bool(args.include_api_reasoning),
+        timeout_seconds=args.api_timeout_seconds,
         max_retries=args.max_retries,
-        use_cache=not args.no_codex_cache,
-        keep_debug=args.keep_codex_debug,
+        temperature=args.api_temperature,
+        top_p=args.api_top_p,
+        max_tokens=args.api_max_tokens,
+        use_cache=not args.no_api_cache,
+        keep_debug=args.keep_api_debug,
+    )
+    web_client = SearXNGClient(args.searxng_url, timeout=args.searxng_timeout, engines=args.searxng_engines)
+    web_config = WebRerankConfig(
+        candidate_k=max(1, int(args.web_candidate_k)),
+        top_k=max(1, int(args.web_rerank_top_k)),
+        min_score=float(args.web_rerank_min_score),
+        embedding_model=args.web_embedding_model,
+        reranker_model=args.web_reranker_model,
+        embedding_weight=float(args.web_embedding_weight),
+        searxng_weight=float(args.web_searxng_weight),
+        device=args.web_rerank_device,
+        batch_size=max(1, int(args.web_rerank_batch_size)),
+        fetch_timeout=max(1, int(args.web_fetch_timeout)),
+        max_fetch_chars=max(200, int(args.web_max_fetch_chars)),
+        max_prompt_chars_per_item=max(200, int(args.web_max_prompt_chars_per_item)),
+    )
+    web_provider = SearxngWebEvidenceProvider(
+        web_client,
+        cache_dir=args.output_dir / "web_cache",
+        config=web_config,
+        use_cache=not args.no_web_cache,
     )
 
     started_at_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -851,23 +1006,25 @@ def main() -> int:
     worker_attempts: list[dict[str, Any]] = []
     report: dict[str, Any] = {}
     for attempt_index, worker_count in enumerate(worker_fallbacks, start=1):
-        args.codex_workers = worker_count
+        args.api_workers = worker_count
         if attempt_index > 1:
             clear_generation_outputs(args)
         attempt_started = time.perf_counter()
-        train_stats = build_split(train_rows, split="train", args=args, generator=generator, rag=rag)
-        val_stats = build_split(val_rows, split="val", args=args, generator=generator, rag=rag)
+        train_stats = build_split(train_rows, split="train", args=args, generator=generator, rag=rag, web_provider=web_provider)
+        val_stats = build_split(val_rows, split="val", args=args, generator=generator, rag=rag, web_provider=web_provider)
         write_review_samples(args)
         outputs = collect_outputs(args)
         train_report = split_report(outputs["train_items"], outputs["train_meta"], outputs["train_failures"])
         val_report = split_report(outputs["val_items"], outputs["val_meta"], outputs["val_failures"])
         elapsed_seconds = round(time.perf_counter() - overall_started, 3)
         generated_rows = train_report["rows"] + val_report["rows"]
-        codex_seconds_total = round(
-            train_report["codex_generation_seconds_total"] + val_report["codex_generation_seconds_total"],
+        api_seconds_total = round(
+            train_report["api_generation_seconds_total"] + val_report["api_generation_seconds_total"],
             3,
         )
-        codex_call_count = train_report["codex_call_count"] + val_report["codex_call_count"]
+        api_call_count = train_report["api_call_count"] + val_report["api_call_count"]
+        token_usage_total = combine_token_usage(train_report, val_report)
+        web_stage_seconds = combine_web_stage_seconds(train_report, val_report)
         estimated_seconds_10k = estimate_seconds_for_rows(
             elapsed_seconds=elapsed_seconds,
             generated_rows=generated_rows,
@@ -875,11 +1032,11 @@ def main() -> int:
         )
         worker_attempt = {
             "attempt": attempt_index,
-            "codex_workers": worker_count,
+            "api_workers": worker_count,
             "elapsed_seconds": round(time.perf_counter() - attempt_started, 3),
             "train_statuses": train_stats["statuses"],
             "val_statuses": val_stats["statuses"],
-            "codex_failures": train_report["codex_failures"] + val_report["codex_failures"],
+            "api_failures": train_report["api_failures"] + val_report["api_failures"],
         }
         worker_attempts.append(worker_attempt)
         report = {
@@ -897,17 +1054,43 @@ def main() -> int:
             "web_max_items": args.web_max_items,
             "clear_cache": bool(args.clear_cache),
             "clear_output": bool(args.clear_output),
-            "codex_cache_enabled": not bool(args.no_codex_cache),
-            "keep_codex_debug": bool(args.keep_codex_debug),
-            "codex_model": args.codex_model,
-            "codex_reasoning_effort": args.codex_reasoning_effort,
-            "codex_workers_requested": requested_workers,
-            "codex_workers_effective": worker_count,
+            "api": {
+                "model": args.api_model,
+                "base_url": args.api_base_url,
+                "reasoning": generator.reasoning_config(),
+                "temperature": args.api_temperature,
+                "top_p": args.api_top_p,
+                "max_tokens": args.api_max_tokens,
+                "timeout_seconds": args.api_timeout_seconds,
+                "max_retries": args.max_retries,
+                "cache_enabled": not bool(args.no_api_cache),
+                "keep_debug": bool(args.keep_api_debug),
+                "workers_requested": requested_workers,
+                "workers_effective": worker_count,
+            },
+            "web_search": web_provider.params(),
+            "api_workers_requested": requested_workers,
+            "api_workers_effective": worker_count,
             "worker_fallbacks": worker_fallbacks,
             "worker_fallback_attempts": worker_attempts,
-            "codex_cache": resolve_repoish_path(args.output_dir / "codex_cache", repo_dir=args.repo_dir),
-            "codex_generation_seconds_total": codex_seconds_total,
-            "codex_generation_seconds_avg": round(codex_seconds_total / codex_call_count, 3) if codex_call_count else 0.0,
+            "api_cache": resolve_repoish_path(args.output_dir / "api_cache", repo_dir=args.repo_dir),
+            "web_cache": resolve_repoish_path(args.output_dir / "web_cache", repo_dir=args.repo_dir),
+            "api_generation_seconds_total": api_seconds_total,
+            "api_generation_seconds_avg": round(api_seconds_total / api_call_count, 3) if api_call_count else 0.0,
+            "api_token_usage_total": token_usage_total,
+            "stage_seconds": {
+                "wall_clock": elapsed_seconds,
+                "api_worker_sum": api_seconds_total,
+                "api_request_worker_sum": round(
+                    train_report["api_api_seconds_total"] + val_report["api_api_seconds_total"],
+                    3,
+                ),
+                "api_parse_worker_sum": round(
+                    train_report["api_parse_seconds_total"] + val_report["api_parse_seconds_total"],
+                    3,
+                ),
+                **{f"web_{key}_worker_sum": value for key, value in web_stage_seconds.items()},
+            },
             "records_per_minute": round(generated_rows / elapsed_seconds * 60, 3) if elapsed_seconds else 0.0,
             "estimated_seconds_for_10k": round(estimated_seconds_10k, 3),
             "estimated_hours_for_10k": round(estimated_seconds_10k / 3600, 3),
@@ -917,11 +1100,11 @@ def main() -> int:
             },
         }
         write_json(args.output_dir / "validation_report.json", report)
-        if worker_attempt["codex_failures"] == 0:
+        if worker_attempt["api_failures"] == 0:
             break
         if attempt_index < len(worker_fallbacks):
             print(
-                f"worker={worker_count} produced {worker_attempt['codex_failures']} Codex failures; retrying with worker={worker_fallbacks[attempt_index]}",
+                f"worker={worker_count} produced {worker_attempt['api_failures']} API failures; retrying with worker={worker_fallbacks[attempt_index]}",
                 flush=True,
             )
 
@@ -929,9 +1112,9 @@ def main() -> int:
 
     failed = []
     for split, payload in report["splits"].items():
-        if payload["missing_images"] or payload["invalid_format"] or payload["codex_failures"]:
+        if payload["missing_images"] or payload["invalid_format"] or payload["api_failures"]:
             failed.append(
-                f"{split}:missing={payload['missing_images']} invalid={payload['invalid_format']} codex={payload['codex_failures']}"
+                f"{split}:missing={payload['missing_images']} invalid={payload['invalid_format']} api={payload['api_failures']}"
             )
     if failed:
         raise SystemExit("; ".join(failed))
